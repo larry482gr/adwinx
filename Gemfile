@@ -6,6 +6,7 @@ ruby '2.2.3'
 gem 'rails', '4.2.4'
 
 # Use SCSS for stylesheets
+gem 'sass'
 gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -100,10 +101,7 @@ end
 group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
   gem 'mysql2', '~> 0.3.20'
-
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'rspec-activemodel-mocks'
+  gem 'mongoid', '~> 5.0.0'
 end
 
 group :test do
@@ -119,5 +117,8 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'factory_girl'
   gem 'factory_girl_rails', :require => false
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
 end
 
