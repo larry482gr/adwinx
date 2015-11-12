@@ -8,13 +8,14 @@ gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass'
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -102,6 +103,11 @@ group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
   gem 'mysql2', '~> 0.3.20'
   gem 'mongoid', '~> 5.0.0'
+  gem 'devise'
+
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :test do
@@ -117,8 +123,5 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'factory_girl'
   gem 'factory_girl_rails', :require => false
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'rspec-activemodel-mocks'
 end
 

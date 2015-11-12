@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require bootstrap-sprockets
 //= require turbolinks
+//= require i18n
+//= require i18n/translations
 //= require_tree .
