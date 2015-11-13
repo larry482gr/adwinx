@@ -1,3 +1,6 @@
+require 'modules/version_system'
+include VersionSystem
+
 def valid? version
   pattern = /^\d+\.\d+\.\d+(\-(dev|beta|rc\d+))?$/
   raise "Tried to set invalid version: #{version}".red unless version =~ pattern
@@ -10,14 +13,6 @@ def correct_version version
     v[n] = v[n].to_i
   end
   [v.join('.'), flag].compact.join '-'
-end
-
-def read_version
-  begin
-    File.read "#{Rails.root}/config/initializers/version"
-  rescue
-    raise "VERSION file not found or unreadable.".red
-  end
 end
 
 def write_version version
@@ -53,6 +48,7 @@ task :version do
   puts <<HELP
 Available commands are:
 -----------------------
+rake version:read             # read current version
 rake version:write[version]   # set custom version in the x.x.x-? format
 rake version:patch            # increment the patch x.x.x+1 (keeps any flags on)
 rake version:minor            # increment minor and reset patch x.x+1.0 (keeps any flags on)
@@ -67,6 +63,11 @@ HELP
 end
 
 namespace :version do
+  desc "Read current version"
+  task :read, [:version] do |task|
+    read_version
+    puts read_version.green
+  end
 
   desc "Write version explicitly by specifying version number as a parameter"
   task :write, [:version] do |task, args|

@@ -67,6 +67,9 @@ gem 'uuidtools'
 # Fetch and Parse RSS feeds
 # gem 'feedjira'
 
+gem 'devise'
+gem 'mongoid', '~> 5.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -102,8 +105,6 @@ end
 group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
   gem 'mysql2', '~> 0.3.20'
-  gem 'mongoid', '~> 5.0.0'
-  gem 'devise'
 
   gem 'rspec'
   gem 'rspec-rails'
