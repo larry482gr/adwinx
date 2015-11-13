@@ -68,12 +68,14 @@
       <%= yield %>
     </div>
   </div><!--/row-->
-
-  <footer>
-    <p>&copy; Adwinx <%= Time.now.year %></p>
-  </footer>
-
 </div> <!-- /container -->
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left text-muted">&copy; <%= Time.now.year %> Adwinx</p>
+    <p class="pull-right text-muted">Version: <%= Rails.configuration.x.version %></p>
+  </div>
+</footer>
 
 </body>
 </html>

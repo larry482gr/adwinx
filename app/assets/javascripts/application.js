@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-tagsinput.min
 //= require turbolinks
 //= require i18n
 //= require i18n/translations
