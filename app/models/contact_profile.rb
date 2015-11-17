@@ -4,11 +4,6 @@ class ContactProfile
 
   embedded_in :contact
 
-  private
-
-  before_validation :remove_blank_fields
-
-  def remove_blank_fields
-    self.as_document.reject! {|k,v| v.blank?}
-  end
+  # Clear blank (null, empty) fields before validation.
+  include Cleanable
 end

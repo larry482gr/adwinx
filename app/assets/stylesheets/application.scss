@@ -3,6 +3,17 @@
 @import "bootstrap-tagsinput";
 
 @import "contacts";
+@import "contact_groups";
+
+html.turbolinks-progress-bar::before {
+  background-color: #D00 !important;
+  height: 2px !important;
+  z-index: 9999 !important;
+}
+
+a {
+  outline: none !important;
+}
 
 .footer {
   background-color: #f5f5f5;

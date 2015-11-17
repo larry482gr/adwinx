@@ -31,10 +31,9 @@
                 <%= phone_columns.html_safe %>
             <% end %>
         <% end %>
-        <td>
-          <%= link_to (t 'actions.view'), contact, class: 'btn btn-xs btn-primary' %>
-          <%= link_to (t 'actions.edit'), edit_contact_path(contact), class: 'btn btn-xs btn-warning' %>
-          <%= link_to (t 'actions.delete'), contact, class: 'btn btn-xs btn-danger', method: :delete,
+        <td><%= link_to (t 'actions.view'), contact, class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to (t 'actions.edit'), edit_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
+        <td><%= link_to (t 'actions.delete'), contact, class: 'btn btn-xs btn-danger', method: :delete,
                       data: { confirm: "#{(t :contact_del_confirm)
                           .gsub('%contact%', "#{contact[:contact_profile][:last_name]} #{contact[:contact_profile][:first_name]}")}" } %>
         </td>
@@ -45,4 +44,5 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to (t :new_contact), new_contact_path %> |
+<%= link_to (t :new_contact_group), new_contact_group_path %>

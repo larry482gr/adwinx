@@ -7,6 +7,8 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.where(uid: current_user.id)
                     .order('contact_profile.last_name' => 1, 'contact_profile.first_name' => 1)
+
+    @contact_group = ContactGroup.new
   end
 
   # GET /contacts/1
@@ -18,11 +20,13 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     create_profile
+    @contact_group = ContactGroup.new
   end
 
   # GET /contacts/1/edit
   def edit
     create_profile
+    @contact_group = ContactGroup.new
   end
 
   # POST /contacts
@@ -112,6 +116,6 @@ class ContactsController < ApplicationController
   end
 
   def duplicate_contact
-    return Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
+    Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
   end
 end

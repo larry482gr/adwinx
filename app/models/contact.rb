@@ -5,11 +5,11 @@ class Contact
   field :prefix, type: Integer
   field :mobile, type: Integer
 
-  embeds_one :contact_profile
-  has_and_belongs_to_many :contact_groups
-
   index({ uid: 1 }, { name: 'uid_idx', background: true })
   index({ uid: 1, prefix: 1, mobile: 1 }, { name: 'uid_prefix_mobile_idx', unique: true, background: true })
+
+  embeds_one :contact_profile
+  has_and_belongs_to_many :contact_groups
 
   validates :prefix, presence: true, length: { maximum: 4 }
   validates :mobile, presence: true, length: { minimum: 6, maximum: 16 }

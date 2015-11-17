@@ -25,13 +25,24 @@ class ContactGroupsController < ApplicationController
   # POST /contact_groups.json
   def create
     @contact_group = ContactGroup.new(contact_group_params)
+    @contact_group.uid = current_user.id
 
     respond_to do |format|
-      if @contact_group.save
-        format.html { redirect_to @contact_group, notice: 'Contact group was successfully created.' }
-        format.json { render :show, status: :created, location: @contact_group }
-      else
-        format.html { render :new }
+      begin
+        if @contact_group.save
+          format.html { redirect_to contacts_path, notice: 'Contact group was successfully created.' }
+          format.json { render contacts_path, status: :created }
+        else
+          format.html { render :new }
+          format.json { render json: @contact_group.errors, status: :unprocessable_entity }
+        end
+      rescue Mongo::Error::OperationFailure => exception
+        @contact_group = duplicate_group
+
+        error = (t 'mongoid.errors.contact_group.duplicate_val').gsub('%label%', @contact_group.label)
+        @contact_group.errors[t 'mongoid.errors.contact_group.duplicate_key'] = error
+
+        format.html { render :edit }
         format.json { render json: @contact_group.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +80,10 @@ class ContactGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_group_params
-      params.require(:contact_group).permit(:uid, :label, :desc)
+      params.require(:contact_group).permit(:label, :description)
+    end
+
+    def duplicate_group
+      ContactGroup.find_by(:$and => [ uid: @contact_group.uid, label: @contact_group.label ])
     end
 end

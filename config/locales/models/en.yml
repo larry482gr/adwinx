@@ -24,8 +24,11 @@ en:
         mobile: 'Mobile'
       contact_group:
         label: 'Label'
-        desc: 'Description'
+        description: 'Description'
     errors:
       contact:
         duplicate_key: 'a_contact_with'
-        duplicate_val: ' phone_number %phone% already exists.'
+        duplicate_val: ' phone_number "%phone%" already exists.'
+      contact_group:
+        duplicate_key: 'a_contact_group'
+        duplicate_val: ' labeled "%label%" already exists.'

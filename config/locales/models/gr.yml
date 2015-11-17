@@ -24,8 +24,11 @@ gr:
         mobile: 'Κινητό Τηλέφωνο'
       contact_group:
         label: 'Επιγραφή'
-        desc: 'Περιγραφή'
+        description: 'Περιγραφή'
     errors:
       contact:
         duplicate_key: 'μία_επαφή_με'
-        duplicate_val: ' τηλέφωνο %phone% already exists.'
+        duplicate_val: ' τηλέφωνο "%phone%" είναι ήδη καταχωρημένη.'
+      contact_group:
+        duplicate_key: 'μία_ομάδα_επαφών'
+        duplicate_val: ' με επιγραφή "%label%" είναι ήδη καταχωρημένη.'

@@ -1,0 +1,9 @@
+gr:
+  helpers:
+    submit:
+      contact:
+        create: "Δημιουργία Επαφής"
+        update: "Τροποποίηση Επαφής"
+      contact_group:
+        create: "Δημιουργία Ομάδας"
+        update: "Τροποποίηση Ομάδας"
