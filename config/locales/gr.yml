@@ -1,0 +1,14 @@
+gr:
+  version: 'Έκδοση'
+  settings: 'Ρυθμίσεις'
+  back: 'Πίσω'
+
+  actions:
+    list: 'Λίστα'
+    view: 'Προβολή'
+    create: 'Δημιουργία'
+    edit: 'Επεξεργασία'
+    update: 'Τροποποίηση'
+    delete: 'Διαγραφή'
+    activate: 'Ενεργοποίηση'
+    deactivate: 'Απενεργοποίηση'

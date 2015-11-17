@@ -69,6 +69,6 @@ class ContactGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_group_params
-      params.require(:contact_group).permit(:label, :description)
+      params.require(:contact_group).permit(:uid, :label, :desc)
     end
 end

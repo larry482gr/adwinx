@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 
   serialize :metadata, JSON
 
-  before_save :set_default_metadata
+  private
+
+  after_validation :set_default_metadata
 
   def set_default_metadata
     if self.metadata.nil?
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
       self.metadata = self.metadata.split(',')
     end
 
-    self.metadata.unshift(LAST_NAME) unless self.metadata.include? (LAST_NAME)
-    self.metadata.unshift(FIRST_NAME) unless self.metadata.include? (FIRST_NAME)
+    self.metadata.insert(0, LAST_NAME) unless self.metadata.include? (LAST_NAME)
+    self.metadata.insert(1, FIRST_NAME) unless self.metadata.include? (FIRST_NAME)
   end
 end

@@ -1,0 +1,11 @@
+gr:
+  list_contacts: 'Λίστα Επαφών'
+  view_contact: 'Προβολή Επαφής'
+  new_contact: 'Νέα Επαφή'
+  edit_contact: 'Επεξεργασία Επαφής'
+  contact_del_confirm: "Διαγραφή επαφής \"%contact%\";\n\nΗ ενέργεια αυτή δε μπορεί να αναιρεθεί!"
+
+  helpers:
+    submit:
+      create: "Δημιουργία Επαφής"
+      update: "Τροποποίηση Επαφής"

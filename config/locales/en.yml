@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  version: 'Version'
+  settings: 'Settings'
+  back: 'Back'
+
+  actions:
+    list: 'List'
+    view: 'View'
+    create: 'Create'
+    edit: 'Edit'
+    update: 'Update'
+    delete: 'Delete'
+    activate: 'Activate'
+    deactivate: 'Deactivate'
+

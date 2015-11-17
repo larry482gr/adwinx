@@ -1,0 +1,11 @@
+en:
+  list_contacts: 'Contacts List'
+  view_contact: 'View Contact'
+  new_contact: 'New Contact'
+  edit_contact: 'Edit Contact'
+  contact_del_confirm: "Delete contact \"%contact%\"?\n\nThis action can not be undone!"
+
+  helpers:
+    submit:
+      create: "Create Contact"
+      update: "Update Contact"

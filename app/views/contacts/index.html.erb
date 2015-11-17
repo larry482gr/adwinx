@@ -1,24 +1,43 @@
-<p id="notice"><%= notice %></p>
+<h1><%= (t :list_contacts) %></h1>
 
-<h1>Listing Contacts</h1>
-
-<table>
+<table class="table table-striped table-responsive table-hover">
   <thead>
     <tr>
-      <th>Prefix</th>
-      <th>Mobile</th>
-      <th colspan="3"></th>
+      <th></th>
+      <% phone_columns = "<th>#{(t 'mongoid.attributes.contact.prefix')}</th>
+                          <th>#{(t 'mongoid.attributes.contact.mobile')}</th>" %>
+      <%- current_user.metadata.each do |meta_field| %>
+        <th><%= meta_field.humanize %></th>
+        <%- if meta_field == 'first_name' %>
+            <%= phone_columns.html_safe %>
+        <% end %>
+      <% end %>
+      <th></th>
     </tr>
   </thead>
 
+  <!-- TODO modify extra fields -->
+  <!-- set 'first_name' & 'last_name' as first level keys -->
+  <!-- all other contact profile info should be in a first level 'custom' key -->
   <tbody>
+    <% i = 0 %>
     <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.prefix %></td>
-        <td><%= contact.mobile %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% phone_columns = "<td>#{contact[:prefix]}</td><td>#{contact[:mobile]}</td>" %>
+      <tr class="clickable-row" data-href="<%= contact_path contact %>">
+        <th scope="row"><%= i += 1 %></th>
+        <%- current_user.metadata.each do |meta_field| %>
+            <td><%= contact['contact_profile'][meta_field] %></td>
+            <%- if meta_field == 'first_name' %>
+                <%= phone_columns.html_safe %>
+            <% end %>
+        <% end %>
+        <td>
+          <%= link_to (t 'actions.view'), contact, class: 'btn btn-xs btn-primary' %>
+          <%= link_to (t 'actions.edit'), edit_contact_path(contact), class: 'btn btn-xs btn-warning' %>
+          <%= link_to (t 'actions.delete'), contact, class: 'btn btn-xs btn-danger', method: :delete,
+                      data: { confirm: "#{(t :contact_del_confirm)
+                          .gsub('%contact%', "#{contact[:contact_profile][:last_name]} #{contact[:contact_profile][:first_name]}")}" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

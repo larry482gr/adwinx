@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Uid:</strong>
+  <%= @contact_group.uid %>
+</p>
+
+<p>
   <strong>Label:</strong>
   <%= @contact_group.label %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @contact_group.description %>
+  <strong>Desc:</strong>
+  <%= @contact_group.desc %>
 </p>
 
 <%= link_to 'Edit', edit_contact_group_path(@contact_group) %> |
