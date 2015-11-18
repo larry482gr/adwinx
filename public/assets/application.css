@@ -8854,6 +8854,18 @@ a {
 }
 
 /* line 18, /Users/Larry/Documents/workspace/adwinx/adwinx/app/assets/stylesheets/application.scss */
+div.entiry-action {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+/* line 23, /Users/Larry/Documents/workspace/adwinx/adwinx/app/assets/stylesheets/application.scss */
+div.entiry-action a {
+  margin: 0px 6px;
+}
+
+/* line 28, /Users/Larry/Documents/workspace/adwinx/adwinx/app/assets/stylesheets/application.scss */
 .footer {
   background-color: #f5f5f5;
   bottom: 0;
@@ -8861,7 +8873,7 @@ a {
   position: absolute;
   width: 100%;
 }
-/* line 25, /Users/Larry/Documents/workspace/adwinx/adwinx/app/assets/stylesheets/application.scss */
+/* line 35, /Users/Larry/Documents/workspace/adwinx/adwinx/app/assets/stylesheets/application.scss */
 .footer .container > p {
   margin: 20px 0;
 }

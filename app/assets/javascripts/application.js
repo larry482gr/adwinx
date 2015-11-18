@@ -15,6 +15,7 @@
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-tagsinput.min
+//= require bootstrap3-typeahead.min
 //= require turbolinks
 //= require i18n
 //= require i18n/translations
@@ -22,4 +23,8 @@
 
 $(document).ready(function(){
     Turbolinks.enableProgressBar();
+
+    $('tr.clickable-row td:not(:last-child)').click(function() {
+        Turbolinks.visit($(this).parent().data('href'));
+    });
 });

@@ -12,26 +12,37 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :prefix %><br>
-    <%= f.number_field :prefix, autofocus: true, class: 'form-control' %>
+    <%= f.label :prefix %>
+    <%= f.number_field :prefix, { autofocus: true,
+                                  class: 'form-control',
+                                  required: true } %>
   </div>
   <div class="form-group">
-    <%= f.label :mobile %><br>
-    <%= f.number_field :mobile, class: 'form-control' %>
+    <%= f.label :mobile %>
+    <%= f.number_field :mobile, { class: 'form-control',
+                                  required: true } %>
   </div>
   <hr>
   <div class="form-group">
-    <%= f.label :contact_profile %><br>
+    <%= f.label :contact_profile %>
     <%= f.fields_for :contact_profile do |cp| %>
         <%- current_user.metadata.each do |meta_field| %>
           <div class="form-group">
-            <%= cp.label meta_field %><br>
+            <%= cp.label meta_field %>
             <%= cp.text_field meta_field, class: 'form-control' %>
           </div>
         <% end %>
     <% end %>
   </div>
+  <hr>
+  <div class="form-group">
+    <%= f.label :contact_group %><br/>
+    <select multiple class="form-control" id="contact-group-attributes"
+            name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
+      </select>
+  </div>
   <div class="form-group">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
+  <input type="hidden" id="contact-id" value="<%= @contact.id.to_s %>">
 <% end %>

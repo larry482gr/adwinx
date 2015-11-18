@@ -1,10 +1,10 @@
-<h1><%= "#{@contact.contact_profile.last_name} #{@contact.contact_profile.first_name}" %></h1>
-
-<hr>
-
 <!-- TODO modify extra fields -->
 <!-- set 'first_name' & 'last_name' as first level keys -->
 <!-- all other contact profile info should be in a first level 'custom' key -->
+
+<h1><%= "#{@contact['contact_profile']['last_name']} #{@contact['contact_profile']['first_name']}" %></h1>
+
+<hr>
 
 <p>
   <strong><%= (t 'mongoid.attributes.contact.prefix') %></strong>

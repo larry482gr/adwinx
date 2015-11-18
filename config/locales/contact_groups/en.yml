@@ -1,11 +1,11 @@
 en:
-  #list_contacts: 'Contacts List'
-  #view_contact: 'View Contact'
-  new_contact_group: 'New Group'
-  #edit_contact: 'Edit Contact'
-  #contact_del_confirm: "Delete contact \"%contact%\"?\n\nThis action can not be undone!"
+  list_contact_groups: 'Contact Groups List'
+  view_contact_group: 'View Contact Group'
+  new_contact_group: 'New Contact Group'
+  edit_contact_group: 'Edit Contact Group'
+  contact_group_del_confirm: "Delete Contact Group \"%contact_group%\"?\n\n"
 
   contact_group_form:
     label_required: "Contact Group Label can't be blank"
-    label_length: "Contact Group Label length should be up to 20 characters."
-    description_length: 'Contact Group Description length should be up to 120 characters.'
+    label_length: "Contact Group Label length should be up to 20 characters"
+    description_length: 'Contact Group Description length should be up to 120 characters'

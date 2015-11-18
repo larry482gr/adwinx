@@ -1,8 +1,4 @@
-$(document).ready(function(){
-    $('a#add-contact-group').on('click', function(){
-        $('div#contact-group-form').slideToggle();
-    });
-
+$(document).ready(function() {
     $('form.new_contact_group, form.edit_contact_group').on('submit', function(e) {
         var errors = [];
 

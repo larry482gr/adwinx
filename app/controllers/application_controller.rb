@@ -33,6 +33,12 @@ class ApplicationController < ActionController::Base
   def go_back
     redirect_to (session[:return_to] || root_path) and return
   end
+
+  def debug_inspect (obj)
+    puts "\n\n==============================\n"
+    puts obj.inspect
+    puts "\n==============================\n\n"
+  end
 end
 
 

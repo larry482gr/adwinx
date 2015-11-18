@@ -1,10 +1,29 @@
 class ContactGroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contact_group, only: [:show, :edit, :update, :destroy]
 
   # GET /contact_groups
   # GET /contact_groups.json
   def index
-    @contact_groups = ContactGroup.all
+    @contact_groups = ContactGroup.where(uid: current_user.id)
+                          .order('label' => 1)
+  end
+
+  # GET /typeahead_contact_groups
+  # GET /typeahead_contact_groups.json
+  def typeahead
+    cgr = ContactGroup.where(uid: current_user.id)
+                          .order('label' => 1)
+
+    contact_groups = []
+    cgr.each do |con_gr|
+      contact_groups << { _id: con_gr['_id'].to_s, lbl: con_gr['label'] }
+    end
+
+    respond_to do |format|
+      format.js {}
+      format.json { render json: contact_groups }
+    end
   end
 
   # GET /contact_groups/1
@@ -52,12 +71,23 @@ class ContactGroupsController < ApplicationController
   # PATCH/PUT /contact_groups/1.json
   def update
     respond_to do |format|
-      if @contact_group.update(contact_group_params)
-        format.html { redirect_to @contact_group, notice: 'Contact group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @contact_group }
-      else
+      begin
+        if @contact_group.update(contact_group_params)
+          format.html { redirect_to @contact_group, notice: 'Contact group was successfully updated.' }
+          format.json { render :show, status: :ok, location: @contact_group }
+        else
+          format.html { render :edit }
+          format.json { render json: @contact_group.errors, status: :unprocessable_entity }
+        end
+      rescue Mongo::Error::OperationFailure => exception
+        contact_group = duplicate_group
+
+        error = (t 'mongoid.errors.contact_group.duplicate_val').gsub('%label%', @contact_group.label)
+        @contact_group.errors[t 'mongoid.errors.contact_group.duplicate_key'] =
+            "#{error} <a href=\"#{contact_group_path contact_group}\">#{t 'view_contact_group'}</a>"
+
         format.html { render :edit }
-        format.json { render json: @contact_group.errors, status: :unprocessable_entity }
+        format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
   end

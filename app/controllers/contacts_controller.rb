@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
   # GET /contacts
   # GET /contacts.json
@@ -20,20 +20,42 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     create_profile
-    @contact_group = ContactGroup.new
   end
 
   # GET /contacts/1/edit
   def edit
     create_profile
-    @contact_group = ContactGroup.new
+  end
+
+  def belonging_groups
+    contact_groups = []
+    @contact.contact_groups.each do |group|
+      contact_groups << { _id: group['_id'].to_s, lbl: group['label'] }
+    end
+
+    respond_to do |format|
+      format.js {}
+      format.json { render json: contact_groups }
+    end
   end
 
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-    @contact.uid = current_user.id
+    # TODO implement this properly using its relations and REMOVE this... hack!
+    pars = contact_params
+    pars[:uid] = current_user.id
+
+    group_ids = []
+    pars[:contact_group_attributes].each do |group|
+      group_ids << group[:_id]
+    end
+    pars.delete(:contact_group_attributes)
+    pars[:contact_group_ids] = group_ids
+    # TODO implement this properly using its relations and REMOVE this... hack!
+
+    @contact = Contact.new(pars)
+    @contact.set(contact_group_ids: group_ids)
 
     respond_to do |format|
       begin
@@ -61,9 +83,22 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
+    # TODO implement this properly using its relations and REMOVE this... hack!
+    pars = contact_params
+    pars[:uid] = current_user.id
+
+    group_ids = []
+    pars[:contact_group_attributes].each do |group|
+      group_ids << BSON::ObjectId.from_string(group[:_id])
+    end
+    pars.delete(:contact_group_attributes)
+    # TODO implement this properly using its relations and REMOVE this... hack!
+
+    @contact.set(contact_group_ids: group_ids)
+
     respond_to do |format|
       begin
-        if @contact.update(contact_params)
+        if @contact.update(pars)
           format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
           format.json { render :show, status: :ok, location: @contact }
         else
@@ -104,18 +139,19 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:prefix, :mobile,
-                                      :contact_profile_attributes => current_user.metadata.to_a)
+                                      { contact_profile_attributes: current_user.metadata.to_a },
+                                      { contact_group_attributes: [:_id] })
     end
 
-  def create_profile
-    @contact.contact_profile ||= ContactProfile.new
+    def create_profile
+      @contact.contact_profile ||= ContactProfile.new
 
-    current_user.metadata.each do |metafield|
-      @contact.contact_profile[metafield] ||= ''
+      current_user.metadata.each do |metafield|
+        @contact.contact_profile[metafield] ||= ''
+      end
     end
-  end
 
-  def duplicate_contact
-    Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
-  end
+    def duplicate_contact
+      Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
+    end
 end

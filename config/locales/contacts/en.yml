@@ -1,6 +1,16 @@
 en:
   list_contacts: 'Contacts List'
   view_contact: 'View Contact'
+  show_contacts: 'Browse Contacts'
   new_contact: 'New Contact'
   edit_contact: 'Edit Contact'
-  contact_del_confirm: "Delete contact \"%contact%\"?\n\nThis action can not be undone!"
+  contact_del_confirm: "Delete contact \"%contact%\"?\n\n"
+
+  contact_form:
+    prefix_required: "Contact Country Code can't be blank"
+    prefix_max_length: "Contact Country Code length should be up to 4 digits"
+    prefix_numeric: "Contact Country Code should contain only digits"
+    mobile_required: "Contact Mobile can't be blank"
+    mobile_min_length: "Contact Mobile length should be at least 6 digits"
+    mobile_max_length: "Contact Mobile length should be up to 16 digits"
+    mobile_numeric: "Contact Mobile should contain only digits"

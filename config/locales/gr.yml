@@ -2,13 +2,17 @@ gr:
   version: 'Έκδοση'
   settings: 'Ρυθμίσεις'
   back: 'Πίσω'
+  cannot_undo: 'Η ενέργεια αυτή δε μπορεί να αναιρεθεί!'
 
   actions:
     list: 'Λίστα'
     view: 'Προβολή'
+    show: 'Εμφάνιση'
+    browse: 'Περιήγηση'
     create: 'Δημιουργία'
     edit: 'Επεξεργασία'
     update: 'Τροποποίηση'
     delete: 'Διαγραφή'
+    empty: 'Άδειασμα'
     activate: 'Ενεργοποίηση'
     deactivate: 'Απενεργοποίηση'

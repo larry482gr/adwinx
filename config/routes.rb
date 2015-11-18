@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /en|gr/ do
-    resources :contact_groups
-    resources :contacts
     root to: 'home#index'
 
     devise_for :users, :controllers => { registrations: 'registrations' }
 
     resources :contacts
     resources :contact_groups
+
+    get '/typeahead_contact_groups' => 'contact_groups#typeahead'
+    get '/contacts/:id/groups' => 'contacts#belonging_groups'
   end
 
 

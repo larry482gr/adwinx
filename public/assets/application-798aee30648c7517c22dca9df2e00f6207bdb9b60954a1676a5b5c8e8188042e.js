@@ -14517,23 +14517,20 @@ $(document).ready(function(){
     $('form.new_contact_group, form.edit_contact_group').on('submit', function(e) {
         var errors = [];
 
-        var label = $('#contact_group_label').val();
-        var description = $('#contact_group_description').val();
+        var label = $('#contact_group_label').val().trim();
+        var description = $('#contact_group_description').val().trim();
 
-        if(empty(label) || !validMaxLength(label, 20)) {
-            errors.push(I18n.t('contact_group_form.label_title'));
+        if(empty(label)) {
+            errors.push(I18n.t('contact_group_form.label_required'));
+        } else if(!validMaxLength(label, 20)) {
+            errors.push(I18n.t('contact_group_form.label_length'));
         }
 
         if(!validMaxLength(description, 120)) {
-            errors.push(I18n.t('contact_group_form.description_title'));
+            errors.push(I18n.t('contact_group_form.description_length'));
         }
 
         return submitForm($(this), errors);
-    });
-});
-$(document).ready(function(){
-    $('tr.clickable-row td:not(:last-child)').click(function() {
-        Turbolinks.visit($(this).parent().data('href'));
     });
 });
 function validUsername(username) {
@@ -14626,6 +14623,17 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 ;
+$(document).ready(function(){
+    $('#user-metadata').tagsinput({
+        tagClass: 'tag label label-primary',
+        confirmKeys: [13, 32, 44],
+        maxTags: 20,
+        trimValue: true,
+        typeahead: {
+            source: ['Amsterdam', 'Washington', 'Sydney', 'Beijing', 'Cairo']
+        }
+    });
+});
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14650,4 +14658,8 @@ String.prototype.capitalize = function() {
 
 $(document).ready(function(){
     Turbolinks.enableProgressBar();
+
+    $('tr.clickable-row td:not(:last-child)').click(function() {
+        Turbolinks.visit($(this).parent().data('href'));
+    });
 });

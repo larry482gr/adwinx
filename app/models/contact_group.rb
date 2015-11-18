@@ -6,8 +6,9 @@ class ContactGroup
 
   index({ uid: 1, label: 1 }, { name: 'uid_label_idx', unique: true, background: true })
 
-  has_and_belongs_to_many :contacts
+  has_and_belongs_to_many :contacts, inverse_of: nil
 
+  validates :uid, presence: true
   validates :label, presence: true, length: { maximum: 20 }
   validates :description, length: { maximum: 120 }
 
