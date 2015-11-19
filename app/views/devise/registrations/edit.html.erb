@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
@@ -13,18 +13,24 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
     <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :language %>
+    <%= f.collection_select :language_id, Language.order(:id), :id, :option_label, {include_blank: false}, { :class => 'form-control', :value => @user.language_id} %>
+    <%#= f.select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
   </div>
 
   <div class="form-group">

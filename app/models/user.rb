@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :registerable, :database_authenticatable, :confirmable, :lockable, :timeoutable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :language
+
   serialize :metadata, JSON
 
   private

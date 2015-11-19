@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113122954) do
+ActiveRecord::Schema.define(version: 20151118222117) do
+
+  create_table "languages", force: :cascade do |t|
+    t.string "locale",   limit: 5,  null: false
+    t.string "language", limit: 20, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -33,10 +38,13 @@ ActiveRecord::Schema.define(version: 20151113122954) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.text     "metadata",               limit: 65535,              null: false
+    t.integer  "language_id",            limit: 4,     default: 1
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["language_id"], name: "index_users_on_language_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "users", "languages"
 end
