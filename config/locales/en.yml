@@ -24,6 +24,8 @@ en:
   settings: 'Settings'
   back: 'Back'
   cannot_undo: 'This action can not be undone!'
+  additional_fields: 'Additional fields'
+  results_per_page: "Results per page"
 
   actions:
     list: 'List'

@@ -1,4 +1,6 @@
 class Contact
+  DEFAULT_PER_PAGE = 50
+  RESULTS_PER_PAGE = %w( 50 100 )
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
   field :uid, type: Integer
@@ -16,4 +18,7 @@ class Contact
   validates :mobile, presence: true, length: { minimum: 6, maximum: 16 }
 
   accepts_nested_attributes_for :contact_profile
+
+  paginates_per DEFAULT_PER_PAGE
+  max_paginates_per 500
 end

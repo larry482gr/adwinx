@@ -44,8 +44,27 @@ a {
   outline: none !important;
 }
 
+.above-list {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0px;
+
+  div {
+    padding: 0px;
+  }
+}
+
+.additional-fields {
+  div {
+    margin: 0px 2px 4px 2px !important;
+  }
+}
+
 tr.clickable-row {
-  cursor: pointer;
+
+  td.clickable {
+    cursor: pointer;
+  }
 
   div.entiry-action {
     width: 100%;

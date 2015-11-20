@@ -1,0 +1,28 @@
+<form class="form-inline additional-fields" id="contact-metadata">
+  <label class="additional-fields-header"><%= (t :additional_fields) %>: </label>
+  <%- @metadata.each do |meta_field| %>
+      <%- if meta_field == 'last_name' or meta_field == 'first_name' %>
+          <% checked = 'checked' %>
+      <%- else %>
+          <% checked = '' %>
+      <% end %>
+      <div class="checkbox metadata-js" rel="meta-<%= meta_field %>">
+        <label>
+          <input type="checkbox" <%= checked %>> <%= meta_field.humanize %>
+        </label>
+      </div>
+  <% end %>
+  <div class="checkbox metadata-js" rel="groups-meta-js">
+    <label>
+      <input type="checkbox"> <%= (t 'mongoid.models.contact_group.other') %>
+    </label>
+  </div>
+  <div>
+    <label for="rows-per-page"><%= (t :results_per_page) %></label>
+    <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
+      <%  Contact::RESULTS_PER_PAGE.each do |res| %>
+          <option value="<%= res %>" <%= 'selected' if res == params[:limit] %>><%= res %></option>
+      <% end %>
+    </select>
+  </div>
+</form>

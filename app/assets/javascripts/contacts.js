@@ -14,6 +14,11 @@ $(document).ready(function() {
         freeInput: true
     });
 
+    $('form#contact-metadata').on('mouseup', '.metadata-js', function() {
+        var metadata_column = $(this).attr('rel');
+        $('#contacts-table th.'+metadata_column+', #contacts-table td.'+metadata_column).toggleClass('hidden');
+    });
+
     $('form.new_contact, form.edit_contact').on('submit', function(e) {
         var errors = [];
 

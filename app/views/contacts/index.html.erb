@@ -1,6 +1,13 @@
 <h1><%= (t :list_contacts) %></h1>
 
-<%= render 'list' unless @contacts.blank? %>
+<div class="col-md-12 above-list">
+  <div class="col-md-6 col-sm12 contacts-list-links">
+    <%= link_to (t :new_contact), new_contact_path %> |
+    <%= link_to (t :list_contact_groups), contact_groups_path %>
+  </div>
+  <div class="col-md-6 col-sm12">
+    <%= render 'additional_fields' %>
+  </div>
+</div>
 
-<%= link_to (t :new_contact), new_contact_path %> |
-<%= link_to (t :list_contact_groups), contact_groups_path %>
+<%= render 'list' unless @contacts.blank? %>

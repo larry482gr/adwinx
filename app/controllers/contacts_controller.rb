@@ -5,10 +5,17 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    params[:limit] ||= Contact::DEFAULT_PER_PAGE
     @contacts = Contact.where(uid: current_user.id)
-                    .order('contact_profile.last_name' => 1, 'contact_profile.first_name' => 1)
+                    .asc('contact_profile.last_name').asc('contact_profile.first_name')
+                    .page(params[:page]).per(params[:limit]).includes(:contact_groups)
 
-    @contact_group = ContactGroup.new
+    @metadata = current_user.metadata
+
+    respond_to do |format|
+      format.html {  }
+      format.json { render json: { metadata: @metadata, contacts: @contacts } }
+    end
   end
 
   # GET /contacts/1
@@ -29,6 +36,8 @@ class ContactsController < ApplicationController
 
   def belonging_groups
     contact_groups = []
+    debug_inspect @contact
+    debug_inspect @contact.contact_groups
     @contact.contact_groups.each do |group|
       contact_groups << { _id: group['_id'].to_s, lbl: group['label'] }
     end

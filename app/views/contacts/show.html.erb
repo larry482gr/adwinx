@@ -17,13 +17,22 @@
 </p>
 
 <%- current_user.metadata.each do |meta_field| %>
-  <%- if meta_field == 'last_name' or meta_field == 'last_name' %>
+  <%- if meta_field == 'last_name' or meta_field == 'first_name' %>
       <% next %>
   <% end %>
   <p>
     <strong><%= meta_field.humanize %></strong>
     <%= @contact['contact_profile'][meta_field] %>
   </p>
+<% end %>
+
+<%- unless @contact.contact_groups.blank? %>
+    <p>
+      <strong><%= (t 'mongoid.models.contact_group.other') %></strong>
+      <%- @contact.contact_groups.each do |group| %>
+          <%= link_to group[:label], group, { class: 'label label-primary' } %>
+      <% end %>
+    </p>
 <% end %>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
