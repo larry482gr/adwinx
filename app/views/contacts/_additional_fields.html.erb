@@ -1,4 +1,4 @@
-<form class="form-inline additional-fields" id="contact-metadata">
+<form class="form-inline additional-fields" id="contacts-additional">
   <label class="additional-fields-header"><%= (t :additional_fields) %>: </label>
   <%- @metadata.each do |meta_field| %>
       <%- if meta_field == 'last_name' or meta_field == 'first_name' %>
@@ -6,22 +6,23 @@
       <%- else %>
           <% checked = '' %>
       <% end %>
-      <div class="checkbox metadata-js" rel="meta-<%= meta_field %>">
+      <div class="checkbox checkbox-js" rel="<%= meta_field %>">
         <label>
-          <input type="checkbox" <%= checked %>> <%= meta_field.humanize %>
+          <input type="checkbox" <%= checked %> autocomplete="off"> <%= meta_field.humanize %>
         </label>
       </div>
   <% end %>
-  <div class="checkbox metadata-js" rel="groups-meta-js">
+  <div class="checkbox checkbox-js" rel="groups">
     <label>
-      <input type="checkbox"> <%= (t 'mongoid.models.contact_group.other') %>
+      <input type="checkbox" autocomplete="off"> <%= (t 'mongoid.models.contact_group.other') %>
     </label>
   </div>
   <div>
     <label for="rows-per-page"><%= (t :results_per_page) %></label>
     <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
-      <%  Contact::RESULTS_PER_PAGE.each do |res| %>
-          <option value="<%= res %>" <%= 'selected' if res == params[:limit] %>><%= res %></option>
+      <% Contact::RESULTS_PER_PAGE.each do |res| %>
+          <% per_value = params[:limit].nil? ? Contact::DEFAULT_PER_PAGE : params[:limit] %>
+          <option value="<%= res %>" <%= 'selected' if res == per_value %>><%= res %></option>
       <% end %>
     </select>
   </div>

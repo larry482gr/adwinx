@@ -1,19 +1,25 @@
-<table class="table table-striped table-responsive table-hover" id="contacts-table">
+<table class="table table-striped table-responsive table-hover list-resource" id="contacts-table">
   <thead>
   <tr>
+    <th></th>
     <th></th>
     <% phone_columns = "<th>#{(t 'mongoid.attributes.contact.prefix')}</th>
                           <th>#{(t 'mongoid.attributes.contact.mobile')}</th>" %>
     <% hidden = '' %>
     <%- @metadata.each do |meta_field| %>
-        <th class="<%= "meta-#{meta_field} #{hidden}" %>"><%= meta_field.humanize %></th>
+        <th class="<%= "#{meta_field} #{hidden}" %>"><%= meta_field.humanize %></th>
         <%- if meta_field == 'first_name' %>
             <%= phone_columns.html_safe %>
             <% hidden = 'hidden' %>
         <% end %>
     <% end %>
-    <th class="groups-meta-js hidden"><%= (t 'mongoid.models.contact_group.other') %></th>
-    <th colspan="3"></th>
+    <th class="groups hidden"><%= (t 'mongoid.models.contact_group.other') %></th>
+    <th>
+      <div class="entiry-action">
+        <%= button_tag 'Select All', { type: :button, class: 'btn-link', name: :select_all, id: 'select-all-contacts' } %>
+        <%= button_tag 'Select current page', { type: :button, class: 'btn-link', name: :select_all, id: 'select-page-contacts' } %>
+      </div>
+    </th>
   </tr>
   </thead>
 
@@ -26,20 +32,23 @@
       <% phone_columns = "<td class=\"clickable\">#{contact[:prefix]}</td><td class=\"clickable\">#{contact[:mobile]}</td>" %>
       <% hidden = '' %>
       <tr class="clickable-row" data-href="<%= contact_path contact %>">
-        <th scope="row"><%= i = i.to_i + 1 %></th>
+        <th class="center cell-sm" scope="row"><div><%= i = i.to_i + 1 %></div></th>
+        <td class="center cell-sm">
+          <input type="checkbox" class="contact-check" name="contact[_id][<%= contact[:_id] %>]">
+        </td>
         <%- @metadata.each do |meta_field| %>
-            <td class="clickable <%= "meta-#{meta_field} #{hidden}" %>"><%= contact['contact_profile'][meta_field] %></td>
+            <td class="clickable <%= "#{meta_field} #{hidden}" %>"><%= contact['contact_profile'][meta_field] %></td>
             <%- if meta_field == 'first_name' %>
                 <%= phone_columns.html_safe %>
                 <% hidden = 'hidden' %>
             <% end %>
         <% end %>
-        <td class="groups-meta-js hidden">
+        <td class="groups hidden">
           <%- contact.contact_groups.each do |group| %>
               <%= link_to group[:label], group, { class: 'label label-primary' } %>
           <% end %>
         </td>
-        <td class="entiry-action">
+        <td>
           <div class="entiry-action">
             <%= link_to (t 'actions.view'), contact, class: 'btn btn-xs btn-primary' %>
             <%= link_to (t 'actions.edit'), edit_contact_path(contact), class: 'btn btn-xs btn-warning' %>

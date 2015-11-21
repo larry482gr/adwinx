@@ -4,7 +4,8 @@ gr:
   back: 'Πίσω'
   cannot_undo: 'Η ενέργεια αυτή δε μπορεί να αναιρεθεί!'
   additional_fields: 'Πρόσθετα πεδία'
-  results_per_page: "Αποτελέσματα ανά σελίδα"
+  results_per_page: 'Αποτελέσματα ανά σελίδα'
+  total: 'Σύνολο'
 
   actions:
     list: 'Λίστα'

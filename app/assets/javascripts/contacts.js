@@ -14,9 +14,26 @@ $(document).ready(function() {
         freeInput: true
     });
 
-    $('form#contact-metadata').on('mouseup', '.metadata-js', function() {
+
+
+    $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');
         $('#contacts-table th.'+metadata_column+', #contacts-table td.'+metadata_column).toggleClass('hidden');
+    });
+
+    $('#select-page-contacts').on('click', function() {
+        if($(this).hasClass('all-checked')) {
+            $('.contact-check').prop('checked', false);
+            $(this).removeClass('all-checked');
+        } else {
+            $('.contact-check').prop('checked', true);
+            $(this).addClass('all-checked');
+            alert('Ok, I checked them... now what? :P');
+        }
+    });
+
+    $('#select-all-contacts').on('click', function() {
+        alert('We should first decide what actions will apply to all contacts and then return here!');
     });
 
     $('form.new_contact, form.edit_contact').on('submit', function(e) {
@@ -53,9 +70,7 @@ $(document).ready(function() {
 
         return submitForm($(this), errors);
     });
-});
 
-$(document).on('page:change', function(){
     if(typeof $('form.edit_contact').attr('id') != 'undefined') {
         $.ajax({
             url: '/contacts/'+$('#contact-id').val()+'/groups.json',

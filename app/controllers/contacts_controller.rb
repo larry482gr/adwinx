@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
     @metadata = current_user.metadata
 
     respond_to do |format|
-      format.html {  }
+      format.html { render :index, flush: true }
       format.json { render json: { metadata: @metadata, contacts: @contacts } }
     end
   end

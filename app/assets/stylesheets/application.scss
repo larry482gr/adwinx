@@ -44,6 +44,19 @@ a {
   outline: none !important;
 }
 
+a:hover, .btn-link:hover {
+  text-decoration: none !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
 .above-list {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -54,16 +67,32 @@ a {
   }
 }
 
+h1 > span.help-block {
+  color: #999 !important;
+  font-size: 12px;
+  font-weight: normal;
+}
+
 .additional-fields {
   div {
     margin: 0px 2px 4px 2px !important;
   }
 }
 
-tr.clickable-row {
+table.list-resource {
+  .cell-sm {
+    width: 40px;
 
-  td.clickable {
-    cursor: pointer;
+    input[type="checkbox"] {
+      margin: 0px;
+    }
+  }
+
+  tr.clickable-row {
+
+    td.clickable {
+      cursor: pointer;
+    }
   }
 
   div.entiry-action {
