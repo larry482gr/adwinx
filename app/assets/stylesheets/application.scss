@@ -100,8 +100,13 @@ table.list-resource {
     text-align: center;
     vertical-align: middle !important;
     white-space: nowrap;
+
     a {
       margin: 0px 6px;
+    }
+
+    button.resource-action {
+      display: none;
     }
   }
 }

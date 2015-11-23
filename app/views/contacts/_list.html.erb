@@ -15,9 +15,11 @@
     <% end %>
     <th class="groups hidden"><%= (t 'mongoid.models.contact_group.other') %></th>
     <th>
-      <div class="entiry-action">
-        <%= button_tag 'Select All', { type: :button, class: 'btn-link', name: :select_all, id: 'select-all-contacts' } %>
-        <%= button_tag 'Select current page', { type: :button, class: 'btn-link', name: :select_all, id: 'select-page-contacts' } %>
+      <div class="entiry-action" id="contacts-bulk-actions">
+        <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action', id: 'select-all-contacts' } %>
+        <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action', id: 'select-page-contacts' } %>
+        <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action', id: 'uncheck-selected-contacts' } %>
+        <%= button_tag (t :delete_selected), { type: :button, class: 'btn btn-xs btn-danger resource-action', id: 'delete-selected-contacts' } %>
       </div>
     </th>
   </tr>
@@ -34,7 +36,8 @@
       <tr class="clickable-row" data-href="<%= contact_path contact %>">
         <th class="center cell-sm" scope="row"><div><%= i = i.to_i + 1 %></div></th>
         <td class="center cell-sm">
-          <input type="checkbox" class="contact-check" name="contact[_id][<%= contact[:_id] %>]">
+          <input type="checkbox" class="contact-check"
+                 name="contact[contact_ids][]" value="<%= contact[:_id] %>">
         </td>
         <%- @metadata.each do |meta_field| %>
             <td class="clickable <%= "#{meta_field} #{hidden}" %>"><%= contact['contact_profile'][meta_field] %></td>

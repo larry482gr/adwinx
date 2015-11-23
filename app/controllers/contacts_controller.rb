@@ -139,6 +139,22 @@ class ContactsController < ApplicationController
     end
   end
 
+  # DELETE /contacts/1
+  # DELETE /contacts/1.json
+  def bulk_delete
+    contact_ids = []
+    contact_params[:contact_ids].each do |cid|
+      contact_ids << BSON::ObjectId.from_string(cid)
+    end
+
+    deleted = Contact.where(uid: current_user.id).in(:_id => contact_ids).delete_all
+
+    respond_to do |format|
+      format.js {}
+      format.json { render json: { deleted: deleted } }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -147,7 +163,7 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:prefix, :mobile,
+      params.require(:contact).permit(:prefix, :mobile, { contact_ids: [] },
                                       { contact_profile_attributes: current_user.metadata.to_a },
                                       { contact_group_attributes: [:_id] })
     end

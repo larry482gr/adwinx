@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     get '/typeahead_contact_groups' => 'contact_groups#typeahead'
     get '/contacts/:id/groups' => 'contacts#belonging_groups'
+    post '/contacts/bulk_delete' => 'contacts#bulk_delete'
   end
 
 
