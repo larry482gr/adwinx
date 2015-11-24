@@ -43,9 +43,9 @@ $(document).ready(function(){
 
         var rows_pp = $('#main-content').find('select#rows-per-page');
         var page_href = $(this).attr('href');
-        var page_start = page_href.indexOf('page=') + 5;
+        var page_start = page_href.indexOf('page=') != -1 ? page_href.indexOf('page=') + 5 : page_href.length;
         var page_end = page_href.substring(page_start).indexOf('&') != -1 ? page_href.substring(page_start).indexOf('&') : page_href.length;
-        var active_page = page_href.substring(page_start, page_end);
+        var active_page = empty(page_href.substring(page_start, page_end)) ? undefined : page_href.substring(page_start, page_end);
 
         var per_page = typeof rows_pp.find('option:selected').val() != 'undefined' ?
                             rows_pp.find('option:selected').val() : rows_pp.find('option:first-child').val();
@@ -104,4 +104,45 @@ $(document).ready(function(){
 
         return additional_params;
     }
+
+    $('.select-all').on('click', function() {
+        var resource = $(this).data('resource');
+        alert('We should first decide what actions will apply to all ' + resource + ' and then return here!');
+    });
+
+    $('.select-page').on('click', function() {
+        var resource = $(this).data('resource');
+        $('table.list-resource td input.'+resource+'-check').prop('checked', true);
+        $('table.list-resource td input.'+resource+'-check').trigger('change');
+    });
+
+    $('.uncheck-selected').on('click', function() {
+        var resource = $(this).data('resource');
+        $('table.list-resource td input.'+resource+'-check').prop('checked', false);
+        $('table.list-resource td input.'+resource+'-check').trigger('change');
+    });
+
+    $('.list-resource').on('change', 'input.resource-check', function() {
+        var resource = $(this).data('resource');
+        var checked = 0;
+
+        $('table.list-resource td input.resource-check').each(function(index){
+            if(this.checked) {
+                checked++;
+                $('form.list-resource input.resource-check[value="'+this.value+'"]')
+                    .prop('checked', true);
+            } else {
+                $('form.list-resource input.resource-check[value="'+this.value+'"]')
+                    .prop('checked', false);
+            }
+        });
+
+        if(checked > 0) {
+            $('.select-action').hide();
+            $('.resource-action').show();
+        } else {
+            $('.resource-action').hide();
+            $('.select-action').show();
+        }
+    });
 });

@@ -1,6 +1,4 @@
 class Contact
-  DEFAULT_PER_PAGE = 50
-  RESULTS_PER_PAGE = %w( 50 100 )
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
   field :uid, type: Integer
@@ -19,6 +17,6 @@ class Contact
 
   accepts_nested_attributes_for :contact_profile
 
-  paginates_per DEFAULT_PER_PAGE
-  max_paginates_per 500
+  # Set default pagination values.
+  include Pageable
 end

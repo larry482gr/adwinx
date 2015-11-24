@@ -3,9 +3,19 @@ gr:
   view_contact_group: 'Προβολή Ομάδας Επαφών'
   new_contact_group: 'Νέα Ομάδα Επαφών'
   edit_contact_group: 'Επεξεργασία Ομάδας Επαφών'
+  total_contact_groups: 'Σύνολο ομάδων επαφών'
   contact_group_del_confirm: "Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n"
+  contact_group_empty_confirm: "Είσαστε σίγουρος/η πως θέλετε να αδειάσετε αυτή την ομάδα επαφών;\n\n"
+  contacts_remove_confirm: " επαφές θα αφαιρεθούν από αυτή την ομάδα επαφών.\n\n"
+  contacts_successfully_removed: "επαφές αφαιρέθηκαν επιτυχώς από την ομάδα επαφών \"%group_label%\""
 
   contact_group_form:
     label_required: 'Η Επιγραφή μίας Ομάδας Επαφών δε μπορεί να είναι κενή'
     label_length: 'Η Επιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες'
     description_length: 'Η Περιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 120 χαρακτήρες'
+    delete_header: 'Διαγραφή Ομάδων Επαφών'
+    delete_groups_list: 'Οι ακόλουθες Ομάδες Επαφών πρόκειται να διαγραφούν'
+    delete_group_contacts_fate: 'Τι επιθυμείτε να συμβεί στις επαφές που δεν ανήκουν σε καμία άλλη Ομάδα Επαφών;'
+    fate_options: [
+      {value: 0, label: 'να μείνουν ορφανές (να μην ανήκουν σε καμία Ομάδα Επαφών)'},
+      {value: 1, label: 'να διαγραφούν μόνιμα'}]

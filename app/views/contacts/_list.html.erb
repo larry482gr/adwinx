@@ -15,12 +15,7 @@
     <% end %>
     <th class="groups hidden"><%= (t 'mongoid.models.contact_group.other') %></th>
     <th>
-      <div class="entiry-action" id="contacts-bulk-actions">
-        <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action', id: 'select-all-contacts' } %>
-        <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action', id: 'select-page-contacts' } %>
-        <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action', id: 'uncheck-selected-contacts' } %>
-        <%= button_tag (t :delete_selected), { type: :button, class: 'btn btn-xs btn-danger resource-action', id: 'delete-selected-contacts' } %>
-      </div>
+      <%= render 'contact_bulk_actions' %>
     </th>
   </tr>
   </thead>
@@ -29,14 +24,14 @@
   <!-- set 'first_name' & 'last_name' as first level keys -->
   <!-- all other contact profile info should be in a first level 'custom' key -->
   <tbody>
-  <% i = params[:page].nil? ? 0 : (params[:page].to_i-1)*params[:limit].to_i %>
+  <% i = params[:page].blank? ? 0 : (params[:page].to_i-1)*params[:limit].to_i %>
   <% @contacts.each do |contact| %>
       <% phone_columns = "<td class=\"clickable\">#{contact[:prefix]}</td><td class=\"clickable\">#{contact[:mobile]}</td>" %>
       <% hidden = '' %>
       <tr class="clickable-row" data-href="<%= contact_path contact %>">
         <th class="center cell-sm" scope="row"><div><%= i = i.to_i + 1 %></div></th>
         <td class="center cell-sm">
-          <input type="checkbox" class="contact-check"
+          <input type="checkbox" class="resource-check contact-check" data-resource="contact"
                  name="contact[contact_ids][]" value="<%= contact[:_id] %>">
         </td>
         <%- @metadata.each do |meta_field| %>

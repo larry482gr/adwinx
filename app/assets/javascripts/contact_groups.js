@@ -17,4 +17,20 @@ $(document).ready(function() {
 
         return submitForm($(this), errors);
     });
+
+    $('#remove-selected-contacts').on('click', function() {
+        var total_selected = 0;
+        $('table.list-resource td input.resource-check').each(function(index){
+            if(this.checked) {
+                total_selected++;
+            }
+        });
+
+        $(this).data('confirm', $(this).data('confirm').replace(/[0-9]*\s/, total_selected + ' '));
+    });
+
+    $('button.delete-group').on('click', function() {
+        $('form#delete-contact-groups').attr('action', '/contact_groups/' + $(this).data('groupid'));
+        $('ol#delete-groups-modal-list').html('<li>' + $(this).data('grouplabel') + '</li>');
+    });
 });

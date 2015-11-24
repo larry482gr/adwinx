@@ -1,5 +1,12 @@
-<h1><%= (t :list_contact_groups) %></h1>
+<h1><%= (t :list_contact_groups) %><span class="help-block"><%= "#{(t 'total_contact_groups')}: #{@contact_groups.count}" %></span></h1>
+
+<div class="col-md-12 above-list">
+  <div class="col-md-6 col-sm12 contact-groups-list-links">
+    <%= link_to (t :new_contact_group), new_contact_group_path %>
+  </div>
+  <div class="col-md-6 col-sm12">
+    <%= render 'additional_fields' %>
+  </div>
+</div>
 
 <%= render 'list' unless @contact_groups.blank? %>
-
-<%= link_to (t :new_contact_group), new_contact_group_path %>

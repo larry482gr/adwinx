@@ -5,7 +5,9 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    params[:page] ||= 1
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
+    params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
     @contacts = Contact.where(uid: current_user.id)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit]).includes(:contact_groups)
@@ -13,7 +15,7 @@ class ContactsController < ApplicationController
     @metadata = current_user.metadata
 
     respond_to do |format|
-      format.html { render :index, flush: true }
+      format.html { render :index }
       format.json { render json: { metadata: @metadata, contacts: @contacts } }
     end
   end
@@ -34,6 +36,8 @@ class ContactsController < ApplicationController
     create_profile
   end
 
+  # GET /contacts/1/belonging_groups
+  # GET /contacts/1/belonging_groups.json
   def belonging_groups
     contact_groups = []
     debug_inspect @contact
@@ -51,20 +55,25 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    # TODO implement this properly using its relations and REMOVE this... hack!
     pars = contact_params
     pars[:uid] = current_user.id
 
     group_ids = []
-    pars[:contact_group_attributes].each do |group|
-      group_ids << group[:_id]
+    unless pars[:contact_group_attributes].nil?
+      pars[:contact_group_attributes].each do |group|
+        group_ids << group[:_id]
+      end
     end
     pars.delete(:contact_group_attributes)
     pars[:contact_group_ids] = group_ids
-    # TODO implement this properly using its relations and REMOVE this... hack!
 
     @contact = Contact.new(pars)
-    @contact.set(contact_group_ids: group_ids)
+
+    if group_ids.blank?
+      @contact.unset(:contact_group_ids)
+    else
+      @contact.set(contact_group_ids: group_ids)
+    end
 
     respond_to do |format|
       begin
@@ -92,18 +101,22 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
-    # TODO implement this properly using its relations and REMOVE this... hack!
     pars = contact_params
     pars[:uid] = current_user.id
 
     group_ids = []
-    pars[:contact_group_attributes].each do |group|
-      group_ids << BSON::ObjectId.from_string(group[:_id])
+    unless pars[:contact_group_attributes].nil?
+      pars[:contact_group_attributes].each do |group|
+        group_ids << BSON::ObjectId.from_string(group[:_id])
+      end
     end
     pars.delete(:contact_group_attributes)
-    # TODO implement this properly using its relations and REMOVE this... hack!
 
-    @contact.set(contact_group_ids: group_ids)
+    if group_ids.blank?
+      @contact.unset(:contact_group_ids)
+    else
+      @contact.set(contact_group_ids: group_ids)
+    end
 
     respond_to do |format|
       begin
@@ -139,8 +152,8 @@ class ContactsController < ApplicationController
     end
   end
 
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
+  # POST /contacts/bulk_delete
+  # POST /contacts/bulk_delete.json
   def bulk_delete
     contact_ids = []
     contact_params[:contact_ids].each do |cid|

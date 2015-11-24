@@ -19,40 +19,10 @@ $(document).ready(function() {
         $('#contacts-table th.'+metadata_column+', #contacts-table td.'+metadata_column).toggleClass('hidden');
     });
 
-    $('#select-all-contacts').on('click', function() {
-        alert('We should first decide what actions will apply to all contacts and then return here!');
-    });
-
-    $('#select-page-contacts').on('click', function() {
-        $('.contact-check').prop('checked', true);
-        $('.contact-check').trigger('change');
-    });
-
-    $('#uncheck-selected-contacts').on('click', function() {
-        $('.contact-check').prop('checked', false);
-        $('.contact-check').trigger('change');
-    });
-
-    $('#contacts-table').on('change', '.contact-check', function() {
-        var contact_checkboxes = document.getElementsByClassName('contact-check');
-        var all = contact_checkboxes.length;
-        var checked = 0;
-
-        for(i = 0; i < contact_checkboxes.length; i++) {
-            if(contact_checkboxes[i].checked) {
-                checked++;
-            }
-        }
-
-        if(checked > 0) {
-            $('.select-action').hide();
-            $('.resource-action').show();
-        } else {
-            $('.resource-action').hide();
-            $('.select-action').show();
-        }
-    });
-
+    /*
+     *  TODO Refactor as bulk remove from group (form, appropriate method etc.)
+     *  --> Follow rails security patterns for CSRF attacks.
+     */
     $('#delete-selected-contacts').on('click', function() {
         var data = $('.contact-check:checked').serialize();
 

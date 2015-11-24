@@ -23,6 +23,7 @@ en:
   version: 'Version'
   settings: 'Settings'
   back: 'Back'
+  you_sure: 'Are you sure?'
   cannot_undo: 'This action can not be undone!'
   additional_fields: 'Additional fields'
   check_all: 'Check All'
@@ -44,4 +45,5 @@ en:
     empty: 'Empty'
     activate: 'Activate'
     deactivate: 'Deactivate'
+    cancel: 'Cancel'
 

@@ -1,10 +1,16 @@
-<h1><%= "#{(t 'mongoid.models.contact_group.one')}: #{@contact_group.label}" %></h1>
-
+<h1><%= @contact_group.label %><span class="help-block"><%= "#{(t 'total_contacts')}: #{@contacts.count}" %></span></h1>
 <p>
   <i><%= @contact_group.description %></i>
 </p>
 
-<%= render 'contacts/list' unless @contacts.blank? %>
+<div class="col-md-12 above-list">
+  <div class="col-md-6 col-sm12 contact-group-links">
+    <%= link_to (t :edit_contact_group), edit_contact_group_path(@contact_group) %> |
+    <%= link_to (t :list_contact_groups), contact_groups_path %>
+  </div>
+  <div class="col-md-6 col-sm12">
+    <%= render 'contacts/additional_fields' %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_contact_group_path(@contact_group) %> |
-<%= link_to 'Back', contact_groups_path %>
+<%= render 'contacts/list' unless @contacts.blank? %>

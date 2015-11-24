@@ -1,3 +1,23 @@
 // Place all the styles related to the ContactGroups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (min-width: 768px) {
+  .contact-groups-list-links, .contact-group-links {
+    float: right;
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-groups-list-links, .contact-group-links {
+    float: none;
+    clear: both;
+    text-align: left !important;
+  }
+}
+
+#contact-groups-bulk-actions {
+  min-width: 230px;
+  min-height: 24px;
+}

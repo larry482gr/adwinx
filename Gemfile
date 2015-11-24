@@ -67,8 +67,6 @@ gem 'uuidtools'
 # Fetch and Parse RSS feeds
 # gem 'feedjira'
 
-gem 'nprogress-rails'
-
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
 

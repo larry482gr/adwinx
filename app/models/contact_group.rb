@@ -14,4 +14,7 @@ class ContactGroup
 
   # Clear blank (null, empty) fields before validation.
   include Cleanable
+
+  # Set default pagination values.
+  include Pageable
 end

@@ -1,12 +1,14 @@
 class ContactGroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_contact_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact_group, only: [:show, :edit, :update, :remove_contacts, :destroy, :empty]
 
   # GET /contact_groups
   # GET /contact_groups.json
   def index
-    @contact_groups = ContactGroup.where(uid: current_user.id)
-                          .order('label' => 1)
+    params[:limit] ||= ContactGroup::DEFAULT_PER_PAGE
+    params[:limit] = ContactGroup::RESULTS_PER_PAGE.max unless params[:limit].to_i <= ContactGroup::RESULTS_PER_PAGE.max
+    @contact_groups = ContactGroup.where(uid: current_user.id).asc(:label)
+                          .page(params[:page]).per(params[:limit])
   end
 
   # GET /typeahead_contact_groups
@@ -29,6 +31,10 @@ class ContactGroupsController < ApplicationController
   # GET /contact_groups/1
   # GET /contact_groups/1.json
   def show
+    @contacts = Contact.where(uid: current_user.id, contact_group_ids: @contact_group[:_id])
+                    .asc('contact_profile.last_name').asc('contact_profile.first_name')
+                    .page(params[:page]).per(params[:limit]).includes(:contact_groups)
+    @metadata = current_user.metadata
   end
 
   # GET /contact_groups/new
@@ -92,12 +98,44 @@ class ContactGroupsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /contact_groups/remove_contacts
+  # PATCH/PUT /contact_groups/remove_contacts.json
+  def remove_contacts
+    pars = contact_group_params
+    contact_ids = []
+    pars[:contact_ids].each do |cid|
+      contact_ids << BSON::ObjectId.from_string(cid)
+    end
+
+    removed = Contact.where(uid: current_user.id).in(:_id => contact_ids).pull(contact_group_ids: @contact_group[:_id])
+
+    respond_to do |format|
+      format.html { redirect_to @contact_group,
+                                notice: "#{removed.documents.first[:nModified]}
+                                #{(t :contacts_successfully_removed).gsub('%group_label%', @contact_group[:label])}." }
+      format.json { render :show, status: :ok, location: @contact_group }
+    end
+  end
+
   # DELETE /contact_groups/1
   # DELETE /contact_groups/1.json
   def destroy
-    @contact_group.destroy
+    # @contact_group.destroy
     respond_to do |format|
       format.html { redirect_to contact_groups_url, notice: 'Contact group was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /contact_groups/remove_contacts
+  # DELETE /contact_groups/remove_contacts.json
+  def empty
+    removed = Contact.where(uid: current_user.id, contact_group_ids: @contact_group[:_id])
+                  .pull(contact_group_ids: @contact_group[:_id])
+
+    respond_to do |format|
+      format.html { redirect_to contact_groups_url, notice: "#{removed.documents.first[:nModified]}
+      #{(t :contacts_successfully_removed).gsub('%group_label%', @contact_group[:label])}." }
       format.json { head :no_content }
     end
   end
@@ -110,7 +148,7 @@ class ContactGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_group_params
-      params.require(:contact_group).permit(:label, :description)
+      params.require(:contact_group).permit(:label, :description, { contact_ids: [] }, :contacts_fate)
     end
 
     def duplicate_group

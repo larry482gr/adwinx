@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     devise_for :users, :controllers => { registrations: 'registrations' }
 
     resources :contacts
-    resources :contact_groups
+    resources :contact_groups do
+      member do
+        patch :remove_contacts
+        delete :empty
+      end
+    end
 
     get '/typeahead_contact_groups' => 'contact_groups#typeahead'
     get '/contacts/:id/groups' => 'contacts#belonging_groups'

@@ -2,6 +2,7 @@ gr:
   version: 'Έκδοση'
   settings: 'Ρυθμίσεις'
   back: 'Πίσω'
+  you_sure: 'Είσαστε σίγουρος/η;'
   cannot_undo: 'Η ενέργεια αυτή δε μπορεί να αναιρεθεί!'
   additional_fields: 'Πρόσθετα πεδία'
   check_all: 'Επιλογή Όλων'
@@ -23,3 +24,4 @@ gr:
     empty: 'Άδειασμα'
     activate: 'Ενεργοποίηση'
     deactivate: 'Απενεργοποίηση'
+    cancel: 'Ακύρωση'
