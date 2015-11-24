@@ -100,6 +100,7 @@ class ContactGroupsController < ApplicationController
 
   # PATCH/PUT /contact_groups/remove_contacts
   # PATCH/PUT /contact_groups/remove_contacts.json
+  # Called through Contact Groups Show/View screen to remove selected contacts from the specified group.
   def remove_contacts
     pars = contact_group_params
     contact_ids = []
@@ -117,25 +118,67 @@ class ContactGroupsController < ApplicationController
     end
   end
 
-  # DELETE /contact_groups/1
-  # DELETE /contact_groups/1.json
-  def destroy
-    # @contact_group.destroy
-    respond_to do |format|
-      format.html { redirect_to contact_groups_url, notice: 'Contact group was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   # DELETE /contact_groups/remove_contacts
   # DELETE /contact_groups/remove_contacts.json
+  # Called through Contact Groups List screen to empty the group
   def empty
-    removed = Contact.where(uid: current_user.id, contact_group_ids: @contact_group[:_id])
-                  .pull(contact_group_ids: @contact_group[:_id])
+    removed = empty_group(@contact_group[:_id])
 
     respond_to do |format|
       format.html { redirect_to contact_groups_url, notice: "#{removed.documents.first[:nModified]}
       #{(t :contacts_successfully_removed).gsub('%group_label%', @contact_group[:label])}." }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /contact_groups/1
+  # DELETE /contact_groups/1.json
+  def destroy
+    notices = []
+    if contact_group_params[:contacts_fate].to_i == 1
+      deleted = contacts_doomed(@contact_group[:_id])
+      notices << (t :group_only_contacts_deleted).gsub('%contacts_deleted%', "<strong>#{deleted.to_s}</strong>")
+    end
+
+    empty_group(@contact_group[:_id])
+
+    label = @contact_group[:label]
+    @contact_group.destroy
+    notices << (t :contact_group_deleted).gsub('%group_label%', "<strong>#{label}</strong>")
+
+    respond_to do |format|
+      format.html { redirect_to contact_groups_url, notice: notices.reverse.join('<br/>') }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /contact_groups/bulk_delete
+  # DELETE /contact_groups/bulk_delete.json
+  def bulk_delete
+    params = contact_group_params
+    contacts_fate = params[:contacts_fate].to_i
+
+    notices = []
+    deleted = 0
+    labels = []
+
+    params[:contact_group_ids].each do |group_id|
+      bson_id = BSON::ObjectId.from_string(group_id)
+
+      deleted += contacts_doomed(bson_id) unless contacts_fate == 0
+
+      empty_group(bson_id)
+
+      group = ContactGroup.find(bson_id)
+      labels << group[:label]
+      group.destroy
+    end
+
+    notices << (t :contact_group_deleted).gsub('%group_label%', "<strong>#{labels.join(', ')}</strong>")
+    notices << (t :group_only_contacts_deleted).gsub('%contacts_deleted%', "<strong>#{deleted.to_s}</strong>") unless contacts_fate == 0
+
+    respond_to do |format|
+      format.html { redirect_to contact_groups_url, notice: notices.join('<br/>') }
       format.json { head :no_content }
     end
   end
@@ -148,10 +191,20 @@ class ContactGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_group_params
-      params.require(:contact_group).permit(:label, :description, { contact_ids: [] }, :contacts_fate)
+      params.require(:contact_group).permit(:label, :description, { contact_ids: [] }, { contact_group_ids: [] }, :contacts_fate)
     end
 
     def duplicate_group
       ContactGroup.find_by(:$and => [ uid: @contact_group.uid, label: @contact_group.label ])
+    end
+
+    def empty_group(contact_group)
+      Contact.where(uid: current_user.id, contact_group_ids: contact_group)
+          .pull(contact_group_ids: contact_group)
+    end
+
+    def contacts_doomed(contact_group)
+      Contact.where(uid: current_user.id, contact_group_ids: { :$size => 1 }).in(contact_group_ids: contact_group)
+          .delete
     end
 end

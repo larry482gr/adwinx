@@ -8,9 +8,9 @@ class ContactsController < ApplicationController
     params[:page] ||= 1
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
-    @contacts = Contact.where(uid: current_user.id)
+    @contacts = Contact.includes(:contact_groups).where(uid: current_user.id)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
-                    .page(params[:page]).per(params[:limit]).includes(:contact_groups)
+                    .page(params[:page]).per(params[:limit])
 
     @metadata = current_user.metadata
 
@@ -40,8 +40,6 @@ class ContactsController < ApplicationController
   # GET /contacts/1/belonging_groups.json
   def belonging_groups
     contact_groups = []
-    debug_inspect @contact
-    debug_inspect @contact.contact_groups
     @contact.contact_groups.each do |group|
       contact_groups << { _id: group['_id'].to_s, lbl: group['label'] }
     end

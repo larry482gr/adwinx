@@ -15,13 +15,11 @@ class User < ActiveRecord::Base
   after_validation :set_default_metadata
 
   def set_default_metadata
-    if self.metadata.nil?
-      self.metadata = []
-    else
-      self.metadata = self.metadata.split(',')
-    end
+    meta = self.metadata.blank? ? [] : self.metadata.split(',')
 
-    self.metadata.insert(0, LAST_NAME) unless self.metadata.include? (LAST_NAME)
-    self.metadata.insert(1, FIRST_NAME) unless self.metadata.include? (FIRST_NAME)
+    meta.insert(0, LAST_NAME) unless meta.include? (LAST_NAME)
+    meta.insert(1, FIRST_NAME) unless meta.include? (FIRST_NAME)
+
+    self.metadata = meta
   end
 end

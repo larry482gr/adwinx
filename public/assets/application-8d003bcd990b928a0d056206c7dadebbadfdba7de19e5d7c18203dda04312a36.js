@@ -14509,7 +14509,1760 @@ I18n.t = I18n.translate;
 I18n.l = I18n.localize;
 I18n.p = I18n.pluralize;
 var I18n = I18n || {};
-I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %d","long":"%B %d, %Y"},"day_names":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"abbr_day_names":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"month_names":[null,"January","February","March","April","May","June","July","August","September","October","November","December"],"abbr_month_names":[null,"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"order":["year","month","day"]},"time":{"formats":{"default":"%a, %d %b %Y %H:%M:%S %z","short":"%d %b %H:%M","long":"%B %d, %Y %H:%M"},"am":"am","pm":"pm"},"support":{"array":{"words_connector":", ","two_words_connector":" and ","last_word_connector":", and "}},"number":{"format":{"separator":".","delimiter":",","precision":3,"significant":false,"strip_insignificant_zeros":false},"currency":{"format":{"format":"%u%n","unit":"$","separator":".","delimiter":",","precision":2,"significant":false,"strip_insignificant_zeros":false}},"percentage":{"format":{"delimiter":"","format":"%n%"}},"precision":{"format":{"delimiter":""}},"human":{"format":{"delimiter":"","precision":3,"significant":true,"strip_insignificant_zeros":true},"storage_units":{"format":"%n %u","units":{"byte":{"one":"Byte","other":"Bytes"},"kb":"KB","mb":"MB","gb":"GB","tb":"TB"}},"decimal_units":{"format":"%n %u","units":{"unit":"","thousand":"Thousand","million":"Million","billion":"Billion","trillion":"Trillion","quadrillion":"Quadrillion"}}}},"errors":{"format":"%{attribute} %{message}","messages":{"inclusion":"is not included in the list","exclusion":"is reserved","invalid":"is invalid","confirmation":"doesn't match %{attribute}","accepted":"must be accepted","empty":"can't be empty","blank":"can't be blank","present":"must be blank","too_long":{"one":"is too long (maximum is 1 character)","other":"is too long (maximum is %{count} characters)"},"too_short":{"one":"is too short (minimum is 1 character)","other":"is too short (minimum is %{count} characters)"},"wrong_length":{"one":"is the wrong length (should be 1 character)","other":"is the wrong length (should be %{count} characters)"},"not_a_number":"is not a number","not_an_integer":"must be an integer","greater_than":"must be greater than %{count}","greater_than_or_equal_to":"must be greater than or equal to %{count}","equal_to":"must be equal to %{count}","less_than":"must be less than %{count}","less_than_or_equal_to":"must be less than or equal to %{count}","other_than":"must be other than %{count}","odd":"must be odd","even":"must be even","taken":"has already been taken","carrierwave_processing_error":"failed to be processed","carrierwave_integrity_error":"is not of an allowed file type","carrierwave_download_error":"could not be downloaded","extension_white_list_error":"You are not allowed to upload %{extension} files, allowed types: %{allowed_types}","extension_black_list_error":"You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}","rmagick_processing_error":"Failed to manipulate with rmagick, maybe it is not an image? Original Error: %{e}","mime_types_processing_error":"Failed to process file with MIME::Types, maybe not valid content-type? Original Error: %{e}","mini_magick_processing_error":"Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}","already_confirmed":"was already confirmed, please try signing in","confirmation_period_expired":"needs to be confirmed within %{period}, please request a new one","expired":"has expired, please request a new one","not_found":"not found","not_locked":"was not locked","not_saved":{"one":"1 error prohibited this %{resource} from being saved:","other":"%{count} errors prohibited this %{resource} from being saved:"}}},"activerecord":{"errors":{"messages":{"record_invalid":"Validation failed: %{errors}","restrict_dependent_destroy":{"one":"Cannot delete record because a dependent %{record} exists","many":"Cannot delete record because dependent %{record} exist"}}},"models":{"user":{"one":"User","other":"Users"}},"attributes":{"user":{"email":"Email","password":"Password","remember_me":"Remember me"}}},"datetime":{"distance_in_words":{"half_a_minute":"half a minute","less_than_x_seconds":{"one":"less than 1 second","other":"less than %{count} seconds"},"x_seconds":{"one":"1 second","other":"%{count} seconds"},"less_than_x_minutes":{"one":"less than a minute","other":"less than %{count} minutes"},"x_minutes":{"one":"1 minute","other":"%{count} minutes"},"about_x_hours":{"one":"about 1 hour","other":"about %{count} hours"},"x_days":{"one":"1 day","other":"%{count} days"},"about_x_months":{"one":"about 1 month","other":"about %{count} months"},"x_months":{"one":"1 month","other":"%{count} months"},"about_x_years":{"one":"about 1 year","other":"about %{count} years"},"over_x_years":{"one":"over 1 year","other":"over %{count} years"},"almost_x_years":{"one":"almost 1 year","other":"almost %{count} years"}},"prompts":{"year":"Year","month":"Month","day":"Day","hour":"Hour","minute":"Minute","second":"Seconds"}},"helpers":{"select":{"prompt":"Please select"},"submit":{"create":"Create %{model}","update":"Update %{model}","submit":"Save %{model}","contact":{"create":"Create Contact","update":"Update Contact"},"contact_group":{"create":"Create Group","update":"Update Group"}},"page_entries_info":{"one_page":{"display_entries":{"zero":"No %{entry_name} found","one":"Displaying \u003cb\u003e1\u003c/b\u003e %{entry_name}","other":"Displaying \u003cb\u003eall %{count}\u003c/b\u003e %{entry_name}"}},"more_pages":{"display_entries":"Displaying %{entry_name} \u003cb\u003e%{first}\u0026nbsp;-\u0026nbsp;%{last}\u003c/b\u003e of \u003cb\u003e%{total}\u003c/b\u003e in total"}}},"flash":{"actions":{"create":{"notice":"%{resource_name} was successfully created."},"update":{"notice":"%{resource_name} was successfully updated."},"destroy":{"notice":"%{resource_name} was successfully destroyed.","alert":"%{resource_name} could not be destroyed."}}},"mongoid":{"errors":{"messages":{"blank_in_locale":"can't be blank in %{location}","message_title":"message","summary_title":"summary","resolution_title":"resolution","ambiguous_relationship":{"message":"Ambiguous relations %{candidates} defined on %{klass}.","summary":"When Mongoid attempts to set an inverse document of a relation in memory, it needs to know which relation it belongs to. When setting %{name}, Mongoid looked on the class %{inverse} for a matching relation, but multiples were found that could potentially match: %{candidates}.","resolution":"On the %{name} relation on %{inverse} you must add an :inverse_of option to specify the exact relationship on %{klass} that is the opposite of %{name}."},"callbacks":{"message":"Calling %{method} on %{klass} resulted in a false return from a callback.","summary":"If a before callback returns false when using Document.create!, Document#save!, or Document#update_attributes! this error will get raised since the document did not actually get saved.","resolution":"Double check all before callbacks to make sure they are not unintentionally returning false."},"calling_document_find_with_nil_is_invalid":{"message":"Calling Document.find with nil is invalid.","summary":"Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.","resolution":"Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect."},"document_not_destroyed":{"message":"%{klass} with id %{id} was not destroyed.","summary":"When calling %{klass}#destroy! and a callback halts the destroy callback chain by returning a false value, the deletion will not actually occur.","resolution":"Check the before/after destroy callbacks to ensure that the return values are truthy for the chain to continue."},"document_not_found":{"message":"Document(s) not found for class %{klass} with id(s) %{missing}.","summary":"When calling %{klass}.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): %{searched} (%{total} total) and the following ids were not found: %{missing}.","resolution":"Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples."},"document_with_attributes_not_found":{"message":"Document not found for class %{klass} with attributes %{attributes}.","summary":"When calling %{klass}.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.","resolution":"Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error."},"eager_load":{"message":"Eager loading :%{name} is not supported since it is a polymorphic belongs_to relation.","summary":"Mongoid cannot currently determine the classes it needs to eager load when the relation is polymorphic. The parents reside in different collections so a simple id lookup is not sufficient enough.","resolution":"Don't attempt to perform this action and have patience, maybe this will be supported in the future."},"invalid_collection":{"message":"Access to the collection for %{klass} is not allowed.","summary":"%{klass}.collection was called, and %{klass} is an embedded document - it resides within the collection of the root document of the hierarchy.","resolution":"For access to the collection that the embedded document is in, use %{klass}#_root.collection, or do not attempt to persist an embedded document without a parent set."},"invalid_config_option":{"message":"Invalid configuration option: %{name}.","summary":"A invalid configuration option was provided in your mongoid.yml, or a typo is potentially present. The valid configuration options are: %{options}.","resolution":"Remove the invalid option or fix the typo. If you were expecting the option to be there, please consult the following page with repect to Mongoid's configuration:\n\n   http://mongoid.org/en/mongoid/docs/installation.html"},"invalid_field":{"message":"Defining a field named '%{name}' is not allowed.","summary":"Defining this field would override the method '%{name}', which would cause issues with expectations around the original method and cause extremely hard to debug issues. The original method was defined in:\n   Object: %{origin}\n   File: %{file}\n   Line: %{line}","resolution":"Use Mongoid.destructive_fields to see what names are not allowed, and don't use these names. These include names that also conflict with core Ruby methods on Object, Module, Enumerable, or included gems that inject methods into these or Mongoid internals."},"invalid_field_option":{"message":"Invalid option :%{option} provided for field :%{name}.","summary":"Mongoid requires that you only provide valid options on each field definition in order to prevent unexpected behaviour later on.","resolution":"When defining the field :%{name} on '%{klass}', please provide valid options for the field. These are currently: %{valid}. If you meant to define a custom field option, please do so first like so:\n\n   Mongoid::Fields.option :%{option} do |model, field, value|\n     # Your logic here...\n   end\n   class %{klass}\n     include Mongoid::Document\n     field :%{name}, %{option}: true\n   end\n\n"},"invalid_includes":{"message":"Invalid includes directive: %{klass}.includes(%{args})","summary":"Eager loading in Mongoid only supports providing arguments to %{klass}.includes that are the names of relations on the %{klass} model, and only supports one level of eager loading. (ie, eager loading associations not on the %{klass} but one step away via another relation is not allowed.","resolution":"Ensure that each parameter passed to %{klass}.includes is a valid name of a relation on the %{klass} model. These are: %{relations}."},"invalid_index":{"message":"Invalid index specification on %{klass}: %{spec}, %{options}","summary":"Indexes in Mongoid are defined as a hash of field name and direction/2d pairs, with a hash for any additional options.","resolution":"Ensure that the index conforms to the correct syntax and has the correct options.\n\n Valid options are:\n   background: true|false\n   database: 'database_name'\n   drop_dups: true|false\n   name: 'index_name'\n   sparse: true|false\n   unique: true|false\n   min: 1\n   max: 1\n   bits: 26\n   bucket_size : 1\n   weights: { content: 1, title: 2 }\n   expire_after_seconds: number_of_seconds\n Valid types are: 1, -1, '2d', '2dsphere', 'geoHaystack', 'text', 'hashed'\n\n Example:\n   class Band\n     include Mongoid::Document\n     index({ name: 1, label: -1 }, { sparse: true })\n     index({ location: '2d' }, { background: true })\n   end\n\n"},"invalid_options":{"message":"Invalid option :%{invalid} provided to relation :%{name}.","summary":"Mongoid checks the options that are passed to the relation macros to ensure that no ill side effects occur by letting something slip by.","resolution":"Valid options are: %{valid}, make sure these are the ones you are using."},"invalid_path":{"message":"Having a root path assigned for %{klass} is invalid.","summary":"Mongoid has two different path objects for determining the location of a document in the database, Root and Embedded. This error is raised when an embedded document somehow gets a root path assigned.","resolution":"Most likely your embedded model, %{klass} is also referenced via a has_many from a root document in another collection. Double check the relation definitions and fix any instances where embedded documents are improperly referenced from other collections."},"invalid_scope":{"message":"Defining a scope of value %{value} on %{klass} is not allowed.","summary":"Scopes in Mongoid must be procs that wrap criteria objects.","resolution":"Change the scope to be a proc wrapped critera.\n\n Example:\n   class Band\n     include Mongoid::Document\n     scope :inactive, -\u003e{ where(active: false) }\n   end\n\n"},"invalid_storage_options":{"message":"Invalid options passed to %{klass}.store_in: %{options}.","summary":"The :store_in macro takes only a hash of parameters with the keys :database, :collection, or :client.","resolution":"Change the options passed to store_in to match the documented API, and ensure all keys in the options hash are symbols.\n\n Example:\n   class Band\n     include Mongoid::Document\n     store_in collection: 'artists', database: 'secondary'\n   end\n\n"},"invalid_storage_parent":{"message":"Invalid store_in call on class %{klass}.","summary":"The :store_in macro can only be called on a base Mongoid Document","resolution":"Remove the store_in call on class %{klass}, as it will use its parent store configuration. Or remove the hierarchy extension for this class."},"invalid_time":{"message":"'%{value}' is not a valid Time.","summary":"Mongoid tries to serialize the values for Date, DateTime, and Time into proper UTC times to store in the database. The provided value could not be parsed.","resolution":"Make sure to pass parsable values to the field setter for Date, DateTime, and Time objects. When this is a String it needs to be valid for Time.parse. Other objects must be valid to pass to Time.local."},"inverse_not_found":{"message":"When adding a(n) %{klass} to %{base}#%{name}, Mongoid could not determine the inverse foreign key to set. The attempted key was '%{inverse}'.","summary":"When adding a document to a relation, Mongoid attempts to link the newly added document to the base of the relation in memory, as well as set the foreign key to link them on the database side. In this case Mongoid could not determine what the inverse foreign key was.","resolution":"If an inverse is not required, like a belongs_to or has_and_belongs_to_many, ensure that :inverse_of =\u003e nil is set on the relation. If the inverse is needed, most likely the inverse cannot be figured out from the names of the relations and you will need to explicitly tell Mongoid on the relation what the inverse is.\n\n Example:\n   class Lush\n     include Mongoid::Document\n     has_one :whiskey, class_name: \"Drink\", inverse_of: :alcoholic\n   end\n\n   class Drink\n     include Mongoid::Document\n     belongs_to :alcoholic, class_name: \"Lush\", inverse_of: :whiskey\n   end"},"invalid_set_polymorphic_relation":{"message":"The %{name} attribute can't be set to an instance of %{other_klass} as %{other_klass} has multiple relations referencing %{klass} as %{name}.","summary":"If the parent class of a polymorphic relation has multiple definitions for the same relation, the values must be set from the parent side and not the child side since Mongoid cannot determine from the child side which relation to go in.","resolution":"Set the values from the parent, or redefine the relation with only a single definition in the parent."},"invalid_value":{"message":"Value of type %{value_class} cannot be written to a field of type %{field_class}","summary":"Tried to set a value of type %{value_class} to a field of type %{field_class}","resolution":"Verify if the value to be set correspond to field definition"},"mixed_relations":{"message":"Referencing a(n) %{embedded} document from the %{root} document via a relational association is not allowed since the %{embedded} is embedded.","summary":"In order to properly access a(n) %{embedded} from %{root} the reference would need to go through the root document of %{embedded}. In a simple case this would require Mongoid to store an extra foreign key for the root, in more complex cases where %{embedded} is multiple levels deep a key would need to be stored for each parent up the hierarchy.","resolution":"Consider not embedding %{embedded}, or do the key storage and access in a custom manner in the application code."},"mixed_client_configuration":{"message":"Both uri and standard configuration options defined for client: '%{name}'.","summary":"Instead of simply giving uri or standard options a preference order, Mongoid assumes that you have made a mistake in your configuration and requires that you provide one or the other, but not both. The options that were provided were: %{config}.","resolution":"Provide either only a uri as configuration or only standard options."},"nested_attributes_metadata_not_found":{"message":"Could not find metadata for relation '%{name}' on model: %{klass}.","summary":"When defining nested attributes for a relation, Mongoid needs to access the metadata for the relation '%{name}' in order if add autosave functionality to it, if applicable. Either no relation named '%{name}' could be found, or the relation had not been defined yet.","resolution":"Make sure that there is a relation defined named '%{name}' on %{klass} or that the relation definition comes before the accepts_nested_attributes_for macro in the model - order matters so that Mongoid has access to the metadata.\n\n Example:\n   class Band\n     include Mongoid::Document\n     has_many :albums\n     accepts_nested_attributes_for :albums\n   end\n\n"},"no_default_client":{"message":"No default client configuration is defined.","summary":"The configuration provided settings for: %{keys}, but Mongoid requires a :default to be defined at minimum.","resolution":"If configuring via a mongoid.yml, ensure that within your :clients section a :default client is defined.\n\n Example:\n   development:\n     clients:\n       default:\n         hosts:\n           - localhost:27017\n\n"},"no_environment":{"message":"Could not load the configuration since no environment was defined.","summary":"Mongoid attempted to find the appropriate environment but no Rails.env, Sinatra::Base.environment, RACK_ENV, or MONGOID_ENV could be found.","resolution":"Make sure some environment is set from the mentioned options. Mongoid cannot load configuration from the yaml without knowing which environment it is in, and we have considered defaulting to development an undesireable side effect of this not being defined."},"no_map_reduce_output":{"message":"No output location was specified for the map/reduce operation.","summary":"When executing a map/reduce, you must provide the output location of the results. The attempted command was: %{command}.","resolution":"Provide the location that the output of the operation is to go by chaining an #out call to the map/reduce.\n\n Example:\n   Band.map_reduce(map, reduce).out(inline: 1)\n\n Valid options for the out function are:\n   inline:  1\n   merge:   'collection-name'\n   replace: 'collection-name'\n   reduce:  'collection-name'\n\n"},"no_metadata":{"message":"Metadata not found for document of type %{klass}.","summary":"Mongoid sets the metadata of a relation on the document when it is either loaded from within the relation, or added to one. The presence of the metadata is required in order to provide various functionality around relations. Most likely you are getting this error because the document is embedded and was attempted to be persisted without being associated with a parent, or the relation was not properly defined.","resolution":"Ensure that your relations on the %{klass} model are all properly defined, and that the inverse relations are also properly defined. Embedded relations must have both the parent (embeds_one/embeds_many) and the inverse (embedded_in) present in order to work properly."},"no_parent":{"message":"Cannot persist embedded document %{klass} without a parent document.","summary":"If the document is embedded, in order to be persisted it must always have a reference to its parent document. This is most likely caused by either calling %{klass}.create or %{klass}.create! without setting the parent document as an attribute.","resolution":"Ensure that you've set the parent relation if instantiating the embedded document directly, or always create new embedded documents via the parent relation."},"no_client_config":{"message":"No configuration could be found for a client named '%{name}'.","summary":"When attempting to create the new client, Mongoid could not find a client configuration for the name: '%{name}'. This is necessary in order to know the host, port, and options needed to connect.","resolution":"Double check your mongoid.yml to make sure under the clients key that a configuration exists for '%{name}'. If you have set the configuration programatically, ensure that '%{name}' exists in the configuration hash."},"no_clients_config":{"message":"No clients configuration provided.","summary":"Mongoid's configuration requires that you provide details about each client that can be connected to, and requires in the clients config at least 1 default client to exist.","resolution":"Double check your mongoid.yml to make sure that you have a top-level clients key with at least 1 default client configuration for it. You can regenerate a new mongoid.yml for assistance via `rails g mongoid:config`.\n\n Example:\n   development:\n     clients:\n       default:\n         database: mongoid_dev\n         hosts:\n           - localhost:27017\n\n"},"no_client_database":{"message":"No database provided for client configuration: :%{name}.","summary":"Each client configuration must provide a database so Mongoid knows where the default database to persist to. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :database value for the client's default database is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"no_client_hosts":{"message":"No hosts provided for client configuration: :%{name}.","summary":"Each client configuration must provide hosts so Mongoid knows where the database server is located. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :hosts value for the client hosts is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"readonly_attribute":{"message":"Attempted to set the readonly attribute '%{name}' with the value: %{value}.","summary":"Attributes flagged as readonly via Model.attr_readonly can only have values set when the document is a new record.","resolution":"Don't define '%{name}' as readonly, or do not attempt to update its value after the document is persisted."},"readonly_document":{"message":"Attempted to persist the readonly document '%{klass}'.","summary":"Documents loaded from the database using #only cannot be persisted.","resolution":"Don't attempt to persist documents that are flagged as readonly."},"scope_overwrite":{"message":"Cannot create scope :%{scope_name}, because of existing method %{model_name}.%{scope_name}.","summary":"When defining a scope that conflicts with a method that already exists on the model, this error will get raised if Mongoid.scope_overwrite_exception is set to true.","resolution":"Change the name of the scope so it does not conflict with the already defined method %{model_name}, or set the configuration option Mongoid.scope_overwrite_exception to false, which is its default. In this case a warning will be logged."},"taken":"is already taken","too_many_nested_attribute_records":{"message":"Accepting nested attributes for %{association} is limited to %{limit} records.","summary":"More documents were sent to be processed than the allowed limit.","resolution":"The limit is set as an option to the macro, for example: accepts_nested_attributes_for :%{association}, limit: %{limit}. Consider raising this limit or making sure no more are sent than the set value."},"unknown_attribute":{"message":"Attempted to set a value for '%{name}' which is not allowed on the model %{klass}.","summary":"Without including Mongoid::Attributes::Dynamic in your model and the attribute does not already exist in the attributes hash, attempting to call %{klass}#%{name}= for it is not allowed. This is also triggered by passing the attribute to any method that accepts an attributes hash, and is raised instead of getting a NoMethodError.","resolution":"You can include Mongoid::Attributes::Dynamic if you expect to be writing values for undefined fields often."},"unsaved_document":{"message":"Attempted to save %{document} before the parent %{base}.","summary":"You cannot call create or create! through the relation (%{document}) whose parent (%{base}) is not already saved. This would cause the database to be out of sync since the child could potentially reference a nonexistent parent.","resolution":"Make sure to only use create or create! when the parent document %{base} is persisted."},"unsupported_javascript":{"message":"Executing Javascript $where selector on an embedded criteria is not supported.","summary":"Mongoid only supports providing a hash of arguments to #where criterion on embedded documents. Since %{klass} is embedded, the expression %{javascript} is not allowed.","resolution":"Please provide a standard hash to #where when the criteria is for an embedded relation."},"validations":{"message":"Validation of %{document} failed.","summary":"The following errors were found: %{errors}","resolution":"Try persisting the document with valid data or remove the validations."},"delete_restriction":{"message":"Cannot delete %{document} because of dependent '%{relation}'.","summary":"When defining '%{relation}' with a :dependent =\u003e :restrict, Mongoid will raise an error when attempting to delete the %{document} when the child '%{relation}' still has documents in it.","resolution":"Don't attempt to delete the parent %{document} when it has children, or change the dependent option on the relation."}},"contact":{"duplicate_key":"a_contact_with","duplicate_val":" phone_number \"%phone%\" already exists."},"contact_group":{"duplicate_key":"a_contact_group","duplicate_val":" labeled \"%label%\" already exists."}},"models":{"contact":{"one":"Contact","other":"Contacts"},"contact_group":{"one":"Contact Group","other":"Contact Groups"}},"attributes":{"contact":{"prefix":"Country Code","mobile":"Mobile"},"contact_group":{"label":"Label","description":"Description"}}},"views":{"pagination":{"first":"\u0026laquo; First","last":"Last \u0026raquo;","previous":"\u0026lsaquo; Prev","next":"Next \u0026rsaquo;","truncate":"\u0026hellip;"}},"devise":{"confirmations":{"confirmed":"Your email address has been successfully confirmed.","send_instructions":"You will receive an email with instructions for how to confirm your email address in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."},"failure":{"already_authenticated":"You are already signed in.","inactive":"Your account is not activated yet.","invalid":"Invalid %{authentication_keys} or password.","locked":"Your account is locked.","last_attempt":"You have one more attempt before your account is locked.","not_found_in_database":"Invalid %{authentication_keys} or password.","timeout":"Your session expired. Please sign in again to continue.","unauthenticated":"You need to sign in or sign up before continuing.","unconfirmed":"You have to confirm your email address before continuing."},"mailer":{"confirmation_instructions":{"subject":"Confirmation instructions"},"reset_password_instructions":{"subject":"Reset password instructions"},"unlock_instructions":{"subject":"Unlock instructions"}},"omniauth_callbacks":{"failure":"Could not authenticate you from %{kind} because \"%{reason}\".","success":"Successfully authenticated from %{kind} account."},"passwords":{"no_token":"You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.","send_instructions":"You will receive an email with instructions on how to reset your password in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.","updated":"Your password has been changed successfully. You are now signed in.","updated_not_active":"Your password has been changed successfully."},"registrations":{"destroyed":"Bye! Your account has been successfully cancelled. We hope to see you again soon.","signed_up":"Welcome! You have signed up successfully.","signed_up_but_inactive":"You have signed up successfully. However, we could not sign you in because your account is not yet activated.","signed_up_but_locked":"You have signed up successfully. However, we could not sign you in because your account is locked.","signed_up_but_unconfirmed":"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.","update_needs_confirmation":"You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.","updated":"Your account has been updated successfully."},"sessions":{"signed_in":"Signed in successfully.","signed_out":"Signed out successfully.","already_signed_out":"Signed out successfully."},"unlocks":{"send_instructions":"You will receive an email with instructions for how to unlock your account in a few minutes.","send_paranoid_instructions":"If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.","unlocked":"Your account has been unlocked successfully. Please sign in to continue."}},"version":"Version","settings":"Settings","back":"Back","cannot_undo":"This action can not be undone!","actions":{"list":"List","view":"View","show":"Show","browse":"Browse","create":"Create","edit":"Edit","update":"Update","delete":"Delete","empty":"Empty","activate":"Activate","deactivate":"Deactivate"},"list_contact_groups":"Contact Groups List","view_contact_group":"View Contact Group","new_contact_group":"New Contact Group","edit_contact_group":"Edit Contact Group","contact_group_del_confirm":"Delete Contact Group \"%contact_group%\"?\n\n","contact_group_form":{"label_required":"Contact Group Label can't be blank","label_length":"Contact Group Label length should be up to 20 characters","description_length":"Contact Group Description length should be up to 120 characters"},"list_contacts":"Contacts List","view_contact":"View Contact","show_contacts":"Browse Contacts","new_contact":"New Contact","edit_contact":"Edit Contact","contact_del_confirm":"Delete contact \"%contact%\"?\n\n","contact_form":{"prefix_required":"Contact Country Code can't be blank","prefix_max_length":"Contact Country Code length should be up to 4 digits","prefix_numeric":"Contact Country Code should contain only digits","mobile_required":"Contact Mobile can't be blank","mobile_min_length":"Contact Mobile length should be at least 6 digits","mobile_max_length":"Contact Mobile length should be up to 16 digits","mobile_numeric":"Contact Mobile should contain only digits"},"login":"Login","logout":"Logout"},"gr":{"devise":{"confirmations":{"confirmed":"Ο λογαριασμός σας επιβεβαιώθηκε με επιτυχία. Είστε συνδεδεμένος/η.","send_instructions":"Σε λίγα λεπτά θα λάβετε οδηγίες για το πώς θα επιβεβαιώσετε το email σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για την επιβεβαίωση του λογαριασμού σας."},"failure":{"already_authenticated":"Είστε ήδη συνδεδεμένος.","inactive":"Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","invalid":"Μη έγκυρο email ή κωδικός.","locked":"Ο λογαριασμός σας είναι κλειδωμένος.","last_attempt":"Έχετε άλλη μια προσπάθεια πριν ο λογαριασμός σας κλειδωθεί.","not_found_in_database":"Μη έγκυρo %{authentication_keys} ή κωδικός.","timeout":"Η σύνδεσή σας τερματίστηκε, παρακαλούμε συνδεθείτε ξανά.","unauthenticated":"Χρειάζεται να συνδεθείτε πριν να συνεχίσετε.","unconfirmed":"Απαιτείται η επιβεβαίωση του λογαριασμού σας πριν συνεχίσετε.","invalid_token":"Μη έγκυρος κωδικός πιστοποίησης."},"mailer":{"confirmation_instructions":{"subject":"Οδηγίες επιβεβαίωσης"},"reset_password_instructions":{"subject":"Οδηγίες επαναφοράς του κωδικού"},"unlock_instructions":{"subject":"Οδηγίες ενεργοποίησης"}},"omniauth_callbacks":{"failure":"Δεν επιτρέπεται να πραγματοποιήσετε %{kind} επειδή είναι \"%{reason}\".","success":"Επιτυχής έγκριση από το λογαριασμό %{kind}."},"passwords":{"no_token":"Δεν έχετε πρόσβαση σε αυτή την σελίδα εαν δεν ηρθατε μέσω email επαναφοράς κωδικού. Εαν ηρθατε μέσω email επαναφοράς κωδικού, παρακαλούμε να σιγουρευτείτε οτι χρησιμοποιήσατε τον πλήρη σύνδεσμο (URL) που σας δόθηκε.","send_instructions":"Θα σας αποσταλεί σε λίγα λεπτά, ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε οδηγίες επαναφοράς του κωδικού σας, μέσω email.","updated":"Ο κωδικός σας άλλαξε με επιτυχία. Μπορείτε να συνδεθείτε.","updated_not_active":"Ο κωδικός σας άλλαξε με επιτυχία."},"registrations":{"destroyed":"Ο λογαριασμός σας διαγράφηκε με επιτυχία.","signed_up":"Καλωσήρθατε! Ο λογαριασμός σας δημιουργήθηκε με επιτυχία.","signed_up_but_inactive":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","signed_up_but_locked":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας έχει κλειδωθεί.","signed_up_but_unconfirmed":"Ένα μήνυμα που περιέχει τον σύνδεσμο επιβεβαίωσης έχει σταλθεί στο email σας. Ακολουθήστε τον σύνδεσμο για να ενεργοποιήσετε τον λογαριασμό σας.","update_needs_confirmation":"Ο λογαριασμός σας ενημερώθηκε με επιτυχία, αλλά χρειάζεται επιβεβαίωση της νέας διεύθυνσης email. Παρακαλούμε ελέγξτε τα email σας και ακολουθήστε τον σύνδεσμο επιβεβαίωσης ώστε να γίνει επαλήθευση της νέας διεύθυνσης email.","inactive_signed_up":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Όμως, δε μπορείτε να συνδεθείτε επειδή ο λογαριασμός σας είναι %{reason}.","updated":"Ανανεώσατε το λογαριασμό σας με επιτυχία.","reasons":{"inactive":"ανενεργός","unconfirmed":"μη επιβεβαιωμένος. Σας είχε αποσταλεί email με οδηγίες","locked":"κλειδωμένος"}},"sessions":{"signed_in":"Σύνδεση με επιτυχία.","signed_out":"Αποσύνδεση με επιτυχία.","already_signed_out":"Αποσύνδεση με επιτυχία."},"unlocks":{"send_instructions":"Θα σας αποσταλούν οδηγίες ενεργοποίησης του λογαριασμού σας.","send_paranoid_instructions":"Αν ο λογαριασμός σας υπάρχει, θα σας αποσταλεί σε λίγα λεπτά ένα email με οδηγίες ενεργοποίησής του.","unlocked":"Ο λογαριασμός σας ενεργοποιήθηκε με επιτυχία. Είστε συνδεδεμένος/η."}},"errors":{"messages":{"already_confirmed":"έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκιμάστε να ξανασυνδεθείτε","confirmation_period_expired":"πρέπει να γίνει επιβεβαίωση μέσα σε %{period}, παρακαλούμε ζητήστε νέο email επιβεβαίωσης","expired":"έχει λήξει, παρακαλούμε ζητήστε νέο","not_found":"δεν βρέθηκε","not_locked":"δεν είναι κλειδωμένο","not_saved":{"one":"1 σφάλμα εμπόδισε αυτό το %{resource} να αποθηκευτεί:","other":"%{count} σφάλματα εμπόδισαν αυτό το %{resource} να αποθηκευτεί:"}}},"version":"Έκδοση","settings":"Ρυθμίσεις","back":"Πίσω","cannot_undo":"Η ενέργεια αυτή δε μπορεί να αναιρεθεί!","actions":{"list":"Λίστα","view":"Προβολή","show":"Εμφάνιση","browse":"Περιήγηση","create":"Δημιουργία","edit":"Επεξεργασία","update":"Τροποποίηση","delete":"Διαγραφή","empty":"Άδειασμα","activate":"Ενεργοποίηση","deactivate":"Απενεργοποίηση"},"list_contact_groups":"Λίστα Ομάδων Επαφών","view_contact_group":"Προβολή Ομάδας Επαφών","new_contact_group":"Νέα Ομάδα Επαφών","edit_contact_group":"Επεξεργασία Ομάδας Επαφών","contact_group_del_confirm":"Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n","contact_group_form":{"label_required":"Η Επιγραφή μίας Ομάδας Επαφών δε μπορεί να είναι κενή","label_length":"Η Επιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες","description_length":"Η Περιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 120 χαρακτήρες"},"list_contacts":"Λίστα Επαφών","view_contact":"Προβολή Επαφής","show_contacts":"Εμφάνιση Επαφών","new_contact":"Νέα Επαφή","edit_contact":"Επεξεργασία Επαφής","contact_del_confirm":"Διαγραφή επαφής \"%contact%\";\n\n","contact_form":{"prefix_required":"Ο Κωδικός Χώρας μιάς Επαφής δε μπορεί να είναι κενός","prefix_max_length":"Ο Κωδικός Χώρας μιάς Επαφής δεν πρέπει να ξεπερνάει τα 4 ψηφία","prefix_numeric":"Ο Κωδικός Χώρας μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία","mobile_required":"Το Κινητό Τηλέφωνο μιάς Επαφής δε μπορεί να είναι κενό","mobile_min_length":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται από τουλάχιστον 6 ψηφία","mobile_max_length":"Το Κινητό Τηλέφωνο μιάς Επαφής δεν πρέπει να ξεπερνάει τα 16 ψηφία","mobile_numeric":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία"},"helpers":{"submit":{"contact":{"create":"Δημιουργία Επαφής","update":"Τροποποίηση Επαφής"},"contact_group":{"create":"Δημιουργία Ομάδας","update":"Τροποποίηση Ομάδας"}}},"activerecord":{"models":{"user":{"one":"Χρήστης","other":"Χρήστες"}},"attributes":{"user":{"email":"Ηλεκτρονικό ταχυδρομίο (email)","password":"Κωδικός πρόσβασης","remember_me":"Θυμήσου με! :P"}}},"mongoid":{"models":{"contact":{"one":"Επαφή","other":"Επαφές"},"contact_group":{"one":"Ομάδα Επαφών","other":"Ομάδες Επαφών"}},"attributes":{"contact":{"prefix":"Κωδικός Χώρας","mobile":"Κινητό Τηλέφωνο"},"contact_group":{"label":"Επιγραφή","description":"Περιγραφή"}},"errors":{"contact":{"duplicate_key":"μία_επαφή_με","duplicate_val":" τηλέφωνο \"%phone%\" είναι ήδη καταχωρημένη."},"contact_group":{"duplicate_key":"μία_ομάδα_επαφών","duplicate_val":" με επιγραφή \"%label%\" είναι ήδη καταχωρημένη."}}},"login":"Είσοδος","logout":"Έξοδος"}};
+I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %d","long":"%B %d, %Y"},"day_names":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"abbr_day_names":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"month_names":[null,"January","February","March","April","May","June","July","August","September","October","November","December"],"abbr_month_names":[null,"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"order":["year","month","day"]},"time":{"formats":{"default":"%a, %d %b %Y %H:%M:%S %z","short":"%d %b %H:%M","long":"%B %d, %Y %H:%M"},"am":"am","pm":"pm"},"support":{"array":{"words_connector":", ","two_words_connector":" and ","last_word_connector":", and "}},"number":{"format":{"separator":".","delimiter":",","precision":3,"significant":false,"strip_insignificant_zeros":false},"currency":{"format":{"format":"%u%n","unit":"$","separator":".","delimiter":",","precision":2,"significant":false,"strip_insignificant_zeros":false}},"percentage":{"format":{"delimiter":"","format":"%n%"}},"precision":{"format":{"delimiter":""}},"human":{"format":{"delimiter":"","precision":3,"significant":true,"strip_insignificant_zeros":true},"storage_units":{"format":"%n %u","units":{"byte":{"one":"Byte","other":"Bytes"},"kb":"KB","mb":"MB","gb":"GB","tb":"TB"}},"decimal_units":{"format":"%n %u","units":{"unit":"","thousand":"Thousand","million":"Million","billion":"Billion","trillion":"Trillion","quadrillion":"Quadrillion"}}}},"errors":{"format":"%{attribute} %{message}","messages":{"inclusion":"is not included in the list","exclusion":"is reserved","invalid":"is invalid","confirmation":"doesn't match %{attribute}","accepted":"must be accepted","empty":"can't be empty","blank":"can't be blank","present":"must be blank","too_long":{"one":"is too long (maximum is 1 character)","other":"is too long (maximum is %{count} characters)"},"too_short":{"one":"is too short (minimum is 1 character)","other":"is too short (minimum is %{count} characters)"},"wrong_length":{"one":"is the wrong length (should be 1 character)","other":"is the wrong length (should be %{count} characters)"},"not_a_number":"is not a number","not_an_integer":"must be an integer","greater_than":"must be greater than %{count}","greater_than_or_equal_to":"must be greater than or equal to %{count}","equal_to":"must be equal to %{count}","less_than":"must be less than %{count}","less_than_or_equal_to":"must be less than or equal to %{count}","other_than":"must be other than %{count}","odd":"must be odd","even":"must be even","taken":"has already been taken","carrierwave_processing_error":"failed to be processed","carrierwave_integrity_error":"is not of an allowed file type","carrierwave_download_error":"could not be downloaded","extension_white_list_error":"You are not allowed to upload %{extension} files, allowed types: %{allowed_types}","extension_black_list_error":"You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}","rmagick_processing_error":"Failed to manipulate with rmagick, maybe it is not an image? Original Error: %{e}","mime_types_processing_error":"Failed to process file with MIME::Types, maybe not valid content-type? Original Error: %{e}","mini_magick_processing_error":"Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}","already_confirmed":"was already confirmed, please try signing in","confirmation_period_expired":"needs to be confirmed within %{period}, please request a new one","expired":"has expired, please request a new one","not_found":"not found","not_locked":"was not locked","not_saved":{"one":"1 error prohibited this %{resource} from being saved:","other":"%{count} errors prohibited this %{resource} from being saved:"}}},"activerecord":{"errors":{"messages":{"record_invalid":"Validation failed: %{errors}","restrict_dependent_destroy":{"one":"Cannot delete record because a dependent %{record} exists","many":"Cannot delete record because dependent %{record} exist"}}},"models":{"user":{"one":"User","other":"Users"}},"attributes":{"user":{"email":"Email","password":"Password","remember_me":"Remember me"}}},"datetime":{"distance_in_words":{"half_a_minute":"half a minute","less_than_x_seconds":{"one":"less than 1 second","other":"less than %{count} seconds"},"x_seconds":{"one":"1 second","other":"%{count} seconds"},"less_than_x_minutes":{"one":"less than a minute","other":"less than %{count} minutes"},"x_minutes":{"one":"1 minute","other":"%{count} minutes"},"about_x_hours":{"one":"about 1 hour","other":"about %{count} hours"},"x_days":{"one":"1 day","other":"%{count} days"},"about_x_months":{"one":"about 1 month","other":"about %{count} months"},"x_months":{"one":"1 month","other":"%{count} months"},"about_x_years":{"one":"about 1 year","other":"about %{count} years"},"over_x_years":{"one":"over 1 year","other":"over %{count} years"},"almost_x_years":{"one":"almost 1 year","other":"almost %{count} years"}},"prompts":{"year":"Year","month":"Month","day":"Day","hour":"Hour","minute":"Minute","second":"Seconds"}},"helpers":{"select":{"prompt":"Please select"},"submit":{"create":"Create %{model}","update":"Update %{model}","submit":"Save %{model}","contact":{"create":"Create Contact","update":"Update Contact"},"contact_group":{"create":"Create Group","update":"Update Group","remove_contacts":"Remove from Group"}},"page_entries_info":{"one_page":{"display_entries":{"zero":"No %{entry_name} found","one":"Displaying \u003cb\u003e1\u003c/b\u003e %{entry_name}","other":"Displaying \u003cb\u003eall %{count}\u003c/b\u003e %{entry_name}"}},"more_pages":{"display_entries":"Displaying %{entry_name} \u003cb\u003e%{first}\u0026nbsp;-\u0026nbsp;%{last}\u003c/b\u003e of \u003cb\u003e%{total}\u003c/b\u003e in total"}}},"flash":{"actions":{"create":{"notice":"%{resource_name} was successfully created."},"update":{"notice":"%{resource_name} was successfully updated."},"destroy":{"notice":"%{resource_name} was successfully destroyed.","alert":"%{resource_name} could not be destroyed."}}},"mongoid":{"errors":{"messages":{"blank_in_locale":"can't be blank in %{location}","message_title":"message","summary_title":"summary","resolution_title":"resolution","ambiguous_relationship":{"message":"Ambiguous relations %{candidates} defined on %{klass}.","summary":"When Mongoid attempts to set an inverse document of a relation in memory, it needs to know which relation it belongs to. When setting %{name}, Mongoid looked on the class %{inverse} for a matching relation, but multiples were found that could potentially match: %{candidates}.","resolution":"On the %{name} relation on %{inverse} you must add an :inverse_of option to specify the exact relationship on %{klass} that is the opposite of %{name}."},"callbacks":{"message":"Calling %{method} on %{klass} resulted in a false return from a callback.","summary":"If a before callback returns false when using Document.create!, Document#save!, or Document#update_attributes! this error will get raised since the document did not actually get saved.","resolution":"Double check all before callbacks to make sure they are not unintentionally returning false."},"calling_document_find_with_nil_is_invalid":{"message":"Calling Document.find with nil is invalid.","summary":"Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.","resolution":"Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect."},"document_not_destroyed":{"message":"%{klass} with id %{id} was not destroyed.","summary":"When calling %{klass}#destroy! and a callback halts the destroy callback chain by returning a false value, the deletion will not actually occur.","resolution":"Check the before/after destroy callbacks to ensure that the return values are truthy for the chain to continue."},"document_not_found":{"message":"Document(s) not found for class %{klass} with id(s) %{missing}.","summary":"When calling %{klass}.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): %{searched} (%{total} total) and the following ids were not found: %{missing}.","resolution":"Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples."},"document_with_attributes_not_found":{"message":"Document not found for class %{klass} with attributes %{attributes}.","summary":"When calling %{klass}.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.","resolution":"Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error."},"eager_load":{"message":"Eager loading :%{name} is not supported since it is a polymorphic belongs_to relation.","summary":"Mongoid cannot currently determine the classes it needs to eager load when the relation is polymorphic. The parents reside in different collections so a simple id lookup is not sufficient enough.","resolution":"Don't attempt to perform this action and have patience, maybe this will be supported in the future."},"invalid_collection":{"message":"Access to the collection for %{klass} is not allowed.","summary":"%{klass}.collection was called, and %{klass} is an embedded document - it resides within the collection of the root document of the hierarchy.","resolution":"For access to the collection that the embedded document is in, use %{klass}#_root.collection, or do not attempt to persist an embedded document without a parent set."},"invalid_config_option":{"message":"Invalid configuration option: %{name}.","summary":"A invalid configuration option was provided in your mongoid.yml, or a typo is potentially present. The valid configuration options are: %{options}.","resolution":"Remove the invalid option or fix the typo. If you were expecting the option to be there, please consult the following page with repect to Mongoid's configuration:\n\n   http://mongoid.org/en/mongoid/docs/installation.html"},"invalid_field":{"message":"Defining a field named '%{name}' is not allowed.","summary":"Defining this field would override the method '%{name}', which would cause issues with expectations around the original method and cause extremely hard to debug issues. The original method was defined in:\n   Object: %{origin}\n   File: %{file}\n   Line: %{line}","resolution":"Use Mongoid.destructive_fields to see what names are not allowed, and don't use these names. These include names that also conflict with core Ruby methods on Object, Module, Enumerable, or included gems that inject methods into these or Mongoid internals."},"invalid_field_option":{"message":"Invalid option :%{option} provided for field :%{name}.","summary":"Mongoid requires that you only provide valid options on each field definition in order to prevent unexpected behaviour later on.","resolution":"When defining the field :%{name} on '%{klass}', please provide valid options for the field. These are currently: %{valid}. If you meant to define a custom field option, please do so first like so:\n\n   Mongoid::Fields.option :%{option} do |model, field, value|\n     # Your logic here...\n   end\n   class %{klass}\n     include Mongoid::Document\n     field :%{name}, %{option}: true\n   end\n\n"},"invalid_includes":{"message":"Invalid includes directive: %{klass}.includes(%{args})","summary":"Eager loading in Mongoid only supports providing arguments to %{klass}.includes that are the names of relations on the %{klass} model, and only supports one level of eager loading. (ie, eager loading associations not on the %{klass} but one step away via another relation is not allowed.","resolution":"Ensure that each parameter passed to %{klass}.includes is a valid name of a relation on the %{klass} model. These are: %{relations}."},"invalid_index":{"message":"Invalid index specification on %{klass}: %{spec}, %{options}","summary":"Indexes in Mongoid are defined as a hash of field name and direction/2d pairs, with a hash for any additional options.","resolution":"Ensure that the index conforms to the correct syntax and has the correct options.\n\n Valid options are:\n   background: true|false\n   database: 'database_name'\n   drop_dups: true|false\n   name: 'index_name'\n   sparse: true|false\n   unique: true|false\n   min: 1\n   max: 1\n   bits: 26\n   bucket_size : 1\n   weights: { content: 1, title: 2 }\n   expire_after_seconds: number_of_seconds\n Valid types are: 1, -1, '2d', '2dsphere', 'geoHaystack', 'text', 'hashed'\n\n Example:\n   class Band\n     include Mongoid::Document\n     index({ name: 1, label: -1 }, { sparse: true })\n     index({ location: '2d' }, { background: true })\n   end\n\n"},"invalid_options":{"message":"Invalid option :%{invalid} provided to relation :%{name}.","summary":"Mongoid checks the options that are passed to the relation macros to ensure that no ill side effects occur by letting something slip by.","resolution":"Valid options are: %{valid}, make sure these are the ones you are using."},"invalid_path":{"message":"Having a root path assigned for %{klass} is invalid.","summary":"Mongoid has two different path objects for determining the location of a document in the database, Root and Embedded. This error is raised when an embedded document somehow gets a root path assigned.","resolution":"Most likely your embedded model, %{klass} is also referenced via a has_many from a root document in another collection. Double check the relation definitions and fix any instances where embedded documents are improperly referenced from other collections."},"invalid_scope":{"message":"Defining a scope of value %{value} on %{klass} is not allowed.","summary":"Scopes in Mongoid must be procs that wrap criteria objects.","resolution":"Change the scope to be a proc wrapped critera.\n\n Example:\n   class Band\n     include Mongoid::Document\n     scope :inactive, -\u003e{ where(active: false) }\n   end\n\n"},"invalid_storage_options":{"message":"Invalid options passed to %{klass}.store_in: %{options}.","summary":"The :store_in macro takes only a hash of parameters with the keys :database, :collection, or :client.","resolution":"Change the options passed to store_in to match the documented API, and ensure all keys in the options hash are symbols.\n\n Example:\n   class Band\n     include Mongoid::Document\n     store_in collection: 'artists', database: 'secondary'\n   end\n\n"},"invalid_storage_parent":{"message":"Invalid store_in call on class %{klass}.","summary":"The :store_in macro can only be called on a base Mongoid Document","resolution":"Remove the store_in call on class %{klass}, as it will use its parent store configuration. Or remove the hierarchy extension for this class."},"invalid_time":{"message":"'%{value}' is not a valid Time.","summary":"Mongoid tries to serialize the values for Date, DateTime, and Time into proper UTC times to store in the database. The provided value could not be parsed.","resolution":"Make sure to pass parsable values to the field setter for Date, DateTime, and Time objects. When this is a String it needs to be valid for Time.parse. Other objects must be valid to pass to Time.local."},"inverse_not_found":{"message":"When adding a(n) %{klass} to %{base}#%{name}, Mongoid could not determine the inverse foreign key to set. The attempted key was '%{inverse}'.","summary":"When adding a document to a relation, Mongoid attempts to link the newly added document to the base of the relation in memory, as well as set the foreign key to link them on the database side. In this case Mongoid could not determine what the inverse foreign key was.","resolution":"If an inverse is not required, like a belongs_to or has_and_belongs_to_many, ensure that :inverse_of =\u003e nil is set on the relation. If the inverse is needed, most likely the inverse cannot be figured out from the names of the relations and you will need to explicitly tell Mongoid on the relation what the inverse is.\n\n Example:\n   class Lush\n     include Mongoid::Document\n     has_one :whiskey, class_name: \"Drink\", inverse_of: :alcoholic\n   end\n\n   class Drink\n     include Mongoid::Document\n     belongs_to :alcoholic, class_name: \"Lush\", inverse_of: :whiskey\n   end"},"invalid_set_polymorphic_relation":{"message":"The %{name} attribute can't be set to an instance of %{other_klass} as %{other_klass} has multiple relations referencing %{klass} as %{name}.","summary":"If the parent class of a polymorphic relation has multiple definitions for the same relation, the values must be set from the parent side and not the child side since Mongoid cannot determine from the child side which relation to go in.","resolution":"Set the values from the parent, or redefine the relation with only a single definition in the parent."},"invalid_value":{"message":"Value of type %{value_class} cannot be written to a field of type %{field_class}","summary":"Tried to set a value of type %{value_class} to a field of type %{field_class}","resolution":"Verify if the value to be set correspond to field definition"},"mixed_relations":{"message":"Referencing a(n) %{embedded} document from the %{root} document via a relational association is not allowed since the %{embedded} is embedded.","summary":"In order to properly access a(n) %{embedded} from %{root} the reference would need to go through the root document of %{embedded}. In a simple case this would require Mongoid to store an extra foreign key for the root, in more complex cases where %{embedded} is multiple levels deep a key would need to be stored for each parent up the hierarchy.","resolution":"Consider not embedding %{embedded}, or do the key storage and access in a custom manner in the application code."},"mixed_client_configuration":{"message":"Both uri and standard configuration options defined for client: '%{name}'.","summary":"Instead of simply giving uri or standard options a preference order, Mongoid assumes that you have made a mistake in your configuration and requires that you provide one or the other, but not both. The options that were provided were: %{config}.","resolution":"Provide either only a uri as configuration or only standard options."},"nested_attributes_metadata_not_found":{"message":"Could not find metadata for relation '%{name}' on model: %{klass}.","summary":"When defining nested attributes for a relation, Mongoid needs to access the metadata for the relation '%{name}' in order if add autosave functionality to it, if applicable. Either no relation named '%{name}' could be found, or the relation had not been defined yet.","resolution":"Make sure that there is a relation defined named '%{name}' on %{klass} or that the relation definition comes before the accepts_nested_attributes_for macro in the model - order matters so that Mongoid has access to the metadata.\n\n Example:\n   class Band\n     include Mongoid::Document\n     has_many :albums\n     accepts_nested_attributes_for :albums\n   end\n\n"},"no_default_client":{"message":"No default client configuration is defined.","summary":"The configuration provided settings for: %{keys}, but Mongoid requires a :default to be defined at minimum.","resolution":"If configuring via a mongoid.yml, ensure that within your :clients section a :default client is defined.\n\n Example:\n   development:\n     clients:\n       default:\n         hosts:\n           - localhost:27017\n\n"},"no_environment":{"message":"Could not load the configuration since no environment was defined.","summary":"Mongoid attempted to find the appropriate environment but no Rails.env, Sinatra::Base.environment, RACK_ENV, or MONGOID_ENV could be found.","resolution":"Make sure some environment is set from the mentioned options. Mongoid cannot load configuration from the yaml without knowing which environment it is in, and we have considered defaulting to development an undesireable side effect of this not being defined."},"no_map_reduce_output":{"message":"No output location was specified for the map/reduce operation.","summary":"When executing a map/reduce, you must provide the output location of the results. The attempted command was: %{command}.","resolution":"Provide the location that the output of the operation is to go by chaining an #out call to the map/reduce.\n\n Example:\n   Band.map_reduce(map, reduce).out(inline: 1)\n\n Valid options for the out function are:\n   inline:  1\n   merge:   'collection-name'\n   replace: 'collection-name'\n   reduce:  'collection-name'\n\n"},"no_metadata":{"message":"Metadata not found for document of type %{klass}.","summary":"Mongoid sets the metadata of a relation on the document when it is either loaded from within the relation, or added to one. The presence of the metadata is required in order to provide various functionality around relations. Most likely you are getting this error because the document is embedded and was attempted to be persisted without being associated with a parent, or the relation was not properly defined.","resolution":"Ensure that your relations on the %{klass} model are all properly defined, and that the inverse relations are also properly defined. Embedded relations must have both the parent (embeds_one/embeds_many) and the inverse (embedded_in) present in order to work properly."},"no_parent":{"message":"Cannot persist embedded document %{klass} without a parent document.","summary":"If the document is embedded, in order to be persisted it must always have a reference to its parent document. This is most likely caused by either calling %{klass}.create or %{klass}.create! without setting the parent document as an attribute.","resolution":"Ensure that you've set the parent relation if instantiating the embedded document directly, or always create new embedded documents via the parent relation."},"no_client_config":{"message":"No configuration could be found for a client named '%{name}'.","summary":"When attempting to create the new client, Mongoid could not find a client configuration for the name: '%{name}'. This is necessary in order to know the host, port, and options needed to connect.","resolution":"Double check your mongoid.yml to make sure under the clients key that a configuration exists for '%{name}'. If you have set the configuration programatically, ensure that '%{name}' exists in the configuration hash."},"no_clients_config":{"message":"No clients configuration provided.","summary":"Mongoid's configuration requires that you provide details about each client that can be connected to, and requires in the clients config at least 1 default client to exist.","resolution":"Double check your mongoid.yml to make sure that you have a top-level clients key with at least 1 default client configuration for it. You can regenerate a new mongoid.yml for assistance via `rails g mongoid:config`.\n\n Example:\n   development:\n     clients:\n       default:\n         database: mongoid_dev\n         hosts:\n           - localhost:27017\n\n"},"no_client_database":{"message":"No database provided for client configuration: :%{name}.","summary":"Each client configuration must provide a database so Mongoid knows where the default database to persist to. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :database value for the client's default database is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"no_client_hosts":{"message":"No hosts provided for client configuration: :%{name}.","summary":"Each client configuration must provide hosts so Mongoid knows where the database server is located. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :hosts value for the client hosts is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"readonly_attribute":{"message":"Attempted to set the readonly attribute '%{name}' with the value: %{value}.","summary":"Attributes flagged as readonly via Model.attr_readonly can only have values set when the document is a new record.","resolution":"Don't define '%{name}' as readonly, or do not attempt to update its value after the document is persisted."},"readonly_document":{"message":"Attempted to persist the readonly document '%{klass}'.","summary":"Documents loaded from the database using #only cannot be persisted.","resolution":"Don't attempt to persist documents that are flagged as readonly."},"scope_overwrite":{"message":"Cannot create scope :%{scope_name}, because of existing method %{model_name}.%{scope_name}.","summary":"When defining a scope that conflicts with a method that already exists on the model, this error will get raised if Mongoid.scope_overwrite_exception is set to true.","resolution":"Change the name of the scope so it does not conflict with the already defined method %{model_name}, or set the configuration option Mongoid.scope_overwrite_exception to false, which is its default. In this case a warning will be logged."},"taken":"is already taken","too_many_nested_attribute_records":{"message":"Accepting nested attributes for %{association} is limited to %{limit} records.","summary":"More documents were sent to be processed than the allowed limit.","resolution":"The limit is set as an option to the macro, for example: accepts_nested_attributes_for :%{association}, limit: %{limit}. Consider raising this limit or making sure no more are sent than the set value."},"unknown_attribute":{"message":"Attempted to set a value for '%{name}' which is not allowed on the model %{klass}.","summary":"Without including Mongoid::Attributes::Dynamic in your model and the attribute does not already exist in the attributes hash, attempting to call %{klass}#%{name}= for it is not allowed. This is also triggered by passing the attribute to any method that accepts an attributes hash, and is raised instead of getting a NoMethodError.","resolution":"You can include Mongoid::Attributes::Dynamic if you expect to be writing values for undefined fields often."},"unsaved_document":{"message":"Attempted to save %{document} before the parent %{base}.","summary":"You cannot call create or create! through the relation (%{document}) whose parent (%{base}) is not already saved. This would cause the database to be out of sync since the child could potentially reference a nonexistent parent.","resolution":"Make sure to only use create or create! when the parent document %{base} is persisted."},"unsupported_javascript":{"message":"Executing Javascript $where selector on an embedded criteria is not supported.","summary":"Mongoid only supports providing a hash of arguments to #where criterion on embedded documents. Since %{klass} is embedded, the expression %{javascript} is not allowed.","resolution":"Please provide a standard hash to #where when the criteria is for an embedded relation."},"validations":{"message":"Validation of %{document} failed.","summary":"The following errors were found: %{errors}","resolution":"Try persisting the document with valid data or remove the validations."},"delete_restriction":{"message":"Cannot delete %{document} because of dependent '%{relation}'.","summary":"When defining '%{relation}' with a :dependent =\u003e :restrict, Mongoid will raise an error when attempting to delete the %{document} when the child '%{relation}' still has documents in it.","resolution":"Don't attempt to delete the parent %{document} when it has children, or change the dependent option on the relation."}},"contact":{"duplicate_key":"a_contact_with","duplicate_val":" phone_number \"%phone%\" already exists."},"contact_group":{"duplicate_key":"a_contact_group","duplicate_val":" labeled \"%label%\" already exists."}},"models":{"contact":{"one":"Contact","other":"Contacts"},"contact_group":{"one":"Contact Group","other":"Contact Groups"}},"attributes":{"contact":{"prefix":"Country Code","mobile":"Mobile"},"contact_group":{"label":"Label","description":"Description"}}},"views":{"pagination":{"first":"\u0026laquo; First","last":"Last \u0026raquo;","previous":"\u0026lsaquo; Prev","next":"Next \u0026rsaquo;","truncate":"\u0026hellip;"}},"devise":{"confirmations":{"confirmed":"Your email address has been successfully confirmed.","send_instructions":"You will receive an email with instructions for how to confirm your email address in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."},"failure":{"already_authenticated":"You are already signed in.","inactive":"Your account is not activated yet.","invalid":"Invalid %{authentication_keys} or password.","locked":"Your account is locked.","last_attempt":"You have one more attempt before your account is locked.","not_found_in_database":"Invalid %{authentication_keys} or password.","timeout":"Your session expired. Please sign in again to continue.","unauthenticated":"You need to sign in or sign up before continuing.","unconfirmed":"You have to confirm your email address before continuing."},"mailer":{"confirmation_instructions":{"subject":"Confirmation instructions"},"reset_password_instructions":{"subject":"Reset password instructions"},"unlock_instructions":{"subject":"Unlock instructions"}},"omniauth_callbacks":{"failure":"Could not authenticate you from %{kind} because \"%{reason}\".","success":"Successfully authenticated from %{kind} account."},"passwords":{"no_token":"You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.","send_instructions":"You will receive an email with instructions on how to reset your password in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.","updated":"Your password has been changed successfully. You are now signed in.","updated_not_active":"Your password has been changed successfully."},"registrations":{"destroyed":"Bye! Your account has been successfully cancelled. We hope to see you again soon.","signed_up":"Welcome! You have signed up successfully.","signed_up_but_inactive":"You have signed up successfully. However, we could not sign you in because your account is not yet activated.","signed_up_but_locked":"You have signed up successfully. However, we could not sign you in because your account is locked.","signed_up_but_unconfirmed":"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.","update_needs_confirmation":"You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.","updated":"Your account has been updated successfully."},"sessions":{"signed_in":"Signed in successfully.","signed_out":"Signed out successfully.","already_signed_out":"Signed out successfully."},"unlocks":{"send_instructions":"You will receive an email with instructions for how to unlock your account in a few minutes.","send_paranoid_instructions":"If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.","unlocked":"Your account has been unlocked successfully. Please sign in to continue."}},"version":"Version","settings":"Settings","back":"Back","you_sure":"Are you sure?","cannot_undo":"This action can not be undone!","additional_fields":"Additional fields","check_all":"Check All","check_page":"Check Current Page","uncheck_selected":"Uncheck Selected","delete_selected":"Delete Selected","results_per_page":"Results per page","total":"Total","actions":{"list":"List","view":"View","show":"Show","browse":"Browse","create":"Create","edit":"Edit","update":"Update","delete":"Delete","empty":"Empty","activate":"Activate","deactivate":"Deactivate","cancel":"Cancel"},"list_contact_groups":"Contact Groups List","view_contact_group":"View Contact Group","new_contact_group":"New Contact Group","edit_contact_group":"Edit Contact Group","total_contact_groups":"Total contact groups","contact_group_del_confirm":"Delete Contact Group \"%contact_group%\"?\n\n","contact_group_deleted":"Contact group(s) %group_label% was/were successfully deleted.","group_only_contacts_deleted":"%contacts_deleted% Contact(s) was/were successfully deleted.","contact_group_empty_confirm":"Are you sure you want to empty this contact group?\n\n","contacts_remove_confirm":" contacts will be removed from this contact group.\n\n","contacts_successfully_removed":"contacts successfully removed from group \"%group_label%\"","contact_group_form":{"label_required":"Contact Group Label can't be blank","label_length":"Contact Group Label length should be up to 20 characters","description_length":"Contact Group Description length should be up to 120 characters","delete_header":"Delete Contact Groups","delete_groups_list":"The following Contact Groups are going to be deleted","delete_group_contacts_fate":"What would you like to happen to contacts not belonging to any other Contact Group?","fate_options":[{"value":0,"label":"leave them orphaned (not belonging to any Contact Group)"},{"value":1,"label":"permanently deleted"}]},"list_contacts":"Contacts List","view_contact":"View Contact","show_contacts":"Browse Contacts","new_contact":"New Contact","edit_contact":"Edit Contact","contact_del_confirm":"Delete contact \"%contact%\"?\n\n","total_contacts":"Total contacts","contact_form":{"prefix_required":"Contact Country Code can't be blank","prefix_max_length":"Contact Country Code length should be up to 4 digits","prefix_numeric":"Contact Country Code should contain only digits","mobile_required":"Contact Mobile can't be blank","mobile_min_length":"Contact Mobile length should be at least 6 digits","mobile_max_length":"Contact Mobile length should be up to 16 digits","mobile_numeric":"Contact Mobile should contain only digits"},"login":"Login","logout":"Logout"},"gr":{"devise":{"confirmations":{"confirmed":"Ο λογαριασμός σας επιβεβαιώθηκε με επιτυχία. Είστε συνδεδεμένος/η.","send_instructions":"Σε λίγα λεπτά θα λάβετε οδηγίες για το πώς θα επιβεβαιώσετε το email σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για την επιβεβαίωση του λογαριασμού σας."},"failure":{"already_authenticated":"Είστε ήδη συνδεδεμένος.","inactive":"Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","invalid":"Μη έγκυρο email ή κωδικός.","locked":"Ο λογαριασμός σας είναι κλειδωμένος.","last_attempt":"Έχετε άλλη μια προσπάθεια πριν ο λογαριασμός σας κλειδωθεί.","not_found_in_database":"Μη έγκυρo %{authentication_keys} ή κωδικός.","timeout":"Η σύνδεσή σας τερματίστηκε, παρακαλούμε συνδεθείτε ξανά.","unauthenticated":"Χρειάζεται να συνδεθείτε πριν να συνεχίσετε.","unconfirmed":"Απαιτείται η επιβεβαίωση του λογαριασμού σας πριν συνεχίσετε.","invalid_token":"Μη έγκυρος κωδικός πιστοποίησης."},"mailer":{"confirmation_instructions":{"subject":"Οδηγίες επιβεβαίωσης"},"reset_password_instructions":{"subject":"Οδηγίες επαναφοράς του κωδικού"},"unlock_instructions":{"subject":"Οδηγίες ενεργοποίησης"}},"omniauth_callbacks":{"failure":"Δεν επιτρέπεται να πραγματοποιήσετε %{kind} επειδή είναι \"%{reason}\".","success":"Επιτυχής έγκριση από το λογαριασμό %{kind}."},"passwords":{"no_token":"Δεν έχετε πρόσβαση σε αυτή την σελίδα εαν δεν ηρθατε μέσω email επαναφοράς κωδικού. Εαν ηρθατε μέσω email επαναφοράς κωδικού, παρακαλούμε να σιγουρευτείτε οτι χρησιμοποιήσατε τον πλήρη σύνδεσμο (URL) που σας δόθηκε.","send_instructions":"Θα σας αποσταλεί σε λίγα λεπτά, ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε οδηγίες επαναφοράς του κωδικού σας, μέσω email.","updated":"Ο κωδικός σας άλλαξε με επιτυχία. Μπορείτε να συνδεθείτε.","updated_not_active":"Ο κωδικός σας άλλαξε με επιτυχία."},"registrations":{"destroyed":"Ο λογαριασμός σας διαγράφηκε με επιτυχία.","signed_up":"Καλωσήρθατε! Ο λογαριασμός σας δημιουργήθηκε με επιτυχία.","signed_up_but_inactive":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","signed_up_but_locked":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας έχει κλειδωθεί.","signed_up_but_unconfirmed":"Ένα μήνυμα που περιέχει τον σύνδεσμο επιβεβαίωσης έχει σταλθεί στο email σας. Ακολουθήστε τον σύνδεσμο για να ενεργοποιήσετε τον λογαριασμό σας.","update_needs_confirmation":"Ο λογαριασμός σας ενημερώθηκε με επιτυχία, αλλά χρειάζεται επιβεβαίωση της νέας διεύθυνσης email. Παρακαλούμε ελέγξτε τα email σας και ακολουθήστε τον σύνδεσμο επιβεβαίωσης ώστε να γίνει επαλήθευση της νέας διεύθυνσης email.","inactive_signed_up":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Όμως, δε μπορείτε να συνδεθείτε επειδή ο λογαριασμός σας είναι %{reason}.","updated":"Ανανεώσατε το λογαριασμό σας με επιτυχία.","reasons":{"inactive":"ανενεργός","unconfirmed":"μη επιβεβαιωμένος. Σας είχε αποσταλεί email με οδηγίες","locked":"κλειδωμένος"}},"sessions":{"signed_in":"Σύνδεση με επιτυχία.","signed_out":"Αποσύνδεση με επιτυχία.","already_signed_out":"Αποσύνδεση με επιτυχία."},"unlocks":{"send_instructions":"Θα σας αποσταλούν οδηγίες ενεργοποίησης του λογαριασμού σας.","send_paranoid_instructions":"Αν ο λογαριασμός σας υπάρχει, θα σας αποσταλεί σε λίγα λεπτά ένα email με οδηγίες ενεργοποίησής του.","unlocked":"Ο λογαριασμός σας ενεργοποιήθηκε με επιτυχία. Είστε συνδεδεμένος/η."}},"errors":{"messages":{"already_confirmed":"έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκιμάστε να ξανασυνδεθείτε","confirmation_period_expired":"πρέπει να γίνει επιβεβαίωση μέσα σε %{period}, παρακαλούμε ζητήστε νέο email επιβεβαίωσης","expired":"έχει λήξει, παρακαλούμε ζητήστε νέο","not_found":"δεν βρέθηκε","not_locked":"δεν είναι κλειδωμένο","not_saved":{"one":"1 σφάλμα εμπόδισε αυτό το %{resource} να αποθηκευτεί:","other":"%{count} σφάλματα εμπόδισαν αυτό το %{resource} να αποθηκευτεί:"}}},"version":"Έκδοση","settings":"Ρυθμίσεις","back":"Πίσω","you_sure":"Είσαστε σίγουρος/η;","cannot_undo":"Η ενέργεια αυτή δε μπορεί να αναιρεθεί!","additional_fields":"Πρόσθετα πεδία","check_all":"Επιλογή Όλων","check_page":"Επιλογή Τρέχουσας Σελίδας","uncheck_selected":"Κατάργηση Επιλογής","delete_selected":"Διαγραφή Επιλεγμένων","results_per_page":"Αποτελέσματα ανά σελίδα","total":"Σύνολο","actions":{"list":"Λίστα","view":"Προβολή","show":"Εμφάνιση","browse":"Περιήγηση","create":"Δημιουργία","edit":"Επεξεργασία","update":"Τροποποίηση","delete":"Διαγραφή","empty":"Άδειασμα","activate":"Ενεργοποίηση","deactivate":"Απενεργοποίηση","cancel":"Ακύρωση"},"list_contact_groups":"Λίστα Ομάδων Επαφών","view_contact_group":"Προβολή Ομάδας Επαφών","new_contact_group":"Νέα Ομάδα Επαφών","edit_contact_group":"Επεξεργασία Ομάδας Επαφών","total_contact_groups":"Σύνολο ομάδων επαφών","contact_group_del_confirm":"Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n","contact_group_deleted":"Η Ομάδα/ες Επαφών %group_label% διαγράφηκε/αν επιτυχώς.","group_only_contacts_deleted":"%contacts_deleted% Επαφή/ές διαγράφηκε/αν επιτυχώς.","contact_group_empty_confirm":"Είσαστε σίγουρος/η πως θέλετε να αδειάσετε αυτή την ομάδα επαφών;\n\n","contacts_remove_confirm":" επαφές θα αφαιρεθούν από αυτή την ομάδα επαφών.\n\n","contacts_successfully_removed":"επαφές αφαιρέθηκαν επιτυχώς από την ομάδα επαφών \"%group_label%\"","contact_group_form":{"label_required":"Η Επιγραφή μίας Ομάδας Επαφών δε μπορεί να είναι κενή","label_length":"Η Επιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες","description_length":"Η Περιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 120 χαρακτήρες","delete_header":"Διαγραφή Ομάδων Επαφών","delete_groups_list":"Οι ακόλουθες Ομάδες Επαφών πρόκειται να διαγραφούν","delete_group_contacts_fate":"Τι επιθυμείτε να συμβεί στις επαφές που δεν ανήκουν σε καμία άλλη Ομάδα Επαφών;","fate_options":[{"value":0,"label":"να μείνουν ορφανές (να μην ανήκουν σε καμία Ομάδα Επαφών)"},{"value":1,"label":"να διαγραφούν μόνιμα"}]},"list_contacts":"Λίστα Επαφών","view_contact":"Προβολή Επαφής","show_contacts":"Εμφάνιση Επαφών","new_contact":"Νέα Επαφή","edit_contact":"Επεξεργασία Επαφής","contact_del_confirm":"Διαγραφή επαφής \"%contact%\";\n\n","total_contacts":"Σύνολο επαφών","contact_form":{"prefix_required":"Ο Κωδικός Χώρας μιάς Επαφής δε μπορεί να είναι κενός","prefix_max_length":"Ο Κωδικός Χώρας μιάς Επαφής δεν πρέπει να ξεπερνάει τα 4 ψηφία","prefix_numeric":"Ο Κωδικός Χώρας μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία","mobile_required":"Το Κινητό Τηλέφωνο μιάς Επαφής δε μπορεί να είναι κενό","mobile_min_length":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται από τουλάχιστον 6 ψηφία","mobile_max_length":"Το Κινητό Τηλέφωνο μιάς Επαφής δεν πρέπει να ξεπερνάει τα 16 ψηφία","mobile_numeric":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία"},"helpers":{"submit":{"contact":{"create":"Δημιουργία Επαφής","update":"Τροποποίηση Επαφής"},"contact_group":{"create":"Δημιουργία Ομάδας","update":"Τροποποίηση Ομάδας","remove_contacts":"Διαγραφή από την Ομάδα"}}},"activerecord":{"models":{"user":{"one":"Χρήστης","other":"Χρήστες"}},"attributes":{"user":{"email":"Ηλεκτρονικό ταχυδρομίο (email)","password":"Κωδικός πρόσβασης","remember_me":"Θυμήσου με! :P"}}},"mongoid":{"models":{"contact":{"one":"Επαφή","other":"Επαφές"},"contact_group":{"one":"Ομάδα Επαφών","other":"Ομάδες Επαφών"}},"attributes":{"contact":{"prefix":"Κωδικός Χώρας","mobile":"Κινητό Τηλέφωνο"},"contact_group":{"label":"Επιγραφή","description":"Περιγραφή"}},"errors":{"contact":{"duplicate_key":"μία_επαφή_με","duplicate_val":" τηλέφωνο \"%phone%\" είναι ήδη καταχωρημένη."},"contact_group":{"duplicate_key":"μία_ομάδα_επαφών","duplicate_val":" με επιγραφή \"%label%\" είναι ήδη καταχωρημένη."}}},"login":"Είσοδος","logout":"Έξοδος"}};
+
+/*
+ *
+ * More info at [www.dropzonejs.com](http://www.dropzonejs.com)
+ *
+ * Copyright (c) 2012, Matias Meno
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
+
+
+(function() {
+  var Dropzone, Emitter, camelize, contentLoaded, detectVerticalSquash, drawImageIOSFix, noop, without,
+    __slice = [].slice,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  noop = function() {};
+
+  Emitter = (function() {
+    function Emitter() {}
+
+    Emitter.prototype.addEventListener = Emitter.prototype.on;
+
+    Emitter.prototype.on = function(event, fn) {
+      this._callbacks = this._callbacks || {};
+      if (!this._callbacks[event]) {
+        this._callbacks[event] = [];
+      }
+      this._callbacks[event].push(fn);
+      return this;
+    };
+
+    Emitter.prototype.emit = function() {
+      var args, callback, callbacks, event, _i, _len;
+      event = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      this._callbacks = this._callbacks || {};
+      callbacks = this._callbacks[event];
+      if (callbacks) {
+        for (_i = 0, _len = callbacks.length; _i < _len; _i++) {
+          callback = callbacks[_i];
+          callback.apply(this, args);
+        }
+      }
+      return this;
+    };
+
+    Emitter.prototype.removeListener = Emitter.prototype.off;
+
+    Emitter.prototype.removeAllListeners = Emitter.prototype.off;
+
+    Emitter.prototype.removeEventListener = Emitter.prototype.off;
+
+    Emitter.prototype.off = function(event, fn) {
+      var callback, callbacks, i, _i, _len;
+      if (!this._callbacks || arguments.length === 0) {
+        this._callbacks = {};
+        return this;
+      }
+      callbacks = this._callbacks[event];
+      if (!callbacks) {
+        return this;
+      }
+      if (arguments.length === 1) {
+        delete this._callbacks[event];
+        return this;
+      }
+      for (i = _i = 0, _len = callbacks.length; _i < _len; i = ++_i) {
+        callback = callbacks[i];
+        if (callback === fn) {
+          callbacks.splice(i, 1);
+          break;
+        }
+      }
+      return this;
+    };
+
+    return Emitter;
+
+  })();
+
+  Dropzone = (function(_super) {
+    var extend, resolveOption;
+
+    __extends(Dropzone, _super);
+
+    Dropzone.prototype.Emitter = Emitter;
+
+
+    /*
+    This is a list of all available events you can register on a dropzone object.
+    
+    You can register an event handler like this:
+    
+        dropzone.on("dragEnter", function() { });
+     */
+
+    Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
+
+    Dropzone.prototype.defaultOptions = {
+      url: null,
+      method: "post",
+      withCredentials: false,
+      parallelUploads: 2,
+      uploadMultiple: false,
+      maxFilesize: 256,
+      paramName: "file",
+      createImageThumbnails: true,
+      maxThumbnailFilesize: 10,
+      thumbnailWidth: 120,
+      thumbnailHeight: 120,
+      filesizeBase: 1000,
+      maxFiles: null,
+      params: {},
+      clickable: true,
+      ignoreHiddenFiles: true,
+      acceptedFiles: null,
+      acceptedMimeTypes: null,
+      autoProcessQueue: true,
+      autoQueue: true,
+      addRemoveLinks: false,
+      previewsContainer: null,
+      hiddenInputContainer: "body",
+      capture: null,
+      dictDefaultMessage: "Drop files here to upload",
+      dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
+      dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+      dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+      dictInvalidFileType: "You can't upload files of this type.",
+      dictResponseError: "Server responded with {{statusCode}} code.",
+      dictCancelUpload: "Cancel upload",
+      dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
+      dictRemoveFile: "Remove file",
+      dictRemoveFileConfirmation: null,
+      dictMaxFilesExceeded: "You can not upload any more files.",
+      accept: function(file, done) {
+        return done();
+      },
+      init: function() {
+        return noop;
+      },
+      forceFallback: false,
+      fallback: function() {
+        var child, messageElement, span, _i, _len, _ref;
+        this.element.className = "" + this.element.className + " dz-browser-not-supported";
+        _ref = this.element.getElementsByTagName("div");
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          child = _ref[_i];
+          if (/(^| )dz-message($| )/.test(child.className)) {
+            messageElement = child;
+            child.className = "dz-message";
+            continue;
+          }
+        }
+        if (!messageElement) {
+          messageElement = Dropzone.createElement("<div class=\"dz-message\"><span></span></div>");
+          this.element.appendChild(messageElement);
+        }
+        span = messageElement.getElementsByTagName("span")[0];
+        if (span) {
+          if (span.textContent != null) {
+            span.textContent = this.options.dictFallbackMessage;
+          } else if (span.innerText != null) {
+            span.innerText = this.options.dictFallbackMessage;
+          }
+        }
+        return this.element.appendChild(this.getFallbackForm());
+      },
+      resize: function(file) {
+        var info, srcRatio, trgRatio;
+        info = {
+          srcX: 0,
+          srcY: 0,
+          srcWidth: file.width,
+          srcHeight: file.height
+        };
+        srcRatio = file.width / file.height;
+        info.optWidth = this.options.thumbnailWidth;
+        info.optHeight = this.options.thumbnailHeight;
+        if ((info.optWidth == null) && (info.optHeight == null)) {
+          info.optWidth = info.srcWidth;
+          info.optHeight = info.srcHeight;
+        } else if (info.optWidth == null) {
+          info.optWidth = srcRatio * info.optHeight;
+        } else if (info.optHeight == null) {
+          info.optHeight = (1 / srcRatio) * info.optWidth;
+        }
+        trgRatio = info.optWidth / info.optHeight;
+        if (file.height < info.optHeight || file.width < info.optWidth) {
+          info.trgHeight = info.srcHeight;
+          info.trgWidth = info.srcWidth;
+        } else {
+          if (srcRatio > trgRatio) {
+            info.srcHeight = file.height;
+            info.srcWidth = info.srcHeight * trgRatio;
+          } else {
+            info.srcWidth = file.width;
+            info.srcHeight = info.srcWidth / trgRatio;
+          }
+        }
+        info.srcX = (file.width - info.srcWidth) / 2;
+        info.srcY = (file.height - info.srcHeight) / 2;
+        return info;
+      },
+
+      /*
+      Those functions register themselves to the events on init and handle all
+      the user interface specific stuff. Overwriting them won't break the upload
+      but can break the way it's displayed.
+      You can overwrite them if you don't like the default behavior. If you just
+      want to add an additional event handler, register it on the dropzone object
+      and don't overwrite those options.
+       */
+      drop: function(e) {
+        return this.element.classList.remove("dz-drag-hover");
+      },
+      dragstart: noop,
+      dragend: function(e) {
+        return this.element.classList.remove("dz-drag-hover");
+      },
+      dragenter: function(e) {
+        return this.element.classList.add("dz-drag-hover");
+      },
+      dragover: function(e) {
+        return this.element.classList.add("dz-drag-hover");
+      },
+      dragleave: function(e) {
+        return this.element.classList.remove("dz-drag-hover");
+      },
+      paste: noop,
+      reset: function() {
+        return this.element.classList.remove("dz-started");
+      },
+      addedfile: function(file) {
+        var node, removeFileEvent, removeLink, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results;
+        if (this.element === this.previewsContainer) {
+          this.element.classList.add("dz-started");
+        }
+        if (this.previewsContainer) {
+          file.previewElement = Dropzone.createElement(this.options.previewTemplate.trim());
+          file.previewTemplate = file.previewElement;
+          this.previewsContainer.appendChild(file.previewElement);
+          _ref = file.previewElement.querySelectorAll("[data-dz-name]");
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            node.textContent = file.name;
+          }
+          _ref1 = file.previewElement.querySelectorAll("[data-dz-size]");
+          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+            node = _ref1[_j];
+            node.innerHTML = this.filesize(file.size);
+          }
+          if (this.options.addRemoveLinks) {
+            file._removeLink = Dropzone.createElement("<a class=\"dz-remove\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
+            file.previewElement.appendChild(file._removeLink);
+          }
+          removeFileEvent = (function(_this) {
+            return function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              if (file.status === Dropzone.UPLOADING) {
+                return Dropzone.confirm(_this.options.dictCancelUploadConfirmation, function() {
+                  return _this.removeFile(file);
+                });
+              } else {
+                if (_this.options.dictRemoveFileConfirmation) {
+                  return Dropzone.confirm(_this.options.dictRemoveFileConfirmation, function() {
+                    return _this.removeFile(file);
+                  });
+                } else {
+                  return _this.removeFile(file);
+                }
+              }
+            };
+          })(this);
+          _ref2 = file.previewElement.querySelectorAll("[data-dz-remove]");
+          _results = [];
+          for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+            removeLink = _ref2[_k];
+            _results.push(removeLink.addEventListener("click", removeFileEvent));
+          }
+          return _results;
+        }
+      },
+      removedfile: function(file) {
+        var _ref;
+        if (file.previewElement) {
+          if ((_ref = file.previewElement) != null) {
+            _ref.parentNode.removeChild(file.previewElement);
+          }
+        }
+        return this._updateMaxFilesReachedClass();
+      },
+      thumbnail: function(file, dataUrl) {
+        var thumbnailElement, _i, _len, _ref;
+        if (file.previewElement) {
+          file.previewElement.classList.remove("dz-file-preview");
+          _ref = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            thumbnailElement = _ref[_i];
+            thumbnailElement.alt = file.name;
+            thumbnailElement.src = dataUrl;
+          }
+          return setTimeout(((function(_this) {
+            return function() {
+              return file.previewElement.classList.add("dz-image-preview");
+            };
+          })(this)), 1);
+        }
+      },
+      error: function(file, message) {
+        var node, _i, _len, _ref, _results;
+        if (file.previewElement) {
+          file.previewElement.classList.add("dz-error");
+          if (typeof message !== "String" && message.error) {
+            message = message.error;
+          }
+          _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            _results.push(node.textContent = message);
+          }
+          return _results;
+        }
+      },
+      errormultiple: noop,
+      processing: function(file) {
+        if (file.previewElement) {
+          file.previewElement.classList.add("dz-processing");
+          if (file._removeLink) {
+            return file._removeLink.textContent = this.options.dictCancelUpload;
+          }
+        }
+      },
+      processingmultiple: noop,
+      uploadprogress: function(file, progress, bytesSent) {
+        var node, _i, _len, _ref, _results;
+        if (file.previewElement) {
+          _ref = file.previewElement.querySelectorAll("[data-dz-uploadprogress]");
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            if (node.nodeName === 'PROGRESS') {
+              _results.push(node.value = progress);
+            } else {
+              _results.push(node.style.width = "" + progress + "%");
+            }
+          }
+          return _results;
+        }
+      },
+      totaluploadprogress: noop,
+      sending: noop,
+      sendingmultiple: noop,
+      success: function(file) {
+        if (file.previewElement) {
+          return file.previewElement.classList.add("dz-success");
+        }
+      },
+      successmultiple: noop,
+      canceled: function(file) {
+        return this.emit("error", file, "Upload canceled.");
+      },
+      canceledmultiple: noop,
+      complete: function(file) {
+        if (file._removeLink) {
+          file._removeLink.textContent = this.options.dictRemoveFile;
+        }
+        if (file.previewElement) {
+          return file.previewElement.classList.add("dz-complete");
+        }
+      },
+      completemultiple: noop,
+      maxfilesexceeded: noop,
+      maxfilesreached: noop,
+      queuecomplete: noop,
+      addedfiles: noop,
+      previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-image\"><img data-dz-thumbnail /></div>\n  <div class=\"dz-details\">\n    <div class=\"dz-size\"><span data-dz-size></span></div>\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n  </div>\n  <div class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n  <div class=\"dz-success-mark\">\n    <svg width=\"54px\" height=\"54px\" viewBox=\"0 0 54 54\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:sketch=\"http://www.bohemiancoding.com/sketch/ns\">\n      <title>Check</title>\n      <defs></defs>\n      <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" sketch:type=\"MSPage\">\n        <path d=\"M23.5,31.8431458 L17.5852419,25.9283877 C16.0248253,24.3679711 13.4910294,24.366835 11.9289322,25.9289322 C10.3700136,27.4878508 10.3665912,30.0234455 11.9283877,31.5852419 L20.4147581,40.0716123 C20.5133999,40.1702541 20.6159315,40.2626649 20.7218615,40.3488435 C22.2835669,41.8725651 24.794234,41.8626202 26.3461564,40.3106978 L43.3106978,23.3461564 C44.8771021,21.7797521 44.8758057,19.2483887 43.3137085,17.6862915 C41.7547899,16.1273729 39.2176035,16.1255422 37.6538436,17.6893022 L23.5,31.8431458 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z\" id=\"Oval-2\" stroke-opacity=\"0.198794158\" stroke=\"#747474\" fill-opacity=\"0.816519475\" fill=\"#FFFFFF\" sketch:type=\"MSShapeGroup\"></path>\n      </g>\n    </svg>\n  </div>\n  <div class=\"dz-error-mark\">\n    <svg width=\"54px\" height=\"54px\" viewBox=\"0 0 54 54\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:sketch=\"http://www.bohemiancoding.com/sketch/ns\">\n      <title>Error</title>\n      <defs></defs>\n      <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" sketch:type=\"MSPage\">\n        <g id=\"Check-+-Oval-2\" sketch:type=\"MSLayerGroup\" stroke=\"#747474\" stroke-opacity=\"0.198794158\" fill=\"#FFFFFF\" fill-opacity=\"0.816519475\">\n          <path d=\"M32.6568542,29 L38.3106978,23.3461564 C39.8771021,21.7797521 39.8758057,19.2483887 38.3137085,17.6862915 C36.7547899,16.1273729 34.2176035,16.1255422 32.6538436,17.6893022 L27,23.3431458 L21.3461564,17.6893022 C19.7823965,16.1255422 17.2452101,16.1273729 15.6862915,17.6862915 C14.1241943,19.2483887 14.1228979,21.7797521 15.6893022,23.3461564 L21.3431458,29 L15.6893022,34.6538436 C14.1228979,36.2202479 14.1241943,38.7516113 15.6862915,40.3137085 C17.2452101,41.8726271 19.7823965,41.8744578 21.3461564,40.3106978 L27,34.6568542 L32.6538436,40.3106978 C34.2176035,41.8744578 36.7547899,41.8726271 38.3137085,40.3137085 C39.8758057,38.7516113 39.8771021,36.2202479 38.3106978,34.6538436 L32.6568542,29 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z\" id=\"Oval-2\" sketch:type=\"MSShapeGroup\"></path>\n        </g>\n      </g>\n    </svg>\n  </div>\n</div>"
+    };
+
+    extend = function() {
+      var key, object, objects, target, val, _i, _len;
+      target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      for (_i = 0, _len = objects.length; _i < _len; _i++) {
+        object = objects[_i];
+        for (key in object) {
+          val = object[key];
+          target[key] = val;
+        }
+      }
+      return target;
+    };
+
+    function Dropzone(element, options) {
+      var elementOptions, fallback, _ref;
+      this.element = element;
+      this.version = Dropzone.version;
+      this.defaultOptions.previewTemplate = this.defaultOptions.previewTemplate.replace(/\n*/g, "");
+      this.clickableElements = [];
+      this.listeners = [];
+      this.files = [];
+      if (typeof this.element === "string") {
+        this.element = document.querySelector(this.element);
+      }
+      if (!(this.element && (this.element.nodeType != null))) {
+        throw new Error("Invalid dropzone element.");
+      }
+      if (this.element.dropzone) {
+        throw new Error("Dropzone already attached.");
+      }
+      Dropzone.instances.push(this);
+      this.element.dropzone = this;
+      elementOptions = (_ref = Dropzone.optionsForElement(this.element)) != null ? _ref : {};
+      this.options = extend({}, this.defaultOptions, elementOptions, options != null ? options : {});
+      if (this.options.forceFallback || !Dropzone.isBrowserSupported()) {
+        return this.options.fallback.call(this);
+      }
+      if (this.options.url == null) {
+        this.options.url = this.element.getAttribute("action");
+      }
+      if (!this.options.url) {
+        throw new Error("No URL provided.");
+      }
+      if (this.options.acceptedFiles && this.options.acceptedMimeTypes) {
+        throw new Error("You can't provide both 'acceptedFiles' and 'acceptedMimeTypes'. 'acceptedMimeTypes' is deprecated.");
+      }
+      if (this.options.acceptedMimeTypes) {
+        this.options.acceptedFiles = this.options.acceptedMimeTypes;
+        delete this.options.acceptedMimeTypes;
+      }
+      this.options.method = this.options.method.toUpperCase();
+      if ((fallback = this.getExistingFallback()) && fallback.parentNode) {
+        fallback.parentNode.removeChild(fallback);
+      }
+      if (this.options.previewsContainer !== false) {
+        if (this.options.previewsContainer) {
+          this.previewsContainer = Dropzone.getElement(this.options.previewsContainer, "previewsContainer");
+        } else {
+          this.previewsContainer = this.element;
+        }
+      }
+      if (this.options.clickable) {
+        if (this.options.clickable === true) {
+          this.clickableElements = [this.element];
+        } else {
+          this.clickableElements = Dropzone.getElements(this.options.clickable, "clickable");
+        }
+      }
+      this.init();
+    }
+
+    Dropzone.prototype.getAcceptedFiles = function() {
+      var file, _i, _len, _ref, _results;
+      _ref = this.files;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (file.accepted) {
+          _results.push(file);
+        }
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.getRejectedFiles = function() {
+      var file, _i, _len, _ref, _results;
+      _ref = this.files;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (!file.accepted) {
+          _results.push(file);
+        }
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.getFilesWithStatus = function(status) {
+      var file, _i, _len, _ref, _results;
+      _ref = this.files;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (file.status === status) {
+          _results.push(file);
+        }
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.getQueuedFiles = function() {
+      return this.getFilesWithStatus(Dropzone.QUEUED);
+    };
+
+    Dropzone.prototype.getUploadingFiles = function() {
+      return this.getFilesWithStatus(Dropzone.UPLOADING);
+    };
+
+    Dropzone.prototype.getAddedFiles = function() {
+      return this.getFilesWithStatus(Dropzone.ADDED);
+    };
+
+    Dropzone.prototype.getActiveFiles = function() {
+      var file, _i, _len, _ref, _results;
+      _ref = this.files;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (file.status === Dropzone.UPLOADING || file.status === Dropzone.QUEUED) {
+          _results.push(file);
+        }
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.init = function() {
+      var eventName, noPropagation, setupHiddenFileInput, _i, _len, _ref, _ref1;
+      if (this.element.tagName === "form") {
+        this.element.setAttribute("enctype", "multipart/form-data");
+      }
+      if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
+        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><span>" + this.options.dictDefaultMessage + "</span></div>"));
+      }
+      if (this.clickableElements.length) {
+        setupHiddenFileInput = (function(_this) {
+          return function() {
+            if (_this.hiddenFileInput) {
+              _this.hiddenFileInput.parentNode.removeChild(_this.hiddenFileInput);
+            }
+            _this.hiddenFileInput = document.createElement("input");
+            _this.hiddenFileInput.setAttribute("type", "file");
+            if ((_this.options.maxFiles == null) || _this.options.maxFiles > 1) {
+              _this.hiddenFileInput.setAttribute("multiple", "multiple");
+            }
+            _this.hiddenFileInput.className = "dz-hidden-input";
+            if (_this.options.acceptedFiles != null) {
+              _this.hiddenFileInput.setAttribute("accept", _this.options.acceptedFiles);
+            }
+            if (_this.options.capture != null) {
+              _this.hiddenFileInput.setAttribute("capture", _this.options.capture);
+            }
+            _this.hiddenFileInput.style.visibility = "hidden";
+            _this.hiddenFileInput.style.position = "absolute";
+            _this.hiddenFileInput.style.top = "0";
+            _this.hiddenFileInput.style.left = "0";
+            _this.hiddenFileInput.style.height = "0";
+            _this.hiddenFileInput.style.width = "0";
+            document.querySelector(_this.options.hiddenInputContainer).appendChild(_this.hiddenFileInput);
+            return _this.hiddenFileInput.addEventListener("change", function() {
+              var file, files, _i, _len;
+              files = _this.hiddenFileInput.files;
+              if (files.length) {
+                for (_i = 0, _len = files.length; _i < _len; _i++) {
+                  file = files[_i];
+                  _this.addFile(file);
+                }
+              }
+              _this.emit("addedfiles", files);
+              return setupHiddenFileInput();
+            });
+          };
+        })(this);
+        setupHiddenFileInput();
+      }
+      this.URL = (_ref = window.URL) != null ? _ref : window.webkitURL;
+      _ref1 = this.events;
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        eventName = _ref1[_i];
+        this.on(eventName, this.options[eventName]);
+      }
+      this.on("uploadprogress", (function(_this) {
+        return function() {
+          return _this.updateTotalUploadProgress();
+        };
+      })(this));
+      this.on("removedfile", (function(_this) {
+        return function() {
+          return _this.updateTotalUploadProgress();
+        };
+      })(this));
+      this.on("canceled", (function(_this) {
+        return function(file) {
+          return _this.emit("complete", file);
+        };
+      })(this));
+      this.on("complete", (function(_this) {
+        return function(file) {
+          if (_this.getAddedFiles().length === 0 && _this.getUploadingFiles().length === 0 && _this.getQueuedFiles().length === 0) {
+            return setTimeout((function() {
+              return _this.emit("queuecomplete");
+            }), 0);
+          }
+        };
+      })(this));
+      noPropagation = function(e) {
+        e.stopPropagation();
+        if (e.preventDefault) {
+          return e.preventDefault();
+        } else {
+          return e.returnValue = false;
+        }
+      };
+      this.listeners = [
+        {
+          element: this.element,
+          events: {
+            "dragstart": (function(_this) {
+              return function(e) {
+                return _this.emit("dragstart", e);
+              };
+            })(this),
+            "dragenter": (function(_this) {
+              return function(e) {
+                noPropagation(e);
+                return _this.emit("dragenter", e);
+              };
+            })(this),
+            "dragover": (function(_this) {
+              return function(e) {
+                var efct;
+                try {
+                  efct = e.dataTransfer.effectAllowed;
+                } catch (_error) {}
+                e.dataTransfer.dropEffect = 'move' === efct || 'linkMove' === efct ? 'move' : 'copy';
+                noPropagation(e);
+                return _this.emit("dragover", e);
+              };
+            })(this),
+            "dragleave": (function(_this) {
+              return function(e) {
+                return _this.emit("dragleave", e);
+              };
+            })(this),
+            "drop": (function(_this) {
+              return function(e) {
+                noPropagation(e);
+                return _this.drop(e);
+              };
+            })(this),
+            "dragend": (function(_this) {
+              return function(e) {
+                return _this.emit("dragend", e);
+              };
+            })(this)
+          }
+        }
+      ];
+      this.clickableElements.forEach((function(_this) {
+        return function(clickableElement) {
+          return _this.listeners.push({
+            element: clickableElement,
+            events: {
+              "click": function(evt) {
+                if ((clickableElement !== _this.element) || (evt.target === _this.element || Dropzone.elementInside(evt.target, _this.element.querySelector(".dz-message")))) {
+                  _this.hiddenFileInput.click();
+                }
+                return true;
+              }
+            }
+          });
+        };
+      })(this));
+      this.enable();
+      return this.options.init.call(this);
+    };
+
+    Dropzone.prototype.destroy = function() {
+      var _ref;
+      this.disable();
+      this.removeAllFiles(true);
+      if ((_ref = this.hiddenFileInput) != null ? _ref.parentNode : void 0) {
+        this.hiddenFileInput.parentNode.removeChild(this.hiddenFileInput);
+        this.hiddenFileInput = null;
+      }
+      delete this.element.dropzone;
+      return Dropzone.instances.splice(Dropzone.instances.indexOf(this), 1);
+    };
+
+    Dropzone.prototype.updateTotalUploadProgress = function() {
+      var activeFiles, file, totalBytes, totalBytesSent, totalUploadProgress, _i, _len, _ref;
+      totalBytesSent = 0;
+      totalBytes = 0;
+      activeFiles = this.getActiveFiles();
+      if (activeFiles.length) {
+        _ref = this.getActiveFiles();
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          file = _ref[_i];
+          totalBytesSent += file.upload.bytesSent;
+          totalBytes += file.upload.total;
+        }
+        totalUploadProgress = 100 * totalBytesSent / totalBytes;
+      } else {
+        totalUploadProgress = 100;
+      }
+      return this.emit("totaluploadprogress", totalUploadProgress, totalBytes, totalBytesSent);
+    };
+
+    Dropzone.prototype._getParamName = function(n) {
+      if (typeof this.options.paramName === "function") {
+        return this.options.paramName(n);
+      } else {
+        return "" + this.options.paramName + (this.options.uploadMultiple ? "[" + n + "]" : "");
+      }
+    };
+
+    Dropzone.prototype.getFallbackForm = function() {
+      var existingFallback, fields, fieldsString, form;
+      if (existingFallback = this.getExistingFallback()) {
+        return existingFallback;
+      }
+      fieldsString = "<div class=\"dz-fallback\">";
+      if (this.options.dictFallbackText) {
+        fieldsString += "<p>" + this.options.dictFallbackText + "</p>";
+      }
+      fieldsString += "<input type=\"file\" name=\"" + (this._getParamName(0)) + "\" " + (this.options.uploadMultiple ? 'multiple="multiple"' : void 0) + " /><input type=\"submit\" value=\"Upload!\"></div>";
+      fields = Dropzone.createElement(fieldsString);
+      if (this.element.tagName !== "FORM") {
+        form = Dropzone.createElement("<form action=\"" + this.options.url + "\" enctype=\"multipart/form-data\" method=\"" + this.options.method + "\"></form>");
+        form.appendChild(fields);
+      } else {
+        this.element.setAttribute("enctype", "multipart/form-data");
+        this.element.setAttribute("method", this.options.method);
+      }
+      return form != null ? form : fields;
+    };
+
+    Dropzone.prototype.getExistingFallback = function() {
+      var fallback, getFallback, tagName, _i, _len, _ref;
+      getFallback = function(elements) {
+        var el, _i, _len;
+        for (_i = 0, _len = elements.length; _i < _len; _i++) {
+          el = elements[_i];
+          if (/(^| )fallback($| )/.test(el.className)) {
+            return el;
+          }
+        }
+      };
+      _ref = ["div", "form"];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tagName = _ref[_i];
+        if (fallback = getFallback(this.element.getElementsByTagName(tagName))) {
+          return fallback;
+        }
+      }
+    };
+
+    Dropzone.prototype.setupEventListeners = function() {
+      var elementListeners, event, listener, _i, _len, _ref, _results;
+      _ref = this.listeners;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        elementListeners = _ref[_i];
+        _results.push((function() {
+          var _ref1, _results1;
+          _ref1 = elementListeners.events;
+          _results1 = [];
+          for (event in _ref1) {
+            listener = _ref1[event];
+            _results1.push(elementListeners.element.addEventListener(event, listener, false));
+          }
+          return _results1;
+        })());
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.removeEventListeners = function() {
+      var elementListeners, event, listener, _i, _len, _ref, _results;
+      _ref = this.listeners;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        elementListeners = _ref[_i];
+        _results.push((function() {
+          var _ref1, _results1;
+          _ref1 = elementListeners.events;
+          _results1 = [];
+          for (event in _ref1) {
+            listener = _ref1[event];
+            _results1.push(elementListeners.element.removeEventListener(event, listener, false));
+          }
+          return _results1;
+        })());
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.disable = function() {
+      var file, _i, _len, _ref, _results;
+      this.clickableElements.forEach(function(element) {
+        return element.classList.remove("dz-clickable");
+      });
+      this.removeEventListeners();
+      _ref = this.files;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        _results.push(this.cancelUpload(file));
+      }
+      return _results;
+    };
+
+    Dropzone.prototype.enable = function() {
+      this.clickableElements.forEach(function(element) {
+        return element.classList.add("dz-clickable");
+      });
+      return this.setupEventListeners();
+    };
+
+    Dropzone.prototype.filesize = function(size) {
+      var cutoff, i, selectedSize, selectedUnit, unit, units, _i, _len;
+      selectedSize = 0;
+      selectedUnit = "b";
+      if (size > 0) {
+        units = ['TB', 'GB', 'MB', 'KB', 'b'];
+        for (i = _i = 0, _len = units.length; _i < _len; i = ++_i) {
+          unit = units[i];
+          cutoff = Math.pow(this.options.filesizeBase, 4 - i) / 10;
+          if (size >= cutoff) {
+            selectedSize = size / Math.pow(this.options.filesizeBase, 4 - i);
+            selectedUnit = unit;
+            break;
+          }
+        }
+        selectedSize = Math.round(10 * selectedSize) / 10;
+      }
+      return "<strong>" + selectedSize + "</strong> " + selectedUnit;
+    };
+
+    Dropzone.prototype._updateMaxFilesReachedClass = function() {
+      if ((this.options.maxFiles != null) && this.getAcceptedFiles().length >= this.options.maxFiles) {
+        if (this.getAcceptedFiles().length === this.options.maxFiles) {
+          this.emit('maxfilesreached', this.files);
+        }
+        return this.element.classList.add("dz-max-files-reached");
+      } else {
+        return this.element.classList.remove("dz-max-files-reached");
+      }
+    };
+
+    Dropzone.prototype.drop = function(e) {
+      var files, items;
+      if (!e.dataTransfer) {
+        return;
+      }
+      this.emit("drop", e);
+      files = e.dataTransfer.files;
+      this.emit("addedfiles", files);
+      if (files.length) {
+        items = e.dataTransfer.items;
+        if (items && items.length && (items[0].webkitGetAsEntry != null)) {
+          this._addFilesFromItems(items);
+        } else {
+          this.handleFiles(files);
+        }
+      }
+    };
+
+    Dropzone.prototype.paste = function(e) {
+      var items, _ref;
+      if ((e != null ? (_ref = e.clipboardData) != null ? _ref.items : void 0 : void 0) == null) {
+        return;
+      }
+      this.emit("paste", e);
+      items = e.clipboardData.items;
+      if (items.length) {
+        return this._addFilesFromItems(items);
+      }
+    };
+
+    Dropzone.prototype.handleFiles = function(files) {
+      var file, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        _results.push(this.addFile(file));
+      }
+      return _results;
+    };
+
+    Dropzone.prototype._addFilesFromItems = function(items) {
+      var entry, item, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = items.length; _i < _len; _i++) {
+        item = items[_i];
+        if ((item.webkitGetAsEntry != null) && (entry = item.webkitGetAsEntry())) {
+          if (entry.isFile) {
+            _results.push(this.addFile(item.getAsFile()));
+          } else if (entry.isDirectory) {
+            _results.push(this._addFilesFromDirectory(entry, entry.name));
+          } else {
+            _results.push(void 0);
+          }
+        } else if (item.getAsFile != null) {
+          if ((item.kind == null) || item.kind === "file") {
+            _results.push(this.addFile(item.getAsFile()));
+          } else {
+            _results.push(void 0);
+          }
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    };
+
+    Dropzone.prototype._addFilesFromDirectory = function(directory, path) {
+      var dirReader, entriesReader;
+      dirReader = directory.createReader();
+      entriesReader = (function(_this) {
+        return function(entries) {
+          var entry, _i, _len;
+          for (_i = 0, _len = entries.length; _i < _len; _i++) {
+            entry = entries[_i];
+            if (entry.isFile) {
+              entry.file(function(file) {
+                if (_this.options.ignoreHiddenFiles && file.name.substring(0, 1) === '.') {
+                  return;
+                }
+                file.fullPath = "" + path + "/" + file.name;
+                return _this.addFile(file);
+              });
+            } else if (entry.isDirectory) {
+              _this._addFilesFromDirectory(entry, "" + path + "/" + entry.name);
+            }
+          }
+        };
+      })(this);
+      return dirReader.readEntries(entriesReader, function(error) {
+        return typeof console !== "undefined" && console !== null ? typeof console.log === "function" ? console.log(error) : void 0 : void 0;
+      });
+    };
+
+    Dropzone.prototype.accept = function(file, done) {
+      if (file.size > this.options.maxFilesize * 1024 * 1024) {
+        return done(this.options.dictFileTooBig.replace("{{filesize}}", Math.round(file.size / 1024 / 10.24) / 100).replace("{{maxFilesize}}", this.options.maxFilesize));
+      } else if (!Dropzone.isValidFile(file, this.options.acceptedFiles)) {
+        return done(this.options.dictInvalidFileType);
+      } else if ((this.options.maxFiles != null) && this.getAcceptedFiles().length >= this.options.maxFiles) {
+        done(this.options.dictMaxFilesExceeded.replace("{{maxFiles}}", this.options.maxFiles));
+        return this.emit("maxfilesexceeded", file);
+      } else {
+        return this.options.accept.call(this, file, done);
+      }
+    };
+
+    Dropzone.prototype.addFile = function(file) {
+      file.upload = {
+        progress: 0,
+        total: file.size,
+        bytesSent: 0
+      };
+      this.files.push(file);
+      file.status = Dropzone.ADDED;
+      this.emit("addedfile", file);
+      this._enqueueThumbnail(file);
+      return this.accept(file, (function(_this) {
+        return function(error) {
+          if (error) {
+            file.accepted = false;
+            _this._errorProcessing([file], error);
+          } else {
+            file.accepted = true;
+            if (_this.options.autoQueue) {
+              _this.enqueueFile(file);
+            }
+          }
+          return _this._updateMaxFilesReachedClass();
+        };
+      })(this));
+    };
+
+    Dropzone.prototype.enqueueFiles = function(files) {
+      var file, _i, _len;
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        this.enqueueFile(file);
+      }
+      return null;
+    };
+
+    Dropzone.prototype.enqueueFile = function(file) {
+      if (file.status === Dropzone.ADDED && file.accepted === true) {
+        file.status = Dropzone.QUEUED;
+        if (this.options.autoProcessQueue) {
+          return setTimeout(((function(_this) {
+            return function() {
+              return _this.processQueue();
+            };
+          })(this)), 0);
+        }
+      } else {
+        throw new Error("This file can't be queued because it has already been processed or was rejected.");
+      }
+    };
+
+    Dropzone.prototype._thumbnailQueue = [];
+
+    Dropzone.prototype._processingThumbnail = false;
+
+    Dropzone.prototype._enqueueThumbnail = function(file) {
+      if (this.options.createImageThumbnails && file.type.match(/image.*/) && file.size <= this.options.maxThumbnailFilesize * 1024 * 1024) {
+        this._thumbnailQueue.push(file);
+        return setTimeout(((function(_this) {
+          return function() {
+            return _this._processThumbnailQueue();
+          };
+        })(this)), 0);
+      }
+    };
+
+    Dropzone.prototype._processThumbnailQueue = function() {
+      if (this._processingThumbnail || this._thumbnailQueue.length === 0) {
+        return;
+      }
+      this._processingThumbnail = true;
+      return this.createThumbnail(this._thumbnailQueue.shift(), (function(_this) {
+        return function() {
+          _this._processingThumbnail = false;
+          return _this._processThumbnailQueue();
+        };
+      })(this));
+    };
+
+    Dropzone.prototype.removeFile = function(file) {
+      if (file.status === Dropzone.UPLOADING) {
+        this.cancelUpload(file);
+      }
+      this.files = without(this.files, file);
+      this.emit("removedfile", file);
+      if (this.files.length === 0) {
+        return this.emit("reset");
+      }
+    };
+
+    Dropzone.prototype.removeAllFiles = function(cancelIfNecessary) {
+      var file, _i, _len, _ref;
+      if (cancelIfNecessary == null) {
+        cancelIfNecessary = false;
+      }
+      _ref = this.files.slice();
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (file.status !== Dropzone.UPLOADING || cancelIfNecessary) {
+          this.removeFile(file);
+        }
+      }
+      return null;
+    };
+
+    Dropzone.prototype.createThumbnail = function(file, callback) {
+      var fileReader;
+      fileReader = new FileReader;
+      fileReader.onload = (function(_this) {
+        return function() {
+          if (file.type === "image/svg+xml") {
+            _this.emit("thumbnail", file, fileReader.result);
+            if (callback != null) {
+              callback();
+            }
+            return;
+          }
+          return _this.createThumbnailFromUrl(file, fileReader.result, callback);
+        };
+      })(this);
+      return fileReader.readAsDataURL(file);
+    };
+
+    Dropzone.prototype.createThumbnailFromUrl = function(file, imageUrl, callback, crossOrigin) {
+      var img;
+      img = document.createElement("img");
+      if (crossOrigin) {
+        img.crossOrigin = crossOrigin;
+      }
+      img.onload = (function(_this) {
+        return function() {
+          var canvas, ctx, resizeInfo, thumbnail, _ref, _ref1, _ref2, _ref3;
+          file.width = img.width;
+          file.height = img.height;
+          resizeInfo = _this.options.resize.call(_this, file);
+          if (resizeInfo.trgWidth == null) {
+            resizeInfo.trgWidth = resizeInfo.optWidth;
+          }
+          if (resizeInfo.trgHeight == null) {
+            resizeInfo.trgHeight = resizeInfo.optHeight;
+          }
+          canvas = document.createElement("canvas");
+          ctx = canvas.getContext("2d");
+          canvas.width = resizeInfo.trgWidth;
+          canvas.height = resizeInfo.trgHeight;
+          drawImageIOSFix(ctx, img, (_ref = resizeInfo.srcX) != null ? _ref : 0, (_ref1 = resizeInfo.srcY) != null ? _ref1 : 0, resizeInfo.srcWidth, resizeInfo.srcHeight, (_ref2 = resizeInfo.trgX) != null ? _ref2 : 0, (_ref3 = resizeInfo.trgY) != null ? _ref3 : 0, resizeInfo.trgWidth, resizeInfo.trgHeight);
+          thumbnail = canvas.toDataURL("image/png");
+          _this.emit("thumbnail", file, thumbnail);
+          if (callback != null) {
+            return callback();
+          }
+        };
+      })(this);
+      if (callback != null) {
+        img.onerror = callback;
+      }
+      return img.src = imageUrl;
+    };
+
+    Dropzone.prototype.processQueue = function() {
+      var i, parallelUploads, processingLength, queuedFiles;
+      parallelUploads = this.options.parallelUploads;
+      processingLength = this.getUploadingFiles().length;
+      i = processingLength;
+      if (processingLength >= parallelUploads) {
+        return;
+      }
+      queuedFiles = this.getQueuedFiles();
+      if (!(queuedFiles.length > 0)) {
+        return;
+      }
+      if (this.options.uploadMultiple) {
+        return this.processFiles(queuedFiles.slice(0, parallelUploads - processingLength));
+      } else {
+        while (i < parallelUploads) {
+          if (!queuedFiles.length) {
+            return;
+          }
+          this.processFile(queuedFiles.shift());
+          i++;
+        }
+      }
+    };
+
+    Dropzone.prototype.processFile = function(file) {
+      return this.processFiles([file]);
+    };
+
+    Dropzone.prototype.processFiles = function(files) {
+      var file, _i, _len;
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        file.processing = true;
+        file.status = Dropzone.UPLOADING;
+        this.emit("processing", file);
+      }
+      if (this.options.uploadMultiple) {
+        this.emit("processingmultiple", files);
+      }
+      return this.uploadFiles(files);
+    };
+
+    Dropzone.prototype._getFilesWithXhr = function(xhr) {
+      var file, files;
+      return files = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.files;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          file = _ref[_i];
+          if (file.xhr === xhr) {
+            _results.push(file);
+          }
+        }
+        return _results;
+      }).call(this);
+    };
+
+    Dropzone.prototype.cancelUpload = function(file) {
+      var groupedFile, groupedFiles, _i, _j, _len, _len1, _ref;
+      if (file.status === Dropzone.UPLOADING) {
+        groupedFiles = this._getFilesWithXhr(file.xhr);
+        for (_i = 0, _len = groupedFiles.length; _i < _len; _i++) {
+          groupedFile = groupedFiles[_i];
+          groupedFile.status = Dropzone.CANCELED;
+        }
+        file.xhr.abort();
+        for (_j = 0, _len1 = groupedFiles.length; _j < _len1; _j++) {
+          groupedFile = groupedFiles[_j];
+          this.emit("canceled", groupedFile);
+        }
+        if (this.options.uploadMultiple) {
+          this.emit("canceledmultiple", groupedFiles);
+        }
+      } else if ((_ref = file.status) === Dropzone.ADDED || _ref === Dropzone.QUEUED) {
+        file.status = Dropzone.CANCELED;
+        this.emit("canceled", file);
+        if (this.options.uploadMultiple) {
+          this.emit("canceledmultiple", [file]);
+        }
+      }
+      if (this.options.autoProcessQueue) {
+        return this.processQueue();
+      }
+    };
+
+    resolveOption = function() {
+      var args, option;
+      option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      if (typeof option === 'function') {
+        return option.apply(this, args);
+      }
+      return option;
+    };
+
+    Dropzone.prototype.uploadFile = function(file) {
+      return this.uploadFiles([file]);
+    };
+
+    Dropzone.prototype.uploadFiles = function(files) {
+      var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+      xhr = new XMLHttpRequest();
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        file.xhr = xhr;
+      }
+      method = resolveOption(this.options.method, files);
+      url = resolveOption(this.options.url, files);
+      xhr.open(method, url, true);
+      xhr.withCredentials = !!this.options.withCredentials;
+      response = null;
+      handleError = (function(_this) {
+        return function() {
+          var _j, _len1, _results;
+          _results = [];
+          for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
+            file = files[_j];
+            _results.push(_this._errorProcessing(files, response || _this.options.dictResponseError.replace("{{statusCode}}", xhr.status), xhr));
+          }
+          return _results;
+        };
+      })(this);
+      updateProgress = (function(_this) {
+        return function(e) {
+          var allFilesFinished, progress, _j, _k, _l, _len1, _len2, _len3, _results;
+          if (e != null) {
+            progress = 100 * e.loaded / e.total;
+            for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
+              file = files[_j];
+              file.upload = {
+                progress: progress,
+                total: e.total,
+                bytesSent: e.loaded
+              };
+            }
+          } else {
+            allFilesFinished = true;
+            progress = 100;
+            for (_k = 0, _len2 = files.length; _k < _len2; _k++) {
+              file = files[_k];
+              if (!(file.upload.progress === 100 && file.upload.bytesSent === file.upload.total)) {
+                allFilesFinished = false;
+              }
+              file.upload.progress = progress;
+              file.upload.bytesSent = file.upload.total;
+            }
+            if (allFilesFinished) {
+              return;
+            }
+          }
+          _results = [];
+          for (_l = 0, _len3 = files.length; _l < _len3; _l++) {
+            file = files[_l];
+            _results.push(_this.emit("uploadprogress", file, progress, file.upload.bytesSent));
+          }
+          return _results;
+        };
+      })(this);
+      xhr.onload = (function(_this) {
+        return function(e) {
+          var _ref;
+          if (files[0].status === Dropzone.CANCELED) {
+            return;
+          }
+          if (xhr.readyState !== 4) {
+            return;
+          }
+          response = xhr.responseText;
+          if (xhr.getResponseHeader("content-type") && ~xhr.getResponseHeader("content-type").indexOf("application/json")) {
+            try {
+              response = JSON.parse(response);
+            } catch (_error) {
+              e = _error;
+              response = "Invalid JSON response from server.";
+            }
+          }
+          updateProgress();
+          if (!((200 <= (_ref = xhr.status) && _ref < 300))) {
+            return handleError();
+          } else {
+            return _this._finished(files, response, e);
+          }
+        };
+      })(this);
+      xhr.onerror = (function(_this) {
+        return function() {
+          if (files[0].status === Dropzone.CANCELED) {
+            return;
+          }
+          return handleError();
+        };
+      })(this);
+      progressObj = (_ref = xhr.upload) != null ? _ref : xhr;
+      progressObj.onprogress = updateProgress;
+      headers = {
+        "Accept": "application/json",
+        "Cache-Control": "no-cache",
+        "X-Requested-With": "XMLHttpRequest"
+      };
+      if (this.options.headers) {
+        extend(headers, this.options.headers);
+      }
+      for (headerName in headers) {
+        headerValue = headers[headerName];
+        if (headerValue) {
+          xhr.setRequestHeader(headerName, headerValue);
+        }
+      }
+      formData = new FormData();
+      if (this.options.params) {
+        _ref1 = this.options.params;
+        for (key in _ref1) {
+          value = _ref1[key];
+          formData.append(key, value);
+        }
+      }
+      for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
+        file = files[_j];
+        this.emit("sending", file, xhr, formData);
+      }
+      if (this.options.uploadMultiple) {
+        this.emit("sendingmultiple", files, xhr, formData);
+      }
+      if (this.element.tagName === "FORM") {
+        _ref2 = this.element.querySelectorAll("input, textarea, select, button");
+        for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+          input = _ref2[_k];
+          inputName = input.getAttribute("name");
+          inputType = input.getAttribute("type");
+          if (input.tagName === "SELECT" && input.hasAttribute("multiple")) {
+            _ref3 = input.options;
+            for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
+              option = _ref3[_l];
+              if (option.selected) {
+                formData.append(inputName, option.value);
+              }
+            }
+          } else if (!inputType || ((_ref4 = inputType.toLowerCase()) !== "checkbox" && _ref4 !== "radio") || input.checked) {
+            formData.append(inputName, input.value);
+          }
+        }
+      }
+      for (i = _m = 0, _ref5 = files.length - 1; 0 <= _ref5 ? _m <= _ref5 : _m >= _ref5; i = 0 <= _ref5 ? ++_m : --_m) {
+        formData.append(this._getParamName(i), files[i], files[i].name);
+      }
+      return this.submitRequest(xhr, formData, files);
+    };
+
+    Dropzone.prototype.submitRequest = function(xhr, formData, files) {
+      return xhr.send(formData);
+    };
+
+    Dropzone.prototype._finished = function(files, responseText, e) {
+      var file, _i, _len;
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        file.status = Dropzone.SUCCESS;
+        this.emit("success", file, responseText, e);
+        this.emit("complete", file);
+      }
+      if (this.options.uploadMultiple) {
+        this.emit("successmultiple", files, responseText, e);
+        this.emit("completemultiple", files);
+      }
+      if (this.options.autoProcessQueue) {
+        return this.processQueue();
+      }
+    };
+
+    Dropzone.prototype._errorProcessing = function(files, message, xhr) {
+      var file, _i, _len;
+      for (_i = 0, _len = files.length; _i < _len; _i++) {
+        file = files[_i];
+        file.status = Dropzone.ERROR;
+        this.emit("error", file, message, xhr);
+        this.emit("complete", file);
+      }
+      if (this.options.uploadMultiple) {
+        this.emit("errormultiple", files, message, xhr);
+        this.emit("completemultiple", files);
+      }
+      if (this.options.autoProcessQueue) {
+        return this.processQueue();
+      }
+    };
+
+    return Dropzone;
+
+  })(Emitter);
+
+  Dropzone.version = "4.2.0";
+
+  Dropzone.options = {};
+
+  Dropzone.optionsForElement = function(element) {
+    if (element.getAttribute("id")) {
+      return Dropzone.options[camelize(element.getAttribute("id"))];
+    } else {
+      return void 0;
+    }
+  };
+
+  Dropzone.instances = [];
+
+  Dropzone.forElement = function(element) {
+    if (typeof element === "string") {
+      element = document.querySelector(element);
+    }
+    if ((element != null ? element.dropzone : void 0) == null) {
+      throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the `init` option to setup any additional observers on your Dropzone.");
+    }
+    return element.dropzone;
+  };
+
+  Dropzone.autoDiscover = true;
+
+  Dropzone.discover = function() {
+    var checkElements, dropzone, dropzones, _i, _len, _results;
+    if (document.querySelectorAll) {
+      dropzones = document.querySelectorAll(".dropzone");
+    } else {
+      dropzones = [];
+      checkElements = function(elements) {
+        var el, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = elements.length; _i < _len; _i++) {
+          el = elements[_i];
+          if (/(^| )dropzone($| )/.test(el.className)) {
+            _results.push(dropzones.push(el));
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      };
+      checkElements(document.getElementsByTagName("div"));
+      checkElements(document.getElementsByTagName("form"));
+    }
+    _results = [];
+    for (_i = 0, _len = dropzones.length; _i < _len; _i++) {
+      dropzone = dropzones[_i];
+      if (Dropzone.optionsForElement(dropzone) !== false) {
+        _results.push(new Dropzone(dropzone));
+      } else {
+        _results.push(void 0);
+      }
+    }
+    return _results;
+  };
+
+  Dropzone.blacklistedBrowsers = [/opera.*Macintosh.*version\/12/i];
+
+  Dropzone.isBrowserSupported = function() {
+    var capableBrowser, regex, _i, _len, _ref;
+    capableBrowser = true;
+    if (window.File && window.FileReader && window.FileList && window.Blob && window.FormData && document.querySelector) {
+      if (!("classList" in document.createElement("a"))) {
+        capableBrowser = false;
+      } else {
+        _ref = Dropzone.blacklistedBrowsers;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          regex = _ref[_i];
+          if (regex.test(navigator.userAgent)) {
+            capableBrowser = false;
+            continue;
+          }
+        }
+      }
+    } else {
+      capableBrowser = false;
+    }
+    return capableBrowser;
+  };
+
+  without = function(list, rejectedItem) {
+    var item, _i, _len, _results;
+    _results = [];
+    for (_i = 0, _len = list.length; _i < _len; _i++) {
+      item = list[_i];
+      if (item !== rejectedItem) {
+        _results.push(item);
+      }
+    }
+    return _results;
+  };
+
+  camelize = function(str) {
+    return str.replace(/[\-_](\w)/g, function(match) {
+      return match.charAt(1).toUpperCase();
+    });
+  };
+
+  Dropzone.createElement = function(string) {
+    var div;
+    div = document.createElement("div");
+    div.innerHTML = string;
+    return div.childNodes[0];
+  };
+
+  Dropzone.elementInside = function(element, container) {
+    if (element === container) {
+      return true;
+    }
+    while (element = element.parentNode) {
+      if (element === container) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  Dropzone.getElement = function(el, name) {
+    var element;
+    if (typeof el === "string") {
+      element = document.querySelector(el);
+    } else if (el.nodeType != null) {
+      element = el;
+    }
+    if (element == null) {
+      throw new Error("Invalid `" + name + "` option provided. Please provide a CSS selector or a plain HTML element.");
+    }
+    return element;
+  };
+
+  Dropzone.getElements = function(els, name) {
+    var e, el, elements, _i, _j, _len, _len1, _ref;
+    if (els instanceof Array) {
+      elements = [];
+      try {
+        for (_i = 0, _len = els.length; _i < _len; _i++) {
+          el = els[_i];
+          elements.push(this.getElement(el, name));
+        }
+      } catch (_error) {
+        e = _error;
+        elements = null;
+      }
+    } else if (typeof els === "string") {
+      elements = [];
+      _ref = document.querySelectorAll(els);
+      for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
+        el = _ref[_j];
+        elements.push(el);
+      }
+    } else if (els.nodeType != null) {
+      elements = [els];
+    }
+    if (!((elements != null) && elements.length)) {
+      throw new Error("Invalid `" + name + "` option provided. Please provide a CSS selector, a plain HTML element or a list of those.");
+    }
+    return elements;
+  };
+
+  Dropzone.confirm = function(question, accepted, rejected) {
+    if (window.confirm(question)) {
+      return accepted();
+    } else if (rejected != null) {
+      return rejected();
+    }
+  };
+
+  Dropzone.isValidFile = function(file, acceptedFiles) {
+    var baseMimeType, mimeType, validType, _i, _len;
+    if (!acceptedFiles) {
+      return true;
+    }
+    acceptedFiles = acceptedFiles.split(",");
+    mimeType = file.type;
+    baseMimeType = mimeType.replace(/\/.*$/, "");
+    for (_i = 0, _len = acceptedFiles.length; _i < _len; _i++) {
+      validType = acceptedFiles[_i];
+      validType = validType.trim();
+      if (validType.charAt(0) === ".") {
+        if (file.name.toLowerCase().indexOf(validType.toLowerCase(), file.name.length - validType.length) !== -1) {
+          return true;
+        }
+      } else if (/\/\*$/.test(validType)) {
+        if (baseMimeType === validType.replace(/\/.*$/, "")) {
+          return true;
+        }
+      } else {
+        if (mimeType === validType) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  if (typeof jQuery !== "undefined" && jQuery !== null) {
+    jQuery.fn.dropzone = function(options) {
+      return this.each(function() {
+        return new Dropzone(this, options);
+      });
+    };
+  }
+
+  if (typeof module !== "undefined" && module !== null) {
+    module.exports = Dropzone;
+  } else {
+    window.Dropzone = Dropzone;
+  }
+
+  Dropzone.ADDED = "added";
+
+  Dropzone.QUEUED = "queued";
+
+  Dropzone.ACCEPTED = Dropzone.QUEUED;
+
+  Dropzone.UPLOADING = "uploading";
+
+  Dropzone.PROCESSING = Dropzone.UPLOADING;
+
+  Dropzone.CANCELED = "canceled";
+
+  Dropzone.ERROR = "error";
+
+  Dropzone.SUCCESS = "success";
+
+
+  /*
+  
+  Bugfix for iOS 6 and 7
+  Source: http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
+  based on the work of https://github.com/stomita/ios-imagefile-megapixel
+   */
+
+  detectVerticalSquash = function(img) {
+    var alpha, canvas, ctx, data, ey, ih, iw, py, ratio, sy;
+    iw = img.naturalWidth;
+    ih = img.naturalHeight;
+    canvas = document.createElement("canvas");
+    canvas.width = 1;
+    canvas.height = ih;
+    ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    data = ctx.getImageData(0, 0, 1, ih).data;
+    sy = 0;
+    ey = ih;
+    py = ih;
+    while (py > sy) {
+      alpha = data[(py - 1) * 4 + 3];
+      if (alpha === 0) {
+        ey = py;
+      } else {
+        sy = py;
+      }
+      py = (ey + sy) >> 1;
+    }
+    ratio = py / ih;
+    if (ratio === 0) {
+      return 1;
+    } else {
+      return ratio;
+    }
+  };
+
+  drawImageIOSFix = function(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
+    var vertSquashRatio;
+    vertSquashRatio = detectVerticalSquash(img);
+    return ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
+  };
+
+
+  /*
+   * contentloaded.js
+   *
+   * Author: Diego Perini (diego.perini at gmail.com)
+   * Summary: cross-browser wrapper for DOMContentLoaded
+   * Updated: 20101020
+   * License: MIT
+   * Version: 1.2
+   *
+   * URL:
+   * http://javascript.nwbox.com/ContentLoaded/
+   * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
+   */
+
+  contentLoaded = function(win, fn) {
+    var add, doc, done, init, poll, pre, rem, root, top;
+    done = false;
+    top = true;
+    doc = win.document;
+    root = doc.documentElement;
+    add = (doc.addEventListener ? "addEventListener" : "attachEvent");
+    rem = (doc.addEventListener ? "removeEventListener" : "detachEvent");
+    pre = (doc.addEventListener ? "" : "on");
+    init = function(e) {
+      if (e.type === "readystatechange" && doc.readyState !== "complete") {
+        return;
+      }
+      (e.type === "load" ? win : doc)[rem](pre + e.type, init, false);
+      if (!done && (done = true)) {
+        return fn.call(win, e.type || e);
+      }
+    };
+    poll = function() {
+      var e;
+      try {
+        root.doScroll("left");
+      } catch (_error) {
+        e = _error;
+        setTimeout(poll, 50);
+        return;
+      }
+      return init("poll");
+    };
+    if (doc.readyState !== "complete") {
+      if (doc.createEventObject && root.doScroll) {
+        try {
+          top = !win.frameElement;
+        } catch (_error) {}
+        if (top) {
+          poll();
+        }
+      }
+      doc[add](pre + "DOMContentLoaded", init, false);
+      doc[add](pre + "readystatechange", init, false);
+      return win[add](pre + "load", init, false);
+    }
+  };
+
+  Dropzone._autoDiscoverFunction = function() {
+    if (Dropzone.autoDiscover) {
+      return Dropzone.discover();
+    }
+  };
+
+  contentLoaded(window, Dropzone._autoDiscoverFunction);
+
+}).call(this);
 $(document).ready(function() {
     $('form.new_contact_group, form.edit_contact_group').on('submit', function(e) {
         var errors = [];
@@ -14529,6 +16282,39 @@ $(document).ready(function() {
 
         return submitForm($(this), errors);
     });
+
+    $('#remove-selected-contacts').on('click', function() {
+        var total_selected = 0;
+        $('table.list-resource td input.resource-check').each(function(index){
+            if(this.checked) {
+                total_selected++;
+            }
+        });
+
+        $(this).data('confirm', $(this).data('confirm').replace(/[0-9]*\s/, total_selected + ' '));
+    });
+
+    $('button.delete-group').on('click', function() {
+        if(!$(this).hasClass('multi')) {
+            $('form#delete-contact-groups').attr('action', '/contact_groups/' + $(this).data('groupid'));
+            $('ol#delete-groups-modal-list').html('<li>' + $(this).data('grouplabel') + '</li>');
+        } else {
+            $('form#delete-contact-groups').attr('action', '/contact_groups/bulk_delete');
+
+            var selected_groups = '';
+            $('form#delete-contact-groups input.contact-group-check').each(function() {
+                if(this.checked) {
+                    selected_groups += '<li>' + $(this).attr('rel') + '</li>';
+                }
+            });
+
+            $('ol#delete-groups-modal-list').html(selected_groups);
+        }
+    });
+
+    $('#delete-groups-modal').on('shown.bs.modal', function () {
+        $('#contact-group-contacts-fate-0').prop('checked', true);
+    })
 });
 $(document).ready(function() {
     $('#contact-group-attributes').tagsinput({
@@ -14546,9 +16332,36 @@ $(document).ready(function() {
         freeInput: true
     });
 
-    $('form#contact-metadata').on('mouseup', '.metadata-js', function() {
+    $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');
         $('#contacts-table th.'+metadata_column+', #contacts-table td.'+metadata_column).toggleClass('hidden');
+    });
+
+    /*
+     *  TODO Refactor as bulk remove from group (form, appropriate method etc.)
+     *  --> Follow rails security patterns for CSRF attacks.
+     */
+    $('#delete-selected-contacts').on('click', function() {
+        var data = $('.contact-check:checked').serialize();
+
+        $.ajax({
+            url: '/contacts/bulk_delete',
+            cache: false,
+            async: false,
+            method: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function(result) {
+                if(result.deleted > 0) {
+                    location.reload();
+                } else {
+                    console.log('Success: ' + result);
+                }
+            },
+            error: function(result) {
+                console.log('Error: ' + result);
+            }
+        });
     });
 
     $('form.new_contact, form.edit_contact').on('submit', function(e) {
@@ -14585,9 +16398,7 @@ $(document).ready(function() {
 
         return submitForm($(this), errors);
     });
-});
 
-$(document).on('page:change', function(){
     if(typeof $('form.edit_contact').attr('id') != 'undefined') {
         $.ajax({
             url: '/contacts/'+$('#contact-id').val()+'/groups.json',
@@ -14604,6 +16415,57 @@ $(document).on('page:change', function(){
             }
         });
     }
+});
+// Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+
+$(document).ready(function(){
+    var previewNode = document.querySelector("#template");
+    previewNode.id = "";
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+
+    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+        url: "/target-url", // Set the url
+        thumbnailWidth: 80,
+        thumbnailHeight: 80,
+        parallelUploads: 20,
+        previewTemplate: previewTemplate,
+        autoQueue: false, // Make sure the files aren't queued until manually added
+        previewsContainer: "#previews", // Define the container to display the previews
+        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+    });
+
+    myDropzone.on("addedfile", function(file) {
+        // Hookup the start button
+        file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
+    });
+
+// Update the total progress bar
+    myDropzone.on("totaluploadprogress", function(progress) {
+        document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+    });
+
+    myDropzone.on("sending", function(file) {
+        // Show the total progress bar when upload starts
+        document.querySelector("#total-progress").style.opacity = "1";
+        // And disable the start button
+        file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+    });
+
+// Hide the total progress bar when nothing's uploading anymore
+    myDropzone.on("queuecomplete", function(progress) {
+        document.querySelector("#total-progress").style.opacity = "0";
+    });
+
+// Setup the buttons for all transfers
+// The "add files" button doesn't need to be setup because the config
+// `clickable` has already been specified.
+    document.querySelector("#actions .start").onclick = function() {
+        myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+    };
+    document.querySelector("#actions .cancel").onclick = function() {
+        myDropzone.removeAllFiles(true);
+    };
 });
 function validUsername(username) {
     var valid_username = /^[A-Za-z0-9]{6,20}$/i;
@@ -14748,6 +16610,7 @@ $(document).ready(function(){
 
 
 
+
 $(document).ready(function(){
     Turbolinks.enableProgressBar();
 
@@ -14756,26 +16619,120 @@ $(document).ready(function(){
     });
 
     $('#main-content').on('change', 'select#rows-per-page', function(){
-        var rows_per_page = $(this).find('option:selected').val();
+        var rows_val = $(this).find('option:selected').val();
         var active_page = $('#main-content').find('ul.pagination li.active a');
 
+        var per_page = typeof rows_val != 'undefined' ? rows_val : $(this).find('option:first-child').val();
+        var page = typeof active_page.text() != 'undefined' ? active_page.text() : 1;
+
+        properLink(page, per_page);
+    });
+
+    $('ul.pagination li a').on('click', function(e) {
+        e.preventDefault();
+
+        var rows_pp = $('#main-content').find('select#rows-per-page');
+        var page_href = $(this).attr('href');
+        var page_start = page_href.indexOf('page=') != -1 ? page_href.indexOf('page=') + 5 : page_href.length;
+        var page_end = page_href.substring(page_start).indexOf('&') != -1 ? page_href.substring(page_start).indexOf('&') : page_href.length;
+        var active_page = empty(page_href.substring(page_start, page_end)) ? undefined : page_href.substring(page_start, page_end);
+
+        var per_page = typeof rows_pp.find('option:selected').val() != 'undefined' ?
+                            rows_pp.find('option:selected').val() : rows_pp.find('option:first-child').val();
+        var page = typeof active_page != 'undefined' ? active_page : 1;
+
+        properLink(page, per_page);
+    });
+
+    var window_params = window.location.search;
+    if(!empty(window_params)) {
+        var params_array = window_params.substring(1).split('&');
+        var table_id = $('form.additional-fields').attr('id').replace('additional', 'table');
+
+        $.each(params_array, function(key, value) {
+            var field_array = value.split('=');
+            var checkbox_field = $('form.additional-fields div.checkbox-js[rel="'+field_array[0]+'"] input[type="checkbox"]');
+
+            if(typeof checkbox_field != 'undefined') {
+                if(checkbox_field.is(':checked') && field_array[1] == 0) {
+                    checkbox_field.prop('checked', false);
+                    $('table#'+table_id+' th.' + field_array[0]).addClass('hidden');
+                    $('table#'+table_id+' td.' + field_array[0]).addClass('hidden');
+                } else if(!checkbox_field.is(':checked') && field_array[1] == 1) {
+                    checkbox_field.prop('checked', true);
+                    $('table#'+table_id+' th.' + field_array[0]).removeClass('hidden');
+                    $('table#'+table_id+' td.' + field_array[0]).removeClass('hidden');
+                }
+            }
+        });
+    }
+
+    function properLink(page, per_page) {
         var protocol = window.location.protocol;
         var host = window.location.host;
         var path = window.location.pathname;
-        var params = window.location.search;
+        var params = '';
 
-        if(params.indexOf('limit=') == -1) {
-            params += empty(params) ? '?limit=' + rows_per_page : '&limit=' + rows_per_page;
+        params += '?limit=' + per_page;
+        params += '&page=' + page;
+
+        params = params + additional_fields();
+
+        Turbolinks.visit(protocol + '//' + host + path + params);
+    }
+
+    function additional_fields() {
+        var additional_params = '';
+        if(typeof $('form.additional-fields') != 'undefined') {
+            var check_val = 0;
+
+            $('form.additional-fields div.checkbox-js').each(function(index) {
+                check_val = $(this).find('input[type="checkbox"]').is(':checked') ? 1 : 0;
+                additional_params += '&' + $(this).attr('rel') + '=' + check_val;
+            });
         }
 
-        if(params.indexOf('page=') == -1) {
-            params += '&page=' + active_page.text();
+        return additional_params;
+    }
+
+    $('.select-all').on('click', function() {
+        var resource = $(this).data('resource');
+        alert('We should first decide what actions will apply to all ' + resource + ' and then return here!');
+    });
+
+    $('.select-page').on('click', function() {
+        var resource = $(this).data('resource');
+        $('table.list-resource td input.'+resource+'-check').prop('checked', true);
+        $('table.list-resource td input.'+resource+'-check').trigger('change');
+    });
+
+    $('.uncheck-selected').on('click', function() {
+        var resource = $(this).data('resource');
+        $('table.list-resource td input.'+resource+'-check').prop('checked', false);
+        $('table.list-resource td input.'+resource+'-check').trigger('change');
+    });
+
+    $('.list-resource').on('change', 'input.resource-check', function() {
+        var resource = $(this).data('resource');
+        var checked = 0;
+
+        $('table.list-resource td input.resource-check').each(function(index){
+            if(this.checked) {
+                checked++;
+                $('form.list-resource input.resource-check[value="'+this.value+'"]')
+                    .prop('checked', true);
+            } else {
+                $('form.list-resource input.resource-check[value="'+this.value+'"]')
+                    .prop('checked', false);
+            }
+        });
+
+        if(checked > 0) {
+            $('.select-action').hide();
+            $('.resource-action').show();
+        } else {
+            $('.resource-action').hide();
+            $('.select-action').show();
         }
-
-        // active_page.parent().removeClass('active');
-        // active_page.attr('remote', true).attr('href', protocol + '//' + host + path + params);
-        // active_page.click();
-
-        Turbolinks.visit(protocol + '//' + host + path + params, { cacheRequest: false });
     });
 });

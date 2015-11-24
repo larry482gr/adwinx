@@ -5,6 +5,8 @@ gr:
   edit_contact_group: 'Επεξεργασία Ομάδας Επαφών'
   total_contact_groups: 'Σύνολο ομάδων επαφών'
   contact_group_del_confirm: "Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n"
+  contact_group_deleted: "Η Ομάδα/ες Επαφών %group_label% διαγράφηκε/αν επιτυχώς."
+  group_only_contacts_deleted: "%contacts_deleted% Επαφή/ές διαγράφηκε/αν επιτυχώς."
   contact_group_empty_confirm: "Είσαστε σίγουρος/η πως θέλετε να αδειάσετε αυτή την ομάδα επαφών;\n\n"
   contacts_remove_confirm: " επαφές θα αφαιρεθούν από αυτή την ομάδα επαφών.\n\n"
   contacts_successfully_removed: "επαφές αφαιρέθηκαν επιτυχώς από την ομάδα επαφών \"%group_label%\""

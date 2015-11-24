@@ -4,14 +4,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
-  rescue_from ActionController::UnpermittedParameters do |exception|
-    flash[:alert] = 'Invalid parameters.'
-    redirect_to :root
-  end
+  rescue_from ActionController::UnpermittedParameters, with: :invalid_params
 
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { locale: I18n.locale }
+  end
+
+  protected
+
+  def invalid_params
+    flash[:alert] = 'Invalid parameters.'
+    redirect_to :root
   end
 
   def set_locale

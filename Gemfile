@@ -82,6 +82,7 @@ group :development, :test do
 
   # Code analyzer as per Ruby code guidelines
   gem 'rubocop', require: false
+  gem 'rubycritic', :require => false
 
   # gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller'

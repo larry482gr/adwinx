@@ -30,7 +30,24 @@ $(document).ready(function() {
     });
 
     $('button.delete-group').on('click', function() {
-        $('form#delete-contact-groups').attr('action', '/contact_groups/' + $(this).data('groupid'));
-        $('ol#delete-groups-modal-list').html('<li>' + $(this).data('grouplabel') + '</li>');
+        if(!$(this).hasClass('multi')) {
+            $('form#delete-contact-groups').attr('action', '/contact_groups/' + $(this).data('groupid'));
+            $('ol#delete-groups-modal-list').html('<li>' + $(this).data('grouplabel') + '</li>');
+        } else {
+            $('form#delete-contact-groups').attr('action', '/contact_groups/bulk_delete');
+
+            var selected_groups = '';
+            $('form#delete-contact-groups input.contact-group-check').each(function() {
+                if(this.checked) {
+                    selected_groups += '<li>' + $(this).attr('rel') + '</li>';
+                }
+            });
+
+            $('ol#delete-groups-modal-list').html(selected_groups);
+        }
     });
+
+    $('#delete-groups-modal').on('shown.bs.modal', function () {
+        $('#contact-group-contacts-fate-0').prop('checked', true);
+    })
 });

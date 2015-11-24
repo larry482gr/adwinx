@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require i18n
 //= require i18n/translations
+//= require dropzone
 //= require_tree .
 
 $(document).ready(function(){
