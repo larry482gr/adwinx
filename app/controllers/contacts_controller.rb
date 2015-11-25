@@ -1,4 +1,7 @@
+require 'modules/sse'
+
 class ContactsController < ApplicationController
+  include ActionController::Live
   before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
@@ -96,6 +99,42 @@ class ContactsController < ApplicationController
     end
   end
 
+  # POST /contacts/bulk_import
+  def bulk_import
+    debug_inspect contact_params
+
+=begin
+    response.headers['Content-Type'] = 'text/event-stream'
+    sse = ServerSide::SSE.new(response.stream)
+    i = 1
+    begin
+      loop do
+        sse.write("{ \"progress\": \"#{i*10}\" }")
+        sleep 1
+        i += 1
+        if i*10 >= 100
+          throw IOError
+        end
+      end
+    rescue IOError => e
+        puts "Cought exception #{e}"
+    ensure
+      sse.close
+    end
+=end
+    response.headers['Content-Type'] = 'text/event-stream'
+    i = 1
+    loop do
+      response.stream.write "{ \"progress\": \"#{i*10}\" }"
+      sleep 1
+      i += 1
+      if i*10 > 100
+        break
+      end
+    end
+    response.stream.close
+  end
+
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
@@ -174,7 +213,7 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:prefix, :mobile, { contact_ids: [] },
+      params.require(:contact).permit(:prefix, :mobile, :contact_lists, { contact_ids: [] },
                                       { contact_profile_attributes: current_user.metadata.to_a },
                                       { contact_group_attributes: [:_id] })
     end
