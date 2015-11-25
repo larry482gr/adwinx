@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     # TODO Refactor contacts bulk delete. Add the route through deletable concern and
     # implement it the rails way with form, method delete etc.
     post '/contacts/bulk_delete' => 'contacts#bulk_delete'
+    post '/contacts/bulk_import' => 'contacts#bulk_import'
   end
 
 
