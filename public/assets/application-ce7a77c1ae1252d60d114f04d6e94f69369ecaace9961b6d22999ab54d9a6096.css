@@ -8852,6 +8852,27 @@ button.close {
   min-height: 24px;
 }
 
+@media (min-width: 768px) {
+  /* line 6, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/contact_groups.scss */
+  .contact-groups-list-links, .contact-group-links {
+    float: right;
+    text-align: right;
+  }
+}
+@media (max-width: 768px) {
+  /* line 13, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/contact_groups.scss */
+  .contact-groups-list-links, .contact-group-links {
+    float: none;
+    clear: both;
+    text-align: left !important;
+  }
+}
+/* line 20, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/contact_groups.scss */
+#contact-groups-bulk-actions {
+  min-width: 230px;
+  min-height: 24px;
+}
+
 /* line 8, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/application.scss */
 html,
 body {
