@@ -136,6 +136,7 @@
             autoQueue: true,
             addRemoveLinks: false,
             previewsContainer: null,
+            processingProgressBar: null,
             hiddenInputContainer: "body",
             capture: null,
             dictDefaultMessage: "Drop files here to upload",
@@ -454,6 +455,13 @@
                     this.previewsContainer = Dropzone.getElement(this.options.previewsContainer, "previewsContainer");
                 } else {
                     this.previewsContainer = this.element;
+                }
+            }
+            if (this.options.processingProgressBar !== false) {
+                if (this.options.processingProgressBar) {
+                    this.processingProgressBar = Dropzone.getElement(this.options.processingProgressBar, "processingProgressBar");
+                } else {
+                    this.processingProgressBar = this.element;
                 }
             }
             if (this.options.clickable) {
@@ -1119,10 +1127,11 @@
         };
 
         Dropzone.prototype.processQueue = function() {
-            var i, parallelUploads, processingLength, queuedFiles;
+            var i, parallelUploads, processingLength, queuedFiles, processingProgressBar;
             parallelUploads = this.options.parallelUploads;
             processingLength = this.getUploadingFiles().length;
             i = processingLength;
+            processingProgressBar = this.options.processingProgressBar;
             if (processingLength >= parallelUploads) {
                 return;
             }
@@ -1131,23 +1140,23 @@
                 return;
             }
             if (this.options.uploadMultiple) {
-                return this.processFiles(queuedFiles.slice(0, parallelUploads - processingLength));
+                return this.processFiles(queuedFiles.slice(0, parallelUploads - processingLength), processingProgressBar);
             } else {
                 while (i < parallelUploads) {
                     if (!queuedFiles.length) {
                         return;
                     }
-                    this.processFile(queuedFiles.shift());
+                    this.processFile(queuedFiles.shift(), processingProgressBar);
                     i++;
                 }
             }
         };
 
-        Dropzone.prototype.processFile = function(file) {
-            return this.processFiles([file]);
+        Dropzone.prototype.processFile = function(file, processingProgressBar) {
+            return this.processFiles([file], processingProgressBar);
         };
 
-        Dropzone.prototype.processFiles = function(files) {
+        Dropzone.prototype.processFiles = function(files, processingProgressBar) {
             var file, _i, _len;
             for (_i = 0, _len = files.length; _i < _len; _i++) {
                 file = files[_i];
@@ -1158,7 +1167,7 @@
             if (this.options.uploadMultiple) {
                 this.emit("processingmultiple", files);
             }
-            return this.uploadFiles(files);
+            return this.uploadFiles(files, processingProgressBar);
         };
 
         Dropzone.prototype._getFilesWithXhr = function(xhr) {
@@ -1215,11 +1224,12 @@
         };
 
         Dropzone.prototype.uploadFile = function(file) {
-            return this.uploadFiles([file]);
+            var processingProgressBar = this.options.processingProgressBar;
+            return this.uploadFiles([file], processingProgressBar);
         };
 
-        Dropzone.prototype.uploadFiles = function(files) {
-            var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+        Dropzone.prototype.uploadFiles = function(files, processingProgressBar) {
+            var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
             xhr = new XMLHttpRequest();
             xhr.previous_text = '';
             for (_i = 0, _len = files.length; _i < _len; _i++) {
@@ -1312,21 +1322,18 @@
                     return handleError();
                 };
             })(this);
-            xhr.onreadystatechange = (function(_this) {
+            processingProgress = (function(_this) {
                 return function(e) {
                     var new_response = String(xhr.responseText.substring(xhr.previous_text.length).trim());
-                    console.log("var new_response = " + new_response);
                     xhr.previous_text = xhr.responseText;
 
                     var last_response;
                     try {
                         last_response = JSON.parse(new_response);
-                        console.log("progress = " + last_response.progress);
 
-                        $('#processing-import-bar div').css('width', last_response.progress + '%');
+                        processingProgressBar.style.width = last_response.progress + '%';
                     } catch (_error) {
                         e = _error;
-                        console.log("Invalid JSON response from server.");
                     }
 
 
@@ -1338,6 +1345,7 @@
                     }
                 }
             })(this);
+            xhr.onreadystatechange = processingProgress;
             progressObj = (_ref = xhr.upload) != null ? _ref : xhr;
             progressObj.onprogress = updateProgress;
             headers = {

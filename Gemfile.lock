@@ -57,8 +57,6 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-material-design (0.2.2)
-      bootstrap-sass (~> 3.0)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -117,8 +115,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dropzonejs-rails (0.7.2)
-      rails (> 3.1)
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -346,7 +342,6 @@ DEPENDENCIES
   actionpack-page_caching (~> 1.0.2)
   bcrypt (~> 3.1.7)
   binding_of_caller
-  bootstrap-material-design
   bootstrap-sass (~> 3.3.5)
   byebug
   capybara
@@ -357,7 +352,6 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   database_cleaner
   devise
-  dropzonejs-rails
   factory_girl
   factory_girl_rails
   htmlentities

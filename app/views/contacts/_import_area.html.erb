@@ -2,7 +2,7 @@
   <h4>Drop your contact lists here</h4>
   <div id="actions" class="row">
     <div id="previews" class="table table-striped files">
-      <div id="template" class="file-row dz-image-preview">
+      <div id="contact-lists-template" class="file-row dz-image-preview">
         <div>
           <p class="name" data-dz-name></p>
           <strong class="error text-danger" data-dz-errormessage></strong>
@@ -25,8 +25,14 @@
         </div>
       </div>
     </div>
+    <div id="processing-progress" class="col-md-12">
+      <h5>Processing Lists...</h5>
+      <div id="total-progress" class="progress progress-striped active" aria-valuenow="0" aria-valuemax="100" aria-valuemin="0" role="progressbar">
+        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+      </div>
+    </div>
     <div class="col-md-12">
-      <span class="btn btn-success btn-sm fileinput-button dz-clickable">
+      <span class="btn btn-success btn-sm import-list-button dz-clickable">
         <i class="glyphicon glyphicon-plus"></i>
         <span>Add files...</span>
       </span>
@@ -39,12 +45,6 @@
         <span>Remove files</span>
       </button>
     </div>
-  </div>
-</div>
-
-<div class="col-md-12">
-  <div id="processing-import-bar" class="progress progress-striped active" aria-valuenow="0" aria-valuemax="100" aria-valuemin="0" role="progressbar">
-    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
   </div>
 </div>
 

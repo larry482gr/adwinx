@@ -123,7 +123,7 @@ class ContactsController < ApplicationController
     end
 =end
     response.headers['Content-Type'] = 'text/event-stream'
-    i = 1
+    i = 0
     loop do
       response.stream.write "{ \"progress\": \"#{i*10}\" }"
       sleep 1
