@@ -136,6 +136,8 @@
             autoQueue: true,
             addRemoveLinks: false,
             previewsContainer: null,
+            importProcessed: null,
+            importTotal: null,
             processingProgressBar: null,
             hiddenInputContainer: "body",
             capture: null,
@@ -455,6 +457,20 @@
                     this.previewsContainer = Dropzone.getElement(this.options.previewsContainer, "previewsContainer");
                 } else {
                     this.previewsContainer = this.element;
+                }
+            }
+            if (this.options.importProcessed !== false) {
+                if (this.options.importProcessed) {
+                    this.importProcessed = Dropzone.getElement(this.options.importProcessed, "importProcessed");
+                } else {
+                    this.importProcessed = this.element;
+                }
+            }
+            if (this.options.importTotal !== false) {
+                if (this.options.importTotal) {
+                    this.importTotal = Dropzone.getElement(this.options.importTotal, "importTotal");
+                } else {
+                    this.importTotal = this.element;
                 }
             }
             if (this.options.processingProgressBar !== false) {
@@ -1127,10 +1143,12 @@
         };
 
         Dropzone.prototype.processQueue = function() {
-            var i, parallelUploads, processingLength, queuedFiles, processingProgressBar;
+            var i, parallelUploads, processingLength, queuedFiles, importProcessed, importTotal, processingProgressBar;
             parallelUploads = this.options.parallelUploads;
             processingLength = this.getUploadingFiles().length;
             i = processingLength;
+            importProcessed = this.options.importProcessed;
+            importTotal = this.options.importTotal;
             processingProgressBar = this.options.processingProgressBar;
             if (processingLength >= parallelUploads) {
                 return;
@@ -1140,23 +1158,23 @@
                 return;
             }
             if (this.options.uploadMultiple) {
-                return this.processFiles(queuedFiles.slice(0, parallelUploads - processingLength), processingProgressBar);
+                return this.processFiles(queuedFiles.slice(0, parallelUploads - processingLength), importProcessed, importTotal, processingProgressBar);
             } else {
                 while (i < parallelUploads) {
                     if (!queuedFiles.length) {
                         return;
                     }
-                    this.processFile(queuedFiles.shift(), processingProgressBar);
+                    this.processFile(queuedFiles.shift(), importProcessed, importTotal, processingProgressBar);
                     i++;
                 }
             }
         };
 
-        Dropzone.prototype.processFile = function(file, processingProgressBar) {
-            return this.processFiles([file], processingProgressBar);
+        Dropzone.prototype.processFile = function(file, importProcessed, importTotal, processingProgressBar) {
+            return this.processFiles([file], importProcessed, importTotal, processingProgressBar);
         };
 
-        Dropzone.prototype.processFiles = function(files, processingProgressBar) {
+        Dropzone.prototype.processFiles = function(files, importProcessed, importTotal, processingProgressBar) {
             var file, _i, _len;
             for (_i = 0, _len = files.length; _i < _len; _i++) {
                 file = files[_i];
@@ -1167,7 +1185,7 @@
             if (this.options.uploadMultiple) {
                 this.emit("processingmultiple", files);
             }
-            return this.uploadFiles(files, processingProgressBar);
+            return this.uploadFiles(files, importProcessed, importTotal, processingProgressBar);
         };
 
         Dropzone.prototype._getFilesWithXhr = function(xhr) {
@@ -1224,11 +1242,14 @@
         };
 
         Dropzone.prototype.uploadFile = function(file) {
-            var processingProgressBar = this.options.processingProgressBar;
-            return this.uploadFiles([file], processingProgressBar);
+            var importProcessed, importTotal, processingProgressBar;
+            importProcessed = this.options.importProcessed;
+            importTotal = this.options.importTotal;
+            processingProgressBar = this.options.processingProgressBar;
+            return this.uploadFiles([file], importProcessed, importTotal, processingProgressBar);
         };
 
-        Dropzone.prototype.uploadFiles = function(files, processingProgressBar) {
+        Dropzone.prototype.uploadFiles = function(files, importProcessed, importTotal, processingProgressBar) {
             var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
             xhr = new XMLHttpRequest();
             xhr.previous_text = '';
@@ -1324,16 +1345,37 @@
             })(this);
             processingProgress = (function(_this) {
                 return function(e) {
-                    var new_response = String(xhr.responseText.substring(xhr.previous_text.length).trim());
+                    console.log(xhr.previous_text);
+                    console.log(xhr.responseText);
+                    var new_response = String(xhr.responseText.substring(xhr.previous_text.length));
+                    console.log(new_response);
                     xhr.previous_text = xhr.responseText;
 
                     var last_response;
                     try {
                         last_response = JSON.parse(new_response);
 
-                        processingProgressBar.style.width = last_response.progress + '%';
+                        console.log(last_response.processed);
+                        console.log(last_response.total);
+                        console.log(last_response.final_result);
+                        console.log(last_response.progress);
+
+                        if(!empty(last_response.processed)) {
+                            importProcessed.innerHTML = last_response.processed;
+                            processingProgressBar.style.width = last_response.progress + '%';
+                        }
+
+                        if(!empty(last_response.total)) {
+                            importTotal.innerHTML = last_response.total;
+                        }
+
+                        if(!empty(last_response.final_result)) {
+                             importTotal.innerHTML = importTotal.innerHTML + ' <strong>' + last_response.final_result + '</strong>';
+                        }
+
                     } catch (_error) {
                         e = _error;
+                        console.log(_error);
                     }
 
 

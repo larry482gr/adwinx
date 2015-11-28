@@ -120,6 +120,10 @@ function initializeDropzone(dropzoneArea, dropzoneOptions) {
     myDropzone.on("drop", function(event) {
         // Hookup the start button
         document.querySelector(".drop-area").style.border = "1px dashed #888";
+        if(!document.querySelector(".drop-area").visible) {
+            document.querySelector(".drop-area").style.display = 'block';
+        }
+
     });
 
     myDropzone.on("dragleave", function(event) {

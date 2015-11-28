@@ -19,6 +19,10 @@ $(document).ready(function() {
         $('#contacts-table th.'+metadata_column+', #contacts-table td.'+metadata_column).toggleClass('hidden');
     });
 
+    $('button#import-contacts').on('click', function() {
+        $('div#contacts-drop-area').slideToggle();
+    });
+
     /*
      *  TODO Refactor as bulk remove from group (form, appropriate method etc.)
      *  --> Follow rails security patterns for CSRF attacks.

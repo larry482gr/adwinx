@@ -23,8 +23,8 @@ div.table .file-row > div {
   vertical-align: top;
 }
 
-div.drop-area {
-  min-height: 60px;
+div#contacts-drop-area {
+  display: none;
   border: 1px dashed #888;
   padding: 6px 15px;
 

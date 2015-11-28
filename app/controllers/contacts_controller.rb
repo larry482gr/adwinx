@@ -1,4 +1,4 @@
-require 'modules/sse'
+require 'CSV'
 
 class ContactsController < ApplicationController
   include ActionController::Live
@@ -87,6 +87,7 @@ class ContactsController < ApplicationController
           format.json { render json: @contact.errors, status: :unprocessable_entity }
         end
       rescue Mongo::Error::OperationFailure => exception
+        debug_inspect exception
         @contact = duplicate_contact
         create_profile
 
@@ -101,38 +102,102 @@ class ContactsController < ApplicationController
 
   # POST /contacts/bulk_import
   def bulk_import
-    debug_inspect contact_params
+    response.headers['Content-Type'] = 'text/event-stream'
 
-=begin
-    response.headers['Content-Type'] = 'text/event-stream'
-    sse = ServerSide::SSE.new(response.stream)
+    arr_of_arrs = CSV.read(params[:contact][:contact_lists].tempfile, headers: true)
+
+    total_contacts = arr_of_arrs.size
+    response.stream.write ({ total: total_contacts.to_s }).to_json
+    sleep 0.1
+
+    progress_step = 100/total_contacts
     i = 1
-    begin
-      loop do
-        sse.write("{ \"progress\": \"#{i*10}\" }")
-        sleep 1
-        i += 1
-        if i*10 >= 100
-          throw IOError
+
+    inserted  = 0
+    updated   = 0
+
+    arr_of_arrs.each do |row|
+      row_hash = row.to_hash
+
+      uid = current_user.id
+      group_ids = {}
+      contact_params = {}
+
+      contact_params[:uid] = uid
+      contact_params[:prefix] = row_hash.delete('prefix')
+      contact_params[:mobile] = row_hash.delete('mobile')
+
+      contact_group_ids = []
+      groups = row_hash['groups'].split('/')
+
+      unless groups.blank?
+        groups.each do |group|
+          group.strip!
+          if group_ids[group].blank?
+            grp = nil
+            begin
+              grp = ContactGroup.find_by({ label: group })
+            rescue Mongoid::Errors::DocumentNotFound => exception
+              debug_inspect exception
+              grp = ContactGroup.create({ uid: uid, label: group })
+            ensure
+              unless grp.nil?
+                group_bson_id = BSON::ObjectId.from_string(grp[:_id])
+                group_ids[group] = group_bson_id
+                contact_group_ids << group_bson_id
+              end
+            end
+          else
+            contact_group_ids << group_ids[group]
+          end
         end
+        row_hash.delete('groups')
       end
-    rescue IOError => e
-        puts "Cought exception #{e}"
-    ensure
-      sse.close
-    end
-=end
-    response.headers['Content-Type'] = 'text/event-stream'
-    i = 0
-    loop do
-      response.stream.write "{ \"progress\": \"#{i*10}\" }"
-      sleep 1
+
+      contact_profile = ContactProfile.new(row_hash)
+      contact_profile_params = row_hash
+      contact_profile_params[:_id] = contact_profile[:_id]
+      contact_params['contact_profile'] = contact_profile_params
+      contact_params['contact_group_ids'] = contact_group_ids
+
+      result = Contact.collection.update_one({uid: contact_params[:uid], prefix: contact_params[:prefix], mobile: contact_params[:mobile]},
+                                             {'$set' => contact_params},
+                                             {upsert: true})
+                   .documents.first
+
+      debug_inspect result
+
+      if result[:ok] == 1 and result[:n] == 1 and result[:nModified] == 0
+        inserted += result[:n]
+      else
+        updated += result[:nModified]
+      end
+
+      response.stream.write ({ processed: i.to_s, progress: (i*progress_step).to_s }).to_json
       i += 1
-      if i*10 > 100
-        break
-      end
+      sleep 0.1
+
+
     end
+    response.stream.write ({ final_result: "(Inserted: #{inserted.to_s}, Updated: #{updated.to_s})" }).to_json
+    sleep 0.6
     response.stream.close
+
+    #################################################################################################################
+    #################################################################################################################
+    #################################################################################################################
+
+    # response.headers['Content-Type'] = 'text/event-stream'
+    #i = 0
+    #loop do
+    #  response.stream.write ({ progress: i*10 }).to_json # "{ \"progress\": \"#{i*10}\" }"
+    #  sleep 1
+    #  i += 1
+    #  if i*10 > 100
+    #    break
+    #  end
+    #end
+    #response.stream.close
   end
 
   # PATCH/PUT /contacts/1

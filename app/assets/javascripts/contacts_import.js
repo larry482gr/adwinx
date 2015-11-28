@@ -5,6 +5,8 @@ $(document).ready(function() {
         previewNode.id = "";
         var previewTemplate = previewNode.parentNode.innerHTML;
         previewNode.parentNode.removeChild(previewNode);
+        var importProcessed = document.querySelector("#total-progress-text #import-processed");
+        var importTotal = document.querySelector("#total-progress-text #import-total");
         var processingProgressBar = document.querySelector("#processing-progress #total-progress .progress-bar");
 
         var dopzoneArea = document.body;
@@ -17,6 +19,8 @@ $(document).ready(function() {
             previewTemplate: previewTemplate,
             autoQueue: false,
             previewsContainer: "#previews",
+            importProcessed: importProcessed,
+            importTotal: importTotal,
             processingProgressBar: processingProgressBar,
             clickable: ".import-list-button",
             maxFiles: 5,
