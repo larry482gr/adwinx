@@ -143,15 +143,16 @@ function initializeDropzone(dropzoneArea, dropzoneOptions) {
 
     myDropzone.on("sending", function(file) {
         // Show the total progress bar when upload starts
+        document.querySelector("#total-progress .progress-bar").style.width = "0%";
         document.querySelector("#processing-progress").style.opacity = "1";
         // And disable the start button
         file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
     });
 
     // Hide the total progress bar when nothing's uploading anymore
-    myDropzone.on("queuecomplete", function(progress) {
-        document.querySelector("#processing-progress").style.opacity = "0";
-    });
+    // myDropzone.on("queuecomplete", function(progress) {
+    //     document.querySelector("#processing-progress").style.opacity = "0";
+    // });
 
     // Setup the buttons for all transfers
     // The "add files" button doesn't need to be setup because the config
