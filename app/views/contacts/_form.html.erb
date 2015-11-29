@@ -1,25 +1,48 @@
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@contact.errors.count, 'error') %> prohibited this contact from being saved:</h2>
 
       <ul>
       <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message.html_safe %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :prefix %><br>
-    <%= f.number_field :prefix %>
+  <div class="form-group">
+    <%= f.label :prefix %>
+    <%= f.number_field :prefix, { autofocus: true,
+                                  class: 'form-control',
+                                  required: true } %>
   </div>
-  <div class="field">
-    <%= f.label :mobile %><br>
-    <%= f.number_field :mobile %>
+  <div class="form-group">
+    <%= f.label :mobile %>
+    <%= f.number_field :mobile, { class: 'form-control',
+                                  required: true } %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <hr>
+  <div class="form-group">
+    <%= f.label :contact_profile %>
+    <%= f.fields_for :contact_profile do |cp| %>
+        <%- current_user.metadata.each do |meta_field| %>
+          <div class="form-group">
+            <%= cp.label meta_field %>
+            <%= cp.text_field meta_field, class: 'form-control' %>
+          </div>
+        <% end %>
+    <% end %>
   </div>
+  <hr>
+  <div class="form-group">
+    <%= f.label :contact_group %><br/>
+    <select multiple class="form-control" id="contact-group-attributes"
+            name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
+      </select>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  <input type="hidden" id="contact-id" value="<%= @contact.id.to_s %>">
 <% end %>

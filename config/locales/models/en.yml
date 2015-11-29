@@ -1,0 +1,34 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: 'User'
+        other: 'Users'
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Password'
+        remember_me: 'Remember me'
+
+  mongoid:
+    models:
+      contact:
+        one: 'Contact'
+        other: 'Contacts'
+      contact_group:
+        one: 'Contact Group'
+        other: 'Contact Groups'
+    attributes:
+      contact:
+        prefix: 'Country Code'
+        mobile: 'Mobile'
+      contact_group:
+        label: 'Label'
+        description: 'Description'
+    errors:
+      contact:
+        duplicate_key: 'a_contact_with'
+        duplicate_val: ' phone_number "%phone%" already exists.'
+      contact_group:
+        duplicate_key: 'a_contact_group'
+        duplicate_val: ' labeled "%label%" already exists.'

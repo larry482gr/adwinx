@@ -1,0 +1,34 @@
+gr:
+  activerecord:
+    models:
+      user:
+        one: 'Χρήστης'
+        other: 'Χρήστες'
+    attributes:
+      user:
+        email: 'Ηλεκτρονικό ταχυδρομίο (email)'
+        password: 'Κωδικός πρόσβασης'
+        remember_me: 'Θυμήσου με! :P'
+
+  mongoid:
+    models:
+      contact:
+        one: 'Επαφή'
+        other: 'Επαφές'
+      contact_group:
+        one: 'Ομάδα Επαφών'
+        other: 'Ομάδες Επαφών'
+    attributes:
+      contact:
+        prefix: 'Κωδικός Χώρας'
+        mobile: 'Κινητό Τηλέφωνο'
+      contact_group:
+        label: 'Επιγραφή'
+        description: 'Περιγραφή'
+    errors:
+      contact:
+        duplicate_key: 'μία_επαφή_με'
+        duplicate_val: ' τηλέφωνο "%phone%" είναι ήδη καταχωρημένη.'
+      contact_group:
+        duplicate_key: 'μία_ομάδα_επαφών'
+        duplicate_val: ' με επιγραφή "%label%" είναι ήδη καταχωρημένη.'

@@ -4,6 +4,6 @@ class ContactProfile
 
   embedded_in :contact
 
-  field :fn, as: :first_name, type: String
-  field :ln, as: :last_name, type: String
+  # Clear blank (null, empty) fields before validation.
+  include Cleanable
 end

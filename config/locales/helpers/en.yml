@@ -1,0 +1,10 @@
+en:
+  helpers:
+    submit:
+      contact:
+        create: "Create Contact"
+        update: "Update Contact"
+      contact_group:
+        create: "Create Group"
+        update: "Update Group"
+        remove_contacts: "Remove from Group"

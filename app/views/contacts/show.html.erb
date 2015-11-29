@@ -1,14 +1,40 @@
-<p id="notice"><%= notice %></p>
+<!-- TODO modify extra fields -->
+<!-- set 'first_name' & 'last_name' as first level keys -->
+<!-- all other contact profile info should be in a first level 'custom' key -->
+
+<h1><%= "#{@contact['contact_profile']['last_name']} #{@contact['contact_profile']['first_name']}" %></h1>
+
+<hr>
 
 <p>
-  <strong>Prefix:</strong>
+  <strong><%= (t 'mongoid.attributes.contact.prefix') %></strong>
   <%= @contact.prefix %>
 </p>
 
 <p>
-  <strong>Mobile:</strong>
+  <strong><%= (t 'mongoid.attributes.contact.mobile') %></strong>
   <%= @contact.mobile %>
 </p>
 
+<%- current_user.metadata.each do |meta_field| %>
+  <%- if meta_field == 'last_name' or meta_field == 'first_name' %>
+      <% next %>
+  <% end %>
+  <p>
+    <strong><%= meta_field.humanize %></strong>
+    <%= @contact['contact_profile'][meta_field] %>
+  </p>
+<% end %>
+
+<%- unless @contact.contact_groups.blank? %>
+    <p>
+      <strong><%= (t 'mongoid.models.contact_group.other') %></strong>
+      <%- @contact.contact_groups.each do |group| %>
+          <%= link_to group[:label], group, { class: 'label label-primary' } %>
+      <% end %>
+    </p>
+<% end %>
+
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
+

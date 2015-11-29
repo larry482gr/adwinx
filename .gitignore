@@ -48,3 +48,5 @@ bower.json
 # TODO Comment out these rules if your DB info/credentials are being retrieved from ENV variables
 config/database.yml
 config/mongoid.yml
+
+private

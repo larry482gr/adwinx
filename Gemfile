@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+# gem 'dropzonejs-rails'
+# gem 'bootstrap-material-design'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -82,6 +84,7 @@ group :development, :test do
 
   # Code analyzer as per Ruby code guidelines
   gem 'rubocop', require: false
+  gem 'rubycritic', :require => false
 
   # gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller'

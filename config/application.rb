@@ -43,7 +43,7 @@ module Adwinx
     # To generate anything using mongoid use for example:
     # rails g mongoid:model MODEL
     config.generators do |g|
-      g.orm :active_record
+      g.orm :mongoid
     end
   end
 end
