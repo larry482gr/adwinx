@@ -1370,7 +1370,29 @@
                         }
 
                         if(!empty(last_response.final_result)) {
-                             importTotal.innerHTML = importTotal.innerHTML + ' <strong>' + last_response.final_result + '</strong>';
+                            importTotal.innerHTML = importTotal.innerHTML +
+                                ' <strong>' + last_response.final_result + '</strong>';
+
+                            var result_text = importTotal.innerHTML;
+                            var i = 2;
+
+                            setTimeout(function() {
+                                importTotal.innerHTML = result_text + '<br/>Refreshing in ' + i + ' seconds...';
+                            }, 10);
+
+                            var refresh = setInterval(function(){ refreshingIn() }, 1000);
+
+                            function refreshingIn() {
+                                importTotal.innerHTML = result_text + '<br/>Refreshing in ' + --i + ' seconds...';
+                                if(i <= 0) {
+                                    stopInterval()
+                                    Turbolinks.visit('/contacts');
+                                }
+                            }
+
+                            function stopInterval() {
+                                clearInterval(refresh);
+                            }
                         }
 
                     } catch (_error) {

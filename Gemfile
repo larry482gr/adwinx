@@ -69,6 +69,14 @@ gem 'uuidtools'
 # Fetch and Parse RSS feeds
 # gem 'feedjira'
 
+# Create XLSX templates
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'acts_as_xlsx'
+
+# Parse Spreadsheets
+gem 'roo'
+
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
 

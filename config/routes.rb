@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       delete :bulk_delete, on: :collection
     end
 
-    resources :contacts
+    resources :contacts do
+      get :csv_template, on: :collection
+      get :xlsx_template, on: :collection
+    end
+
     resources :contact_groups do
       member do
         patch :remove_contacts
