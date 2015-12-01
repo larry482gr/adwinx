@@ -75,7 +75,7 @@ gem 'axlsx_rails'
 gem 'acts_as_xlsx'
 
 # Parse Spreadsheets
-gem 'roo'
+gem 'creek'
 
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'

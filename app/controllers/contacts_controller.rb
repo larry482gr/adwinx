@@ -189,110 +189,35 @@ class ContactsController < ApplicationController
     Mongo::Logger.logger.level = ::Logger::INFO
     response.headers['Content-Type'] = 'text/event-stream'
 
-    start_time = Time.now.to_f
+    # start_time = Time.now.to_f
 
-    rows_hashes = []
-    File.open(params[:contact][:contact_lists].tempfile, 'r') do |file|
-      rows = file.read.split(/\r?\n/)
-      arr_of_arrs = rows.collect { |row| row.split(',') }
-      headers = arr_of_arrs.shift
+    filetype = params[:contact][:contact_lists].content_type
 
-      i = 0
-      arr_of_arrs.each do |row|
-        j = 0
-        row_hash = {}
-        headers.each do |header|
-          row_hash[header] = row[j]
-          j += 1
-        end
-        rows_hashes << row_hash
-        i += 1
-      end
+    contacts = parse_contacts filetype
+
+    if contacts.is_a? Hash and contacts[:invalid] and not contacts[:labels].blank?
+      response.stream.write ({ result: "The file you are trying to import contains these invalid fields:<br/>
+                                        #{contacts[:labels].join(', ')}<br/>
+                                        Please check that they are defined in your <a href=\"/users/edit\">Profile Settings</a>.",
+                               status: 450.to_s }).to_json
+    elsif contacts.is_a? Hash and contacts[:missing] and not contacts[:labels].blank?
+      response.stream.write ({ result: "The file you are trying to import does not contain #{contacts[:labels].count} mandatory field(s):<br/>
+                                        #{contacts[:labels].join(', ')}",
+                               status: 451.to_s }).to_json
+    else
+      total_contacts = contacts.size
+      response.stream.write ({ result: "Processing...", total: total_contacts.to_s, status: 200.to_s }).to_json
+      sleep 0.1
+
+      import_result = import_contacts contacts
+
+      # end_time = Time.now.to_f
+      sleep 0.1
+      response.stream.write ({ result: "New: #{import_result[:inserted]} | Updated: #{import_result[:updated]}",
+                               status: 200.to_s }).to_json
+      sleep 0.1
     end
-
-    # debug_inspect rows
-    # debug_inspect arr_of_arrs
-    # arr_of_arrs = CSV.read(params[:contact][:contact_lists].tempfile, headers: true)
-
-    total_contacts = rows_hashes.size
-    response.stream.write ({ total: total_contacts.to_s }).to_json
-    sleep 0.1
-
-    progress_step = 100/total_contacts.to_f
-    i = 0
-
-    inserted  = 0
-    updated   = 0
-
-    group_ids = {}
-
-    rows_hashes.each do |row_hash|
-      # row_hash = row #.to_hash
-
-      uid = current_user.id
-      contact_params = {}
-
-      contact_params[:uid] = uid
-      contact_params[:prefix] = row_hash.delete('prefix').to_i
-      contact_params[:mobile] = row_hash.delete('mobile').to_i
-
-      contact_group_ids = []
-      groups = row_hash['groups'].split('/')
-
-      unless groups.blank?
-        groups.each do |group|
-          group.strip!
-          unless group_ids[group]
-            grp = nil
-            begin
-              grp = ContactGroup.find_by({ uid: current_user.id, label: group })
-            rescue Mongoid::Errors::DocumentNotFound => exception
-              debug_inspect exception
-              grp = ContactGroup.create({ uid: uid, label: group })
-            ensure
-              unless grp.nil?
-                group_bson_id = BSON::ObjectId.from_string(grp[:_id])
-                group_ids[group] = group_bson_id
-                contact_group_ids << group_bson_id
-              end
-            end
-          else
-            contact_group_ids << group_ids[group]
-          end
-        end
-        row_hash.delete('groups')
-      end
-
-      contact_profile = ContactProfile.new(row_hash)
-      contact_profile_params = row_hash
-      contact_profile_params[:_id] = contact_profile[:_id]
-      contact_params['contact_profile'] = contact_profile_params
-      contact_params['contact_group_ids'] = contact_group_ids
-
-      result = Contact.collection.update_one({uid: contact_params[:uid], prefix: contact_params[:prefix], mobile: contact_params[:mobile]},
-                                             {'$set' => contact_params, '$addToSet' => { lists: params[:contact][:contact_lists].original_filename }},
-                                             {upsert: true})
-                   .documents.first
-
-      # debug_inspect result
-
-      updated += result[:nModified]
-      inserted += result[:n] unless result[:nModified].to_i > 0
-
-      i += 1
-      if ((i*progress_step) % 2).is_a? Integer or (i*progress_step) % 2 < 0.1 or
-          ((i*progress_step) % 2 > 1 and (i*progress_step) % 2 < 1.1)
-        response.stream.write ({ processed: i.to_s, progress: (i*progress_step).to_s }).to_json
-        sleep 0.00001
-      end
-    end
-
-    end_time = Time.now.to_f
-    sleep 0.1
-    response.stream.write ({ processed: i.to_s, progress: (i*progress_step).to_s }).to_json
-    sleep 0.1
-    response.stream.write ({ final_result: "in #{sprintf('%.3f', end_time-start_time).to_s} sec. - Inserted: #{inserted.to_s} | Updated: #{updated.to_s}" }).to_json
-    sleep 0.01
+  ensure
     response.stream.close
   end
 
@@ -319,5 +244,78 @@ class ContactsController < ApplicationController
 
     def duplicate_contact
       Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
+    end
+
+    def import_contacts contacts
+      progress_step = 100/contacts.size.to_f
+      i = 0
+
+      inserted  = 0
+      updated   = 0
+
+      group_ids = {}
+
+      contacts.each do |row_hash|
+        uid = current_user.id
+        contact_params = {}
+
+        contact_params[:uid] = uid
+        contact_params[:prefix] = row_hash.delete('prefix').to_i
+        contact_params[:mobile] = row_hash.delete('mobile').to_i
+
+        contact_group_ids = []
+        groups = row_hash['groups'].split('/') unless row_hash['groups'].blank?
+
+        unless groups.blank?
+          groups.each do |group|
+            group.strip!
+            unless group_ids[group]
+              grp = nil
+              begin
+                grp = ContactGroup.find_by({ uid: current_user.id, label: group })
+              rescue Mongoid::Errors::DocumentNotFound => exception
+                debug_inspect exception
+                grp = ContactGroup.create({ uid: uid, label: group })
+              ensure
+                unless grp.nil?
+                  group_bson_id = BSON::ObjectId.from_string(grp[:_id])
+                  group_ids[group] = group_bson_id
+                  contact_group_ids << group_bson_id
+                end
+              end
+            else
+              contact_group_ids << group_ids[group]
+            end
+          end
+          row_hash.delete('groups')
+        end
+
+        contact_profile = ContactProfile.new(row_hash)
+        contact_profile_params = row_hash
+        contact_profile_params[:_id] = contact_profile[:_id]
+        contact_params['contact_profile'] = contact_profile_params
+        contact_params['contact_group_ids'] = contact_group_ids
+
+        result = Contact.collection.update_one({uid: contact_params[:uid], prefix: contact_params[:prefix], mobile: contact_params[:mobile]},
+                                               {'$set' => contact_params, '$addToSet' => { lists: params[:contact][:contact_lists].original_filename }},
+                                               {upsert: true})
+                     .documents.first
+
+        # debug_inspect result
+
+        updated += result[:nModified]
+        inserted += result[:n] unless result[:nModified].to_i > 0
+
+        i += 1
+        if ((i*progress_step) % 2).is_a? Integer or (i*progress_step) % 2 < 0.1 or
+            ((i*progress_step) % 2 > 1 and (i*progress_step) % 2 < 1.1)
+          response.stream.write ({ processed: i.to_s, progress: (i*progress_step).to_s }).to_json
+        end
+      end
+
+      sleep 0.1
+      response.stream.write ({ processed: i.to_s, progress: (i*progress_step).to_s }).to_json
+
+      return { inserted: inserted.to_s, updated: updated.to_s }
     end
 end
