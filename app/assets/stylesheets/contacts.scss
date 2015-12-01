@@ -6,6 +6,7 @@
   .contacts-list-links {
     float: right;
     text-align: right;
+    z-index: 100;
   }
 }
 
@@ -26,4 +27,14 @@
 #contacts-bulk-actions {
   min-width: 230px;
   min-height: 24px;
+}
+
+div.file-icon {
+  text-align: center;
+
+  a.thumbnail {
+    display: inline-block;
+    width: 45px;
+    height: 60px;
+  }
 }

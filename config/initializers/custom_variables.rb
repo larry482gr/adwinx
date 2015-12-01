@@ -7,6 +7,11 @@ include VersionSystem
 # Application version
 Rails.configuration.x.version = read_version
 
+# Mime type params
+Rails.configuration.x.csv = ['text/csv', 'text/comma-separated-values']
+Rails.configuration.x.xlsx = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                              'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet']
+
 # Eventually these params are probably going to be needed
 
 =begin
