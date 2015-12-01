@@ -7,6 +7,7 @@ class Contact
 
   index({ uid: 1 }, { name: 'uid_idx', background: true })
   index({ uid: 1, prefix: 1, mobile: 1 }, { name: 'uid_prefix_mobile_idx', unique: true, background: true })
+  index({ contact_group_ids: 1 }, { name: 'contact_group_ids_idx', background: true })
 
   embeds_one :contact_profile, cascade_callbacks: true
   has_and_belongs_to_many :contact_groups, inverse_of: nil
