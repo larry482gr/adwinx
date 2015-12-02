@@ -191,7 +191,7 @@ class ContactsController < ApplicationController
     Mongo::Logger.logger.level = ::Logger::INFO
     response.headers['Content-Type'] = 'text/event-stream'
 
-    # start_time = Time.now.to_f
+    start_time = Time.now.to_f
 
     filetype = params[:contact][:contact_lists].content_type
 
@@ -213,30 +213,46 @@ class ContactsController < ApplicationController
 
       # import_result = import_contacts contacts
 
-      import_result_1, import_result_2 = { inserted: 0, updated: 0 }
+      import_result_1, import_result_2, import_result_3, import_result_4 = { inserted: 0, updated: 0 }
+      odd_contacts  = contacts.select.with_index { |_, i| i.odd? }
+      even_contacts = contacts.select.with_index { |_, i| i.even? }
+
 
       @mutex = Mutex.new
       @i = 0
 
       t1 = Thread.new{
-        import_result_1 = import_contacts contacts.select.with_index { |_, i| i.even? }
+        import_result_1 = import_contacts odd_contacts.select.with_index { |_, i| i.even? }
       }
 
       t2 = Thread.new{
-        import_result_2 = import_contacts contacts.select.with_index { |_, i| i.odd? }
+        import_result_2 = import_contacts odd_contacts.select.with_index { |_, i| i.odd? }
+      }
+
+      t3 = Thread.new{
+        import_result_3 = import_contacts even_contacts.select.with_index { |_, i| i.even? }
+      }
+
+      t4 = Thread.new{
+        import_result_4 = import_contacts even_contacts.select.with_index { |_, i| i.odd? }
       }
 
       t1.join
       t2.join
+      t3.join
+      t4.join
 
-      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted]
-      total_updated   = import_result_1[:updated] + import_result_2[:updated]
+      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted] +
+                        import_result_3[:inserted] + import_result_4[:inserted]
+      total_updated   = import_result_1[:updated] + import_result_2[:updated] +
+                        import_result_3[:updated] + import_result_4[:updated]
 
-      # end_time = Time.now.to_f
+      end_time = Time.now.to_f
       sleep 0.1
       response.stream.write ({ processed: (total_inserted + total_updated).to_s,
                                progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
-                               result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}",
+                               result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
+                                        Execution time: #{(end_time-start_time).to_s}",
                                status: 200.to_s }).to_json
       sleep 0.1
     end
@@ -271,7 +287,7 @@ class ContactsController < ApplicationController
 
     def import_contacts contacts
       # TODO Modify this according to threads running this piece of code
-      progress_step = (100/contacts.size.to_f)/2
+      progress_step = (100/contacts.size.to_f)/4
 
       inserted  = 0
       updated   = 0
@@ -333,10 +349,10 @@ class ContactsController < ApplicationController
 
         @mutex.synchronize do
           @i += 1
-          if ((@i*progress_step) % 2).is_a? Integer or (@i*progress_step) % 2 < 0.1 or
-              ((@i*progress_step) % 2 > 1 and (@i*progress_step) % 2 < 1.1)
-            response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
-          end
+        end
+        if ((@i*progress_step) % 2).is_a? Integer or (@i*progress_step) % 2 < 0.1 or
+            ((@i*progress_step) % 2 > 1 and (@i*progress_step) % 2 < 1.1)
+          response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
         end
       end
 
