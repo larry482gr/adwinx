@@ -77,6 +77,9 @@ gem 'acts_as_xlsx'
 # Parse Spreadsheets
 gem 'creek'
 
+# Encoding detection
+gem 'iconv'
+
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
 

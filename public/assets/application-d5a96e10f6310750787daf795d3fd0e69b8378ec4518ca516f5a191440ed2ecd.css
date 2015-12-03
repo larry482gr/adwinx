@@ -8831,28 +8831,28 @@ button.close {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-/* line 1, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 1, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table {
   display: table;
 }
 
-/* line 5, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 5, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 .table.files {
   margin-bottom: 0px;
   padding: 0px 15px;
 }
 
-/* line 11, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 11, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row:nth-child(2n+1) {
   background: #f9f9f9 none repeat scroll 0 0;
 }
 
-/* line 15, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 15, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row {
   display: table-row;
 }
 
-/* line 19, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 19, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row > div {
   border-top: 1px solid #ddd;
   display: table-cell;
@@ -8860,13 +8860,13 @@ div.table .file-row > div {
   vertical-align: top;
 }
 
-/* line 26, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 26, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div#contacts-drop-area {
   display: none;
   border: 1px dashed #888;
   padding: 6px 15px;
 }
-/* line 31, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 31, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div#contacts-drop-area h4 {
   margin-top: 0px;
   margin-bottom: 20px;

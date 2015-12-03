@@ -14624,7 +14624,7 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
          dropzone.on("dragEnter", function() { });
          */
 
-        Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
+        Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "notice", "noticemultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
             url: null,
@@ -14660,6 +14660,7 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
             dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
             dictInvalidFileType: "You can't upload files of this type.",
             dictResponseError: "Server responded with {{statusCode}} code.",
+            dictResponseSuccess: "Process successfully finished.",
             dictCancelUpload: "Cancel upload",
             dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
             dictRemoveFile: "Remove file",
@@ -14851,7 +14852,7 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
                     _results = [];
                     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                         node = _ref[_i];
-                        _results.push(node.textContent = message);
+                        _results.push(node.innerHTML = '<strong>' + message + '</strong>');
                     }
                     return _results;
                 }
@@ -14885,6 +14886,23 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
             totaluploadprogress: noop,
             sending: noop,
             sendingmultiple: noop,
+            notice: function(file, message) {
+                var node, _i, _len, _ref, _results;
+                if (file.previewElement) {
+                    file.previewElement.classList.add("dz-notice");
+                    if (typeof message !== "String" && message.notice) {
+                        message = message.notice;
+                    }
+                    _ref = file.previewElement.querySelectorAll("[data-dz-noticemessage]");
+                    _results = [];
+                    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                        node = _ref[_i];
+                        _results.push(node.innerHTML = '<strong>' + message + '</strong>');
+                    }
+                    return _results;
+                }
+            },
+            noticemultiple: noop,
             success: function(file) {
                 if (file.previewElement) {
                     return file.previewElement.classList.add("dz-success");
@@ -15516,6 +15534,7 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
                         file.accepted = true;
                         if (_this.options.autoQueue) {
                             _this.enqueueFile(file);
+                            _this._successProcessing([file], 'File received for processing...');
                         }
                     }
                     return _this._updateMaxFilesReachedClass();
@@ -15763,7 +15782,7 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
         };
 
         Dropzone.prototype.uploadFiles = function(files, importProcessed, importTotal, processingProgressBar) {
-            var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+            var file, formData, handleSuccess, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
             xhr = new XMLHttpRequest();
             xhr.previous_text = '';
             for (_i = 0, _len = files.length; _i < _len; _i++) {
@@ -15782,6 +15801,17 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
                     for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
                         file = files[_j];
                         _results.push(_this._errorProcessing(files, response || _this.options.dictResponseError.replace("{{statusCode}}", xhr.status), xhr));
+                    }
+                    return _results;
+                };
+            })(this);
+            handleSuccess = (function(_this) {
+                return function() {
+                    var _j, _len1, _results;
+                    _results = [];
+                    for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
+                        file = files[_j];
+                        _results.push(_this._successProcessing(files, response || _this.options.dictResponseSuccess, xhr));
                     }
                     return _results;
                 };
@@ -15858,20 +15888,12 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
             })(this);
             processingProgress = (function(_this) {
                 return function(e) {
-                    console.log(xhr.previous_text);
-                    console.log(xhr.responseText);
                     var new_response = String(xhr.responseText.substring(xhr.previous_text.length));
-                    console.log(new_response);
                     xhr.previous_text = xhr.responseText;
 
                     var last_response;
                     try {
                         last_response = JSON.parse(new_response);
-
-                        console.log(last_response.processed);
-                        console.log(last_response.total);
-                        console.log(last_response.final_result);
-                        console.log(last_response.progress);
 
                         if(!empty(last_response.processed)) {
                             importProcessed.innerHTML = last_response.processed;
@@ -15882,10 +15904,15 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
                             importTotal.innerHTML = last_response.total;
                         }
 
-                        if(!empty(last_response.final_result)) {
-                             importTotal.innerHTML = importTotal.innerHTML + ' <strong>' + last_response.final_result + '</strong>';
-                        }
+                        if(!empty(last_response.result)) {
+                            response = last_response.result;
 
+                            if(last_response.status > 400) {
+                                return handleError();
+                            }else if(last_response.status == 200) {
+                                return handleSuccess();
+                            }
+                        }
                     } catch (_error) {
                         e = _error;
                         console.log(_error);
@@ -15988,6 +16015,23 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
             }
             if (this.options.uploadMultiple) {
                 this.emit("errormultiple", files, message, xhr);
+                this.emit("completemultiple", files);
+            }
+            if (this.options.autoProcessQueue) {
+                return this.processQueue();
+            }
+        };
+
+        Dropzone.prototype._successProcessing = function(files, message, xhr) {
+            var file, _i, _len;
+            for (_i = 0, _len = files.length; _i < _len; _i++) {
+                file = files[_i];
+                file.status = Dropzone.NOTICE;
+                this.emit("notice", file, message, xhr);
+                this.emit("complete", file);
+            }
+            if (this.options.uploadMultiple) {
+                this.emit("noticemultiple", files, message, xhr);
                 this.emit("completemultiple", files);
             }
             if (this.options.autoProcessQueue) {
@@ -16228,6 +16272,8 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
 
     Dropzone.SUCCESS = "success";
 
+    Dropzone.NOTICE = "notice";
+
 
     /*
 
@@ -16394,6 +16440,12 @@ $(document).ready(function() {
     })
 });
 $(document).ready(function() {
+    var groups = [];
+
+    if(typeof $('#contact-group-attributes').val() != 'undefined') {
+        groups = $.get('/typeahead_contact_groups.json');
+    }
+
     $('#contact-group-attributes').tagsinput({
         tagClass: 'tag label label-primary',
         confirmKeys: [13, 32, 44],
@@ -16402,12 +16454,14 @@ $(document).ready(function() {
         itemValue: '_id',
         itemText: 'lbl',
         typeahead: {
-            source: function() {
-                return $.get('/typeahead_contact_groups.json');
-            }
+            source: groups
         },
         freeInput: true
     });
+
+    $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
+    $('form#contacts-filters div.bootstrap-tagsinput input').css('width', 'auto !important')
+        .css('height', '32px').css('line-height', '1.42857').css('padding', '6px 12px !important');
 
     $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');
@@ -16526,7 +16580,8 @@ $(document).ready(function() {
             maxFilesize: 3,
             acceptedFiles: "text/csv," +
             "text/comma-separated-values," +
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," +
+            "application/vnd.openxmlformates-officedocument.spreadsheetml.sheet,",
             headers: { "X-CSRF-Token" : $('meta[name="csrf-token"]').attr('content') }
         };
 
@@ -16680,15 +16735,16 @@ function initializeDropzone(dropzoneArea, dropzoneOptions) {
 
     myDropzone.on("sending", function(file) {
         // Show the total progress bar when upload starts
+        document.querySelector("#total-progress .progress-bar").style.width = "0%";
         document.querySelector("#processing-progress").style.opacity = "1";
         // And disable the start button
         file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
     });
 
     // Hide the total progress bar when nothing's uploading anymore
-    myDropzone.on("queuecomplete", function(progress) {
-        document.querySelector("#processing-progress").style.opacity = "0";
-    });
+    // myDropzone.on("queuecomplete", function(progress) {
+    //     document.querySelector("#processing-progress").style.opacity = "0";
+    // });
 
     // Setup the buttons for all transfers
     // The "add files" button doesn't need to be setup because the config
@@ -16740,6 +16796,11 @@ $(document).ready(function(){
 
 
 
+
+$(document).on("submit", "form[data-turboform]", function(e) {
+    Turbolinks.visit(this.action+(this.action.indexOf('?') == -1 ? '?' : '&')+$(this).serialize());
+    return false;
+});
 
 $(document).ready(function(){
     Turbolinks.enableProgressBar();
