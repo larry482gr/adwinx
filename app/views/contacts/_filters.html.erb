@@ -1,0 +1,28 @@
+<%= form_tag('/contacts', method: :get,
+             class: 'form-inline search-filters', id: 'contacts-filters', data: {turboform: true}) do %>
+    <div class="form-group">
+      <input type="number" class="form-control" id="filter-prefix" name="contact[prefix]" placeholder="Country Code">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" id="filter-mobile" name="contact[mobile]" placeholder="Mobile">
+    </div>
+    <%- @metadata.each do |meta_field| %>
+        <div class="form-group">
+          <input type="text" class="form-control" id="filter-<%= meta_field %>"
+                 name="contact[contact_profile_attributes][<%= meta_field %>]" placeholder="<%= meta_field.humanize %>">
+        </div>
+    <% end %>
+    <select multiple class="form-control" id="contact-group-attributes"
+            name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
+    </select>
+    <div class="form-group">
+      <label for="rows-per-page"><%= (t :results_per_page) %></label>
+      <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
+        <% Contact::RESULTS_PER_PAGE.each do |res| %>
+            <% per_value = params[:limit].nil? ? Contact::DEFAULT_PER_PAGE : params[:limit] %>
+            <option value="<%= res %>" <%= 'selected' if res == per_value.to_i %>><%= res %></option>
+        <% end %>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Find</button>
+<% end %>

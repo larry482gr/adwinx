@@ -3,34 +3,35 @@ require 'axlsx'
 require 'creek'
 
 module ContactsHelper
-  def generate_csv_template
-    data = get_template_data
-    csv_data = CSV.generate(encoding: 'UTF-8') do |csv|
+  def generate_csv data
+    csv_data = CSV.generate do |csv|
       csv << data[:headers]
-      csv << data[:row]
+      data[:rows].each do |row|
+        csv << row
+      end
     end
 
     return csv_data
   end
 
-  def generate_xlsx_template
-    data = get_template_data
-
+  def generate_xlsx data
     widths = []
     (data[:headers].length).times do
-      widths << 20
+      widths << 16
     end
 
     Axlsx::Package.new do |p|
       p.workbook.add_worksheet(:name => 'Contacts') do |sheet|
         sheet.add_row data[:headers], widths: widths
-        sheet.add_row data[:row], widths: widths
+        data[:rows].each do |row|
+          sheet.add_row row, widths: widths
+        end
       end
       p.serialize(Rails.root.join('private', 'contacts_import', "xlsx_template_#{current_user.id}.xlsx"))
     end
   end
 
-  def get_template_data
+  def get_contacts_template_data
     metadata = current_user.metadata
 
     extra_placeholders = []
@@ -46,7 +47,7 @@ module ContactsHelper
     headers = %w(prefix mobile).concat(metadata).push('groups')
     example = %w(44 1234567890).concat(extra_placeholders).push(groups)
 
-    return { headers: headers, row: example }
+    return { headers: headers, rows: [example] }
   end
 
   def parse_contacts filetype

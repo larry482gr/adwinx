@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    var groups = [];
+
+    if(typeof $('#contact-group-attributes').val() != 'undefined') {
+        groups = $.get('/typeahead_contact_groups.json');
+    }
+
     $('#contact-group-attributes').tagsinput({
         tagClass: 'tag label label-primary',
         confirmKeys: [13, 32, 44],
@@ -7,12 +13,14 @@ $(document).ready(function() {
         itemValue: '_id',
         itemText: 'lbl',
         typeahead: {
-            source: function() {
-                return $.get('/typeahead_contact_groups.json');
-            }
+            source: groups
         },
         freeInput: true
     });
+
+    $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
+    $('form#contacts-filters div.bootstrap-tagsinput input').css('width', 'auto !important')
+        .css('height', '32px').css('line-height', '1.42857').css('padding', '6px 12px !important');
 
     $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');

@@ -22,6 +22,11 @@
 //= require dropzone
 //= require_tree .
 
+$(document).on("submit", "form[data-turboform]", function(e) {
+    Turbolinks.visit(this.action+(this.action.indexOf('?') == -1 ? '?' : '&')+$(this).serialize());
+    return false;
+});
+
 $(document).ready(function(){
     Turbolinks.enableProgressBar();
 

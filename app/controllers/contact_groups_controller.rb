@@ -1,5 +1,5 @@
 class ContactGroupsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_contact_group, only: [:show, :edit, :update, :remove_contacts, :destroy, :empty]
 
   # GET /contact_groups
@@ -15,7 +15,7 @@ class ContactGroupsController < ApplicationController
   # GET /typeahead_contact_groups.json
   def typeahead
     cgr = ContactGroup.where(uid: current_user.id)
-                          .order('label' => 1)
+                          .asc('label')
 
     contact_groups = []
     cgr.each do |con_gr|

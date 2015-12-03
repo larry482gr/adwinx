@@ -4,20 +4,47 @@ class ContactsController < ApplicationController
   include ActionController::Live
   include ContactsHelper
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
   # GET /contacts
   # GET /contacts.json
   def index
+    pars_hash = contact_params unless params[:contact].nil?
+    pars = []
+
+    if pars_hash
+      pars << { prefix: /^#{pars_hash[:prefix]}/i } unless pars_hash[:prefix].blank?
+      pars << { prefix: /^#{pars_hash[:mobile]}/i } unless pars_hash[:mobile].blank?
+
+      pars_hash[:contact_profile_attributes].each do |key, value|
+        unless value.blank?
+          pars << { "contact_profile.#{key}" =>  /^#{value}/i }
+        end
+      end
+
+      unless pars_hash[:contact_group_attributes].blank?
+        contact_group_ids = []
+        pars_hash[:contact_group_attributes].each { |group| contact_group_ids << BSON::ObjectId.from_string(group[:_id]) }
+
+        pars << { contact_group_ids: { '$in' => contact_group_ids } }
+      end
+    end
+
+    pars << { uid: current_user.id }
+
     params[:page] ||= 1
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
-    @contacts = Contact.includes(:contact_groups).where(uid: current_user.id)
+
+    debug_inspect pars
+
+    @contacts = Contact.includes(:contact_groups).where('$and' => pars)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit])
 
     @metadata = current_user.metadata
+    @groups   = ContactGroup.where(uid: current_user.id).asc('label')
 
     respond_to do |format|
       format.html { render :index }
@@ -30,20 +57,6 @@ class ContactsController < ApplicationController
   def show
   end
 
-  # GET /contacts/csv_template
-  def csv_template
-    send_data generate_csv_template,
-              :type => 'text/csv; charset=utf-8; header=present',
-              :disposition => 'attachment; filename=csv_template.csv'
-  end
-
-  # GET /contacts/xlsx_template
-  def xlsx_template
-    send_data generate_xlsx_template.to_stream.read,
-              :type => 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet',
-              :disposition => 'attachment; filename=xlsx_template.xlsx'
-  end
-
   # GET /contacts/new
   def new
     @contact = Contact.new
@@ -53,20 +66,6 @@ class ContactsController < ApplicationController
   # GET /contacts/1/edit
   def edit
     create_profile
-  end
-
-  # GET /contacts/1/belonging_groups
-  # GET /contacts/1/belonging_groups.json
-  def belonging_groups
-    contact_groups = []
-    @contact.contact_groups.each do |group|
-      contact_groups << { _id: group['_id'].to_s, lbl: group['label'] }
-    end
-
-    respond_to do |format|
-      format.js {}
-      format.json { render json: contact_groups }
-    end
   end
 
   # POST /contacts
@@ -186,6 +185,31 @@ class ContactsController < ApplicationController
     end
   end
 
+  # GET /contacts/1/belonging_groups
+  # GET /contacts/1/belonging_groups.json
+  def belonging_groups
+    contact_groups = []
+    @contact.contact_groups.each do |group|
+      contact_groups << { _id: group['_id'].to_s, lbl: group['label'] }
+    end
+
+    respond_to do |format|
+      format.js {}
+      format.json { render json: contact_groups }
+    end
+  end
+
+  # GET /contacts/csv_template
+  def csv_template
+    send_csv(get_contacts_template_data, 'csv_template')
+
+  end
+
+  # GET /contacts/xlsx_template
+  def xlsx_template
+    send_xlsx(get_contacts_template_data, 'xlsx_template')
+  end
+
   # POST /contacts/bulk_import
   def bulk_import
     Mongo::Logger.logger.level = ::Logger::INFO
@@ -258,6 +282,48 @@ class ContactsController < ApplicationController
     end
   ensure
     response.stream.close
+  end
+
+  # GET /contacts/export_list
+  def export_list
+    contacts = Contact.where(uid: current_user.id, lists: "#{params[:filename]}.#{params[:format]}").asc(:_id)
+    group_labels = {}
+
+    contact_groups = ContactGroup.where(uid: current_user.id)
+    contact_groups.each do |group|
+      group_labels[group[:_id]] = group[:label]
+    end
+
+    metadata = current_user.metadata
+
+    data = {}
+
+    data[:headers] = %w(prefix mobile).concat(metadata).push('groups')
+    data[:rows] = []
+
+    contacts.each do |contact|
+      row = []
+      row << contact[:prefix]
+      row << contact[:mobile]
+      metadata.each do |field|
+        if contact.contact_profile[field].blank?
+          row << ' '
+        else
+          row << contact.contact_profile[field]
+        end
+      end
+      groups = []
+      contact.contact_groups.each do |group|
+        groups << group_labels[group[:_id]]
+      end
+      row << groups.join('/')
+      data[:rows] << row
+    end
+
+    respond_to do |format|
+      format.csv { send_csv(data, params[:filename]) }
+      format.xlsx { send_xlsx(data, params[:filename]) }
+    end
   end
 
   private
@@ -342,8 +408,6 @@ class ContactsController < ApplicationController
                                                {upsert: true})
                      .documents.first
 
-        # debug_inspect result
-
         updated += result[:nModified]
         inserted += result[:n] unless result[:nModified].to_i > 0
 
@@ -357,5 +421,17 @@ class ContactsController < ApplicationController
       end
 
       return { inserted: inserted, updated: updated }
+    end
+
+    def send_csv(data, filename)
+      send_data generate_csv(data),
+                :type => 'text/csv; charset=utf-8; header=present',
+                :disposition => "attachment; filename=#{filename}.csv"
+    end
+
+    def send_xlsx(data, filename)
+      send_data (generate_xlsx data).to_stream.read,
+                :type => 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet',
+                :disposition => "attachment; filename=#{filename}.xlsx"
     end
 end
