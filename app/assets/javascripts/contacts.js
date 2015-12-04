@@ -15,12 +15,14 @@ $(document).ready(function() {
         typeahead: {
             source: groups
         },
-        freeInput: true
+        trimValue: true
     });
 
     $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
     $('form#contacts-filters div.bootstrap-tagsinput input').css('width', 'auto !important')
         .css('height', '32px').css('line-height', '1.42857').css('padding', '6px 12px !important');
+
+
 
     $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');

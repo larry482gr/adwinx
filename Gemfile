@@ -111,7 +111,6 @@ group :development do
   # Do not log assets requests in development environment.
   gem 'quiet_assets'
 
-  gem 'puma'
   gem 'rails-erd'
   gem 'rename'
 end
@@ -119,10 +118,15 @@ end
 group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
   gem 'mysql2', '~> 0.3.20'
+  gem 'puma'
 
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
+end
+
+group :production do
+  gem 'foreman'
 end
 
 group :test do

@@ -74,10 +74,12 @@ h1 > span.help-block {
   font-weight: normal;
 }
 
-.additional-fields {
-  div {
-    margin: 0px 2px 4px 2px !important;
-  }
+.additional-fields > div {
+  margin: 0px 2px 4px 2px !important;
+}
+
+.search-filters > div {
+  margin: 4px 0px !important;
 }
 
 table.list-resource {
