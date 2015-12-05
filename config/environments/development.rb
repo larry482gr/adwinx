@@ -52,4 +52,6 @@ Rails.application.configure do
 
   # Raises error for unpermitted parameters
   # config.action_controller.action_on_unpermitted_parameters = :raise
+
+  Mongo::Logger.logger.level = ::Logger::INFO
 end

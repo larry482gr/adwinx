@@ -234,80 +234,42 @@ class ContactsController < ApplicationController
 
       # import_result = import_contacts contacts
 
-      import_result_1, import_result_2, import_result_3, import_result_4, import_result_5, import_result_6, import_result_7, import_result_8 = { inserted: 0, updated: 0 }
-      odd_contacts_1  = contacts.select.with_index { |_, i| i.odd? }
-      even_contacts_1 = contacts.select.with_index { |_, i| i.even? }
-      odd_contacts_1_1  = odd_contacts_1.select.with_index { |_, i| i.odd? }
-      odd_contacts_1_2  = even_contacts_1.select.with_index { |_, i| i.odd? }
-      even_contacts_1_1 = odd_contacts_1.select.with_index { |_, i| i.even? }
-      even_contacts_1_2 = even_contacts_1.select.with_index { |_, i| i.even? }
+      import_result_1, import_result_2 = { inserted: 0, updated: 0 }
+
 
 
       @mutex = Mutex.new
       @i = 0
 
       t1 = Thread.new{
-        import_result_1 = import_contacts(odd_contacts_1_1.select.with_index { |_, i| i.even? }, total_contacts)
+        import_result_1 = import_contacts(contacts.select.with_index { |_, i| i.even? }, total_contacts)
       }
 
       t2 = Thread.new{
-        import_result_2 = import_contacts(odd_contacts_1_1.select.with_index { |_, i| i.odd? }, total_contacts)
+        import_result_2 = import_contacts(contacts.select.with_index { |_, i| i.odd? }, total_contacts)
       }
 
-      t3 = Thread.new{
-        import_result_3 = import_contacts(odd_contacts_1_2.select.with_index { |_, i| i.even? }, total_contacts)
-      }
 
-      t4 = Thread.new{
-        import_result_4 = import_contacts(odd_contacts_1_2.select.with_index { |_, i| i.odd? }, total_contacts)
-      }
-
-      t5 = Thread.new{
-        import_result_5 = import_contacts(even_contacts_1_1.select.with_index { |_, i| i.even? }, total_contacts)
-      }
-
-      t6 = Thread.new{
-        import_result_6 = import_contacts(even_contacts_1_1.select.with_index { |_, i| i.odd? }, total_contacts)
-      }
-
-      t7 = Thread.new{
-        import_result_7 = import_contacts(even_contacts_1_2.select.with_index { |_, i| i.even? }, total_contacts)
-      }
-
-      t8 = Thread.new{
-        import_result_8 = import_contacts(even_contacts_1_2.select.with_index { |_, i| i.odd? }, total_contacts)
-      }
 
       t1.join
       t2.join
-      t3.join
-      t4.join
-      t5.join
-      t6.join
-      t7.join
-      t8.join
 
-      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted] +
-                        import_result_3[:inserted] + import_result_4[:inserted] +
-                        import_result_5[:inserted] + import_result_6[:inserted] +
-                        import_result_7[:inserted] + import_result_8[:inserted]
 
-      total_updated   = import_result_1[:updated] + import_result_2[:updated] +
-                        import_result_3[:updated] + import_result_4[:updated] +
-                        import_result_5[:updated] + import_result_6[:updated] +
-                        import_result_7[:updated] + import_result_8[:updated]
+      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted]
+
+      total_updated   = import_result_1[:updated] + import_result_2[:updated]
 
       end_time = Time.now.to_f
       debug_inspect "Execution time: #{(end_time-start_time).to_s}"
       sleep 0.1
-      response.stream.write ({ processed: (total_inserted + total_updated).to_s,
-                               progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
-                               total: total_contacts.to_s, status: 200.to_s,
-                               result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
-                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
-      sleep 0.1
     end
   ensure
+    response.stream.write ({ processed: (total_inserted + total_updated).to_s,
+                             progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
+                             total: total_contacts.to_s, status: 200.to_s,
+                             result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
+                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
+    sleep 0.1
     response.stream.close
   end
 
@@ -380,7 +342,7 @@ class ContactsController < ApplicationController
 
     def import_contacts(contacts, total_contacts)
       # TODO Modify this according to threads running this piece of code
-      progress_step = (100/contacts.size.to_f)/8
+      progress_step = (100/contacts.size.to_f)/2
 
       inserted  = 0
       updated   = 0
@@ -424,10 +386,7 @@ class ContactsController < ApplicationController
           row_hash.delete('groups')
         end
 
-        contact_profile = Object.new
-        @mutex.synchronize do
-          contact_profile = ContactProfile.new(row_hash)
-        end
+        contact_profile = ContactProfile.new(row_hash)
         contact_profile_params = row_hash
         contact_profile_params[:_id] = contact_profile[:_id]
         contact_params['contact_profile'] = contact_profile_params
