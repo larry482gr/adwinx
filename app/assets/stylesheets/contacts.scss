@@ -18,13 +18,17 @@
   }
 }
 
-form#contacts-filters div.bootstrap-tagsinput {
-  padding: 0px 12px !important;
+form#contacts-filters {
+  margin: 12px 0px;
 
-  input {
-    width: auto !important;
-    height: 32px !important;
-    line-height: 1.42857 !important;
+  div.bootstrap-tagsinput {
+    padding: 0px 12px !important;
+
+    input {
+      width: auto !important;
+      height: 32px !important;
+      line-height: 1.42857 !important;
+    }
   }
 }
 

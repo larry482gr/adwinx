@@ -14,12 +14,12 @@ class ContactsController < ApplicationController
     pars = []
 
     if pars_hash
-      pars << { prefix: /^#{pars_hash[:prefix]}/i } unless pars_hash[:prefix].blank?
-      pars << { prefix: /^#{pars_hash[:mobile]}/i } unless pars_hash[:mobile].blank?
+      pars << { '$where' => "(/^#{pars_hash[:prefix]}/i).test(this.prefix + '')" } unless pars_hash[:prefix].blank?
+      pars << { '$where' => "(/^#{pars_hash[:mobile]}/i).test(this.mobile + '')" } unless pars_hash[:mobile].blank?
 
       pars_hash[:contact_profile_attributes].each do |key, value|
         unless value.blank?
-          pars << { "contact_profile.#{key}" =>  /^#{value}/i }
+          pars << { '$where' => "(/^#{value}/i).test(this.contact_profile.#{key} + '')" }
         end
       end
 
@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
 
-    debug_inspect pars
+    debug_inspect "http://localhost:3000/contacts?utf8=%E2%9C%93&contact[prefix]=&contact[mobile]=&contact[contact_profile_attributes][last_name]=&contact[contact_profile_attributes][first_name]=&contact[contact_profile_attributes][email]=&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000001&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000002&rows_per_page=50".length
 
     @contacts = Contact.includes(:contact_groups).where('$and' => pars)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')

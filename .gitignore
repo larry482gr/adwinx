@@ -53,3 +53,11 @@ config/database.yml
 config/mongoid.yml
 
 private
+
+# Foreman/Capistrano deployment
+Procfile
+config/puma.rb
+Capfile
+lib/capistrano
+config/deploy.rb
+config/deploy
