@@ -270,6 +270,7 @@ class ContactsController < ApplicationController
                         import_result_3[:updated] + import_result_4[:updated]
 
       end_time = Time.now.to_f
+      debug_inspect "Execution time: #{(end_time-start_time).to_s}"
       sleep 0.1
       response.stream.write ({ processed: (total_inserted + total_updated).to_s,
                                progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
@@ -411,11 +412,10 @@ class ContactsController < ApplicationController
 
         @mutex.synchronize do
           @i += 1
-        end
-        if ((@i*progress_step) % 2).is_a? Integer or (@i*progress_step) % 2 < 0.1 or
-            ((@i*progress_step) % 2 > 1 and (@i*progress_step) % 2 < 1.1)
-          response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
-          sleep 0.0001
+          if (@i*progress_step) % 2 < 0.1 or ((@i*progress_step) % 2 >= 1 and (@i*progress_step) % 2 < 1.1)
+            response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
+            sleep 0.0001
+          end
         end
       end
 
