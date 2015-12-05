@@ -87,4 +87,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  Mongoid.logger.level = Logger::INFO
 end

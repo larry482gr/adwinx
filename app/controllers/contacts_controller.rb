@@ -210,7 +210,6 @@ class ContactsController < ApplicationController
 
   # POST /contacts/bulk_import
   def bulk_import
-    Mongo::Logger.logger.level = ::Logger::INFO
     response.headers['Content-Type'] = 'text/event-stream'
 
     start_time = Time.now.to_f
