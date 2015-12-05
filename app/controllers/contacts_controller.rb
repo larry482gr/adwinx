@@ -244,19 +244,19 @@ class ContactsController < ApplicationController
       @i = 0
 
       t1 = Thread.new{
-        import_result_1 = import_contacts odd_contacts.select.with_index { |_, i| i.even? }
+        import_result_1 = import_contacts(odd_contacts.select.with_index { |_, i| i.even? }, total_contacts)
       }
 
       t2 = Thread.new{
-        import_result_2 = import_contacts odd_contacts.select.with_index { |_, i| i.odd? }
+        import_result_2 = import_contacts(odd_contacts.select.with_index { |_, i| i.odd? }, total_contacts)
       }
 
       t3 = Thread.new{
-        import_result_3 = import_contacts even_contacts.select.with_index { |_, i| i.even? }
+        import_result_3 = import_contacts(even_contacts.select.with_index { |_, i| i.even? }, total_contacts)
       }
 
       t4 = Thread.new{
-        import_result_4 = import_contacts even_contacts.select.with_index { |_, i| i.odd? }
+        import_result_4 = import_contacts(even_contacts.select.with_index { |_, i| i.odd? }, total_contacts)
       }
 
       t1.join
@@ -274,9 +274,9 @@ class ContactsController < ApplicationController
       sleep 0.1
       response.stream.write ({ processed: (total_inserted + total_updated).to_s,
                                progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
+                               total: total_contacts.to_s, status: 200.to_s,
                                result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
-                                        Execution time: #{(end_time-start_time).to_s}",
-                               status: 200.to_s }).to_json
+                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
       sleep 0.1
     end
   ensure
@@ -350,7 +350,7 @@ class ContactsController < ApplicationController
       Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
     end
 
-    def import_contacts contacts
+    def import_contacts(contacts, total_contacts)
       # TODO Modify this according to threads running this piece of code
       progress_step = (100/contacts.size.to_f)/4
 
@@ -413,7 +413,8 @@ class ContactsController < ApplicationController
         @mutex.synchronize do
           @i += 1
           if (@i*progress_step) % 2 < 0.1 or ((@i*progress_step) % 2 >= 1 and (@i*progress_step) % 2 < 1.1)
-            response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
+            response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s,
+                                     result: "Processing...", total: total_contacts.to_s, status: 200.to_s }).to_json
             sleep 0.0001
           end
         end
