@@ -37,8 +37,6 @@ class ContactsController < ApplicationController
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
 
-    debug_inspect "http://localhost:3000/contacts?utf8=%E2%9C%93&contact[prefix]=&contact[mobile]=&contact[contact_profile_attributes][last_name]=&contact[contact_profile_attributes][first_name]=&contact[contact_profile_attributes][email]=&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000001&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000002&rows_per_page=50".length
-
     @contacts = Contact.includes(:contact_groups).where('$and' => pars)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit])
@@ -417,6 +415,7 @@ class ContactsController < ApplicationController
         if ((@i*progress_step) % 2).is_a? Integer or (@i*progress_step) % 2 < 0.1 or
             ((@i*progress_step) % 2 > 1 and (@i*progress_step) % 2 < 1.1)
           response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
+          sleep 0.0001
         end
       end
 
