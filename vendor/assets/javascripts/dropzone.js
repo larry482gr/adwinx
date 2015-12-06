@@ -1382,21 +1382,21 @@
                     try {
                         last_response = JSON.parse(new_response);
 
-                        if(!empty(last_response.processed)) {
-                            importProcessed.innerHTML = last_response.processed;
-                            processingProgressBar.style.width = last_response.progress + '%';
+                        if(!empty(last_response.pc)) {
+                            importProcessed.innerHTML = last_response.pc;
+                            processingProgressBar.style.width = last_response.pg + '%';
                         }
 
-                        if(!empty(last_response.total)) {
-                            importTotal.innerHTML = last_response.total;
+                        if(!empty(last_response.tc)) {
+                            importTotal.innerHTML = last_response.tc;
                         }
 
-                        if(!empty(last_response.result)) {
-                            response = last_response.result;
+                        if(!empty(last_response.rs)) {
+                            response = last_response.rs;
 
-                            if(last_response.status > 400) {
+                            if(last_response.st > 400) {
                                 return handleError();
-                            }else if(last_response.status == 200) {
+                            }else {
                                 return handleSuccess();
                             }
                         }

@@ -216,20 +216,23 @@ class ContactsController < ApplicationController
 
     filetype = params[:contact][:contact_lists].content_type
 
+    response.stream.write ({ rs: "Processing file..." }).to_json
+    sleep 0.1
+
     contacts = parse_contacts filetype
 
     if contacts.is_a? Hash and contacts[:invalid] and not contacts[:labels].blank?
-      response.stream.write ({ result: "The file you are trying to import contains these invalid fields:<br/>
+      response.stream.write ({ rs: "The file you are trying to import contains these invalid fields:<br/>
                                         #{contacts[:labels].join(', ')}<br/>
                                         Please check that they are defined in your <a href=\"/users/edit\">Profile Settings</a>.",
-                               status: 450.to_s }).to_json
+                               st: 450.to_s }).to_json
     elsif contacts.is_a? Hash and contacts[:missing] and not contacts[:labels].blank?
-      response.stream.write ({ result: "The file you are trying to import does not contain #{contacts[:labels].count} mandatory field(s):<br/>
+      response.stream.write ({ rs: "The file you are trying to import does not contain #{contacts[:labels].count} mandatory field(s):<br/>
                                         #{contacts[:labels].join(', ')}",
-                               status: 451.to_s }).to_json
+                               st: 451.to_s }).to_json
     else
       total_contacts = contacts.size
-      response.stream.write ({ result: "Processing...", total: total_contacts.to_s, status: 200.to_s }).to_json
+      response.stream.write ({ rs: "Creating contacts...", tc: total_contacts.to_s }).to_json
       sleep 0.1
 
       # import_result = import_contacts contacts
@@ -239,21 +242,23 @@ class ContactsController < ApplicationController
 
 
       @mutex = Mutex.new
+      @command_queue = Queue.new
       @i = 0
 
       t1 = Thread.new{
-        import_result_1 = import_contacts(contacts.select.with_index { |_, i| i.even? }, total_contacts)
+        import_result_1 = import_contacts contacts.select.with_index { |_, i| i.even? }
       }
 
       t2 = Thread.new{
-        import_result_2 = import_contacts(contacts.select.with_index { |_, i| i.odd? }, total_contacts)
+        import_result_2 = import_contacts contacts.select.with_index { |_, i| i.odd? }
       }
 
-
+      while command = @command_queue.pop
+        response.stream.write command.to_json
+      end
 
       t1.join
       t2.join
-
 
       total_inserted  = import_result_1[:inserted] + import_result_2[:inserted]
 
@@ -262,14 +267,14 @@ class ContactsController < ApplicationController
       end_time = Time.now.to_f
       debug_inspect "Execution time: #{(end_time-start_time).to_s}"
       sleep 0.1
+      response.stream.write ({ pc: (total_inserted + total_updated).to_s,
+                               pg: (((total_inserted + total_updated)/total_contacts)*100).to_s,
+                               tc: total_contacts.to_s,
+                               rs: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
+                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
+      sleep 0.1
     end
   ensure
-    response.stream.write ({ processed: (total_inserted + total_updated).to_s,
-                             progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
-                             total: total_contacts.to_s, status: 200.to_s,
-                             result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
-                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
-    sleep 0.1
     response.stream.close
   end
 
@@ -340,7 +345,7 @@ class ContactsController < ApplicationController
       Contact.find_by(:$and => [ uid: @contact.uid, prefix: @contact.prefix, mobile: @contact.mobile ])
     end
 
-    def import_contacts(contacts, total_contacts)
+    def import_contacts contacts
       # TODO Modify this according to threads running this piece of code
       progress_step = (100/contacts.size.to_f)/2
 
@@ -386,7 +391,10 @@ class ContactsController < ApplicationController
           row_hash.delete('groups')
         end
 
-        contact_profile = ContactProfile.new(row_hash)
+        contact_profile = Object.new
+        @mutex.synchronize do
+          contact_profile = ContactProfile.new(row_hash)
+        end
         contact_profile_params = row_hash
         contact_profile_params[:_id] = contact_profile[:_id]
         contact_params['contact_profile'] = contact_profile_params
@@ -402,14 +410,14 @@ class ContactsController < ApplicationController
 
         @mutex.synchronize do
           @i += 1
-          if (@i*progress_step) % 2 < 0.1 or ((@i*progress_step) % 2 >= 1 and (@i*progress_step) % 2 < 1.1)
-            response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s,
-                                     result: "Processing...", total: total_contacts.to_s, status: 200.to_s }).to_json
-            sleep 0.0001
-          end
+        end
+        sfb = @i*progress_step % 2
+        if sfb < 0.1 or (sfb > 1 and sfb < 1.1)
+          @command_queue << { pc: @i.to_s, pg: (@i*progress_step).to_s }
         end
       end
 
+      @command_queue << nil
       return { inserted: inserted, updated: updated }
     end
 
