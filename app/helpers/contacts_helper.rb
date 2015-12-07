@@ -51,7 +51,6 @@ module ContactsHelper
   end
 
   def parse_contacts filetype
-    contacts = []
     if Rails.configuration.x.csv.include? filetype
       contacts = csv_rows params[:contact][:contact_lists].tempfile
     elsif Rails.configuration.x.xlsx.include? filetype

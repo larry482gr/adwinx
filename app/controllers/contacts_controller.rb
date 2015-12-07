@@ -1,11 +1,23 @@
+require 'digest/sha1'
 require 'thread'
 
 class ContactsController < ApplicationController
   include ActionController::Live
   include ContactsHelper
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
+
+  # caches_action :show, :layout => false
+=begin
+  caches_action :index, tag: proc { |c| "contacts-filter-#{current_user.id}" },
+                if: proc { |c| !c.params[:page].blank? },
+                cache_path: proc { |c|
+                  hash_string = c.current_user.id.to_s + c.params.inspect
+                  # contacts_url(Digest::SHA1.hexdigest(hash_string))
+                  { q: Digest::SHA1.hexdigest(hash_string) }
+                }
+=end
 
   # GET /contacts
   # GET /contacts.json
@@ -40,6 +52,22 @@ class ContactsController < ApplicationController
     @contacts = Contact.includes(:contact_groups).where('$and' => pars)
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit])
+
+    contact_ids = Rails.cache.fetch("#{contacts_url}?q=#{Digest::SHA1.hexdigest(current_user.id.to_s + params.inspect)}",
+                                    :tag => ["contacts-filter-#{current_user.id}"]) do
+      Contact.where('$and' => pars)
+          .asc('contact_profile.last_name').asc('contact_profile.first_name')
+          .pluck(:_id)
+    end
+
+    @contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => contact_ids })
+                    .asc('contact_profile.last_name').asc('contact_profile.first_name')
+                    .page(params[:page]).per(params[:limit])
+
+    if @contacts.size <= (params[:page].to_i*params[:limit].to_i - params[:limit].to_i)
+      params[:page] = @contacts.num_pages
+      redirect_to host: contacts_url, params: params and return
+    end
 
     @metadata = current_user.metadata
     @groups   = ContactGroup.where(uid: current_user.id).asc('label')
@@ -92,6 +120,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       begin
         if @contact.save
+          Cashier.expire "contacts-filter-#{current_user.id}"
           format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
           format.json { render :show, status: :created, location: @contact }
         else
@@ -136,6 +165,10 @@ class ContactsController < ApplicationController
     respond_to do |format|
       begin
         if @contact.update(pars)
+          Cashier.expire "contacts-filter-#{current_user.id}"
+          expire_fragment contact_url(@contact)
+          # expire_action action: :show
+
           format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
           format.json { render :show, status: :ok, location: @contact }
         else
@@ -161,6 +194,7 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1.json
   def destroy
     @contact.destroy
+    Cashier.expire "contacts-filter-#{current_user.id}"
     respond_to do |format|
       format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
@@ -323,7 +357,12 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      begin
+        @contact = Contact.find_by(:_id => params[:id], :uid => current_user.id)
+      rescue Mongoid::Errors::DocumentNotFound => e
+        debug_inspect "Mongoid::Errors::DocumentNotFound: message: Document not found for class Contact with attributes {:_id=>\"#{params[:id]}\", :uid=>#{current_user.id}}."
+        redirect_to :root, alert: 'No Access!' and return
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

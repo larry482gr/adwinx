@@ -1,5 +1,5 @@
 <%= form_tag('/contacts', method: :get,
-             class: 'form-inline search-filters', id: 'contacts-filters', data: {turboform: true}) do %>
+             class: 'form-inline search-filters', id: 'contacts-filters') do %>
     <div class="form-group">
       <input type="number" class="form-control" id="filter-prefix" name="contact[prefix]"
              placeholder="Country Code" value="<%= params[:contact][:prefix] unless params[:contact].nil? %>">
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="rows-per-page"><%= (t :results_per_page) %></label>
-      <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
+      <select class="form-control input-sm" name="limit" id="rows-per-page" autocomplete="off">
         <% Contact::RESULTS_PER_PAGE.each do |res| %>
             <% per_value = params[:limit].nil? ? Contact::DEFAULT_PER_PAGE : params[:limit] %>
             <option value="<%= res %>" <%= 'selected' if res == per_value.to_i %>><%= res %></option>
