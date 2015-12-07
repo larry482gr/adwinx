@@ -8,17 +8,6 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
-  # caches_action :show, :layout => false
-=begin
-  caches_action :index, tag: proc { |c| "contacts-filter-#{current_user.id}" },
-                if: proc { |c| !c.params[:page].blank? },
-                cache_path: proc { |c|
-                  hash_string = c.current_user.id.to_s + c.params.inspect
-                  # contacts_url(Digest::SHA1.hexdigest(hash_string))
-                  { q: Digest::SHA1.hexdigest(hash_string) }
-                }
-=end
-
   # GET /contacts
   # GET /contacts.json
   def index
@@ -165,9 +154,8 @@ class ContactsController < ApplicationController
     respond_to do |format|
       begin
         if @contact.update(pars)
-          Cashier.expire "contacts-filter-#{current_user.id}"
           expire_fragment contact_url(@contact)
-          # expire_action action: :show
+          Cashier.expire "contacts-filter-#{current_user.id}"
 
           format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
           format.json { render :show, status: :ok, location: @contact }
@@ -211,6 +199,7 @@ class ContactsController < ApplicationController
 
     deleted = Contact.where(uid: current_user.id).in(:_id => contact_ids).delete_all
 
+    Cashier.expire "contacts-filter-#{current_user.id}"
     respond_to do |format|
       format.js {}
       format.json { render json: { deleted: deleted } }
@@ -309,6 +298,7 @@ class ContactsController < ApplicationController
       sleep 0.1
     end
   ensure
+    Cashier.expire "contacts-filter-#{current_user.id}"
     response.stream.close
   end
 
