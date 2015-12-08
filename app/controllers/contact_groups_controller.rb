@@ -1,5 +1,7 @@
 class ContactGroupsController < ApplicationController
-  # before_action :authenticate_user!
+  include ContactsHelper
+
+  before_action :authenticate_user!
   before_action :set_contact_group, only: [:show, :edit, :update, :remove_contacts, :destroy, :empty]
 
   # GET /contact_groups
@@ -31,10 +33,36 @@ class ContactGroupsController < ApplicationController
   # GET /contact_groups/1
   # GET /contact_groups/1.json
   def show
-    @contacts = Contact.where(uid: current_user.id, contact_group_ids: @contact_group[:_id])
+    params_hash = group_contacts_params unless params[:contact].nil?
+
+    pars = get_filter_params params_hash
+
+    params[:page] ||= 1
+    params[:limit] ||= Contact::DEFAULT_PER_PAGE
+    params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
+
+    contact_ids = Rails.cache.fetch("#{contacts_url}?q=#{Digest::SHA1.hexdigest(pars.inspect)}",
+                                    :tag => ["contact-filters-#{current_user.id}"]) do
+
+      Contact.where('$and' => pars).pluck(:_id)
+    end
+
+    @contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => contact_ids })
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
-                    .page(params[:page]).per(params[:limit]).includes(:contact_groups)
+                    .page(params[:page]).per(params[:limit])
+
+    if @contacts.size <= (params[:page].to_i*params[:limit].to_i - params[:limit].to_i)
+      params[:page] = @contacts.num_pages
+      redirect_to host: contacts_url, params: params and return
+    end
+
     @metadata = current_user.metadata
+    @filters_form_action = "/contact_groups/#{@contact_group[:_id]}"
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: { metadata: @metadata, contacts: @contacts, group: @contact_group } }
+    end
   end
 
   # GET /contact_groups/new
@@ -192,6 +220,13 @@ class ContactGroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_group_params
       params.require(:contact_group).permit(:label, :description, { contact_ids: [] }, { contact_group_ids: [] }, :contacts_fate)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def group_contacts_params
+      params.require(:contact).permit(:prefix, :mobile,
+                                      { contact_profile_attributes: current_user.metadata.to_a },
+                                      { contact_group_attributes: [:_id] })
     end
 
     def duplicate_group

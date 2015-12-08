@@ -3,6 +3,30 @@ require 'axlsx'
 require 'creek'
 
 module ContactsHelper
+  def get_filter_params params_hash
+    pars = []
+
+    if params_hash
+      pars << { '$where' => "(/^#{params_hash[:prefix]}/i).test(this.prefix + '')" } unless params_hash[:prefix].blank?
+      pars << { '$where' => "(/^#{params_hash[:mobile]}/i).test(this.mobile + '')" } unless params_hash[:mobile].blank?
+
+      params_hash[:contact_profile_attributes].each do |key, value|
+        unless value.blank?
+          pars << { '$where' => "(/^#{value}/i).test(this.contact_profile.#{key} + '')" }
+        end
+      end
+
+      unless params_hash[:contact_group_attributes].blank?
+        contact_group_ids = []
+        params_hash[:contact_group_attributes].each { |group| contact_group_ids << BSON::ObjectId.from_string(group[:_id]) }
+
+        pars << { contact_group_ids: { '$in' => contact_group_ids } }
+      end
+    end
+
+    pars << { uid: current_user.id }
+  end
+
   def generate_csv data
     csv_data = CSV.generate do |csv|
       csv << data[:headers]
@@ -39,10 +63,15 @@ module ContactsHelper
       extra_placeholders << ' '
     end
 
-    groups = 'new_group'
-
-    real_group = ContactGroup.find_by(uid: current_user.id)
-    groups = real_group[:label] + '/' + groups unless real_group.blank?
+    if request.referer.include? 'contact_groups'
+      ref = request.referer
+      real_group = ContactGroup.find_by(:_id => ref[(ref.rindex('/')+1)..ref.size], :uid => current_user.id)
+      groups = real_group[:label]
+    else
+      groups = 'new_group'
+      real_group = ContactGroup.find_by(uid: current_user.id)
+      groups = real_group[:label] + '/' + groups unless real_group.blank?
+    end
 
     headers = %w(prefix mobile).concat(metadata).push('groups')
     example = %w(44 1234567890).concat(extra_placeholders).push(groups)

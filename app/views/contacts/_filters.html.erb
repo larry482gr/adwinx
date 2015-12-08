@@ -1,4 +1,4 @@
-<%= form_tag('/contacts', method: :get,
+<%= form_tag(@filters_form_action, method: :get,
              class: 'form-inline search-filters', id: 'contacts-filters') do %>
     <div class="form-group">
       <input type="number" class="form-control" id="filter-prefix" name="contact[prefix]"
@@ -14,13 +14,16 @@
                  name="contact[contact_profile_attributes][<%= meta_field %>]"
                  placeholder="<%= meta_field.humanize %>"
                  value="<%= params[:contact][:contact_profile_attributes][meta_field] unless params[:contact].nil? %>">
-          <input type="hidden" autocomplete="off">
         </div>
     <% end %>
-    <label for="contact-group-attributes">Select Groups</label>
-    <select multiple class="form-control" id="contact-group-attributes"
-            name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
-    </select>
+    <%- if @filters_form_action.include? 'contact_groups' %>
+      <input type="hidden" name="contact[contact_group_attributes][][_id]" value="<%= @contact_group[:_id] %>">
+    <%- else %>
+      <label for="contact-group-attributes">Select Groups</label>
+      <select multiple class="form-control" id="contact-group-attributes"
+              name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
+      </select>
+    <% end %>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Find</button>
     </div>

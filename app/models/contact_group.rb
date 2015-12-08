@@ -4,6 +4,7 @@ class ContactGroup
   field :label, type: String
   field :description, type: String
 
+  index({ uid: 1 }, { name: 'uid_idx', background: true })
   index({ uid: 1, label: 1 }, { name: 'uid_label_idx', unique: true, background: true })
 
   has_and_belongs_to_many :contacts, inverse_of: nil

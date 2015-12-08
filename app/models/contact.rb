@@ -5,6 +5,7 @@ class Contact
   field :prefix, type: String
   field :mobile, type: String
 
+  index({ uid: 1 }, { name: 'uid_idx', background: true })
   index({ uid: 1, prefix: 1, mobile: 1 }, { name: 'uid_prefix_mobile_idx', unique: true, background: true })
   index({ uid: 1, 'contact_profile.first_name': 1}, { name: 'first_name_idx', background: true, sparse: true })
   index({ uid: 1, 'contact_profile.last_name': 1}, { name: 'last_name_idx', background: true, sparse: true })

@@ -11,42 +11,18 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    pars_hash = contact_params unless params[:contact].nil?
-    pars = []
+    params_hash = contact_params unless params[:contact].nil?
 
-    if pars_hash
-      pars << { '$where' => "(/^#{pars_hash[:prefix]}/i).test(this.prefix + '')" } unless pars_hash[:prefix].blank?
-      pars << { '$where' => "(/^#{pars_hash[:mobile]}/i).test(this.mobile + '')" } unless pars_hash[:mobile].blank?
-
-      pars_hash[:contact_profile_attributes].each do |key, value|
-        unless value.blank?
-          pars << { '$where' => "(/^#{value}/i).test(this.contact_profile.#{key} + '')" }
-        end
-      end
-
-      unless pars_hash[:contact_group_attributes].blank?
-        contact_group_ids = []
-        pars_hash[:contact_group_attributes].each { |group| contact_group_ids << BSON::ObjectId.from_string(group[:_id]) }
-
-        pars << { contact_group_ids: { '$in' => contact_group_ids } }
-      end
-    end
-
-    pars << { uid: current_user.id }
+    pars = get_filter_params params_hash
 
     params[:page] ||= 1
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
 
-    @contacts = Contact.includes(:contact_groups).where('$and' => pars)
-                    .asc('contact_profile.last_name').asc('contact_profile.first_name')
-                    .page(params[:page]).per(params[:limit])
-
-    contact_ids = Rails.cache.fetch("#{contacts_url}?q=#{Digest::SHA1.hexdigest(current_user.id.to_s + params.inspect)}",
+    contact_ids = Rails.cache.fetch("#{contacts_url}?q=#{Digest::SHA1.hexdigest(pars.inspect)}",
                                     :tag => ["contacts-filter-#{current_user.id}"]) do
-      Contact.where('$and' => pars)
-          .asc('contact_profile.last_name').asc('contact_profile.first_name')
-          .pluck(:_id)
+
+      Contact.where('$and' => pars).pluck(:_id)
     end
 
     @contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => contact_ids })
@@ -60,10 +36,11 @@ class ContactsController < ApplicationController
 
     @metadata = current_user.metadata
     @groups   = ContactGroup.where(uid: current_user.id).asc('label')
+    @filters_form_action = '/contacts'
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: { metadata: @metadata, contacts: @contacts } }
+      format.json { render json: { metadata: @metadata, contacts: @contacts, groups: @groups } }
     end
   end
 
@@ -155,7 +132,10 @@ class ContactsController < ApplicationController
       begin
         if @contact.update(pars)
           expire_fragment contact_url(@contact)
-          Cashier.expire "contacts-filter-#{current_user.id}"
+          if pars[:contact_profile_attributes][:last_name] != @contact.contact_profile[:last_name] or
+              pars[:contact_profile_attributes][:first_name] != @contact.contact_profile[:first_name]
+            Cashier.expire "contacts-filter-#{current_user.id}"
+          end
 
           format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
           format.json { render :show, status: :ok, location: @contact }
@@ -288,7 +268,7 @@ class ContactsController < ApplicationController
       total_updated   = import_result_1[:updated] + import_result_2[:updated]
 
       end_time = Time.now.to_f
-      debug_inspect "Execution time: #{(end_time-start_time).to_s}"
+
       sleep 0.1
       response.stream.write ({ pc: (total_inserted + total_updated).to_s,
                                pg: (((total_inserted + total_updated)/total_contacts)*100).to_s,
