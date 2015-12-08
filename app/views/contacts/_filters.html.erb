@@ -1,5 +1,5 @@
-<%= form_tag('/contacts', method: :get,
-             class: 'form-inline search-filters', id: 'contacts-filters', data: {turboform: true}) do %>
+<%= form_tag(@filters_form_action, method: :get,
+             class: 'form-inline search-filters', id: 'contacts-filters') do %>
     <div class="form-group">
       <input type="number" class="form-control" id="filter-prefix" name="contact[prefix]"
              placeholder="Country Code" value="<%= params[:contact][:prefix] unless params[:contact].nil? %>">
@@ -14,19 +14,22 @@
                  name="contact[contact_profile_attributes][<%= meta_field %>]"
                  placeholder="<%= meta_field.humanize %>"
                  value="<%= params[:contact][:contact_profile_attributes][meta_field] unless params[:contact].nil? %>">
-          <input type="hidden" autocomplete="off">
         </div>
     <% end %>
-    <label for="contact-group-attributes">Select Groups</label>
-    <select multiple class="form-control" id="contact-group-attributes"
-            name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
-    </select>
+    <%- if @filters_form_action.include? 'contact_groups' %>
+      <input type="hidden" name="contact[contact_group_attributes][][_id]" value="<%= @contact_group[:_id] %>">
+    <%- else %>
+      <label for="contact-group-attributes">Select Groups</label>
+      <select multiple class="form-control" id="contact-group-attributes"
+              name="contact[contact_group_attributes][][_id]" autocomplete="off" data-provide="typeahead">
+      </select>
+    <% end %>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Find</button>
     </div>
     <div class="form-group">
       <label for="rows-per-page"><%= (t :results_per_page) %></label>
-      <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
+      <select class="form-control input-sm" name="limit" id="rows-per-page" autocomplete="off">
         <% Contact::RESULTS_PER_PAGE.each do |res| %>
             <% per_value = params[:limit].nil? ? Contact::DEFAULT_PER_PAGE : params[:limit] %>
             <option value="<%= res %>" <%= 'selected' if res == per_value.to_i %>><%= res %></option>

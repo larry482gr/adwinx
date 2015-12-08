@@ -6,11 +6,17 @@
 <div class="col-md-12 above-list">
   <div class="col-md-6 col-sm12 contact-group-links">
     <%= link_to (t :edit_contact_group), edit_contact_group_path(@contact_group) %> |
+    <%= button_tag (t :import_contacts), class: 'btn-link', id: 'import-contacts' %> |
     <%= link_to (t :list_contact_groups), contact_groups_path %>
   </div>
   <div class="col-md-6 col-sm12">
     <%= render 'contacts/additional_fields' %>
   </div>
+  <div class="col-md-12 col-sm12">
+    <%= render 'contacts/filters' %>
+  </div>
 </div>
+
+<%= render 'contacts/import_area' %>
 
 <%= render 'contacts/list' unless @contacts.blank? %>

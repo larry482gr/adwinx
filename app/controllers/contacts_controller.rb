@@ -1,54 +1,46 @@
+require 'digest/sha1'
 require 'thread'
 
 class ContactsController < ApplicationController
   include ActionController::Live
   include ContactsHelper
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
   # GET /contacts
   # GET /contacts.json
   def index
-    pars_hash = contact_params unless params[:contact].nil?
-    pars = []
+    params_hash = contact_params unless params[:contact].nil?
 
-    if pars_hash
-      pars << { '$where' => "(/^#{pars_hash[:prefix]}/i).test(this.prefix + '')" } unless pars_hash[:prefix].blank?
-      pars << { '$where' => "(/^#{pars_hash[:mobile]}/i).test(this.mobile + '')" } unless pars_hash[:mobile].blank?
-
-      pars_hash[:contact_profile_attributes].each do |key, value|
-        unless value.blank?
-          pars << { '$where' => "(/^#{value}/i).test(this.contact_profile.#{key} + '')" }
-        end
-      end
-
-      unless pars_hash[:contact_group_attributes].blank?
-        contact_group_ids = []
-        pars_hash[:contact_group_attributes].each { |group| contact_group_ids << BSON::ObjectId.from_string(group[:_id]) }
-
-        pars << { contact_group_ids: { '$in' => contact_group_ids } }
-      end
-    end
-
-    pars << { uid: current_user.id }
+    pars = get_filter_params params_hash
 
     params[:page] ||= 1
     params[:limit] ||= Contact::DEFAULT_PER_PAGE
     params[:limit] = Contact::RESULTS_PER_PAGE.max unless params[:limit].to_i <= Contact::RESULTS_PER_PAGE.max
 
-    debug_inspect "http://localhost:3000/contacts?utf8=%E2%9C%93&contact[prefix]=&contact[mobile]=&contact[contact_profile_attributes][last_name]=&contact[contact_profile_attributes][first_name]=&contact[contact_profile_attributes][email]=&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000001&contact[contact_group_attributes][][_id]=565261e6ef665e8bfb000002&rows_per_page=50".length
+    contact_ids = Rails.cache.fetch("#{contacts_url}?q=#{Digest::SHA1.hexdigest(pars.inspect)}",
+                                    :tag => ["contacts-filter-#{current_user.id}"]) do
 
-    @contacts = Contact.includes(:contact_groups).where('$and' => pars)
+      Contact.where('$and' => pars).pluck(:_id)
+    end
+
+    @contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => contact_ids })
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit])
 
+    if @contacts.size <= (params[:page].to_i*params[:limit].to_i - params[:limit].to_i)
+      params[:page] = @contacts.num_pages
+      redirect_to host: contacts_url, params: params and return
+    end
+
     @metadata = current_user.metadata
     @groups   = ContactGroup.where(uid: current_user.id).asc('label')
+    @filters_form_action = '/contacts'
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: { metadata: @metadata, contacts: @contacts } }
+      format.json { render json: { metadata: @metadata, contacts: @contacts, groups: @groups } }
     end
   end
 
@@ -94,6 +86,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       begin
         if @contact.save
+          Cashier.expire "contacts-filter-#{current_user.id}"
           format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
           format.json { render :show, status: :created, location: @contact }
         else
@@ -138,6 +131,12 @@ class ContactsController < ApplicationController
     respond_to do |format|
       begin
         if @contact.update(pars)
+          expire_fragment contact_url(@contact)
+          if pars[:contact_profile_attributes][:last_name] != @contact.contact_profile[:last_name] or
+              pars[:contact_profile_attributes][:first_name] != @contact.contact_profile[:first_name]
+            Cashier.expire "contacts-filter-#{current_user.id}"
+          end
+
           format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
           format.json { render :show, status: :ok, location: @contact }
         else
@@ -163,6 +162,7 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1.json
   def destroy
     @contact.destroy
+    Cashier.expire "contacts-filter-#{current_user.id}"
     respond_to do |format|
       format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
@@ -179,6 +179,7 @@ class ContactsController < ApplicationController
 
     deleted = Contact.where(uid: current_user.id).in(:_id => contact_ids).delete_all
 
+    Cashier.expire "contacts-filter-#{current_user.id}"
     respond_to do |format|
       format.js {}
       format.json { render json: { deleted: deleted } }
@@ -212,75 +213,72 @@ class ContactsController < ApplicationController
 
   # POST /contacts/bulk_import
   def bulk_import
-    Mongo::Logger.logger.level = ::Logger::INFO
     response.headers['Content-Type'] = 'text/event-stream'
 
     start_time = Time.now.to_f
 
     filetype = params[:contact][:contact_lists].content_type
 
+    response.stream.write ({ rs: "Processing file..." }).to_json
+    sleep 0.1
+
     contacts = parse_contacts filetype
 
     if contacts.is_a? Hash and contacts[:invalid] and not contacts[:labels].blank?
-      response.stream.write ({ result: "The file you are trying to import contains these invalid fields:<br/>
+      response.stream.write ({ rs: "The file you are trying to import contains these invalid fields:<br/>
                                         #{contacts[:labels].join(', ')}<br/>
                                         Please check that they are defined in your <a href=\"/users/edit\">Profile Settings</a>.",
-                               status: 450.to_s }).to_json
+                               st: 450.to_s }).to_json
     elsif contacts.is_a? Hash and contacts[:missing] and not contacts[:labels].blank?
-      response.stream.write ({ result: "The file you are trying to import does not contain #{contacts[:labels].count} mandatory field(s):<br/>
+      response.stream.write ({ rs: "The file you are trying to import does not contain #{contacts[:labels].count} mandatory field(s):<br/>
                                         #{contacts[:labels].join(', ')}",
-                               status: 451.to_s }).to_json
+                               st: 451.to_s }).to_json
     else
       total_contacts = contacts.size
-      response.stream.write ({ result: "Processing...", total: total_contacts.to_s, status: 200.to_s }).to_json
+      response.stream.write ({ rs: "Creating contacts...", tc: total_contacts.to_s }).to_json
       sleep 0.1
 
       # import_result = import_contacts contacts
 
-      import_result_1, import_result_2, import_result_3, import_result_4 = { inserted: 0, updated: 0 }
-      odd_contacts  = contacts.select.with_index { |_, i| i.odd? }
-      even_contacts = contacts.select.with_index { |_, i| i.even? }
+      import_result_1, import_result_2 = { inserted: 0, updated: 0 }
+
 
 
       @mutex = Mutex.new
+      @command_queue = Queue.new
       @i = 0
 
       t1 = Thread.new{
-        import_result_1 = import_contacts odd_contacts.select.with_index { |_, i| i.even? }
+        import_result_1 = import_contacts contacts.select.with_index { |_, i| i.even? }
       }
 
       t2 = Thread.new{
-        import_result_2 = import_contacts odd_contacts.select.with_index { |_, i| i.odd? }
+        import_result_2 = import_contacts contacts.select.with_index { |_, i| i.odd? }
       }
 
-      t3 = Thread.new{
-        import_result_3 = import_contacts even_contacts.select.with_index { |_, i| i.even? }
-      }
-
-      t4 = Thread.new{
-        import_result_4 = import_contacts even_contacts.select.with_index { |_, i| i.odd? }
-      }
+      while command = @command_queue.pop
+        response.stream.write command.to_json
+      end
 
       t1.join
       t2.join
-      t3.join
-      t4.join
 
-      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted] +
-                        import_result_3[:inserted] + import_result_4[:inserted]
-      total_updated   = import_result_1[:updated] + import_result_2[:updated] +
-                        import_result_3[:updated] + import_result_4[:updated]
+      total_inserted  = import_result_1[:inserted] + import_result_2[:inserted]
+
+      total_updated   = import_result_1[:updated] + import_result_2[:updated]
 
       end_time = Time.now.to_f
+
       sleep 0.1
-      response.stream.write ({ processed: (total_inserted + total_updated).to_s,
-                               progress: (((total_inserted + total_updated)/total_contacts)*100).to_s,
-                               result: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
-                                        Execution time: #{(end_time-start_time).to_s}",
-                               status: 200.to_s }).to_json
+      response.stream.write ({ pc: (total_inserted + total_updated).to_s,
+                               pg: (((total_inserted + total_updated)/total_contacts)*100).to_s,
+                               tc: total_contacts.to_s,
+                               rs: "New: #{total_inserted.to_s} | Updated: #{total_updated.to_s}<br/>
+                                        Execution time: #{(end_time-start_time).to_s}" }).to_json
       sleep 0.1
     end
   ensure
+    Cashier.expire "contacts-filter-#{current_user.id}"
     response.stream.close
   end
 
@@ -329,7 +327,12 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      begin
+        @contact = Contact.find_by(:_id => params[:id], :uid => current_user.id)
+      rescue Mongoid::Errors::DocumentNotFound => e
+        debug_inspect "Mongoid::Errors::DocumentNotFound: message: Document not found for class Contact with attributes {:_id=>\"#{params[:id]}\", :uid=>#{current_user.id}}."
+        redirect_to :root, alert: 'No Access!' and return
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -353,7 +356,7 @@ class ContactsController < ApplicationController
 
     def import_contacts contacts
       # TODO Modify this according to threads running this piece of code
-      progress_step = (100/contacts.size.to_f)/4
+      progress_step = (100/contacts.size.to_f)/2
 
       inserted  = 0
       updated   = 0
@@ -397,7 +400,10 @@ class ContactsController < ApplicationController
           row_hash.delete('groups')
         end
 
-        contact_profile = ContactProfile.new(row_hash)
+        contact_profile = Object.new
+        @mutex.synchronize do
+          contact_profile = ContactProfile.new(row_hash)
+        end
         contact_profile_params = row_hash
         contact_profile_params[:_id] = contact_profile[:_id]
         contact_params['contact_profile'] = contact_profile_params
@@ -414,12 +420,13 @@ class ContactsController < ApplicationController
         @mutex.synchronize do
           @i += 1
         end
-        if ((@i*progress_step) % 2).is_a? Integer or (@i*progress_step) % 2 < 0.1 or
-            ((@i*progress_step) % 2 > 1 and (@i*progress_step) % 2 < 1.1)
-          response.stream.write ({ processed: @i.to_s, progress: (@i*progress_step).to_s }).to_json
+        sfb = @i*progress_step % 2
+        if sfb < 0.1 or (sfb > 1 and sfb < 1.1)
+          @command_queue << { pc: @i.to_s, pg: (@i*progress_step).to_s }
         end
       end
 
+      @command_queue << nil
       return { inserted: inserted, updated: updated }
     end
 

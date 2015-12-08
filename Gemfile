@@ -43,7 +43,9 @@ gem 'i18n-js'
 
 # Caching
 gem 'actionpack-page_caching', '~> 1.0.2' # removed from Rails-core as Rails 4.0
+gem 'actionpack-action_caching', '~> 1.1.1' # removed from Rails-core as Rails 4.0
 gem 'rails-observers'
+gem 'cashier', '~> 0.4.1'
 
 # File uploads
 gem 'carrierwave'
@@ -119,6 +121,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
+  gem 'capistrano-nc', '~> 0.1'
   gem 'highline'
 
 end
@@ -131,6 +134,8 @@ group :development, :production do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
+
+  gem 'rack-cache'
 end
 
 group :production do
