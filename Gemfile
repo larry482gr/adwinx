@@ -131,20 +131,16 @@ group :development, :production do
   gem 'mysql2', '~> 0.3.20'
   gem 'puma'
 
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'rspec-activemodel-mocks'
-
   gem 'rack-cache'
-end
-
-group :production do
-  gem 'foreman'
 end
 
 group :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
 
   gem 'database_cleaner'
   gem 'capybara'
@@ -153,7 +149,7 @@ group :test do
 
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  gem 'factory_girl'
-  gem 'factory_girl_rails', :require => false
+  # gem 'factory_girl'
+  gem 'factory_girl_rails' #, :require => false
 end
 

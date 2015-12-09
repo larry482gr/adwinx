@@ -83,8 +83,8 @@ class ContactGroupsController < ApplicationController
     respond_to do |format|
       begin
         if @contact_group.save
-          format.html { redirect_to contacts_path, notice: 'Contact group was successfully created.' }
-          format.json { render contacts_path, status: :created }
+          format.html { redirect_to @contact_group, notice: 'Contact group was successfully created.' }
+          format.json { render :show, status: :created, location: @contact_group }
         else
           format.html { render :new }
           format.json { render json: @contact_group.errors, status: :unprocessable_entity }
