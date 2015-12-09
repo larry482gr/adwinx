@@ -4,3 +4,12 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+require 'rubygems'
+require 'ci/reporter/rake/rspec'
+
+# ...
+# Rake code that creates a task called `:rspec`
+# ...
+
+task :rspec => 'ci:setup:rspec'
