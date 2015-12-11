@@ -61,3 +61,5 @@ Capfile
 lib/capistrano
 config/deploy.rb
 config/deploy
+
+config/local_env.yml
