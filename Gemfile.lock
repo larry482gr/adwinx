@@ -108,6 +108,11 @@ GEM
       mime-types (>= 1.16)
     cashier (0.4.1)
     choice (0.2.0)
+    ci_reporter (2.0.0)
+      builder (>= 2.1.2)
+    ci_reporter_rspec (1.0.0)
+      ci_reporter (~> 2.0)
+      rspec (>= 2.14, < 4)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
@@ -209,6 +214,10 @@ GEM
       mongo (~> 2.1)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-rspec (3.0.0)
+      mongoid (~> 5.0)
+      rake
+      rspec (~> 3.3)
     multi_json (1.11.2)
     multi_test (0.1.2)
     mysql2 (0.3.20)
@@ -405,6 +414,7 @@ DEPENDENCIES
   capybara
   carrierwave
   cashier (~> 0.4.1)
+  ci_reporter_rspec
   coffee-rails (~> 4.1.0)
   colorize
   creek
@@ -424,6 +434,7 @@ DEPENDENCIES
   launchy
   mini_magick
   mongoid (~> 5.0.0)
+  mongoid-rspec (= 3.0.0)
   mysql2 (~> 0.3.20)
   non-stupid-digest-assets
   puma

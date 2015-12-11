@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
                     .asc('contact_profile.last_name').asc('contact_profile.first_name')
                     .page(params[:page]).per(params[:limit])
 
-    if @contacts.size <= (params[:page].to_i*params[:limit].to_i - params[:limit].to_i)
+    if @contacts.size < (params[:page].to_i*params[:limit].to_i - params[:limit].to_i)
       params[:page] = @contacts.num_pages
       redirect_to host: contacts_url, params: params and return
     end

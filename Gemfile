@@ -112,6 +112,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rspec-rails'
+
   # Do not log assets requests in development environment.
   gem 'quiet_assets'
 
@@ -141,8 +143,8 @@ group :test do
   gem 'sqlite3'
 
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
+  gem 'mongoid-rspec', '3.0.0'
 
   gem 'database_cleaner'
   gem 'capybara'
