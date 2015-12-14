@@ -117,7 +117,7 @@ group :development do
   # Do not log assets requests in development environment.
   gem 'quiet_assets'
 
-  gem 'rails-erd'
+  # gem 'rails-erd'
   gem 'rename'
 
   gem 'capistrano', '~> 3.2.1'
@@ -149,6 +149,9 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'simplecov'
+  gem 'simplecov-json'
+  gem 'simplecov-rcov'
+
   gem 'launchy'
 
   gem 'cucumber-rails', :require => false

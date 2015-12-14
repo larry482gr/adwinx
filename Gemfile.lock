@@ -107,7 +107,6 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     cashier (0.4.1)
-    choice (0.2.0)
     ci_reporter (2.0.0)
       builder (>= 2.1.2)
     ci_reporter_rspec (1.0.0)
@@ -259,11 +258,6 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-erd (1.4.4)
-      activerecord (>= 3.2)
-      activesupport (>= 3.2)
-      choice (~> 0.2.0)
-      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails-observers (0.1.2)
@@ -318,7 +312,6 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       tins (<= 1.6.0)
-    ruby-graphviz (1.2.2)
     ruby-progressbar (1.7.5)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
@@ -345,6 +338,11 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    simplecov-json (0.2)
+      json
+      simplecov
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     spring (1.4.3)
     sprockets (3.4.0)
       rack (> 1, < 3)
@@ -441,7 +439,6 @@ DEPENDENCIES
   quiet_assets
   rack-cache
   rails (= 4.2.4)
-  rails-erd
   rails-observers
   recaptcha
   rename
@@ -454,6 +451,8 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov
+  simplecov-json
+  simplecov-rcov
   spring
   sqlite3
   turbolinks
