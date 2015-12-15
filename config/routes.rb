@@ -23,6 +23,8 @@ Rails.application.routes.draw do
         concerns :deleteable
       end
 
+      resources :sms_campaigns
+
       get '/typeahead_contact_groups' => 'contact_groups#typeahead'
       get '/contacts/:id/groups' => 'contacts#belonging_groups'
 

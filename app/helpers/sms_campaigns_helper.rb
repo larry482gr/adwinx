@@ -1,0 +1,2 @@
+module SmsCampaignsHelper
+end

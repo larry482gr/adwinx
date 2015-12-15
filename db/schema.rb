@@ -11,12 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118222117) do
+ActiveRecord::Schema.define(version: 20151214133741) do
 
   create_table "languages", force: :cascade do |t|
     t.string "locale",   limit: 5,  null: false
     t.string "language", limit: 20, null: false
   end
+
+  create_table "sms_campaigns", force: :cascade do |t|
+    t.integer  "user_id",                limit: 4
+    t.integer  "account_id",             limit: 4
+    t.string   "label",                  limit: 64
+    t.string   "originator",             limit: 20
+    t.text     "msg_body",               limit: 65535
+    t.integer  "start_date",             limit: 8
+    t.integer  "end_date",               limit: 8
+    t.integer  "restriction_start_date", limit: 8
+    t.integer  "restriction_end_date",   limit: 8
+    t.integer  "encoding",               limit: 8
+    t.integer  "on_screen",              limit: 8
+    t.integer  "total_sms",              limit: 8
+    t.integer  "sent_to_box",            limit: 8
+    t.boolean  "finished",                                                      default: false
+    t.integer  "state",                  limit: 1,                              default: 0,                  comment: "0: scheduled, 1: started, 2: paused, 3: stopped, 4: archieved"
+    t.decimal  "estimated_cost",                       precision: 10, scale: 5
+    t.datetime "created_at",                                                                    null: false
+    t.datetime "updated_at",                                                                    null: false
+  end
+
+  create_table "sms_campaigns_recipients", force: :cascade do |t|
+    t.integer "sms_campaign_id", limit: 4
+    t.text    "contacts",        limit: 65535, comment: "Array of phone numbers and/or contact ids"
+    t.text    "contact_groups",  limit: 65535, comment: "Array of contact_group ids"
+  end
+
+  add_index "sms_campaigns_recipients", ["sms_campaign_id"], name: "idx_sms_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -46,5 +75,6 @@ ActiveRecord::Schema.define(version: 20151118222117) do
   add_index "users", ["language_id"], name: "index_users_on_language_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "sms_campaigns_recipients", "sms_campaigns"
   add_foreign_key "users", "languages"
 end

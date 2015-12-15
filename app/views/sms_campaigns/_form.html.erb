@@ -1,0 +1,48 @@
+<%= form_for(@sms_campaign) do |f| %>
+  <% if @sms_campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sms_campaign.errors.count, "error") %> prohibited this sms_campaign from being saved:</h2>
+
+      <ul>
+      <% @sms_campaign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :originator %><br>
+    <%= f.text_field :originator %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_body %><br>
+    <%= f.text_area :msg_body %>
+  </div>
+  <div class="field">
+    <%= f.label 'Valid From - To' %><img src="/assets/help.png" class="help-icon" id="campaign-valid-help" alt="Help" /> <br>
+    <input type="text" name="valid_datetime" id="sms-campaign-valid-datetime" />
+    <%= f.hidden_field :start_date %>
+    <%= f.hidden_field :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
+    <input type="checkbox" id="restricted-hours-switch"><br>
+    <%= f.time_select :restriction_start_date %> - <%= f.time_select :restriction_end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :encoding, 'Unicode' %><br>
+    <%= f.check_box :encoding, value: '' %>
+  </div>
+  <div class="field">
+    <%= f.label :on_screen, 'Splash' %><br>
+    <%= f.check_box :on_screen, value: '0' %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

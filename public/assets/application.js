@@ -14509,7 +14509,7 @@ I18n.t = I18n.translate;
 I18n.l = I18n.localize;
 I18n.p = I18n.pluralize;
 var I18n = I18n || {};
-I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %d","long":"%B %d, %Y"},"day_names":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"abbr_day_names":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"month_names":[null,"January","February","March","April","May","June","July","August","September","October","November","December"],"abbr_month_names":[null,"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"order":["year","month","day"]},"time":{"formats":{"default":"%a, %d %b %Y %H:%M:%S %z","short":"%d %b %H:%M","long":"%B %d, %Y %H:%M"},"am":"am","pm":"pm"},"support":{"array":{"words_connector":", ","two_words_connector":" and ","last_word_connector":", and "}},"number":{"format":{"separator":".","delimiter":",","precision":3,"significant":false,"strip_insignificant_zeros":false},"currency":{"format":{"format":"%u%n","unit":"$","separator":".","delimiter":",","precision":2,"significant":false,"strip_insignificant_zeros":false}},"percentage":{"format":{"delimiter":"","format":"%n%"}},"precision":{"format":{"delimiter":""}},"human":{"format":{"delimiter":"","precision":3,"significant":true,"strip_insignificant_zeros":true},"storage_units":{"format":"%n %u","units":{"byte":{"one":"Byte","other":"Bytes"},"kb":"KB","mb":"MB","gb":"GB","tb":"TB"}},"decimal_units":{"format":"%n %u","units":{"unit":"","thousand":"Thousand","million":"Million","billion":"Billion","trillion":"Trillion","quadrillion":"Quadrillion"}}}},"errors":{"format":"%{attribute} %{message}","messages":{"inclusion":"is not included in the list","exclusion":"is reserved","invalid":"is invalid","confirmation":"doesn't match %{attribute}","accepted":"must be accepted","empty":"can't be empty","blank":"can't be blank","present":"must be blank","too_long":{"one":"is too long (maximum is 1 character)","other":"is too long (maximum is %{count} characters)"},"too_short":{"one":"is too short (minimum is 1 character)","other":"is too short (minimum is %{count} characters)"},"wrong_length":{"one":"is the wrong length (should be 1 character)","other":"is the wrong length (should be %{count} characters)"},"not_a_number":"is not a number","not_an_integer":"must be an integer","greater_than":"must be greater than %{count}","greater_than_or_equal_to":"must be greater than or equal to %{count}","equal_to":"must be equal to %{count}","less_than":"must be less than %{count}","less_than_or_equal_to":"must be less than or equal to %{count}","other_than":"must be other than %{count}","odd":"must be odd","even":"must be even","taken":"has already been taken","carrierwave_processing_error":"failed to be processed","carrierwave_integrity_error":"is not of an allowed file type","carrierwave_download_error":"could not be downloaded","extension_white_list_error":"You are not allowed to upload %{extension} files, allowed types: %{allowed_types}","extension_black_list_error":"You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}","rmagick_processing_error":"Failed to manipulate with rmagick, maybe it is not an image? Original Error: %{e}","mime_types_processing_error":"Failed to process file with MIME::Types, maybe not valid content-type? Original Error: %{e}","mini_magick_processing_error":"Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}","already_confirmed":"was already confirmed, please try signing in","confirmation_period_expired":"needs to be confirmed within %{period}, please request a new one","expired":"has expired, please request a new one","not_found":"not found","not_locked":"was not locked","not_saved":{"one":"1 error prohibited this %{resource} from being saved:","other":"%{count} errors prohibited this %{resource} from being saved:"}}},"activerecord":{"errors":{"messages":{"record_invalid":"Validation failed: %{errors}","restrict_dependent_destroy":{"one":"Cannot delete record because a dependent %{record} exists","many":"Cannot delete record because dependent %{record} exist"}}},"models":{"user":{"one":"User","other":"Users"}},"attributes":{"user":{"email":"Email","password":"Password","remember_me":"Remember me"}}},"datetime":{"distance_in_words":{"half_a_minute":"half a minute","less_than_x_seconds":{"one":"less than 1 second","other":"less than %{count} seconds"},"x_seconds":{"one":"1 second","other":"%{count} seconds"},"less_than_x_minutes":{"one":"less than a minute","other":"less than %{count} minutes"},"x_minutes":{"one":"1 minute","other":"%{count} minutes"},"about_x_hours":{"one":"about 1 hour","other":"about %{count} hours"},"x_days":{"one":"1 day","other":"%{count} days"},"about_x_months":{"one":"about 1 month","other":"about %{count} months"},"x_months":{"one":"1 month","other":"%{count} months"},"about_x_years":{"one":"about 1 year","other":"about %{count} years"},"over_x_years":{"one":"over 1 year","other":"over %{count} years"},"almost_x_years":{"one":"almost 1 year","other":"almost %{count} years"}},"prompts":{"year":"Year","month":"Month","day":"Day","hour":"Hour","minute":"Minute","second":"Seconds"}},"helpers":{"select":{"prompt":"Please select"},"submit":{"create":"Create %{model}","update":"Update %{model}","submit":"Save %{model}","contact":{"create":"Create Contact","update":"Update Contact"},"contact_group":{"create":"Create Group","update":"Update Group"}},"page_entries_info":{"one_page":{"display_entries":{"zero":"No %{entry_name} found","one":"Displaying \u003cb\u003e1\u003c/b\u003e %{entry_name}","other":"Displaying \u003cb\u003eall %{count}\u003c/b\u003e %{entry_name}"}},"more_pages":{"display_entries":"Displaying %{entry_name} \u003cb\u003e%{first}\u0026nbsp;-\u0026nbsp;%{last}\u003c/b\u003e of \u003cb\u003e%{total}\u003c/b\u003e in total"}}},"flash":{"actions":{"create":{"notice":"%{resource_name} was successfully created."},"update":{"notice":"%{resource_name} was successfully updated."},"destroy":{"notice":"%{resource_name} was successfully destroyed.","alert":"%{resource_name} could not be destroyed."}}},"mongoid":{"errors":{"messages":{"blank_in_locale":"can't be blank in %{location}","message_title":"message","summary_title":"summary","resolution_title":"resolution","ambiguous_relationship":{"message":"Ambiguous relations %{candidates} defined on %{klass}.","summary":"When Mongoid attempts to set an inverse document of a relation in memory, it needs to know which relation it belongs to. When setting %{name}, Mongoid looked on the class %{inverse} for a matching relation, but multiples were found that could potentially match: %{candidates}.","resolution":"On the %{name} relation on %{inverse} you must add an :inverse_of option to specify the exact relationship on %{klass} that is the opposite of %{name}."},"callbacks":{"message":"Calling %{method} on %{klass} resulted in a false return from a callback.","summary":"If a before callback returns false when using Document.create!, Document#save!, or Document#update_attributes! this error will get raised since the document did not actually get saved.","resolution":"Double check all before callbacks to make sure they are not unintentionally returning false."},"calling_document_find_with_nil_is_invalid":{"message":"Calling Document.find with nil is invalid.","summary":"Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.","resolution":"Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect."},"document_not_destroyed":{"message":"%{klass} with id %{id} was not destroyed.","summary":"When calling %{klass}#destroy! and a callback halts the destroy callback chain by returning a false value, the deletion will not actually occur.","resolution":"Check the before/after destroy callbacks to ensure that the return values are truthy for the chain to continue."},"document_not_found":{"message":"Document(s) not found for class %{klass} with id(s) %{missing}.","summary":"When calling %{klass}.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): %{searched} (%{total} total) and the following ids were not found: %{missing}.","resolution":"Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples."},"document_with_attributes_not_found":{"message":"Document not found for class %{klass} with attributes %{attributes}.","summary":"When calling %{klass}.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.","resolution":"Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error."},"eager_load":{"message":"Eager loading :%{name} is not supported since it is a polymorphic belongs_to relation.","summary":"Mongoid cannot currently determine the classes it needs to eager load when the relation is polymorphic. The parents reside in different collections so a simple id lookup is not sufficient enough.","resolution":"Don't attempt to perform this action and have patience, maybe this will be supported in the future."},"invalid_collection":{"message":"Access to the collection for %{klass} is not allowed.","summary":"%{klass}.collection was called, and %{klass} is an embedded document - it resides within the collection of the root document of the hierarchy.","resolution":"For access to the collection that the embedded document is in, use %{klass}#_root.collection, or do not attempt to persist an embedded document without a parent set."},"invalid_config_option":{"message":"Invalid configuration option: %{name}.","summary":"A invalid configuration option was provided in your mongoid.yml, or a typo is potentially present. The valid configuration options are: %{options}.","resolution":"Remove the invalid option or fix the typo. If you were expecting the option to be there, please consult the following page with repect to Mongoid's configuration:\n\n   http://mongoid.org/en/mongoid/docs/installation.html"},"invalid_field":{"message":"Defining a field named '%{name}' is not allowed.","summary":"Defining this field would override the method '%{name}', which would cause issues with expectations around the original method and cause extremely hard to debug issues. The original method was defined in:\n   Object: %{origin}\n   File: %{file}\n   Line: %{line}","resolution":"Use Mongoid.destructive_fields to see what names are not allowed, and don't use these names. These include names that also conflict with core Ruby methods on Object, Module, Enumerable, or included gems that inject methods into these or Mongoid internals."},"invalid_field_option":{"message":"Invalid option :%{option} provided for field :%{name}.","summary":"Mongoid requires that you only provide valid options on each field definition in order to prevent unexpected behaviour later on.","resolution":"When defining the field :%{name} on '%{klass}', please provide valid options for the field. These are currently: %{valid}. If you meant to define a custom field option, please do so first like so:\n\n   Mongoid::Fields.option :%{option} do |model, field, value|\n     # Your logic here...\n   end\n   class %{klass}\n     include Mongoid::Document\n     field :%{name}, %{option}: true\n   end\n\n"},"invalid_includes":{"message":"Invalid includes directive: %{klass}.includes(%{args})","summary":"Eager loading in Mongoid only supports providing arguments to %{klass}.includes that are the names of relations on the %{klass} model, and only supports one level of eager loading. (ie, eager loading associations not on the %{klass} but one step away via another relation is not allowed.","resolution":"Ensure that each parameter passed to %{klass}.includes is a valid name of a relation on the %{klass} model. These are: %{relations}."},"invalid_index":{"message":"Invalid index specification on %{klass}: %{spec}, %{options}","summary":"Indexes in Mongoid are defined as a hash of field name and direction/2d pairs, with a hash for any additional options.","resolution":"Ensure that the index conforms to the correct syntax and has the correct options.\n\n Valid options are:\n   background: true|false\n   database: 'database_name'\n   drop_dups: true|false\n   name: 'index_name'\n   sparse: true|false\n   unique: true|false\n   min: 1\n   max: 1\n   bits: 26\n   bucket_size : 1\n   weights: { content: 1, title: 2 }\n   expire_after_seconds: number_of_seconds\n Valid types are: 1, -1, '2d', '2dsphere', 'geoHaystack', 'text', 'hashed'\n\n Example:\n   class Band\n     include Mongoid::Document\n     index({ name: 1, label: -1 }, { sparse: true })\n     index({ location: '2d' }, { background: true })\n   end\n\n"},"invalid_options":{"message":"Invalid option :%{invalid} provided to relation :%{name}.","summary":"Mongoid checks the options that are passed to the relation macros to ensure that no ill side effects occur by letting something slip by.","resolution":"Valid options are: %{valid}, make sure these are the ones you are using."},"invalid_path":{"message":"Having a root path assigned for %{klass} is invalid.","summary":"Mongoid has two different path objects for determining the location of a document in the database, Root and Embedded. This error is raised when an embedded document somehow gets a root path assigned.","resolution":"Most likely your embedded model, %{klass} is also referenced via a has_many from a root document in another collection. Double check the relation definitions and fix any instances where embedded documents are improperly referenced from other collections."},"invalid_scope":{"message":"Defining a scope of value %{value} on %{klass} is not allowed.","summary":"Scopes in Mongoid must be procs that wrap criteria objects.","resolution":"Change the scope to be a proc wrapped critera.\n\n Example:\n   class Band\n     include Mongoid::Document\n     scope :inactive, -\u003e{ where(active: false) }\n   end\n\n"},"invalid_storage_options":{"message":"Invalid options passed to %{klass}.store_in: %{options}.","summary":"The :store_in macro takes only a hash of parameters with the keys :database, :collection, or :client.","resolution":"Change the options passed to store_in to match the documented API, and ensure all keys in the options hash are symbols.\n\n Example:\n   class Band\n     include Mongoid::Document\n     store_in collection: 'artists', database: 'secondary'\n   end\n\n"},"invalid_storage_parent":{"message":"Invalid store_in call on class %{klass}.","summary":"The :store_in macro can only be called on a base Mongoid Document","resolution":"Remove the store_in call on class %{klass}, as it will use its parent store configuration. Or remove the hierarchy extension for this class."},"invalid_time":{"message":"'%{value}' is not a valid Time.","summary":"Mongoid tries to serialize the values for Date, DateTime, and Time into proper UTC times to store in the database. The provided value could not be parsed.","resolution":"Make sure to pass parsable values to the field setter for Date, DateTime, and Time objects. When this is a String it needs to be valid for Time.parse. Other objects must be valid to pass to Time.local."},"inverse_not_found":{"message":"When adding a(n) %{klass} to %{base}#%{name}, Mongoid could not determine the inverse foreign key to set. The attempted key was '%{inverse}'.","summary":"When adding a document to a relation, Mongoid attempts to link the newly added document to the base of the relation in memory, as well as set the foreign key to link them on the database side. In this case Mongoid could not determine what the inverse foreign key was.","resolution":"If an inverse is not required, like a belongs_to or has_and_belongs_to_many, ensure that :inverse_of =\u003e nil is set on the relation. If the inverse is needed, most likely the inverse cannot be figured out from the names of the relations and you will need to explicitly tell Mongoid on the relation what the inverse is.\n\n Example:\n   class Lush\n     include Mongoid::Document\n     has_one :whiskey, class_name: \"Drink\", inverse_of: :alcoholic\n   end\n\n   class Drink\n     include Mongoid::Document\n     belongs_to :alcoholic, class_name: \"Lush\", inverse_of: :whiskey\n   end"},"invalid_set_polymorphic_relation":{"message":"The %{name} attribute can't be set to an instance of %{other_klass} as %{other_klass} has multiple relations referencing %{klass} as %{name}.","summary":"If the parent class of a polymorphic relation has multiple definitions for the same relation, the values must be set from the parent side and not the child side since Mongoid cannot determine from the child side which relation to go in.","resolution":"Set the values from the parent, or redefine the relation with only a single definition in the parent."},"invalid_value":{"message":"Value of type %{value_class} cannot be written to a field of type %{field_class}","summary":"Tried to set a value of type %{value_class} to a field of type %{field_class}","resolution":"Verify if the value to be set correspond to field definition"},"mixed_relations":{"message":"Referencing a(n) %{embedded} document from the %{root} document via a relational association is not allowed since the %{embedded} is embedded.","summary":"In order to properly access a(n) %{embedded} from %{root} the reference would need to go through the root document of %{embedded}. In a simple case this would require Mongoid to store an extra foreign key for the root, in more complex cases where %{embedded} is multiple levels deep a key would need to be stored for each parent up the hierarchy.","resolution":"Consider not embedding %{embedded}, or do the key storage and access in a custom manner in the application code."},"mixed_client_configuration":{"message":"Both uri and standard configuration options defined for client: '%{name}'.","summary":"Instead of simply giving uri or standard options a preference order, Mongoid assumes that you have made a mistake in your configuration and requires that you provide one or the other, but not both. The options that were provided were: %{config}.","resolution":"Provide either only a uri as configuration or only standard options."},"nested_attributes_metadata_not_found":{"message":"Could not find metadata for relation '%{name}' on model: %{klass}.","summary":"When defining nested attributes for a relation, Mongoid needs to access the metadata for the relation '%{name}' in order if add autosave functionality to it, if applicable. Either no relation named '%{name}' could be found, or the relation had not been defined yet.","resolution":"Make sure that there is a relation defined named '%{name}' on %{klass} or that the relation definition comes before the accepts_nested_attributes_for macro in the model - order matters so that Mongoid has access to the metadata.\n\n Example:\n   class Band\n     include Mongoid::Document\n     has_many :albums\n     accepts_nested_attributes_for :albums\n   end\n\n"},"no_default_client":{"message":"No default client configuration is defined.","summary":"The configuration provided settings for: %{keys}, but Mongoid requires a :default to be defined at minimum.","resolution":"If configuring via a mongoid.yml, ensure that within your :clients section a :default client is defined.\n\n Example:\n   development:\n     clients:\n       default:\n         hosts:\n           - localhost:27017\n\n"},"no_environment":{"message":"Could not load the configuration since no environment was defined.","summary":"Mongoid attempted to find the appropriate environment but no Rails.env, Sinatra::Base.environment, RACK_ENV, or MONGOID_ENV could be found.","resolution":"Make sure some environment is set from the mentioned options. Mongoid cannot load configuration from the yaml without knowing which environment it is in, and we have considered defaulting to development an undesireable side effect of this not being defined."},"no_map_reduce_output":{"message":"No output location was specified for the map/reduce operation.","summary":"When executing a map/reduce, you must provide the output location of the results. The attempted command was: %{command}.","resolution":"Provide the location that the output of the operation is to go by chaining an #out call to the map/reduce.\n\n Example:\n   Band.map_reduce(map, reduce).out(inline: 1)\n\n Valid options for the out function are:\n   inline:  1\n   merge:   'collection-name'\n   replace: 'collection-name'\n   reduce:  'collection-name'\n\n"},"no_metadata":{"message":"Metadata not found for document of type %{klass}.","summary":"Mongoid sets the metadata of a relation on the document when it is either loaded from within the relation, or added to one. The presence of the metadata is required in order to provide various functionality around relations. Most likely you are getting this error because the document is embedded and was attempted to be persisted without being associated with a parent, or the relation was not properly defined.","resolution":"Ensure that your relations on the %{klass} model are all properly defined, and that the inverse relations are also properly defined. Embedded relations must have both the parent (embeds_one/embeds_many) and the inverse (embedded_in) present in order to work properly."},"no_parent":{"message":"Cannot persist embedded document %{klass} without a parent document.","summary":"If the document is embedded, in order to be persisted it must always have a reference to its parent document. This is most likely caused by either calling %{klass}.create or %{klass}.create! without setting the parent document as an attribute.","resolution":"Ensure that you've set the parent relation if instantiating the embedded document directly, or always create new embedded documents via the parent relation."},"no_client_config":{"message":"No configuration could be found for a client named '%{name}'.","summary":"When attempting to create the new client, Mongoid could not find a client configuration for the name: '%{name}'. This is necessary in order to know the host, port, and options needed to connect.","resolution":"Double check your mongoid.yml to make sure under the clients key that a configuration exists for '%{name}'. If you have set the configuration programatically, ensure that '%{name}' exists in the configuration hash."},"no_clients_config":{"message":"No clients configuration provided.","summary":"Mongoid's configuration requires that you provide details about each client that can be connected to, and requires in the clients config at least 1 default client to exist.","resolution":"Double check your mongoid.yml to make sure that you have a top-level clients key with at least 1 default client configuration for it. You can regenerate a new mongoid.yml for assistance via `rails g mongoid:config`.\n\n Example:\n   development:\n     clients:\n       default:\n         database: mongoid_dev\n         hosts:\n           - localhost:27017\n\n"},"no_client_database":{"message":"No database provided for client configuration: :%{name}.","summary":"Each client configuration must provide a database so Mongoid knows where the default database to persist to. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :database value for the client's default database is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"no_client_hosts":{"message":"No hosts provided for client configuration: :%{name}.","summary":"Each client configuration must provide hosts so Mongoid knows where the database server is located. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :hosts value for the client hosts is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"readonly_attribute":{"message":"Attempted to set the readonly attribute '%{name}' with the value: %{value}.","summary":"Attributes flagged as readonly via Model.attr_readonly can only have values set when the document is a new record.","resolution":"Don't define '%{name}' as readonly, or do not attempt to update its value after the document is persisted."},"readonly_document":{"message":"Attempted to persist the readonly document '%{klass}'.","summary":"Documents loaded from the database using #only cannot be persisted.","resolution":"Don't attempt to persist documents that are flagged as readonly."},"scope_overwrite":{"message":"Cannot create scope :%{scope_name}, because of existing method %{model_name}.%{scope_name}.","summary":"When defining a scope that conflicts with a method that already exists on the model, this error will get raised if Mongoid.scope_overwrite_exception is set to true.","resolution":"Change the name of the scope so it does not conflict with the already defined method %{model_name}, or set the configuration option Mongoid.scope_overwrite_exception to false, which is its default. In this case a warning will be logged."},"taken":"is already taken","too_many_nested_attribute_records":{"message":"Accepting nested attributes for %{association} is limited to %{limit} records.","summary":"More documents were sent to be processed than the allowed limit.","resolution":"The limit is set as an option to the macro, for example: accepts_nested_attributes_for :%{association}, limit: %{limit}. Consider raising this limit or making sure no more are sent than the set value."},"unknown_attribute":{"message":"Attempted to set a value for '%{name}' which is not allowed on the model %{klass}.","summary":"Without including Mongoid::Attributes::Dynamic in your model and the attribute does not already exist in the attributes hash, attempting to call %{klass}#%{name}= for it is not allowed. This is also triggered by passing the attribute to any method that accepts an attributes hash, and is raised instead of getting a NoMethodError.","resolution":"You can include Mongoid::Attributes::Dynamic if you expect to be writing values for undefined fields often."},"unsaved_document":{"message":"Attempted to save %{document} before the parent %{base}.","summary":"You cannot call create or create! through the relation (%{document}) whose parent (%{base}) is not already saved. This would cause the database to be out of sync since the child could potentially reference a nonexistent parent.","resolution":"Make sure to only use create or create! when the parent document %{base} is persisted."},"unsupported_javascript":{"message":"Executing Javascript $where selector on an embedded criteria is not supported.","summary":"Mongoid only supports providing a hash of arguments to #where criterion on embedded documents. Since %{klass} is embedded, the expression %{javascript} is not allowed.","resolution":"Please provide a standard hash to #where when the criteria is for an embedded relation."},"validations":{"message":"Validation of %{document} failed.","summary":"The following errors were found: %{errors}","resolution":"Try persisting the document with valid data or remove the validations."},"delete_restriction":{"message":"Cannot delete %{document} because of dependent '%{relation}'.","summary":"When defining '%{relation}' with a :dependent =\u003e :restrict, Mongoid will raise an error when attempting to delete the %{document} when the child '%{relation}' still has documents in it.","resolution":"Don't attempt to delete the parent %{document} when it has children, or change the dependent option on the relation."}},"contact":{"duplicate_key":"a_contact_with","duplicate_val":" phone_number \"%phone%\" already exists."},"contact_group":{"duplicate_key":"a_contact_group","duplicate_val":" labeled \"%label%\" already exists."}},"models":{"contact":{"one":"Contact","other":"Contacts"},"contact_group":{"one":"Contact Group","other":"Contact Groups"}},"attributes":{"contact":{"prefix":"Country Code","mobile":"Mobile"},"contact_group":{"label":"Label","description":"Description"}}},"views":{"pagination":{"first":"\u0026laquo; First","last":"Last \u0026raquo;","previous":"\u0026lsaquo; Prev","next":"Next \u0026rsaquo;","truncate":"\u0026hellip;"}},"devise":{"confirmations":{"confirmed":"Your email address has been successfully confirmed.","send_instructions":"You will receive an email with instructions for how to confirm your email address in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."},"failure":{"already_authenticated":"You are already signed in.","inactive":"Your account is not activated yet.","invalid":"Invalid %{authentication_keys} or password.","locked":"Your account is locked.","last_attempt":"You have one more attempt before your account is locked.","not_found_in_database":"Invalid %{authentication_keys} or password.","timeout":"Your session expired. Please sign in again to continue.","unauthenticated":"You need to sign in or sign up before continuing.","unconfirmed":"You have to confirm your email address before continuing."},"mailer":{"confirmation_instructions":{"subject":"Confirmation instructions"},"reset_password_instructions":{"subject":"Reset password instructions"},"unlock_instructions":{"subject":"Unlock instructions"}},"omniauth_callbacks":{"failure":"Could not authenticate you from %{kind} because \"%{reason}\".","success":"Successfully authenticated from %{kind} account."},"passwords":{"no_token":"You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.","send_instructions":"You will receive an email with instructions on how to reset your password in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.","updated":"Your password has been changed successfully. You are now signed in.","updated_not_active":"Your password has been changed successfully."},"registrations":{"destroyed":"Bye! Your account has been successfully cancelled. We hope to see you again soon.","signed_up":"Welcome! You have signed up successfully.","signed_up_but_inactive":"You have signed up successfully. However, we could not sign you in because your account is not yet activated.","signed_up_but_locked":"You have signed up successfully. However, we could not sign you in because your account is locked.","signed_up_but_unconfirmed":"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.","update_needs_confirmation":"You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.","updated":"Your account has been updated successfully."},"sessions":{"signed_in":"Signed in successfully.","signed_out":"Signed out successfully.","already_signed_out":"Signed out successfully."},"unlocks":{"send_instructions":"You will receive an email with instructions for how to unlock your account in a few minutes.","send_paranoid_instructions":"If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.","unlocked":"Your account has been unlocked successfully. Please sign in to continue."}},"version":"Version","settings":"Settings","back":"Back","cannot_undo":"This action can not be undone!","actions":{"list":"List","view":"View","show":"Show","browse":"Browse","create":"Create","edit":"Edit","update":"Update","delete":"Delete","empty":"Empty","activate":"Activate","deactivate":"Deactivate"},"list_contact_groups":"Contact Groups List","view_contact_group":"View Contact Group","new_contact_group":"New Contact Group","edit_contact_group":"Edit Contact Group","contact_group_del_confirm":"Delete Contact Group \"%contact_group%\"?\n\n","contact_group_form":{"label_required":"Contact Group Label can't be blank","label_length":"Contact Group Label length should be up to 20 characters","description_length":"Contact Group Description length should be up to 120 characters"},"list_contacts":"Contacts List","view_contact":"View Contact","show_contacts":"Browse Contacts","new_contact":"New Contact","edit_contact":"Edit Contact","contact_del_confirm":"Delete contact \"%contact%\"?\n\n","contact_form":{"prefix_required":"Contact Country Code can't be blank","prefix_max_length":"Contact Country Code length should be up to 4 digits","prefix_numeric":"Contact Country Code should contain only digits","mobile_required":"Contact Mobile can't be blank","mobile_min_length":"Contact Mobile length should be at least 6 digits","mobile_max_length":"Contact Mobile length should be up to 16 digits","mobile_numeric":"Contact Mobile should contain only digits"},"login":"Login","logout":"Logout"},"gr":{"devise":{"confirmations":{"confirmed":"Ο λογαριασμός σας επιβεβαιώθηκε με επιτυχία. Είστε συνδεδεμένος/η.","send_instructions":"Σε λίγα λεπτά θα λάβετε οδηγίες για το πώς θα επιβεβαιώσετε το email σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για την επιβεβαίωση του λογαριασμού σας."},"failure":{"already_authenticated":"Είστε ήδη συνδεδεμένος.","inactive":"Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","invalid":"Μη έγκυρο email ή κωδικός.","locked":"Ο λογαριασμός σας είναι κλειδωμένος.","last_attempt":"Έχετε άλλη μια προσπάθεια πριν ο λογαριασμός σας κλειδωθεί.","not_found_in_database":"Μη έγκυρo %{authentication_keys} ή κωδικός.","timeout":"Η σύνδεσή σας τερματίστηκε, παρακαλούμε συνδεθείτε ξανά.","unauthenticated":"Χρειάζεται να συνδεθείτε πριν να συνεχίσετε.","unconfirmed":"Απαιτείται η επιβεβαίωση του λογαριασμού σας πριν συνεχίσετε.","invalid_token":"Μη έγκυρος κωδικός πιστοποίησης."},"mailer":{"confirmation_instructions":{"subject":"Οδηγίες επιβεβαίωσης"},"reset_password_instructions":{"subject":"Οδηγίες επαναφοράς του κωδικού"},"unlock_instructions":{"subject":"Οδηγίες ενεργοποίησης"}},"omniauth_callbacks":{"failure":"Δεν επιτρέπεται να πραγματοποιήσετε %{kind} επειδή είναι \"%{reason}\".","success":"Επιτυχής έγκριση από το λογαριασμό %{kind}."},"passwords":{"no_token":"Δεν έχετε πρόσβαση σε αυτή την σελίδα εαν δεν ηρθατε μέσω email επαναφοράς κωδικού. Εαν ηρθατε μέσω email επαναφοράς κωδικού, παρακαλούμε να σιγουρευτείτε οτι χρησιμοποιήσατε τον πλήρη σύνδεσμο (URL) που σας δόθηκε.","send_instructions":"Θα σας αποσταλεί σε λίγα λεπτά, ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε οδηγίες επαναφοράς του κωδικού σας, μέσω email.","updated":"Ο κωδικός σας άλλαξε με επιτυχία. Μπορείτε να συνδεθείτε.","updated_not_active":"Ο κωδικός σας άλλαξε με επιτυχία."},"registrations":{"destroyed":"Ο λογαριασμός σας διαγράφηκε με επιτυχία.","signed_up":"Καλωσήρθατε! Ο λογαριασμός σας δημιουργήθηκε με επιτυχία.","signed_up_but_inactive":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","signed_up_but_locked":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας έχει κλειδωθεί.","signed_up_but_unconfirmed":"Ένα μήνυμα που περιέχει τον σύνδεσμο επιβεβαίωσης έχει σταλθεί στο email σας. Ακολουθήστε τον σύνδεσμο για να ενεργοποιήσετε τον λογαριασμό σας.","update_needs_confirmation":"Ο λογαριασμός σας ενημερώθηκε με επιτυχία, αλλά χρειάζεται επιβεβαίωση της νέας διεύθυνσης email. Παρακαλούμε ελέγξτε τα email σας και ακολουθήστε τον σύνδεσμο επιβεβαίωσης ώστε να γίνει επαλήθευση της νέας διεύθυνσης email.","inactive_signed_up":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Όμως, δε μπορείτε να συνδεθείτε επειδή ο λογαριασμός σας είναι %{reason}.","updated":"Ανανεώσατε το λογαριασμό σας με επιτυχία.","reasons":{"inactive":"ανενεργός","unconfirmed":"μη επιβεβαιωμένος. Σας είχε αποσταλεί email με οδηγίες","locked":"κλειδωμένος"}},"sessions":{"signed_in":"Σύνδεση με επιτυχία.","signed_out":"Αποσύνδεση με επιτυχία.","already_signed_out":"Αποσύνδεση με επιτυχία."},"unlocks":{"send_instructions":"Θα σας αποσταλούν οδηγίες ενεργοποίησης του λογαριασμού σας.","send_paranoid_instructions":"Αν ο λογαριασμός σας υπάρχει, θα σας αποσταλεί σε λίγα λεπτά ένα email με οδηγίες ενεργοποίησής του.","unlocked":"Ο λογαριασμός σας ενεργοποιήθηκε με επιτυχία. Είστε συνδεδεμένος/η."}},"errors":{"messages":{"already_confirmed":"έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκιμάστε να ξανασυνδεθείτε","confirmation_period_expired":"πρέπει να γίνει επιβεβαίωση μέσα σε %{period}, παρακαλούμε ζητήστε νέο email επιβεβαίωσης","expired":"έχει λήξει, παρακαλούμε ζητήστε νέο","not_found":"δεν βρέθηκε","not_locked":"δεν είναι κλειδωμένο","not_saved":{"one":"1 σφάλμα εμπόδισε αυτό το %{resource} να αποθηκευτεί:","other":"%{count} σφάλματα εμπόδισαν αυτό το %{resource} να αποθηκευτεί:"}}},"version":"Έκδοση","settings":"Ρυθμίσεις","back":"Πίσω","cannot_undo":"Η ενέργεια αυτή δε μπορεί να αναιρεθεί!","actions":{"list":"Λίστα","view":"Προβολή","show":"Εμφάνιση","browse":"Περιήγηση","create":"Δημιουργία","edit":"Επεξεργασία","update":"Τροποποίηση","delete":"Διαγραφή","empty":"Άδειασμα","activate":"Ενεργοποίηση","deactivate":"Απενεργοποίηση"},"list_contact_groups":"Λίστα Ομάδων Επαφών","view_contact_group":"Προβολή Ομάδας Επαφών","new_contact_group":"Νέα Ομάδα Επαφών","edit_contact_group":"Επεξεργασία Ομάδας Επαφών","contact_group_del_confirm":"Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n","contact_group_form":{"label_required":"Η Επιγραφή μίας Ομάδας Επαφών δε μπορεί να είναι κενή","label_length":"Η Επιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες","description_length":"Η Περιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 120 χαρακτήρες"},"list_contacts":"Λίστα Επαφών","view_contact":"Προβολή Επαφής","show_contacts":"Εμφάνιση Επαφών","new_contact":"Νέα Επαφή","edit_contact":"Επεξεργασία Επαφής","contact_del_confirm":"Διαγραφή επαφής \"%contact%\";\n\n","contact_form":{"prefix_required":"Ο Κωδικός Χώρας μιάς Επαφής δε μπορεί να είναι κενός","prefix_max_length":"Ο Κωδικός Χώρας μιάς Επαφής δεν πρέπει να ξεπερνάει τα 4 ψηφία","prefix_numeric":"Ο Κωδικός Χώρας μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία","mobile_required":"Το Κινητό Τηλέφωνο μιάς Επαφής δε μπορεί να είναι κενό","mobile_min_length":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται από τουλάχιστον 6 ψηφία","mobile_max_length":"Το Κινητό Τηλέφωνο μιάς Επαφής δεν πρέπει να ξεπερνάει τα 16 ψηφία","mobile_numeric":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία"},"helpers":{"submit":{"contact":{"create":"Δημιουργία Επαφής","update":"Τροποποίηση Επαφής"},"contact_group":{"create":"Δημιουργία Ομάδας","update":"Τροποποίηση Ομάδας"}}},"activerecord":{"models":{"user":{"one":"Χρήστης","other":"Χρήστες"}},"attributes":{"user":{"email":"Ηλεκτρονικό ταχυδρομίο (email)","password":"Κωδικός πρόσβασης","remember_me":"Θυμήσου με! :P"}}},"mongoid":{"models":{"contact":{"one":"Επαφή","other":"Επαφές"},"contact_group":{"one":"Ομάδα Επαφών","other":"Ομάδες Επαφών"}},"attributes":{"contact":{"prefix":"Κωδικός Χώρας","mobile":"Κινητό Τηλέφωνο"},"contact_group":{"label":"Επιγραφή","description":"Περιγραφή"}},"errors":{"contact":{"duplicate_key":"μία_επαφή_με","duplicate_val":" τηλέφωνο \"%phone%\" είναι ήδη καταχωρημένη."},"contact_group":{"duplicate_key":"μία_ομάδα_επαφών","duplicate_val":" με επιγραφή \"%label%\" είναι ήδη καταχωρημένη."}}},"login":"Είσοδος","logout":"Έξοδος"}};
+I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %d","long":"%B %d, %Y"},"day_names":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"abbr_day_names":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"month_names":[null,"January","February","March","April","May","June","July","August","September","October","November","December"],"abbr_month_names":[null,"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"order":["year","month","day"]},"time":{"formats":{"default":"%a, %d %b %Y %H:%M:%S %z","short":"%d %b %H:%M","long":"%B %d, %Y %H:%M"},"am":"am","pm":"pm"},"support":{"array":{"words_connector":", ","two_words_connector":" and ","last_word_connector":", and "}},"number":{"format":{"separator":".","delimiter":",","precision":3,"significant":false,"strip_insignificant_zeros":false},"currency":{"format":{"format":"%u%n","unit":"$","separator":".","delimiter":",","precision":2,"significant":false,"strip_insignificant_zeros":false}},"percentage":{"format":{"delimiter":"","format":"%n%"}},"precision":{"format":{"delimiter":""}},"human":{"format":{"delimiter":"","precision":3,"significant":true,"strip_insignificant_zeros":true},"storage_units":{"format":"%n %u","units":{"byte":{"one":"Byte","other":"Bytes"},"kb":"KB","mb":"MB","gb":"GB","tb":"TB"}},"decimal_units":{"format":"%n %u","units":{"unit":"","thousand":"Thousand","million":"Million","billion":"Billion","trillion":"Trillion","quadrillion":"Quadrillion"}}}},"errors":{"format":"%{attribute} %{message}","messages":{"inclusion":"is not included in the list","exclusion":"is reserved","invalid":"is invalid","confirmation":"doesn't match %{attribute}","accepted":"must be accepted","empty":"can't be empty","blank":"can't be blank","present":"must be blank","too_long":{"one":"is too long (maximum is 1 character)","other":"is too long (maximum is %{count} characters)"},"too_short":{"one":"is too short (minimum is 1 character)","other":"is too short (minimum is %{count} characters)"},"wrong_length":{"one":"is the wrong length (should be 1 character)","other":"is the wrong length (should be %{count} characters)"},"not_a_number":"is not a number","not_an_integer":"must be an integer","greater_than":"must be greater than %{count}","greater_than_or_equal_to":"must be greater than or equal to %{count}","equal_to":"must be equal to %{count}","less_than":"must be less than %{count}","less_than_or_equal_to":"must be less than or equal to %{count}","other_than":"must be other than %{count}","odd":"must be odd","even":"must be even","taken":"has already been taken","carrierwave_processing_error":"failed to be processed","carrierwave_integrity_error":"is not of an allowed file type","carrierwave_download_error":"could not be downloaded","extension_white_list_error":"You are not allowed to upload %{extension} files, allowed types: %{allowed_types}","extension_black_list_error":"You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}","rmagick_processing_error":"Failed to manipulate with rmagick, maybe it is not an image? Original Error: %{e}","mime_types_processing_error":"Failed to process file with MIME::Types, maybe not valid content-type? Original Error: %{e}","mini_magick_processing_error":"Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}","already_confirmed":"was already confirmed, please try signing in","confirmation_period_expired":"needs to be confirmed within %{period}, please request a new one","expired":"has expired, please request a new one","not_found":"not found","not_locked":"was not locked","not_saved":{"one":"1 error prohibited this %{resource} from being saved:","other":"%{count} errors prohibited this %{resource} from being saved:"}}},"activerecord":{"errors":{"messages":{"record_invalid":"Validation failed: %{errors}","restrict_dependent_destroy":{"one":"Cannot delete record because a dependent %{record} exists","many":"Cannot delete record because dependent %{record} exist"}}},"models":{"user":{"one":"User","other":"Users"},"sms_campaign":{"one":"SMS Campaign","other":"SMS Campaigns"}},"attributes":{"user":{"email":"Email","password":"Password","remember_me":"Remember me"},"sms_campaign":{"label":"Label"}}},"datetime":{"distance_in_words":{"half_a_minute":"half a minute","less_than_x_seconds":{"one":"less than 1 second","other":"less than %{count} seconds"},"x_seconds":{"one":"1 second","other":"%{count} seconds"},"less_than_x_minutes":{"one":"less than a minute","other":"less than %{count} minutes"},"x_minutes":{"one":"1 minute","other":"%{count} minutes"},"about_x_hours":{"one":"about 1 hour","other":"about %{count} hours"},"x_days":{"one":"1 day","other":"%{count} days"},"about_x_months":{"one":"about 1 month","other":"about %{count} months"},"x_months":{"one":"1 month","other":"%{count} months"},"about_x_years":{"one":"about 1 year","other":"about %{count} years"},"over_x_years":{"one":"over 1 year","other":"over %{count} years"},"almost_x_years":{"one":"almost 1 year","other":"almost %{count} years"}},"prompts":{"year":"Year","month":"Month","day":"Day","hour":"Hour","minute":"Minute","second":"Seconds"}},"helpers":{"select":{"prompt":"Please select"},"submit":{"create":"Create %{model}","update":"Update %{model}","submit":"Save %{model}","contact":{"create":"Create Contact","update":"Update Contact"},"contact_group":{"create":"Create Group","update":"Update Group","remove_contacts":"Remove from Group"},"sms_campaign":{"create":"Create Campaign","update":"Update Campaign"}},"page_entries_info":{"one_page":{"display_entries":{"zero":"No %{entry_name} found","one":"Displaying \u003cb\u003e1\u003c/b\u003e %{entry_name}","other":"Displaying \u003cb\u003eall %{count}\u003c/b\u003e %{entry_name}"}},"more_pages":{"display_entries":"Displaying %{entry_name} \u003cb\u003e%{first}\u0026nbsp;-\u0026nbsp;%{last}\u003c/b\u003e of \u003cb\u003e%{total}\u003c/b\u003e in total"}}},"flash":{"actions":{"create":{"notice":"%{resource_name} was successfully created."},"update":{"notice":"%{resource_name} was successfully updated."},"destroy":{"notice":"%{resource_name} was successfully destroyed.","alert":"%{resource_name} could not be destroyed."}}},"mongoid":{"errors":{"messages":{"blank_in_locale":"can't be blank in %{location}","message_title":"message","summary_title":"summary","resolution_title":"resolution","ambiguous_relationship":{"message":"Ambiguous relations %{candidates} defined on %{klass}.","summary":"When Mongoid attempts to set an inverse document of a relation in memory, it needs to know which relation it belongs to. When setting %{name}, Mongoid looked on the class %{inverse} for a matching relation, but multiples were found that could potentially match: %{candidates}.","resolution":"On the %{name} relation on %{inverse} you must add an :inverse_of option to specify the exact relationship on %{klass} that is the opposite of %{name}."},"callbacks":{"message":"Calling %{method} on %{klass} resulted in a false return from a callback.","summary":"If a before callback returns false when using Document.create!, Document#save!, or Document#update_attributes! this error will get raised since the document did not actually get saved.","resolution":"Double check all before callbacks to make sure they are not unintentionally returning false."},"calling_document_find_with_nil_is_invalid":{"message":"Calling Document.find with nil is invalid.","summary":"Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.","resolution":"Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect."},"document_not_destroyed":{"message":"%{klass} with id %{id} was not destroyed.","summary":"When calling %{klass}#destroy! and a callback halts the destroy callback chain by returning a false value, the deletion will not actually occur.","resolution":"Check the before/after destroy callbacks to ensure that the return values are truthy for the chain to continue."},"document_not_found":{"message":"Document(s) not found for class %{klass} with id(s) %{missing}.","summary":"When calling %{klass}.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): %{searched} (%{total} total) and the following ids were not found: %{missing}.","resolution":"Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples."},"document_with_attributes_not_found":{"message":"Document not found for class %{klass} with attributes %{attributes}.","summary":"When calling %{klass}.find_by with a hash of attributes, all attributes provided must match a document in the database or this error will be raised.","resolution":"Search for attributes that are in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error."},"eager_load":{"message":"Eager loading :%{name} is not supported since it is a polymorphic belongs_to relation.","summary":"Mongoid cannot currently determine the classes it needs to eager load when the relation is polymorphic. The parents reside in different collections so a simple id lookup is not sufficient enough.","resolution":"Don't attempt to perform this action and have patience, maybe this will be supported in the future."},"invalid_collection":{"message":"Access to the collection for %{klass} is not allowed.","summary":"%{klass}.collection was called, and %{klass} is an embedded document - it resides within the collection of the root document of the hierarchy.","resolution":"For access to the collection that the embedded document is in, use %{klass}#_root.collection, or do not attempt to persist an embedded document without a parent set."},"invalid_config_option":{"message":"Invalid configuration option: %{name}.","summary":"A invalid configuration option was provided in your mongoid.yml, or a typo is potentially present. The valid configuration options are: %{options}.","resolution":"Remove the invalid option or fix the typo. If you were expecting the option to be there, please consult the following page with repect to Mongoid's configuration:\n\n   http://mongoid.org/en/mongoid/docs/installation.html"},"invalid_field":{"message":"Defining a field named '%{name}' is not allowed.","summary":"Defining this field would override the method '%{name}', which would cause issues with expectations around the original method and cause extremely hard to debug issues. The original method was defined in:\n   Object: %{origin}\n   File: %{file}\n   Line: %{line}","resolution":"Use Mongoid.destructive_fields to see what names are not allowed, and don't use these names. These include names that also conflict with core Ruby methods on Object, Module, Enumerable, or included gems that inject methods into these or Mongoid internals."},"invalid_field_option":{"message":"Invalid option :%{option} provided for field :%{name}.","summary":"Mongoid requires that you only provide valid options on each field definition in order to prevent unexpected behaviour later on.","resolution":"When defining the field :%{name} on '%{klass}', please provide valid options for the field. These are currently: %{valid}. If you meant to define a custom field option, please do so first like so:\n\n   Mongoid::Fields.option :%{option} do |model, field, value|\n     # Your logic here...\n   end\n   class %{klass}\n     include Mongoid::Document\n     field :%{name}, %{option}: true\n   end\n\n"},"invalid_includes":{"message":"Invalid includes directive: %{klass}.includes(%{args})","summary":"Eager loading in Mongoid only supports providing arguments to %{klass}.includes that are the names of relations on the %{klass} model, and only supports one level of eager loading. (ie, eager loading associations not on the %{klass} but one step away via another relation is not allowed.","resolution":"Ensure that each parameter passed to %{klass}.includes is a valid name of a relation on the %{klass} model. These are: %{relations}."},"invalid_index":{"message":"Invalid index specification on %{klass}: %{spec}, %{options}","summary":"Indexes in Mongoid are defined as a hash of field name and direction/2d pairs, with a hash for any additional options.","resolution":"Ensure that the index conforms to the correct syntax and has the correct options.\n\n Valid options are:\n   background: true|false\n   database: 'database_name'\n   drop_dups: true|false\n   name: 'index_name'\n   sparse: true|false\n   unique: true|false\n   min: 1\n   max: 1\n   bits: 26\n   bucket_size : 1\n   weights: { content: 1, title: 2 }\n   expire_after_seconds: number_of_seconds\n Valid types are: 1, -1, '2d', '2dsphere', 'geoHaystack', 'text', 'hashed'\n\n Example:\n   class Band\n     include Mongoid::Document\n     index({ name: 1, label: -1 }, { sparse: true })\n     index({ location: '2d' }, { background: true })\n   end\n\n"},"invalid_options":{"message":"Invalid option :%{invalid} provided to relation :%{name}.","summary":"Mongoid checks the options that are passed to the relation macros to ensure that no ill side effects occur by letting something slip by.","resolution":"Valid options are: %{valid}, make sure these are the ones you are using."},"invalid_path":{"message":"Having a root path assigned for %{klass} is invalid.","summary":"Mongoid has two different path objects for determining the location of a document in the database, Root and Embedded. This error is raised when an embedded document somehow gets a root path assigned.","resolution":"Most likely your embedded model, %{klass} is also referenced via a has_many from a root document in another collection. Double check the relation definitions and fix any instances where embedded documents are improperly referenced from other collections."},"invalid_scope":{"message":"Defining a scope of value %{value} on %{klass} is not allowed.","summary":"Scopes in Mongoid must be procs that wrap criteria objects.","resolution":"Change the scope to be a proc wrapped critera.\n\n Example:\n   class Band\n     include Mongoid::Document\n     scope :inactive, -\u003e{ where(active: false) }\n   end\n\n"},"invalid_storage_options":{"message":"Invalid options passed to %{klass}.store_in: %{options}.","summary":"The :store_in macro takes only a hash of parameters with the keys :database, :collection, or :client.","resolution":"Change the options passed to store_in to match the documented API, and ensure all keys in the options hash are symbols.\n\n Example:\n   class Band\n     include Mongoid::Document\n     store_in collection: 'artists', database: 'secondary'\n   end\n\n"},"invalid_storage_parent":{"message":"Invalid store_in call on class %{klass}.","summary":"The :store_in macro can only be called on a base Mongoid Document","resolution":"Remove the store_in call on class %{klass}, as it will use its parent store configuration. Or remove the hierarchy extension for this class."},"invalid_time":{"message":"'%{value}' is not a valid Time.","summary":"Mongoid tries to serialize the values for Date, DateTime, and Time into proper UTC times to store in the database. The provided value could not be parsed.","resolution":"Make sure to pass parsable values to the field setter for Date, DateTime, and Time objects. When this is a String it needs to be valid for Time.parse. Other objects must be valid to pass to Time.local."},"inverse_not_found":{"message":"When adding a(n) %{klass} to %{base}#%{name}, Mongoid could not determine the inverse foreign key to set. The attempted key was '%{inverse}'.","summary":"When adding a document to a relation, Mongoid attempts to link the newly added document to the base of the relation in memory, as well as set the foreign key to link them on the database side. In this case Mongoid could not determine what the inverse foreign key was.","resolution":"If an inverse is not required, like a belongs_to or has_and_belongs_to_many, ensure that :inverse_of =\u003e nil is set on the relation. If the inverse is needed, most likely the inverse cannot be figured out from the names of the relations and you will need to explicitly tell Mongoid on the relation what the inverse is.\n\n Example:\n   class Lush\n     include Mongoid::Document\n     has_one :whiskey, class_name: \"Drink\", inverse_of: :alcoholic\n   end\n\n   class Drink\n     include Mongoid::Document\n     belongs_to :alcoholic, class_name: \"Lush\", inverse_of: :whiskey\n   end"},"invalid_set_polymorphic_relation":{"message":"The %{name} attribute can't be set to an instance of %{other_klass} as %{other_klass} has multiple relations referencing %{klass} as %{name}.","summary":"If the parent class of a polymorphic relation has multiple definitions for the same relation, the values must be set from the parent side and not the child side since Mongoid cannot determine from the child side which relation to go in.","resolution":"Set the values from the parent, or redefine the relation with only a single definition in the parent."},"invalid_value":{"message":"Value of type %{value_class} cannot be written to a field of type %{field_class}","summary":"Tried to set a value of type %{value_class} to a field of type %{field_class}","resolution":"Verify if the value to be set correspond to field definition"},"mixed_relations":{"message":"Referencing a(n) %{embedded} document from the %{root} document via a relational association is not allowed since the %{embedded} is embedded.","summary":"In order to properly access a(n) %{embedded} from %{root} the reference would need to go through the root document of %{embedded}. In a simple case this would require Mongoid to store an extra foreign key for the root, in more complex cases where %{embedded} is multiple levels deep a key would need to be stored for each parent up the hierarchy.","resolution":"Consider not embedding %{embedded}, or do the key storage and access in a custom manner in the application code."},"mixed_client_configuration":{"message":"Both uri and standard configuration options defined for client: '%{name}'.","summary":"Instead of simply giving uri or standard options a preference order, Mongoid assumes that you have made a mistake in your configuration and requires that you provide one or the other, but not both. The options that were provided were: %{config}.","resolution":"Provide either only a uri as configuration or only standard options."},"nested_attributes_metadata_not_found":{"message":"Could not find metadata for relation '%{name}' on model: %{klass}.","summary":"When defining nested attributes for a relation, Mongoid needs to access the metadata for the relation '%{name}' in order if add autosave functionality to it, if applicable. Either no relation named '%{name}' could be found, or the relation had not been defined yet.","resolution":"Make sure that there is a relation defined named '%{name}' on %{klass} or that the relation definition comes before the accepts_nested_attributes_for macro in the model - order matters so that Mongoid has access to the metadata.\n\n Example:\n   class Band\n     include Mongoid::Document\n     has_many :albums\n     accepts_nested_attributes_for :albums\n   end\n\n"},"no_default_client":{"message":"No default client configuration is defined.","summary":"The configuration provided settings for: %{keys}, but Mongoid requires a :default to be defined at minimum.","resolution":"If configuring via a mongoid.yml, ensure that within your :clients section a :default client is defined.\n\n Example:\n   development:\n     clients:\n       default:\n         hosts:\n           - localhost:27017\n\n"},"no_environment":{"message":"Could not load the configuration since no environment was defined.","summary":"Mongoid attempted to find the appropriate environment but no Rails.env, Sinatra::Base.environment, RACK_ENV, or MONGOID_ENV could be found.","resolution":"Make sure some environment is set from the mentioned options. Mongoid cannot load configuration from the yaml without knowing which environment it is in, and we have considered defaulting to development an undesireable side effect of this not being defined."},"no_map_reduce_output":{"message":"No output location was specified for the map/reduce operation.","summary":"When executing a map/reduce, you must provide the output location of the results. The attempted command was: %{command}.","resolution":"Provide the location that the output of the operation is to go by chaining an #out call to the map/reduce.\n\n Example:\n   Band.map_reduce(map, reduce).out(inline: 1)\n\n Valid options for the out function are:\n   inline:  1\n   merge:   'collection-name'\n   replace: 'collection-name'\n   reduce:  'collection-name'\n\n"},"no_metadata":{"message":"Metadata not found for document of type %{klass}.","summary":"Mongoid sets the metadata of a relation on the document when it is either loaded from within the relation, or added to one. The presence of the metadata is required in order to provide various functionality around relations. Most likely you are getting this error because the document is embedded and was attempted to be persisted without being associated with a parent, or the relation was not properly defined.","resolution":"Ensure that your relations on the %{klass} model are all properly defined, and that the inverse relations are also properly defined. Embedded relations must have both the parent (embeds_one/embeds_many) and the inverse (embedded_in) present in order to work properly."},"no_parent":{"message":"Cannot persist embedded document %{klass} without a parent document.","summary":"If the document is embedded, in order to be persisted it must always have a reference to its parent document. This is most likely caused by either calling %{klass}.create or %{klass}.create! without setting the parent document as an attribute.","resolution":"Ensure that you've set the parent relation if instantiating the embedded document directly, or always create new embedded documents via the parent relation."},"no_client_config":{"message":"No configuration could be found for a client named '%{name}'.","summary":"When attempting to create the new client, Mongoid could not find a client configuration for the name: '%{name}'. This is necessary in order to know the host, port, and options needed to connect.","resolution":"Double check your mongoid.yml to make sure under the clients key that a configuration exists for '%{name}'. If you have set the configuration programatically, ensure that '%{name}' exists in the configuration hash."},"no_clients_config":{"message":"No clients configuration provided.","summary":"Mongoid's configuration requires that you provide details about each client that can be connected to, and requires in the clients config at least 1 default client to exist.","resolution":"Double check your mongoid.yml to make sure that you have a top-level clients key with at least 1 default client configuration for it. You can regenerate a new mongoid.yml for assistance via `rails g mongoid:config`.\n\n Example:\n   development:\n     clients:\n       default:\n         database: mongoid_dev\n         hosts:\n           - localhost:27017\n\n"},"no_client_database":{"message":"No database provided for client configuration: :%{name}.","summary":"Each client configuration must provide a database so Mongoid knows where the default database to persist to. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :database value for the client's default database is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"no_client_hosts":{"message":"No hosts provided for client configuration: :%{name}.","summary":"Each client configuration must provide hosts so Mongoid knows where the database server is located. What was provided was: %{config}.","resolution":"If configuring via a mongoid.yml, ensure that within your :%{name} section a :hosts value for the client hosts is defined.\n\n Example:\n   development:\n     clients:\n       %{name}:\n         database: my_app_db\n         hosts:\n           - localhost:27017\n\n"},"readonly_attribute":{"message":"Attempted to set the readonly attribute '%{name}' with the value: %{value}.","summary":"Attributes flagged as readonly via Model.attr_readonly can only have values set when the document is a new record.","resolution":"Don't define '%{name}' as readonly, or do not attempt to update its value after the document is persisted."},"readonly_document":{"message":"Attempted to persist the readonly document '%{klass}'.","summary":"Documents loaded from the database using #only cannot be persisted.","resolution":"Don't attempt to persist documents that are flagged as readonly."},"scope_overwrite":{"message":"Cannot create scope :%{scope_name}, because of existing method %{model_name}.%{scope_name}.","summary":"When defining a scope that conflicts with a method that already exists on the model, this error will get raised if Mongoid.scope_overwrite_exception is set to true.","resolution":"Change the name of the scope so it does not conflict with the already defined method %{model_name}, or set the configuration option Mongoid.scope_overwrite_exception to false, which is its default. In this case a warning will be logged."},"taken":"is already taken","too_many_nested_attribute_records":{"message":"Accepting nested attributes for %{association} is limited to %{limit} records.","summary":"More documents were sent to be processed than the allowed limit.","resolution":"The limit is set as an option to the macro, for example: accepts_nested_attributes_for :%{association}, limit: %{limit}. Consider raising this limit or making sure no more are sent than the set value."},"unknown_attribute":{"message":"Attempted to set a value for '%{name}' which is not allowed on the model %{klass}.","summary":"Without including Mongoid::Attributes::Dynamic in your model and the attribute does not already exist in the attributes hash, attempting to call %{klass}#%{name}= for it is not allowed. This is also triggered by passing the attribute to any method that accepts an attributes hash, and is raised instead of getting a NoMethodError.","resolution":"You can include Mongoid::Attributes::Dynamic if you expect to be writing values for undefined fields often."},"unsaved_document":{"message":"Attempted to save %{document} before the parent %{base}.","summary":"You cannot call create or create! through the relation (%{document}) whose parent (%{base}) is not already saved. This would cause the database to be out of sync since the child could potentially reference a nonexistent parent.","resolution":"Make sure to only use create or create! when the parent document %{base} is persisted."},"unsupported_javascript":{"message":"Executing Javascript $where selector on an embedded criteria is not supported.","summary":"Mongoid only supports providing a hash of arguments to #where criterion on embedded documents. Since %{klass} is embedded, the expression %{javascript} is not allowed.","resolution":"Please provide a standard hash to #where when the criteria is for an embedded relation."},"validations":{"message":"Validation of %{document} failed.","summary":"The following errors were found: %{errors}","resolution":"Try persisting the document with valid data or remove the validations."},"delete_restriction":{"message":"Cannot delete %{document} because of dependent '%{relation}'.","summary":"When defining '%{relation}' with a :dependent =\u003e :restrict, Mongoid will raise an error when attempting to delete the %{document} when the child '%{relation}' still has documents in it.","resolution":"Don't attempt to delete the parent %{document} when it has children, or change the dependent option on the relation."}},"contact":{"duplicate_key":"a_contact_with","duplicate_val":" phone_number \"%phone%\" already exists."},"contact_group":{"duplicate_key":"a_contact_group","duplicate_val":" labeled \"%label%\" already exists."}},"models":{"contact":{"one":"Contact","other":"Contacts"},"contact_group":{"one":"Contact Group","other":"Contact Groups"}},"attributes":{"contact":{"prefix":"Country Code","mobile":"Mobile"},"contact_group":{"label":"Label","description":"Description"}}},"views":{"pagination":{"first":"\u0026laquo; First","last":"Last \u0026raquo;","previous":"\u0026lsaquo; Prev","next":"Next \u0026rsaquo;","truncate":"\u0026hellip;"}},"devise":{"confirmations":{"confirmed":"Your email address has been successfully confirmed.","send_instructions":"You will receive an email with instructions for how to confirm your email address in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."},"failure":{"already_authenticated":"You are already signed in.","inactive":"Your account is not activated yet.","invalid":"Invalid %{authentication_keys} or password.","locked":"Your account is locked.","last_attempt":"You have one more attempt before your account is locked.","not_found_in_database":"Invalid %{authentication_keys} or password.","timeout":"Your session expired. Please sign in again to continue.","unauthenticated":"You need to sign in or sign up before continuing.","unconfirmed":"You have to confirm your email address before continuing."},"mailer":{"confirmation_instructions":{"subject":"Confirmation instructions"},"reset_password_instructions":{"subject":"Reset password instructions"},"unlock_instructions":{"subject":"Unlock instructions"}},"omniauth_callbacks":{"failure":"Could not authenticate you from %{kind} because \"%{reason}\".","success":"Successfully authenticated from %{kind} account."},"passwords":{"no_token":"You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.","send_instructions":"You will receive an email with instructions on how to reset your password in a few minutes.","send_paranoid_instructions":"If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.","updated":"Your password has been changed successfully. You are now signed in.","updated_not_active":"Your password has been changed successfully."},"registrations":{"destroyed":"Bye! Your account has been successfully cancelled. We hope to see you again soon.","signed_up":"Welcome! You have signed up successfully.","signed_up_but_inactive":"You have signed up successfully. However, we could not sign you in because your account is not yet activated.","signed_up_but_locked":"You have signed up successfully. However, we could not sign you in because your account is locked.","signed_up_but_unconfirmed":"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.","update_needs_confirmation":"You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.","updated":"Your account has been updated successfully."},"sessions":{"signed_in":"Signed in successfully.","signed_out":"Signed out successfully.","already_signed_out":"Signed out successfully."},"unlocks":{"send_instructions":"You will receive an email with instructions for how to unlock your account in a few minutes.","send_paranoid_instructions":"If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.","unlocked":"Your account has been unlocked successfully. Please sign in to continue."}},"version":"Version","settings":"Settings","back":"Back","you_sure":"Are you sure?","cannot_undo":"This action can not be undone!","additional_fields":"Additional fields","check_all":"Check All","check_page":"Check Current Page","uncheck_selected":"Uncheck Selected","delete_selected":"Delete Selected","results_per_page":"Results per page","total":"Total","actions":{"list":"List","view":"View","show":"Show","browse":"Browse","create":"Create","edit":"Edit","update":"Update","delete":"Delete","empty":"Empty","activate":"Activate","deactivate":"Deactivate","cancel":"Cancel"},"list_contact_groups":"Contact Groups List","view_contact_group":"View Contact Group","new_contact_group":"New Contact Group","edit_contact_group":"Edit Contact Group","total_contact_groups":"Total contact groups","contact_group_del_confirm":"Delete Contact Group \"%contact_group%\"?\n\n","contact_group_deleted":"Contact group(s) %group_label% was/were successfully deleted.","group_only_contacts_deleted":"%contacts_deleted% Contact(s) was/were successfully deleted.","contact_group_empty_confirm":"Are you sure you want to empty this contact group?\n\n","contacts_remove_confirm":" contacts will be removed from this contact group.\n\n","contacts_successfully_removed":"contacts successfully removed from group \"%group_label%\"","contact_group_form":{"label_required":"Contact Group Label can't be blank","label_length":"Contact Group Label length should be up to 20 characters","description_length":"Contact Group Description length should be up to 120 characters","delete_header":"Delete Contact Groups","delete_groups_list":"The following Contact Groups are going to be deleted","delete_group_contacts_fate":"What would you like to happen to contacts not belonging to any other Contact Group?","fate_options":[{"value":0,"label":"leave them orphaned (not belonging to any Contact Group)"},{"value":1,"label":"permanently deleted"}]},"list_contacts":"Contacts List","view_contact":"View Contact","show_contacts":"Browse Contacts","new_contact":"New Contact","import_contacts":"Import Contacts","edit_contact":"Edit Contact","contact_del_confirm":"Delete contact \"%contact%\"?\n\n","total_contacts":"Total contacts","contact_form":{"prefix_required":"Contact Country Code can't be blank","prefix_max_length":"Contact Country Code length should be up to 4 digits","prefix_numeric":"Contact Country Code should contain only digits","mobile_required":"Contact Mobile can't be blank","mobile_min_length":"Contact Mobile length should be at least 6 digits","mobile_max_length":"Contact Mobile length should be up to 16 digits","mobile_numeric":"Contact Mobile should contain only digits"},"login":"Login","logout":"Logout"},"gr":{"devise":{"confirmations":{"confirmed":"Ο λογαριασμός σας επιβεβαιώθηκε με επιτυχία. Είστε συνδεδεμένος/η.","send_instructions":"Σε λίγα λεπτά θα λάβετε οδηγίες για το πώς θα επιβεβαιώσετε το email σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για την επιβεβαίωση του λογαριασμού σας."},"failure":{"already_authenticated":"Είστε ήδη συνδεδεμένος.","inactive":"Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","invalid":"Μη έγκυρο email ή κωδικός.","locked":"Ο λογαριασμός σας είναι κλειδωμένος.","last_attempt":"Έχετε άλλη μια προσπάθεια πριν ο λογαριασμός σας κλειδωθεί.","not_found_in_database":"Μη έγκυρo %{authentication_keys} ή κωδικός.","timeout":"Η σύνδεσή σας τερματίστηκε, παρακαλούμε συνδεθείτε ξανά.","unauthenticated":"Χρειάζεται να συνδεθείτε πριν να συνεχίσετε.","unconfirmed":"Απαιτείται η επιβεβαίωση του λογαριασμού σας πριν συνεχίσετε.","invalid_token":"Μη έγκυρος κωδικός πιστοποίησης."},"mailer":{"confirmation_instructions":{"subject":"Οδηγίες επιβεβαίωσης"},"reset_password_instructions":{"subject":"Οδηγίες επαναφοράς του κωδικού"},"unlock_instructions":{"subject":"Οδηγίες ενεργοποίησης"}},"omniauth_callbacks":{"failure":"Δεν επιτρέπεται να πραγματοποιήσετε %{kind} επειδή είναι \"%{reason}\".","success":"Επιτυχής έγκριση από το λογαριασμό %{kind}."},"passwords":{"no_token":"Δεν έχετε πρόσβαση σε αυτή την σελίδα εαν δεν ηρθατε μέσω email επαναφοράς κωδικού. Εαν ηρθατε μέσω email επαναφοράς κωδικού, παρακαλούμε να σιγουρευτείτε οτι χρησιμοποιήσατε τον πλήρη σύνδεσμο (URL) που σας δόθηκε.","send_instructions":"Θα σας αποσταλεί σε λίγα λεπτά, ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό σας.","send_paranoid_instructions":"Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε οδηγίες επαναφοράς του κωδικού σας, μέσω email.","updated":"Ο κωδικός σας άλλαξε με επιτυχία. Μπορείτε να συνδεθείτε.","updated_not_active":"Ο κωδικός σας άλλαξε με επιτυχία."},"registrations":{"destroyed":"Ο λογαριασμός σας διαγράφηκε με επιτυχία.","signed_up":"Καλωσήρθατε! Ο λογαριασμός σας δημιουργήθηκε με επιτυχία.","signed_up_but_inactive":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.","signed_up_but_locked":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία, αλλά δεν έγινε σύνδεση επειδή ο λογαριασμός σας έχει κλειδωθεί.","signed_up_but_unconfirmed":"Ένα μήνυμα που περιέχει τον σύνδεσμο επιβεβαίωσης έχει σταλθεί στο email σας. Ακολουθήστε τον σύνδεσμο για να ενεργοποιήσετε τον λογαριασμό σας.","update_needs_confirmation":"Ο λογαριασμός σας ενημερώθηκε με επιτυχία, αλλά χρειάζεται επιβεβαίωση της νέας διεύθυνσης email. Παρακαλούμε ελέγξτε τα email σας και ακολουθήστε τον σύνδεσμο επιβεβαίωσης ώστε να γίνει επαλήθευση της νέας διεύθυνσης email.","inactive_signed_up":"Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Όμως, δε μπορείτε να συνδεθείτε επειδή ο λογαριασμός σας είναι %{reason}.","updated":"Ανανεώσατε το λογαριασμό σας με επιτυχία.","reasons":{"inactive":"ανενεργός","unconfirmed":"μη επιβεβαιωμένος. Σας είχε αποσταλεί email με οδηγίες","locked":"κλειδωμένος"}},"sessions":{"signed_in":"Σύνδεση με επιτυχία.","signed_out":"Αποσύνδεση με επιτυχία.","already_signed_out":"Αποσύνδεση με επιτυχία."},"unlocks":{"send_instructions":"Θα σας αποσταλούν οδηγίες ενεργοποίησης του λογαριασμού σας.","send_paranoid_instructions":"Αν ο λογαριασμός σας υπάρχει, θα σας αποσταλεί σε λίγα λεπτά ένα email με οδηγίες ενεργοποίησής του.","unlocked":"Ο λογαριασμός σας ενεργοποιήθηκε με επιτυχία. Είστε συνδεδεμένος/η."}},"errors":{"messages":{"already_confirmed":"έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκιμάστε να ξανασυνδεθείτε","confirmation_period_expired":"πρέπει να γίνει επιβεβαίωση μέσα σε %{period}, παρακαλούμε ζητήστε νέο email επιβεβαίωσης","expired":"έχει λήξει, παρακαλούμε ζητήστε νέο","not_found":"δεν βρέθηκε","not_locked":"δεν είναι κλειδωμένο","not_saved":{"one":"1 σφάλμα εμπόδισε αυτό το %{resource} να αποθηκευτεί:","other":"%{count} σφάλματα εμπόδισαν αυτό το %{resource} να αποθηκευτεί:"}}},"version":"Έκδοση","settings":"Ρυθμίσεις","back":"Πίσω","you_sure":"Είσαστε σίγουρος/η;","cannot_undo":"Η ενέργεια αυτή δε μπορεί να αναιρεθεί!","additional_fields":"Πρόσθετα πεδία","check_all":"Επιλογή Όλων","check_page":"Επιλογή Τρέχουσας Σελίδας","uncheck_selected":"Κατάργηση Επιλογής","delete_selected":"Διαγραφή Επιλεγμένων","results_per_page":"Αποτελέσματα ανά σελίδα","total":"Σύνολο","actions":{"list":"Λίστα","view":"Προβολή","show":"Εμφάνιση","browse":"Περιήγηση","create":"Δημιουργία","edit":"Επεξεργασία","update":"Τροποποίηση","delete":"Διαγραφή","empty":"Άδειασμα","activate":"Ενεργοποίηση","deactivate":"Απενεργοποίηση","cancel":"Ακύρωση"},"list_contact_groups":"Λίστα Ομάδων Επαφών","view_contact_group":"Προβολή Ομάδας Επαφών","new_contact_group":"Νέα Ομάδα Επαφών","edit_contact_group":"Επεξεργασία Ομάδας Επαφών","total_contact_groups":"Σύνολο ομάδων επαφών","contact_group_del_confirm":"Διαγραφή ομάδας επαφών \"%contact_group%\";\n\n","contact_group_deleted":"Η Ομάδα/ες Επαφών %group_label% διαγράφηκε/αν επιτυχώς.","group_only_contacts_deleted":"%contacts_deleted% Επαφή/ές διαγράφηκε/αν επιτυχώς.","contact_group_empty_confirm":"Είσαστε σίγουρος/η πως θέλετε να αδειάσετε αυτή την ομάδα επαφών;\n\n","contacts_remove_confirm":" επαφές θα αφαιρεθούν από αυτή την ομάδα επαφών.\n\n","contacts_successfully_removed":"επαφές αφαιρέθηκαν επιτυχώς από την ομάδα επαφών \"%group_label%\"","contact_group_form":{"label_required":"Η Επιγραφή μίας Ομάδας Επαφών δε μπορεί να είναι κενή","label_length":"Η Επιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες","description_length":"Η Περιγραφή μίας Ομάδας Επαφών δεν πρέπει να ξεπερνάει τους 120 χαρακτήρες","delete_header":"Διαγραφή Ομάδων Επαφών","delete_groups_list":"Οι ακόλουθες Ομάδες Επαφών πρόκειται να διαγραφούν","delete_group_contacts_fate":"Τι επιθυμείτε να συμβεί στις επαφές που δεν ανήκουν σε καμία άλλη Ομάδα Επαφών;","fate_options":[{"value":0,"label":"να μείνουν ορφανές (να μην ανήκουν σε καμία Ομάδα Επαφών)"},{"value":1,"label":"να διαγραφούν μόνιμα"}]},"list_contacts":"Λίστα Επαφών","view_contact":"Προβολή Επαφής","show_contacts":"Εμφάνιση Επαφών","new_contact":"Νέα Επαφή","import_contacts":"Εισαγωγή Επαφών","edit_contact":"Επεξεργασία Επαφής","contact_del_confirm":"Διαγραφή επαφής \"%contact%\";\n\n","total_contacts":"Σύνολο επαφών","contact_form":{"prefix_required":"Ο Κωδικός Χώρας μιάς Επαφής δε μπορεί να είναι κενός","prefix_max_length":"Ο Κωδικός Χώρας μιάς Επαφής δεν πρέπει να ξεπερνάει τα 4 ψηφία","prefix_numeric":"Ο Κωδικός Χώρας μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία","mobile_required":"Το Κινητό Τηλέφωνο μιάς Επαφής δε μπορεί να είναι κενό","mobile_min_length":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται από τουλάχιστον 6 ψηφία","mobile_max_length":"Το Κινητό Τηλέφωνο μιάς Επαφής δεν πρέπει να ξεπερνάει τα 16 ψηφία","mobile_numeric":"Το Κινητό Τηλέφωνο μιάς Επαφής πρέπει να αποτελείται μόνο από ψηφία"},"helpers":{"submit":{"contact":{"create":"Δημιουργία Επαφής","update":"Τροποποίηση Επαφής"},"contact_group":{"create":"Δημιουργία Ομάδας","update":"Τροποποίηση Ομάδας","remove_contacts":"Διαγραφή από την Ομάδα"},"sms_campaign":{"create":"Δημιουργία Καμπάνιας","update":"Τροποποίηση Καμπάνιας"}}},"activerecord":{"models":{"user":{"one":"Χρήστης","other":"Χρήστες"},"sms_campaign":{"one":"Καμπάνια SMS","other":"Καμπάνιες SMS"}},"attributes":{"user":{"email":"Ηλεκτρονικό ταχυδρομίο (email)","password":"Κωδικός πρόσβασης","remember_me":"Θυμήσου με! :P"},"sms_campaign":{"label":"Επιγραφή"}}},"mongoid":{"models":{"contact":{"one":"Επαφή","other":"Επαφές"},"contact_group":{"one":"Ομάδα Επαφών","other":"Ομάδες Επαφών"}},"attributes":{"contact":{"prefix":"Κωδικός Χώρας","mobile":"Κινητό Τηλέφωνο"},"contact_group":{"label":"Επιγραφή","description":"Περιγραφή"}},"errors":{"contact":{"duplicate_key":"μία_επαφή_με","duplicate_val":" τηλέφωνο \"%phone%\" είναι ήδη καταχωρημένη."},"contact_group":{"duplicate_key":"μία_ομάδα_επαφών","duplicate_val":" με επιγραφή \"%label%\" είναι ήδη καταχωρημένη."}}},"login":"Είσοδος","logout":"Έξοδος"}};
 
 /*
  *
@@ -15895,21 +15895,21 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
                     try {
                         last_response = JSON.parse(new_response);
 
-                        if(!empty(last_response.processed)) {
-                            importProcessed.innerHTML = last_response.processed;
-                            processingProgressBar.style.width = last_response.progress + '%';
+                        if(!empty(last_response.pc)) {
+                            importProcessed.innerHTML = last_response.pc;
+                            processingProgressBar.style.width = last_response.pg + '%';
                         }
 
-                        if(!empty(last_response.total)) {
-                            importTotal.innerHTML = last_response.total;
+                        if(!empty(last_response.tc)) {
+                            importTotal.innerHTML = last_response.tc;
                         }
 
-                        if(!empty(last_response.result)) {
-                            response = last_response.result;
+                        if(!empty(last_response.rs)) {
+                            response = last_response.rs;
 
-                            if(last_response.status > 400) {
+                            if(last_response.st > 400) {
                                 return handleError();
-                            }else if(last_response.status == 200) {
+                            }else {
                                 return handleSuccess();
                             }
                         }
@@ -16386,6 +16386,4144 @@ I18n.translations = {"en":{"date":{"formats":{"default":"%Y-%m-%d","short":"%b %
     contentLoaded(window, Dropzone._autoDiscoverFunction);
 
 }).call(this);
+//! moment.js
+//! version : 2.5.1
+//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
+//! license : MIT
+//! momentjs.com
+
+(function (undefined) {
+
+    /************************************
+        Constants
+    ************************************/
+
+    var moment,
+        VERSION = "2.5.1",
+        global = this,
+        round = Math.round,
+        i,
+
+        YEAR = 0,
+        MONTH = 1,
+        DATE = 2,
+        HOUR = 3,
+        MINUTE = 4,
+        SECOND = 5,
+        MILLISECOND = 6,
+
+        // internal storage for language config files
+        languages = {},
+
+        // moment internal properties
+        momentProperties = {
+            _isAMomentObject: null,
+            _i : null,
+            _f : null,
+            _l : null,
+            _strict : null,
+            _isUTC : null,
+            _offset : null,  // optional. Combine with _isUTC
+            _pf : null,
+            _lang : null  // optional
+        },
+
+        // check for nodeJS
+        hasModule = (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined'),
+
+        // ASP.NET json date format regex
+        aspNetJsonRegex = /^\/?Date\((\-?\d+)/i,
+        aspNetTimeSpanJsonRegex = /(\-)?(?:(\d*)\.)?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/,
+
+        // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
+        // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
+        isoDurationRegex = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/,
+
+        // format tokens
+        formattingTokens = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,4}|X|zz?|ZZ?|.)/g,
+        localFormattingTokens = /(\[[^\[]*\])|(\\)?(LT|LL?L?L?|l{1,4})/g,
+
+        // parsing token regexes
+        parseTokenOneOrTwoDigits = /\d\d?/, // 0 - 99
+        parseTokenOneToThreeDigits = /\d{1,3}/, // 0 - 999
+        parseTokenOneToFourDigits = /\d{1,4}/, // 0 - 9999
+        parseTokenOneToSixDigits = /[+\-]?\d{1,6}/, // -999,999 - 999,999
+        parseTokenDigits = /\d+/, // nonzero number of digits
+        parseTokenWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i, // any word (or two) characters or numbers including two/three word month in arabic.
+        parseTokenTimezone = /Z|[\+\-]\d\d:?\d\d/gi, // +00:00 -00:00 +0000 -0000 or Z
+        parseTokenT = /T/i, // T (ISO separator)
+        parseTokenTimestampMs = /[\+\-]?\d+(\.\d{1,3})?/, // 123456789 123456789.123
+
+        //strict parsing regexes
+        parseTokenOneDigit = /\d/, // 0 - 9
+        parseTokenTwoDigits = /\d\d/, // 00 - 99
+        parseTokenThreeDigits = /\d{3}/, // 000 - 999
+        parseTokenFourDigits = /\d{4}/, // 0000 - 9999
+        parseTokenSixDigits = /[+-]?\d{6}/, // -999,999 - 999,999
+        parseTokenSignedNumber = /[+-]?\d+/, // -inf - inf
+
+        // iso 8601 regex
+        // 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
+        isoRegex = /^\s*(?:[+-]\d{6}|\d{4})-(?:(\d\d-\d\d)|(W\d\d$)|(W\d\d-\d)|(\d\d\d))((T| )(\d\d(:\d\d(:\d\d(\.\d+)?)?)?)?([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+
+        isoFormat = 'YYYY-MM-DDTHH:mm:ssZ',
+
+        isoDates = [
+            ['YYYYYY-MM-DD', /[+-]\d{6}-\d{2}-\d{2}/],
+            ['YYYY-MM-DD', /\d{4}-\d{2}-\d{2}/],
+            ['GGGG-[W]WW-E', /\d{4}-W\d{2}-\d/],
+            ['GGGG-[W]WW', /\d{4}-W\d{2}/],
+            ['YYYY-DDD', /\d{4}-\d{3}/]
+        ],
+
+        // iso time formats and regexes
+        isoTimes = [
+            ['HH:mm:ss.SSSS', /(T| )\d\d:\d\d:\d\d\.\d{1,3}/],
+            ['HH:mm:ss', /(T| )\d\d:\d\d:\d\d/],
+            ['HH:mm', /(T| )\d\d:\d\d/],
+            ['HH', /(T| )\d\d/]
+        ],
+
+        // timezone chunker "+10:00" > ["10", "00"] or "-1530" > ["-15", "30"]
+        parseTimezoneChunker = /([\+\-]|\d\d)/gi,
+
+        // getter and setter names
+        proxyGettersAndSetters = 'Date|Hours|Minutes|Seconds|Milliseconds'.split('|'),
+        unitMillisecondFactors = {
+            'Milliseconds' : 1,
+            'Seconds' : 1e3,
+            'Minutes' : 6e4,
+            'Hours' : 36e5,
+            'Days' : 864e5,
+            'Months' : 2592e6,
+            'Years' : 31536e6
+        },
+
+        unitAliases = {
+            ms : 'millisecond',
+            s : 'second',
+            m : 'minute',
+            h : 'hour',
+            d : 'day',
+            D : 'date',
+            w : 'week',
+            W : 'isoWeek',
+            M : 'month',
+            y : 'year',
+            DDD : 'dayOfYear',
+            e : 'weekday',
+            E : 'isoWeekday',
+            gg: 'weekYear',
+            GG: 'isoWeekYear'
+        },
+
+        camelFunctions = {
+            dayofyear : 'dayOfYear',
+            isoweekday : 'isoWeekday',
+            isoweek : 'isoWeek',
+            weekyear : 'weekYear',
+            isoweekyear : 'isoWeekYear'
+        },
+
+        // format function strings
+        formatFunctions = {},
+
+        // tokens to ordinalize and pad
+        ordinalizeTokens = 'DDD w W M D d'.split(' '),
+        paddedTokens = 'M D H h m s w W'.split(' '),
+
+        formatTokenFunctions = {
+            M    : function () {
+                return this.month() + 1;
+            },
+            MMM  : function (format) {
+                return this.lang().monthsShort(this, format);
+            },
+            MMMM : function (format) {
+                return this.lang().months(this, format);
+            },
+            D    : function () {
+                return this.date();
+            },
+            DDD  : function () {
+                return this.dayOfYear();
+            },
+            d    : function () {
+                return this.day();
+            },
+            dd   : function (format) {
+                return this.lang().weekdaysMin(this, format);
+            },
+            ddd  : function (format) {
+                return this.lang().weekdaysShort(this, format);
+            },
+            dddd : function (format) {
+                return this.lang().weekdays(this, format);
+            },
+            w    : function () {
+                return this.week();
+            },
+            W    : function () {
+                return this.isoWeek();
+            },
+            YY   : function () {
+                return leftZeroFill(this.year() % 100, 2);
+            },
+            YYYY : function () {
+                return leftZeroFill(this.year(), 4);
+            },
+            YYYYY : function () {
+                return leftZeroFill(this.year(), 5);
+            },
+            YYYYYY : function () {
+                var y = this.year(), sign = y >= 0 ? '+' : '-';
+                return sign + leftZeroFill(Math.abs(y), 6);
+            },
+            gg   : function () {
+                return leftZeroFill(this.weekYear() % 100, 2);
+            },
+            gggg : function () {
+                return leftZeroFill(this.weekYear(), 4);
+            },
+            ggggg : function () {
+                return leftZeroFill(this.weekYear(), 5);
+            },
+            GG   : function () {
+                return leftZeroFill(this.isoWeekYear() % 100, 2);
+            },
+            GGGG : function () {
+                return leftZeroFill(this.isoWeekYear(), 4);
+            },
+            GGGGG : function () {
+                return leftZeroFill(this.isoWeekYear(), 5);
+            },
+            e : function () {
+                return this.weekday();
+            },
+            E : function () {
+                return this.isoWeekday();
+            },
+            a    : function () {
+                return this.lang().meridiem(this.hours(), this.minutes(), true);
+            },
+            A    : function () {
+                return this.lang().meridiem(this.hours(), this.minutes(), false);
+            },
+            H    : function () {
+                return this.hours();
+            },
+            h    : function () {
+                return this.hours() % 12 || 12;
+            },
+            m    : function () {
+                return this.minutes();
+            },
+            s    : function () {
+                return this.seconds();
+            },
+            S    : function () {
+                return toInt(this.milliseconds() / 100);
+            },
+            SS   : function () {
+                return leftZeroFill(toInt(this.milliseconds() / 10), 2);
+            },
+            SSS  : function () {
+                return leftZeroFill(this.milliseconds(), 3);
+            },
+            SSSS : function () {
+                return leftZeroFill(this.milliseconds(), 3);
+            },
+            Z    : function () {
+                var a = -this.zone(),
+                    b = "+";
+                if (a < 0) {
+                    a = -a;
+                    b = "-";
+                }
+                return b + leftZeroFill(toInt(a / 60), 2) + ":" + leftZeroFill(toInt(a) % 60, 2);
+            },
+            ZZ   : function () {
+                var a = -this.zone(),
+                    b = "+";
+                if (a < 0) {
+                    a = -a;
+                    b = "-";
+                }
+                return b + leftZeroFill(toInt(a / 60), 2) + leftZeroFill(toInt(a) % 60, 2);
+            },
+            z : function () {
+                return this.zoneAbbr();
+            },
+            zz : function () {
+                return this.zoneName();
+            },
+            X    : function () {
+                return this.unix();
+            },
+            Q : function () {
+                return this.quarter();
+            }
+        },
+
+        lists = ['months', 'monthsShort', 'weekdays', 'weekdaysShort', 'weekdaysMin'];
+
+    function defaultParsingFlags() {
+        // We need to deep clone this object, and es5 standard is not very
+        // helpful.
+        return {
+            empty : false,
+            unusedTokens : [],
+            unusedInput : [],
+            overflow : -2,
+            charsLeftOver : 0,
+            nullInput : false,
+            invalidMonth : null,
+            invalidFormat : false,
+            userInvalidated : false,
+            iso: false
+        };
+    }
+
+    function padToken(func, count) {
+        return function (a) {
+            return leftZeroFill(func.call(this, a), count);
+        };
+    }
+    function ordinalizeToken(func, period) {
+        return function (a) {
+            return this.lang().ordinal(func.call(this, a), period);
+        };
+    }
+
+    while (ordinalizeTokens.length) {
+        i = ordinalizeTokens.pop();
+        formatTokenFunctions[i + 'o'] = ordinalizeToken(formatTokenFunctions[i], i);
+    }
+    while (paddedTokens.length) {
+        i = paddedTokens.pop();
+        formatTokenFunctions[i + i] = padToken(formatTokenFunctions[i], 2);
+    }
+    formatTokenFunctions.DDDD = padToken(formatTokenFunctions.DDD, 3);
+
+
+    /************************************
+        Constructors
+    ************************************/
+
+    function Language() {
+
+    }
+
+    // Moment prototype object
+    function Moment(config) {
+        checkOverflow(config);
+        extend(this, config);
+    }
+
+    // Duration Constructor
+    function Duration(duration) {
+        var normalizedInput = normalizeObjectUnits(duration),
+            years = normalizedInput.year || 0,
+            months = normalizedInput.month || 0,
+            weeks = normalizedInput.week || 0,
+            days = normalizedInput.day || 0,
+            hours = normalizedInput.hour || 0,
+            minutes = normalizedInput.minute || 0,
+            seconds = normalizedInput.second || 0,
+            milliseconds = normalizedInput.millisecond || 0;
+
+        // representation for dateAddRemove
+        this._milliseconds = +milliseconds +
+            seconds * 1e3 + // 1000
+            minutes * 6e4 + // 1000 * 60
+            hours * 36e5; // 1000 * 60 * 60
+        // Because of dateAddRemove treats 24 hours as different from a
+        // day when working around DST, we need to store them separately
+        this._days = +days +
+            weeks * 7;
+        // It is impossible translate months into days without knowing
+        // which months you are are talking about, so we have to store
+        // it separately.
+        this._months = +months +
+            years * 12;
+
+        this._data = {};
+
+        this._bubble();
+    }
+
+    /************************************
+        Helpers
+    ************************************/
+
+
+    function extend(a, b) {
+        for (var i in b) {
+            if (b.hasOwnProperty(i)) {
+                a[i] = b[i];
+            }
+        }
+
+        if (b.hasOwnProperty("toString")) {
+            a.toString = b.toString;
+        }
+
+        if (b.hasOwnProperty("valueOf")) {
+            a.valueOf = b.valueOf;
+        }
+
+        return a;
+    }
+
+    function cloneMoment(m) {
+        var result = {}, i;
+        for (i in m) {
+            if (m.hasOwnProperty(i) && momentProperties.hasOwnProperty(i)) {
+                result[i] = m[i];
+            }
+        }
+
+        return result;
+    }
+
+    function absRound(number) {
+        if (number < 0) {
+            return Math.ceil(number);
+        } else {
+            return Math.floor(number);
+        }
+    }
+
+    // left zero fill a number
+    // see http://jsperf.com/left-zero-filling for performance comparison
+    function leftZeroFill(number, targetLength, forceSign) {
+        var output = '' + Math.abs(number),
+            sign = number >= 0;
+
+        while (output.length < targetLength) {
+            output = '0' + output;
+        }
+        return (sign ? (forceSign ? '+' : '') : '-') + output;
+    }
+
+    // helper function for _.addTime and _.subtractTime
+    function addOrSubtractDurationFromMoment(mom, duration, isAdding, ignoreUpdateOffset) {
+        var milliseconds = duration._milliseconds,
+            days = duration._days,
+            months = duration._months,
+            minutes,
+            hours;
+
+        if (milliseconds) {
+            mom._d.setTime(+mom._d + milliseconds * isAdding);
+        }
+        // store the minutes and hours so we can restore them
+        if (days || months) {
+            minutes = mom.minute();
+            hours = mom.hour();
+        }
+        if (days) {
+            mom.date(mom.date() + days * isAdding);
+        }
+        if (months) {
+            mom.month(mom.month() + months * isAdding);
+        }
+        if (milliseconds && !ignoreUpdateOffset) {
+            moment.updateOffset(mom);
+        }
+        // restore the minutes and hours after possibly changing dst
+        if (days || months) {
+            mom.minute(minutes);
+            mom.hour(hours);
+        }
+    }
+
+    // check if is an array
+    function isArray(input) {
+        return Object.prototype.toString.call(input) === '[object Array]';
+    }
+
+    function isDate(input) {
+        return  Object.prototype.toString.call(input) === '[object Date]' ||
+                input instanceof Date;
+    }
+
+    // compare two arrays, return the number of differences
+    function compareArrays(array1, array2, dontConvert) {
+        var len = Math.min(array1.length, array2.length),
+            lengthDiff = Math.abs(array1.length - array2.length),
+            diffs = 0,
+            i;
+        for (i = 0; i < len; i++) {
+            if ((dontConvert && array1[i] !== array2[i]) ||
+                (!dontConvert && toInt(array1[i]) !== toInt(array2[i]))) {
+                diffs++;
+            }
+        }
+        return diffs + lengthDiff;
+    }
+
+    function normalizeUnits(units) {
+        if (units) {
+            var lowered = units.toLowerCase().replace(/(.)s$/, '$1');
+            units = unitAliases[units] || camelFunctions[lowered] || lowered;
+        }
+        return units;
+    }
+
+    function normalizeObjectUnits(inputObject) {
+        var normalizedInput = {},
+            normalizedProp,
+            prop;
+
+        for (prop in inputObject) {
+            if (inputObject.hasOwnProperty(prop)) {
+                normalizedProp = normalizeUnits(prop);
+                if (normalizedProp) {
+                    normalizedInput[normalizedProp] = inputObject[prop];
+                }
+            }
+        }
+
+        return normalizedInput;
+    }
+
+    function makeList(field) {
+        var count, setter;
+
+        if (field.indexOf('week') === 0) {
+            count = 7;
+            setter = 'day';
+        }
+        else if (field.indexOf('month') === 0) {
+            count = 12;
+            setter = 'month';
+        }
+        else {
+            return;
+        }
+
+        moment[field] = function (format, index) {
+            var i, getter,
+                method = moment.fn._lang[field],
+                results = [];
+
+            if (typeof format === 'number') {
+                index = format;
+                format = undefined;
+            }
+
+            getter = function (i) {
+                var m = moment().utc().set(setter, i);
+                return method.call(moment.fn._lang, m, format || '');
+            };
+
+            if (index != null) {
+                return getter(index);
+            }
+            else {
+                for (i = 0; i < count; i++) {
+                    results.push(getter(i));
+                }
+                return results;
+            }
+        };
+    }
+
+    function toInt(argumentForCoercion) {
+        var coercedNumber = +argumentForCoercion,
+            value = 0;
+
+        if (coercedNumber !== 0 && isFinite(coercedNumber)) {
+            if (coercedNumber >= 0) {
+                value = Math.floor(coercedNumber);
+            } else {
+                value = Math.ceil(coercedNumber);
+            }
+        }
+
+        return value;
+    }
+
+    function daysInMonth(year, month) {
+        return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+    }
+
+    function daysInYear(year) {
+        return isLeapYear(year) ? 366 : 365;
+    }
+
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    }
+
+    function checkOverflow(m) {
+        var overflow;
+        if (m._a && m._pf.overflow === -2) {
+            overflow =
+                m._a[MONTH] < 0 || m._a[MONTH] > 11 ? MONTH :
+                m._a[DATE] < 1 || m._a[DATE] > daysInMonth(m._a[YEAR], m._a[MONTH]) ? DATE :
+                m._a[HOUR] < 0 || m._a[HOUR] > 23 ? HOUR :
+                m._a[MINUTE] < 0 || m._a[MINUTE] > 59 ? MINUTE :
+                m._a[SECOND] < 0 || m._a[SECOND] > 59 ? SECOND :
+                m._a[MILLISECOND] < 0 || m._a[MILLISECOND] > 999 ? MILLISECOND :
+                -1;
+
+            if (m._pf._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
+                overflow = DATE;
+            }
+
+            m._pf.overflow = overflow;
+        }
+    }
+
+    function isValid(m) {
+        if (m._isValid == null) {
+            m._isValid = !isNaN(m._d.getTime()) &&
+                m._pf.overflow < 0 &&
+                !m._pf.empty &&
+                !m._pf.invalidMonth &&
+                !m._pf.nullInput &&
+                !m._pf.invalidFormat &&
+                !m._pf.userInvalidated;
+
+            if (m._strict) {
+                m._isValid = m._isValid &&
+                    m._pf.charsLeftOver === 0 &&
+                    m._pf.unusedTokens.length === 0;
+            }
+        }
+        return m._isValid;
+    }
+
+    function normalizeLanguage(key) {
+        return key ? key.toLowerCase().replace('_', '-') : key;
+    }
+
+    // Return a moment from input, that is local/utc/zone equivalent to model.
+    function makeAs(input, model) {
+        return model._isUTC ? moment(input).zone(model._offset || 0) :
+            moment(input).local();
+    }
+
+    /************************************
+        Languages
+    ************************************/
+
+
+    extend(Language.prototype, {
+
+        set : function (config) {
+            var prop, i;
+            for (i in config) {
+                prop = config[i];
+                if (typeof prop === 'function') {
+                    this[i] = prop;
+                } else {
+                    this['_' + i] = prop;
+                }
+            }
+        },
+
+        _months : "January_February_March_April_May_June_July_August_September_October_November_December".split("_"),
+        months : function (m) {
+            return this._months[m.month()];
+        },
+
+        _monthsShort : "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
+        monthsShort : function (m) {
+            return this._monthsShort[m.month()];
+        },
+
+        monthsParse : function (monthName) {
+            var i, mom, regex;
+
+            if (!this._monthsParse) {
+                this._monthsParse = [];
+            }
+
+            for (i = 0; i < 12; i++) {
+                // make the regex if we don't have it already
+                if (!this._monthsParse[i]) {
+                    mom = moment.utc([2000, i]);
+                    regex = '^' + this.months(mom, '') + '|^' + this.monthsShort(mom, '');
+                    this._monthsParse[i] = new RegExp(regex.replace('.', ''), 'i');
+                }
+                // test the regex
+                if (this._monthsParse[i].test(monthName)) {
+                    return i;
+                }
+            }
+        },
+
+        _weekdays : "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),
+        weekdays : function (m) {
+            return this._weekdays[m.day()];
+        },
+
+        _weekdaysShort : "Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),
+        weekdaysShort : function (m) {
+            return this._weekdaysShort[m.day()];
+        },
+
+        _weekdaysMin : "Su_Mo_Tu_We_Th_Fr_Sa".split("_"),
+        weekdaysMin : function (m) {
+            return this._weekdaysMin[m.day()];
+        },
+
+        weekdaysParse : function (weekdayName) {
+            var i, mom, regex;
+
+            if (!this._weekdaysParse) {
+                this._weekdaysParse = [];
+            }
+
+            for (i = 0; i < 7; i++) {
+                // make the regex if we don't have it already
+                if (!this._weekdaysParse[i]) {
+                    mom = moment([2000, 1]).day(i);
+                    regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
+                    this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
+                }
+                // test the regex
+                if (this._weekdaysParse[i].test(weekdayName)) {
+                    return i;
+                }
+            }
+        },
+
+        _longDateFormat : {
+            LT : "h:mm A",
+            L : "MM/DD/YYYY",
+            LL : "MMMM D YYYY",
+            LLL : "MMMM D YYYY LT",
+            LLLL : "dddd, MMMM D YYYY LT"
+        },
+        longDateFormat : function (key) {
+            var output = this._longDateFormat[key];
+            if (!output && this._longDateFormat[key.toUpperCase()]) {
+                output = this._longDateFormat[key.toUpperCase()].replace(/MMMM|MM|DD|dddd/g, function (val) {
+                    return val.slice(1);
+                });
+                this._longDateFormat[key] = output;
+            }
+            return output;
+        },
+
+        isPM : function (input) {
+            // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
+            // Using charAt should be more compatible.
+            return ((input + '').toLowerCase().charAt(0) === 'p');
+        },
+
+        _meridiemParse : /[ap]\.?m?\.?/i,
+        meridiem : function (hours, minutes, isLower) {
+            if (hours > 11) {
+                return isLower ? 'pm' : 'PM';
+            } else {
+                return isLower ? 'am' : 'AM';
+            }
+        },
+
+        _calendar : {
+            sameDay : '[Today at] LT',
+            nextDay : '[Tomorrow at] LT',
+            nextWeek : 'dddd [at] LT',
+            lastDay : '[Yesterday at] LT',
+            lastWeek : '[Last] dddd [at] LT',
+            sameElse : 'L'
+        },
+        calendar : function (key, mom) {
+            var output = this._calendar[key];
+            return typeof output === 'function' ? output.apply(mom) : output;
+        },
+
+        _relativeTime : {
+            future : "in %s",
+            past : "%s ago",
+            s : "a few seconds",
+            m : "a minute",
+            mm : "%d minutes",
+            h : "an hour",
+            hh : "%d hours",
+            d : "a day",
+            dd : "%d days",
+            M : "a month",
+            MM : "%d months",
+            y : "a year",
+            yy : "%d years"
+        },
+        relativeTime : function (number, withoutSuffix, string, isFuture) {
+            var output = this._relativeTime[string];
+            return (typeof output === 'function') ?
+                output(number, withoutSuffix, string, isFuture) :
+                output.replace(/%d/i, number);
+        },
+        pastFuture : function (diff, output) {
+            var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
+            return typeof format === 'function' ? format(output) : format.replace(/%s/i, output);
+        },
+
+        ordinal : function (number) {
+            return this._ordinal.replace("%d", number);
+        },
+        _ordinal : "%d",
+
+        preparse : function (string) {
+            return string;
+        },
+
+        postformat : function (string) {
+            return string;
+        },
+
+        week : function (mom) {
+            return weekOfYear(mom, this._week.dow, this._week.doy).week;
+        },
+
+        _week : {
+            dow : 0, // Sunday is the first day of the week.
+            doy : 6  // The week that contains Jan 1st is the first week of the year.
+        },
+
+        _invalidDate: 'Invalid date',
+        invalidDate: function () {
+            return this._invalidDate;
+        }
+    });
+
+    // Loads a language definition into the `languages` cache.  The function
+    // takes a key and optionally values.  If not in the browser and no values
+    // are provided, it will load the language file module.  As a convenience,
+    // this function also returns the language values.
+    function loadLang(key, values) {
+        values.abbr = key;
+        if (!languages[key]) {
+            languages[key] = new Language();
+        }
+        languages[key].set(values);
+        return languages[key];
+    }
+
+    // Remove a language from the `languages` cache. Mostly useful in tests.
+    function unloadLang(key) {
+        delete languages[key];
+    }
+
+    // Determines which language definition to use and returns it.
+    //
+    // With no parameters, it will return the global language.  If you
+    // pass in a language key, such as 'en', it will return the
+    // definition for 'en', so long as 'en' has already been loaded using
+    // moment.lang.
+    function getLangDefinition(key) {
+        var i = 0, j, lang, next, split,
+            get = function (k) {
+                if (!languages[k] && hasModule) {
+                    try {
+                        require('./lang/' + k);
+                    } catch (e) { }
+                }
+                return languages[k];
+            };
+
+        if (!key) {
+            return moment.fn._lang;
+        }
+
+        if (!isArray(key)) {
+            //short-circuit everything else
+            lang = get(key);
+            if (lang) {
+                return lang;
+            }
+            key = [key];
+        }
+
+        //pick the language from the array
+        //try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
+        //substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+        while (i < key.length) {
+            split = normalizeLanguage(key[i]).split('-');
+            j = split.length;
+            next = normalizeLanguage(key[i + 1]);
+            next = next ? next.split('-') : null;
+            while (j > 0) {
+                lang = get(split.slice(0, j).join('-'));
+                if (lang) {
+                    return lang;
+                }
+                if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
+                    //the next array item is better than a shallower substring of this one
+                    break;
+                }
+                j--;
+            }
+            i++;
+        }
+        return moment.fn._lang;
+    }
+
+    /************************************
+        Formatting
+    ************************************/
+
+
+    function removeFormattingTokens(input) {
+        if (input.match(/\[[\s\S]/)) {
+            return input.replace(/^\[|\]$/g, "");
+        }
+        return input.replace(/\\/g, "");
+    }
+
+    function makeFormatFunction(format) {
+        var array = format.match(formattingTokens), i, length;
+
+        for (i = 0, length = array.length; i < length; i++) {
+            if (formatTokenFunctions[array[i]]) {
+                array[i] = formatTokenFunctions[array[i]];
+            } else {
+                array[i] = removeFormattingTokens(array[i]);
+            }
+        }
+
+        return function (mom) {
+            var output = "";
+            for (i = 0; i < length; i++) {
+                output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
+            }
+            return output;
+        };
+    }
+
+    // format date using native date object
+    function formatMoment(m, format) {
+
+        if (!m.isValid()) {
+            return m.lang().invalidDate();
+        }
+
+        format = expandFormat(format, m.lang());
+
+        if (!formatFunctions[format]) {
+            formatFunctions[format] = makeFormatFunction(format);
+        }
+
+        return formatFunctions[format](m);
+    }
+
+    function expandFormat(format, lang) {
+        var i = 5;
+
+        function replaceLongDateFormatTokens(input) {
+            return lang.longDateFormat(input) || input;
+        }
+
+        localFormattingTokens.lastIndex = 0;
+        while (i >= 0 && localFormattingTokens.test(format)) {
+            format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
+            localFormattingTokens.lastIndex = 0;
+            i -= 1;
+        }
+
+        return format;
+    }
+
+
+    /************************************
+        Parsing
+    ************************************/
+
+
+    // get the regex to find the next token
+    function getParseRegexForToken(token, config) {
+        var a, strict = config._strict;
+        switch (token) {
+        case 'DDDD':
+            return parseTokenThreeDigits;
+        case 'YYYY':
+        case 'GGGG':
+        case 'gggg':
+            return strict ? parseTokenFourDigits : parseTokenOneToFourDigits;
+        case 'Y':
+        case 'G':
+        case 'g':
+            return parseTokenSignedNumber;
+        case 'YYYYYY':
+        case 'YYYYY':
+        case 'GGGGG':
+        case 'ggggg':
+            return strict ? parseTokenSixDigits : parseTokenOneToSixDigits;
+        case 'S':
+            if (strict) { return parseTokenOneDigit; }
+            /* falls through */
+        case 'SS':
+            if (strict) { return parseTokenTwoDigits; }
+            /* falls through */
+        case 'SSS':
+            if (strict) { return parseTokenThreeDigits; }
+            /* falls through */
+        case 'DDD':
+            return parseTokenOneToThreeDigits;
+        case 'MMM':
+        case 'MMMM':
+        case 'dd':
+        case 'ddd':
+        case 'dddd':
+            return parseTokenWord;
+        case 'a':
+        case 'A':
+            return getLangDefinition(config._l)._meridiemParse;
+        case 'X':
+            return parseTokenTimestampMs;
+        case 'Z':
+        case 'ZZ':
+            return parseTokenTimezone;
+        case 'T':
+            return parseTokenT;
+        case 'SSSS':
+            return parseTokenDigits;
+        case 'MM':
+        case 'DD':
+        case 'YY':
+        case 'GG':
+        case 'gg':
+        case 'HH':
+        case 'hh':
+        case 'mm':
+        case 'ss':
+        case 'ww':
+        case 'WW':
+            return strict ? parseTokenTwoDigits : parseTokenOneOrTwoDigits;
+        case 'M':
+        case 'D':
+        case 'd':
+        case 'H':
+        case 'h':
+        case 'm':
+        case 's':
+        case 'w':
+        case 'W':
+        case 'e':
+        case 'E':
+            return parseTokenOneOrTwoDigits;
+        default :
+            a = new RegExp(regexpEscape(unescapeFormat(token.replace('\\', '')), "i"));
+            return a;
+        }
+    }
+
+    function timezoneMinutesFromString(string) {
+        string = string || "";
+        var possibleTzMatches = (string.match(parseTokenTimezone) || []),
+            tzChunk = possibleTzMatches[possibleTzMatches.length - 1] || [],
+            parts = (tzChunk + '').match(parseTimezoneChunker) || ['-', 0, 0],
+            minutes = +(parts[1] * 60) + toInt(parts[2]);
+
+        return parts[0] === '+' ? -minutes : minutes;
+    }
+
+    // function to convert string input to date
+    function addTimeToArrayFromToken(token, input, config) {
+        var a, datePartArray = config._a;
+
+        switch (token) {
+        // MONTH
+        case 'M' : // fall through to MM
+        case 'MM' :
+            if (input != null) {
+                datePartArray[MONTH] = toInt(input) - 1;
+            }
+            break;
+        case 'MMM' : // fall through to MMMM
+        case 'MMMM' :
+            a = getLangDefinition(config._l).monthsParse(input);
+            // if we didn't find a month name, mark the date as invalid.
+            if (a != null) {
+                datePartArray[MONTH] = a;
+            } else {
+                config._pf.invalidMonth = input;
+            }
+            break;
+        // DAY OF MONTH
+        case 'D' : // fall through to DD
+        case 'DD' :
+            if (input != null) {
+                datePartArray[DATE] = toInt(input);
+            }
+            break;
+        // DAY OF YEAR
+        case 'DDD' : // fall through to DDDD
+        case 'DDDD' :
+            if (input != null) {
+                config._dayOfYear = toInt(input);
+            }
+
+            break;
+        // YEAR
+        case 'YY' :
+            datePartArray[YEAR] = toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
+            break;
+        case 'YYYY' :
+        case 'YYYYY' :
+        case 'YYYYYY' :
+            datePartArray[YEAR] = toInt(input);
+            break;
+        // AM / PM
+        case 'a' : // fall through to A
+        case 'A' :
+            config._isPm = getLangDefinition(config._l).isPM(input);
+            break;
+        // 24 HOUR
+        case 'H' : // fall through to hh
+        case 'HH' : // fall through to hh
+        case 'h' : // fall through to hh
+        case 'hh' :
+            datePartArray[HOUR] = toInt(input);
+            break;
+        // MINUTE
+        case 'm' : // fall through to mm
+        case 'mm' :
+            datePartArray[MINUTE] = toInt(input);
+            break;
+        // SECOND
+        case 's' : // fall through to ss
+        case 'ss' :
+            datePartArray[SECOND] = toInt(input);
+            break;
+        // MILLISECOND
+        case 'S' :
+        case 'SS' :
+        case 'SSS' :
+        case 'SSSS' :
+            datePartArray[MILLISECOND] = toInt(('0.' + input) * 1000);
+            break;
+        // UNIX TIMESTAMP WITH MS
+        case 'X':
+            config._d = new Date(parseFloat(input) * 1000);
+            break;
+        // TIMEZONE
+        case 'Z' : // fall through to ZZ
+        case 'ZZ' :
+            config._useUTC = true;
+            config._tzm = timezoneMinutesFromString(input);
+            break;
+        case 'w':
+        case 'ww':
+        case 'W':
+        case 'WW':
+        case 'd':
+        case 'dd':
+        case 'ddd':
+        case 'dddd':
+        case 'e':
+        case 'E':
+            token = token.substr(0, 1);
+            /* falls through */
+        case 'gg':
+        case 'gggg':
+        case 'GG':
+        case 'GGGG':
+        case 'GGGGG':
+            token = token.substr(0, 2);
+            if (input) {
+                config._w = config._w || {};
+                config._w[token] = input;
+            }
+            break;
+        }
+    }
+
+    // convert an array to a date.
+    // the array should mirror the parameters below
+    // note: all values past the year are optional and will default to the lowest possible value.
+    // [year, month, day , hour, minute, second, millisecond]
+    function dateFromConfig(config) {
+        var i, date, input = [], currentDate,
+            yearToUse, fixYear, w, temp, lang, weekday, week;
+
+        if (config._d) {
+            return;
+        }
+
+        currentDate = currentDateArray(config);
+
+        //compute day of the year from weeks and weekdays
+        if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
+            fixYear = function (val) {
+                var int_val = parseInt(val, 10);
+                return val ?
+                  (val.length < 3 ? (int_val > 68 ? 1900 + int_val : 2000 + int_val) : int_val) :
+                  (config._a[YEAR] == null ? moment().weekYear() : config._a[YEAR]);
+            };
+
+            w = config._w;
+            if (w.GG != null || w.W != null || w.E != null) {
+                temp = dayOfYearFromWeeks(fixYear(w.GG), w.W || 1, w.E, 4, 1);
+            }
+            else {
+                lang = getLangDefinition(config._l);
+                weekday = w.d != null ?  parseWeekday(w.d, lang) :
+                  (w.e != null ?  parseInt(w.e, 10) + lang._week.dow : 0);
+
+                week = parseInt(w.w, 10) || 1;
+
+                //if we're parsing 'd', then the low day numbers may be next week
+                if (w.d != null && weekday < lang._week.dow) {
+                    week++;
+                }
+
+                temp = dayOfYearFromWeeks(fixYear(w.gg), week, weekday, lang._week.doy, lang._week.dow);
+            }
+
+            config._a[YEAR] = temp.year;
+            config._dayOfYear = temp.dayOfYear;
+        }
+
+        //if the day of the year is set, figure out what it is
+        if (config._dayOfYear) {
+            yearToUse = config._a[YEAR] == null ? currentDate[YEAR] : config._a[YEAR];
+
+            if (config._dayOfYear > daysInYear(yearToUse)) {
+                config._pf._overflowDayOfYear = true;
+            }
+
+            date = makeUTCDate(yearToUse, 0, config._dayOfYear);
+            config._a[MONTH] = date.getUTCMonth();
+            config._a[DATE] = date.getUTCDate();
+        }
+
+        // Default to current date.
+        // * if no year, month, day of month are given, default to today
+        // * if day of month is given, default month and year
+        // * if month is given, default only year
+        // * if year is given, don't default anything
+        for (i = 0; i < 3 && config._a[i] == null; ++i) {
+            config._a[i] = input[i] = currentDate[i];
+        }
+
+        // Zero out whatever was not defaulted, including time
+        for (; i < 7; i++) {
+            config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
+        }
+
+        // add the offsets to the time to be parsed so that we can have a clean array for checking isValid
+        input[HOUR] += toInt((config._tzm || 0) / 60);
+        input[MINUTE] += toInt((config._tzm || 0) % 60);
+
+        config._d = (config._useUTC ? makeUTCDate : makeDate).apply(null, input);
+    }
+
+    function dateFromObject(config) {
+        var normalizedInput;
+
+        if (config._d) {
+            return;
+        }
+
+        normalizedInput = normalizeObjectUnits(config._i);
+        config._a = [
+            normalizedInput.year,
+            normalizedInput.month,
+            normalizedInput.day,
+            normalizedInput.hour,
+            normalizedInput.minute,
+            normalizedInput.second,
+            normalizedInput.millisecond
+        ];
+
+        dateFromConfig(config);
+    }
+
+    function currentDateArray(config) {
+        var now = new Date();
+        if (config._useUTC) {
+            return [
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate()
+            ];
+        } else {
+            return [now.getFullYear(), now.getMonth(), now.getDate()];
+        }
+    }
+
+    // date from string and format string
+    function makeDateFromStringAndFormat(config) {
+
+        config._a = [];
+        config._pf.empty = true;
+
+        // This array is used to make a Date, either with `new Date` or `Date.UTC`
+        var lang = getLangDefinition(config._l),
+            string = '' + config._i,
+            i, parsedInput, tokens, token, skipped,
+            stringLength = string.length,
+            totalParsedInputLength = 0;
+
+        tokens = expandFormat(config._f, lang).match(formattingTokens) || [];
+
+        for (i = 0; i < tokens.length; i++) {
+            token = tokens[i];
+            parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
+            if (parsedInput) {
+                skipped = string.substr(0, string.indexOf(parsedInput));
+                if (skipped.length > 0) {
+                    config._pf.unusedInput.push(skipped);
+                }
+                string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+                totalParsedInputLength += parsedInput.length;
+            }
+            // don't parse if it's not a known token
+            if (formatTokenFunctions[token]) {
+                if (parsedInput) {
+                    config._pf.empty = false;
+                }
+                else {
+                    config._pf.unusedTokens.push(token);
+                }
+                addTimeToArrayFromToken(token, parsedInput, config);
+            }
+            else if (config._strict && !parsedInput) {
+                config._pf.unusedTokens.push(token);
+            }
+        }
+
+        // add remaining unparsed input length to the string
+        config._pf.charsLeftOver = stringLength - totalParsedInputLength;
+        if (string.length > 0) {
+            config._pf.unusedInput.push(string);
+        }
+
+        // handle am pm
+        if (config._isPm && config._a[HOUR] < 12) {
+            config._a[HOUR] += 12;
+        }
+        // if is 12 am, change hours to 0
+        if (config._isPm === false && config._a[HOUR] === 12) {
+            config._a[HOUR] = 0;
+        }
+
+        dateFromConfig(config);
+        checkOverflow(config);
+    }
+
+    function unescapeFormat(s) {
+        return s.replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+            return p1 || p2 || p3 || p4;
+        });
+    }
+
+    // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
+    function regexpEscape(s) {
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    // date from string and array of format strings
+    function makeDateFromStringAndArray(config) {
+        var tempConfig,
+            bestMoment,
+
+            scoreToBeat,
+            i,
+            currentScore;
+
+        if (config._f.length === 0) {
+            config._pf.invalidFormat = true;
+            config._d = new Date(NaN);
+            return;
+        }
+
+        for (i = 0; i < config._f.length; i++) {
+            currentScore = 0;
+            tempConfig = extend({}, config);
+            tempConfig._pf = defaultParsingFlags();
+            tempConfig._f = config._f[i];
+            makeDateFromStringAndFormat(tempConfig);
+
+            if (!isValid(tempConfig)) {
+                continue;
+            }
+
+            // if there is any input that was not parsed add a penalty for that format
+            currentScore += tempConfig._pf.charsLeftOver;
+
+            //or tokens
+            currentScore += tempConfig._pf.unusedTokens.length * 10;
+
+            tempConfig._pf.score = currentScore;
+
+            if (scoreToBeat == null || currentScore < scoreToBeat) {
+                scoreToBeat = currentScore;
+                bestMoment = tempConfig;
+            }
+        }
+
+        extend(config, bestMoment || tempConfig);
+    }
+
+    // date from iso format
+    function makeDateFromString(config) {
+        var i, l,
+            string = config._i,
+            match = isoRegex.exec(string);
+
+        if (match) {
+            config._pf.iso = true;
+            for (i = 0, l = isoDates.length; i < l; i++) {
+                if (isoDates[i][1].exec(string)) {
+                    // match[5] should be "T" or undefined
+                    config._f = isoDates[i][0] + (match[6] || " ");
+                    break;
+                }
+            }
+            for (i = 0, l = isoTimes.length; i < l; i++) {
+                if (isoTimes[i][1].exec(string)) {
+                    config._f += isoTimes[i][0];
+                    break;
+                }
+            }
+            if (string.match(parseTokenTimezone)) {
+                config._f += "Z";
+            }
+            makeDateFromStringAndFormat(config);
+        }
+        else {
+            config._d = new Date(string);
+        }
+    }
+
+    function makeDateFromInput(config) {
+        var input = config._i,
+            matched = aspNetJsonRegex.exec(input);
+
+        if (input === undefined) {
+            config._d = new Date();
+        } else if (matched) {
+            config._d = new Date(+matched[1]);
+        } else if (typeof input === 'string') {
+            makeDateFromString(config);
+        } else if (isArray(input)) {
+            config._a = input.slice(0);
+            dateFromConfig(config);
+        } else if (isDate(input)) {
+            config._d = new Date(+input);
+        } else if (typeof(input) === 'object') {
+            dateFromObject(config);
+        } else {
+            config._d = new Date(input);
+        }
+    }
+
+    function makeDate(y, m, d, h, M, s, ms) {
+        //can't just apply() to create a date:
+        //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
+        var date = new Date(y, m, d, h, M, s, ms);
+
+        //the date constructor doesn't accept years < 1970
+        if (y < 1970) {
+            date.setFullYear(y);
+        }
+        return date;
+    }
+
+    function makeUTCDate(y) {
+        var date = new Date(Date.UTC.apply(null, arguments));
+        if (y < 1970) {
+            date.setUTCFullYear(y);
+        }
+        return date;
+    }
+
+    function parseWeekday(input, language) {
+        if (typeof input === 'string') {
+            if (!isNaN(input)) {
+                input = parseInt(input, 10);
+            }
+            else {
+                input = language.weekdaysParse(input);
+                if (typeof input !== 'number') {
+                    return null;
+                }
+            }
+        }
+        return input;
+    }
+
+    /************************************
+        Relative Time
+    ************************************/
+
+
+    // helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
+    function substituteTimeAgo(string, number, withoutSuffix, isFuture, lang) {
+        return lang.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
+    }
+
+    function relativeTime(milliseconds, withoutSuffix, lang) {
+        var seconds = round(Math.abs(milliseconds) / 1000),
+            minutes = round(seconds / 60),
+            hours = round(minutes / 60),
+            days = round(hours / 24),
+            years = round(days / 365),
+            args = seconds < 45 && ['s', seconds] ||
+                minutes === 1 && ['m'] ||
+                minutes < 45 && ['mm', minutes] ||
+                hours === 1 && ['h'] ||
+                hours < 22 && ['hh', hours] ||
+                days === 1 && ['d'] ||
+                days <= 25 && ['dd', days] ||
+                days <= 45 && ['M'] ||
+                days < 345 && ['MM', round(days / 30)] ||
+                years === 1 && ['y'] || ['yy', years];
+        args[2] = withoutSuffix;
+        args[3] = milliseconds > 0;
+        args[4] = lang;
+        return substituteTimeAgo.apply({}, args);
+    }
+
+
+    /************************************
+        Week of Year
+    ************************************/
+
+
+    // firstDayOfWeek       0 = sun, 6 = sat
+    //                      the day of the week that starts the week
+    //                      (usually sunday or monday)
+    // firstDayOfWeekOfYear 0 = sun, 6 = sat
+    //                      the first week is the week that contains the first
+    //                      of this day of the week
+    //                      (eg. ISO weeks use thursday (4))
+    function weekOfYear(mom, firstDayOfWeek, firstDayOfWeekOfYear) {
+        var end = firstDayOfWeekOfYear - firstDayOfWeek,
+            daysToDayOfWeek = firstDayOfWeekOfYear - mom.day(),
+            adjustedMoment;
+
+
+        if (daysToDayOfWeek > end) {
+            daysToDayOfWeek -= 7;
+        }
+
+        if (daysToDayOfWeek < end - 7) {
+            daysToDayOfWeek += 7;
+        }
+
+        adjustedMoment = moment(mom).add('d', daysToDayOfWeek);
+        return {
+            week: Math.ceil(adjustedMoment.dayOfYear() / 7),
+            year: adjustedMoment.year()
+        };
+    }
+
+    //http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
+    function dayOfYearFromWeeks(year, week, weekday, firstDayOfWeekOfYear, firstDayOfWeek) {
+        var d = makeUTCDate(year, 0, 1).getUTCDay(), daysToAdd, dayOfYear;
+
+        weekday = weekday != null ? weekday : firstDayOfWeek;
+        daysToAdd = firstDayOfWeek - d + (d > firstDayOfWeekOfYear ? 7 : 0) - (d < firstDayOfWeek ? 7 : 0);
+        dayOfYear = 7 * (week - 1) + (weekday - firstDayOfWeek) + daysToAdd + 1;
+
+        return {
+            year: dayOfYear > 0 ? year : year - 1,
+            dayOfYear: dayOfYear > 0 ?  dayOfYear : daysInYear(year - 1) + dayOfYear
+        };
+    }
+
+    /************************************
+        Top Level Functions
+    ************************************/
+
+    function makeMoment(config) {
+        var input = config._i,
+            format = config._f;
+
+        if (input === null) {
+            return moment.invalid({nullInput: true});
+        }
+
+        if (typeof input === 'string') {
+            config._i = input = getLangDefinition().preparse(input);
+        }
+
+        if (moment.isMoment(input)) {
+            config = cloneMoment(input);
+
+            config._d = new Date(+input._d);
+        } else if (format) {
+            if (isArray(format)) {
+                makeDateFromStringAndArray(config);
+            } else {
+                makeDateFromStringAndFormat(config);
+            }
+        } else {
+            makeDateFromInput(config);
+        }
+
+        return new Moment(config);
+    }
+
+    moment = function (input, format, lang, strict) {
+        var c;
+
+        if (typeof(lang) === "boolean") {
+            strict = lang;
+            lang = undefined;
+        }
+        // object construction must be done this way.
+        // https://github.com/moment/moment/issues/1423
+        c = {};
+        c._isAMomentObject = true;
+        c._i = input;
+        c._f = format;
+        c._l = lang;
+        c._strict = strict;
+        c._isUTC = false;
+        c._pf = defaultParsingFlags();
+
+        return makeMoment(c);
+    };
+
+    // creating with utc
+    moment.utc = function (input, format, lang, strict) {
+        var c;
+
+        if (typeof(lang) === "boolean") {
+            strict = lang;
+            lang = undefined;
+        }
+        // object construction must be done this way.
+        // https://github.com/moment/moment/issues/1423
+        c = {};
+        c._isAMomentObject = true;
+        c._useUTC = true;
+        c._isUTC = true;
+        c._l = lang;
+        c._i = input;
+        c._f = format;
+        c._strict = strict;
+        c._pf = defaultParsingFlags();
+
+        return makeMoment(c).utc();
+    };
+
+    // creating with unix timestamp (in seconds)
+    moment.unix = function (input) {
+        return moment(input * 1000);
+    };
+
+    // duration
+    moment.duration = function (input, key) {
+        var duration = input,
+            // matching against regexp is expensive, do it on demand
+            match = null,
+            sign,
+            ret,
+            parseIso;
+
+        if (moment.isDuration(input)) {
+            duration = {
+                ms: input._milliseconds,
+                d: input._days,
+                M: input._months
+            };
+        } else if (typeof input === 'number') {
+            duration = {};
+            if (key) {
+                duration[key] = input;
+            } else {
+                duration.milliseconds = input;
+            }
+        } else if (!!(match = aspNetTimeSpanJsonRegex.exec(input))) {
+            sign = (match[1] === "-") ? -1 : 1;
+            duration = {
+                y: 0,
+                d: toInt(match[DATE]) * sign,
+                h: toInt(match[HOUR]) * sign,
+                m: toInt(match[MINUTE]) * sign,
+                s: toInt(match[SECOND]) * sign,
+                ms: toInt(match[MILLISECOND]) * sign
+            };
+        } else if (!!(match = isoDurationRegex.exec(input))) {
+            sign = (match[1] === "-") ? -1 : 1;
+            parseIso = function (inp) {
+                // We'd normally use ~~inp for this, but unfortunately it also
+                // converts floats to ints.
+                // inp may be undefined, so careful calling replace on it.
+                var res = inp && parseFloat(inp.replace(',', '.'));
+                // apply sign while we're at it
+                return (isNaN(res) ? 0 : res) * sign;
+            };
+            duration = {
+                y: parseIso(match[2]),
+                M: parseIso(match[3]),
+                d: parseIso(match[4]),
+                h: parseIso(match[5]),
+                m: parseIso(match[6]),
+                s: parseIso(match[7]),
+                w: parseIso(match[8])
+            };
+        }
+
+        ret = new Duration(duration);
+
+        if (moment.isDuration(input) && input.hasOwnProperty('_lang')) {
+            ret._lang = input._lang;
+        }
+
+        return ret;
+    };
+
+    // version number
+    moment.version = VERSION;
+
+    // default format
+    moment.defaultFormat = isoFormat;
+
+    // This function will be called whenever a moment is mutated.
+    // It is intended to keep the offset in sync with the timezone.
+    moment.updateOffset = function () {};
+
+    // This function will load languages and then set the global language.  If
+    // no arguments are passed in, it will simply return the current global
+    // language key.
+    moment.lang = function (key, values) {
+        var r;
+        if (!key) {
+            return moment.fn._lang._abbr;
+        }
+        if (values) {
+            loadLang(normalizeLanguage(key), values);
+        } else if (values === null) {
+            unloadLang(key);
+            key = 'en';
+        } else if (!languages[key]) {
+            getLangDefinition(key);
+        }
+        r = moment.duration.fn._lang = moment.fn._lang = getLangDefinition(key);
+        return r._abbr;
+    };
+
+    // returns language data
+    moment.langData = function (key) {
+        if (key && key._lang && key._lang._abbr) {
+            key = key._lang._abbr;
+        }
+        return getLangDefinition(key);
+    };
+
+    // compare moment object
+    moment.isMoment = function (obj) {
+        return obj instanceof Moment ||
+            (obj != null &&  obj.hasOwnProperty('_isAMomentObject'));
+    };
+
+    // for typechecking Duration objects
+    moment.isDuration = function (obj) {
+        return obj instanceof Duration;
+    };
+
+    for (i = lists.length - 1; i >= 0; --i) {
+        makeList(lists[i]);
+    }
+
+    moment.normalizeUnits = function (units) {
+        return normalizeUnits(units);
+    };
+
+    moment.invalid = function (flags) {
+        var m = moment.utc(NaN);
+        if (flags != null) {
+            extend(m._pf, flags);
+        }
+        else {
+            m._pf.userInvalidated = true;
+        }
+
+        return m;
+    };
+
+    moment.parseZone = function (input) {
+        return moment(input).parseZone();
+    };
+
+    /************************************
+        Moment Prototype
+    ************************************/
+
+
+    extend(moment.fn = Moment.prototype, {
+
+        clone : function () {
+            return moment(this);
+        },
+
+        valueOf : function () {
+            return +this._d + ((this._offset || 0) * 60000);
+        },
+
+        unix : function () {
+            return Math.floor(+this / 1000);
+        },
+
+        toString : function () {
+            return this.clone().lang('en').format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ");
+        },
+
+        toDate : function () {
+            return this._offset ? new Date(+this) : this._d;
+        },
+
+        toISOString : function () {
+            var m = moment(this).utc();
+            if (0 < m.year() && m.year() <= 9999) {
+                return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+            } else {
+                return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+            }
+        },
+
+        toArray : function () {
+            var m = this;
+            return [
+                m.year(),
+                m.month(),
+                m.date(),
+                m.hours(),
+                m.minutes(),
+                m.seconds(),
+                m.milliseconds()
+            ];
+        },
+
+        isValid : function () {
+            return isValid(this);
+        },
+
+        isDSTShifted : function () {
+
+            if (this._a) {
+                return this.isValid() && compareArrays(this._a, (this._isUTC ? moment.utc(this._a) : moment(this._a)).toArray()) > 0;
+            }
+
+            return false;
+        },
+
+        parsingFlags : function () {
+            return extend({}, this._pf);
+        },
+
+        invalidAt: function () {
+            return this._pf.overflow;
+        },
+
+        utc : function () {
+            return this.zone(0);
+        },
+
+        local : function () {
+            this.zone(0);
+            this._isUTC = false;
+            return this;
+        },
+
+        format : function (inputString) {
+            var output = formatMoment(this, inputString || moment.defaultFormat);
+            return this.lang().postformat(output);
+        },
+
+        add : function (input, val) {
+            var dur;
+            // switch args to support add('s', 1) and add(1, 's')
+            if (typeof input === 'string') {
+                dur = moment.duration(+val, input);
+            } else {
+                dur = moment.duration(input, val);
+            }
+            addOrSubtractDurationFromMoment(this, dur, 1);
+            return this;
+        },
+
+        subtract : function (input, val) {
+            var dur;
+            // switch args to support subtract('s', 1) and subtract(1, 's')
+            if (typeof input === 'string') {
+                dur = moment.duration(+val, input);
+            } else {
+                dur = moment.duration(input, val);
+            }
+            addOrSubtractDurationFromMoment(this, dur, -1);
+            return this;
+        },
+
+        diff : function (input, units, asFloat) {
+            var that = makeAs(input, this),
+                zoneDiff = (this.zone() - that.zone()) * 6e4,
+                diff, output;
+
+            units = normalizeUnits(units);
+
+            if (units === 'year' || units === 'month') {
+                // average number of days in the months in the given dates
+                diff = (this.daysInMonth() + that.daysInMonth()) * 432e5; // 24 * 60 * 60 * 1000 / 2
+                // difference in months
+                output = ((this.year() - that.year()) * 12) + (this.month() - that.month());
+                // adjust by taking difference in days, average number of days
+                // and dst in the given months.
+                output += ((this - moment(this).startOf('month')) -
+                        (that - moment(that).startOf('month'))) / diff;
+                // same as above but with zones, to negate all dst
+                output -= ((this.zone() - moment(this).startOf('month').zone()) -
+                        (that.zone() - moment(that).startOf('month').zone())) * 6e4 / diff;
+                if (units === 'year') {
+                    output = output / 12;
+                }
+            } else {
+                diff = (this - that);
+                output = units === 'second' ? diff / 1e3 : // 1000
+                    units === 'minute' ? diff / 6e4 : // 1000 * 60
+                    units === 'hour' ? diff / 36e5 : // 1000 * 60 * 60
+                    units === 'day' ? (diff - zoneDiff) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
+                    units === 'week' ? (diff - zoneDiff) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
+                    diff;
+            }
+            return asFloat ? output : absRound(output);
+        },
+
+        from : function (time, withoutSuffix) {
+            return moment.duration(this.diff(time)).lang(this.lang()._abbr).humanize(!withoutSuffix);
+        },
+
+        fromNow : function (withoutSuffix) {
+            return this.from(moment(), withoutSuffix);
+        },
+
+        calendar : function () {
+            // We want to compare the start of today, vs this.
+            // Getting start-of-today depends on whether we're zone'd or not.
+            var sod = makeAs(moment(), this).startOf('day'),
+                diff = this.diff(sod, 'days', true),
+                format = diff < -6 ? 'sameElse' :
+                    diff < -1 ? 'lastWeek' :
+                    diff < 0 ? 'lastDay' :
+                    diff < 1 ? 'sameDay' :
+                    diff < 2 ? 'nextDay' :
+                    diff < 7 ? 'nextWeek' : 'sameElse';
+            return this.format(this.lang().calendar(format, this));
+        },
+
+        isLeapYear : function () {
+            return isLeapYear(this.year());
+        },
+
+        isDST : function () {
+            return (this.zone() < this.clone().month(0).zone() ||
+                this.zone() < this.clone().month(5).zone());
+        },
+
+        day : function (input) {
+            var day = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
+            if (input != null) {
+                input = parseWeekday(input, this.lang());
+                return this.add({ d : input - day });
+            } else {
+                return day;
+            }
+        },
+
+        month : function (input) {
+            var utc = this._isUTC ? 'UTC' : '',
+                dayOfMonth;
+
+            if (input != null) {
+                if (typeof input === 'string') {
+                    input = this.lang().monthsParse(input);
+                    if (typeof input !== 'number') {
+                        return this;
+                    }
+                }
+
+                dayOfMonth = this.date();
+                this.date(1);
+                this._d['set' + utc + 'Month'](input);
+                this.date(Math.min(dayOfMonth, this.daysInMonth()));
+
+                moment.updateOffset(this);
+                return this;
+            } else {
+                return this._d['get' + utc + 'Month']();
+            }
+        },
+
+        startOf: function (units) {
+            units = normalizeUnits(units);
+            // the following switch intentionally omits break keywords
+            // to utilize falling through the cases.
+            switch (units) {
+            case 'year':
+                this.month(0);
+                /* falls through */
+            case 'month':
+                this.date(1);
+                /* falls through */
+            case 'week':
+            case 'isoWeek':
+            case 'day':
+                this.hours(0);
+                /* falls through */
+            case 'hour':
+                this.minutes(0);
+                /* falls through */
+            case 'minute':
+                this.seconds(0);
+                /* falls through */
+            case 'second':
+                this.milliseconds(0);
+                /* falls through */
+            }
+
+            // weeks are a special case
+            if (units === 'week') {
+                this.weekday(0);
+            } else if (units === 'isoWeek') {
+                this.isoWeekday(1);
+            }
+
+            return this;
+        },
+
+        endOf: function (units) {
+            units = normalizeUnits(units);
+            return this.startOf(units).add((units === 'isoWeek' ? 'week' : units), 1).subtract('ms', 1);
+        },
+
+        isAfter: function (input, units) {
+            units = typeof units !== 'undefined' ? units : 'millisecond';
+            return +this.clone().startOf(units) > +moment(input).startOf(units);
+        },
+
+        isBefore: function (input, units) {
+            units = typeof units !== 'undefined' ? units : 'millisecond';
+            return +this.clone().startOf(units) < +moment(input).startOf(units);
+        },
+
+        isSame: function (input, units) {
+            units = units || 'ms';
+            return +this.clone().startOf(units) === +makeAs(input, this).startOf(units);
+        },
+
+        min: function (other) {
+            other = moment.apply(null, arguments);
+            return other < this ? this : other;
+        },
+
+        max: function (other) {
+            other = moment.apply(null, arguments);
+            return other > this ? this : other;
+        },
+
+        zone : function (input) {
+            var offset = this._offset || 0;
+            if (input != null) {
+                if (typeof input === "string") {
+                    input = timezoneMinutesFromString(input);
+                }
+                if (Math.abs(input) < 16) {
+                    input = input * 60;
+                }
+                this._offset = input;
+                this._isUTC = true;
+                if (offset !== input) {
+                    addOrSubtractDurationFromMoment(this, moment.duration(offset - input, 'm'), 1, true);
+                }
+            } else {
+                return this._isUTC ? offset : this._d.getTimezoneOffset();
+            }
+            return this;
+        },
+
+        zoneAbbr : function () {
+            return this._isUTC ? "UTC" : "";
+        },
+
+        zoneName : function () {
+            return this._isUTC ? "Coordinated Universal Time" : "";
+        },
+
+        parseZone : function () {
+            if (this._tzm) {
+                this.zone(this._tzm);
+            } else if (typeof this._i === 'string') {
+                this.zone(this._i);
+            }
+            return this;
+        },
+
+        hasAlignedHourOffset : function (input) {
+            if (!input) {
+                input = 0;
+            }
+            else {
+                input = moment(input).zone();
+            }
+
+            return (this.zone() - input) % 60 === 0;
+        },
+
+        daysInMonth : function () {
+            return daysInMonth(this.year(), this.month());
+        },
+
+        dayOfYear : function (input) {
+            var dayOfYear = round((moment(this).startOf('day') - moment(this).startOf('year')) / 864e5) + 1;
+            return input == null ? dayOfYear : this.add("d", (input - dayOfYear));
+        },
+
+        quarter : function () {
+            return Math.ceil((this.month() + 1.0) / 3.0);
+        },
+
+        weekYear : function (input) {
+            var year = weekOfYear(this, this.lang()._week.dow, this.lang()._week.doy).year;
+            return input == null ? year : this.add("y", (input - year));
+        },
+
+        isoWeekYear : function (input) {
+            var year = weekOfYear(this, 1, 4).year;
+            return input == null ? year : this.add("y", (input - year));
+        },
+
+        week : function (input) {
+            var week = this.lang().week(this);
+            return input == null ? week : this.add("d", (input - week) * 7);
+        },
+
+        isoWeek : function (input) {
+            var week = weekOfYear(this, 1, 4).week;
+            return input == null ? week : this.add("d", (input - week) * 7);
+        },
+
+        weekday : function (input) {
+            var weekday = (this.day() + 7 - this.lang()._week.dow) % 7;
+            return input == null ? weekday : this.add("d", input - weekday);
+        },
+
+        isoWeekday : function (input) {
+            // behaves the same as moment#day except
+            // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
+            // as a setter, sunday should belong to the previous week.
+            return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
+        },
+
+        get : function (units) {
+            units = normalizeUnits(units);
+            return this[units]();
+        },
+
+        set : function (units, value) {
+            units = normalizeUnits(units);
+            if (typeof this[units] === 'function') {
+                this[units](value);
+            }
+            return this;
+        },
+
+        // If passed a language key, it will set the language for this
+        // instance.  Otherwise, it will return the language configuration
+        // variables for this instance.
+        lang : function (key) {
+            if (key === undefined) {
+                return this._lang;
+            } else {
+                this._lang = getLangDefinition(key);
+                return this;
+            }
+        }
+    });
+
+    // helper for adding shortcuts
+    function makeGetterAndSetter(name, key) {
+        moment.fn[name] = moment.fn[name + 's'] = function (input) {
+            var utc = this._isUTC ? 'UTC' : '';
+            if (input != null) {
+                this._d['set' + utc + key](input);
+                moment.updateOffset(this);
+                return this;
+            } else {
+                return this._d['get' + utc + key]();
+            }
+        };
+    }
+
+    // loop through and add shortcuts (Month, Date, Hours, Minutes, Seconds, Milliseconds)
+    for (i = 0; i < proxyGettersAndSetters.length; i ++) {
+        makeGetterAndSetter(proxyGettersAndSetters[i].toLowerCase().replace(/s$/, ''), proxyGettersAndSetters[i]);
+    }
+
+    // add shortcut for year (uses different syntax than the getter/setter 'year' == 'FullYear')
+    makeGetterAndSetter('year', 'FullYear');
+
+    // add plural methods
+    moment.fn.days = moment.fn.day;
+    moment.fn.months = moment.fn.month;
+    moment.fn.weeks = moment.fn.week;
+    moment.fn.isoWeeks = moment.fn.isoWeek;
+
+    // add aliased format methods
+    moment.fn.toJSON = moment.fn.toISOString;
+
+    /************************************
+        Duration Prototype
+    ************************************/
+
+
+    extend(moment.duration.fn = Duration.prototype, {
+
+        _bubble : function () {
+            var milliseconds = this._milliseconds,
+                days = this._days,
+                months = this._months,
+                data = this._data,
+                seconds, minutes, hours, years;
+
+            // The following code bubbles up values, see the tests for
+            // examples of what that means.
+            data.milliseconds = milliseconds % 1000;
+
+            seconds = absRound(milliseconds / 1000);
+            data.seconds = seconds % 60;
+
+            minutes = absRound(seconds / 60);
+            data.minutes = minutes % 60;
+
+            hours = absRound(minutes / 60);
+            data.hours = hours % 24;
+
+            days += absRound(hours / 24);
+            data.days = days % 30;
+
+            months += absRound(days / 30);
+            data.months = months % 12;
+
+            years = absRound(months / 12);
+            data.years = years;
+        },
+
+        weeks : function () {
+            return absRound(this.days() / 7);
+        },
+
+        valueOf : function () {
+            return this._milliseconds +
+              this._days * 864e5 +
+              (this._months % 12) * 2592e6 +
+              toInt(this._months / 12) * 31536e6;
+        },
+
+        humanize : function (withSuffix) {
+            var difference = +this,
+                output = relativeTime(difference, !withSuffix, this.lang());
+
+            if (withSuffix) {
+                output = this.lang().pastFuture(difference, output);
+            }
+
+            return this.lang().postformat(output);
+        },
+
+        add : function (input, val) {
+            // supports only 2.0-style add(1, 's') or add(moment)
+            var dur = moment.duration(input, val);
+
+            this._milliseconds += dur._milliseconds;
+            this._days += dur._days;
+            this._months += dur._months;
+
+            this._bubble();
+
+            return this;
+        },
+
+        subtract : function (input, val) {
+            var dur = moment.duration(input, val);
+
+            this._milliseconds -= dur._milliseconds;
+            this._days -= dur._days;
+            this._months -= dur._months;
+
+            this._bubble();
+
+            return this;
+        },
+
+        get : function (units) {
+            units = normalizeUnits(units);
+            return this[units.toLowerCase() + 's']();
+        },
+
+        as : function (units) {
+            units = normalizeUnits(units);
+            return this['as' + units.charAt(0).toUpperCase() + units.slice(1) + 's']();
+        },
+
+        lang : moment.fn.lang,
+
+        toIsoString : function () {
+            // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
+            var years = Math.abs(this.years()),
+                months = Math.abs(this.months()),
+                days = Math.abs(this.days()),
+                hours = Math.abs(this.hours()),
+                minutes = Math.abs(this.minutes()),
+                seconds = Math.abs(this.seconds() + this.milliseconds() / 1000);
+
+            if (!this.asSeconds()) {
+                // this is the same as C#'s (Noda) and python (isodate)...
+                // but not other JS (goog.date)
+                return 'P0D';
+            }
+
+            return (this.asSeconds() < 0 ? '-' : '') +
+                'P' +
+                (years ? years + 'Y' : '') +
+                (months ? months + 'M' : '') +
+                (days ? days + 'D' : '') +
+                ((hours || minutes || seconds) ? 'T' : '') +
+                (hours ? hours + 'H' : '') +
+                (minutes ? minutes + 'M' : '') +
+                (seconds ? seconds + 'S' : '');
+        }
+    });
+
+    function makeDurationGetter(name) {
+        moment.duration.fn[name] = function () {
+            return this._data[name];
+        };
+    }
+
+    function makeDurationAsGetter(name, factor) {
+        moment.duration.fn['as' + name] = function () {
+            return +this / factor;
+        };
+    }
+
+    for (i in unitMillisecondFactors) {
+        if (unitMillisecondFactors.hasOwnProperty(i)) {
+            makeDurationAsGetter(i, unitMillisecondFactors[i]);
+            makeDurationGetter(i.toLowerCase());
+        }
+    }
+
+    makeDurationAsGetter('Weeks', 6048e5);
+    moment.duration.fn.asMonths = function () {
+        return (+this - this.years() * 31536e6) / 2592e6 + this.years() * 12;
+    };
+
+
+    /************************************
+        Default Lang
+    ************************************/
+
+
+    // Set default language, other languages will inherit from English.
+    moment.lang('en', {
+        ordinal : function (number) {
+            var b = number % 10,
+                output = (toInt(number % 100 / 10) === 1) ? 'th' :
+                (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                (b === 3) ? 'rd' : 'th';
+            return number + output;
+        }
+    });
+
+    /* EMBED_LANGUAGES */
+
+    /************************************
+        Exposing Moment
+    ************************************/
+
+    function makeGlobal(deprecate) {
+        var warned = false, local_moment = moment;
+        /*global ender:false */
+        if (typeof ender !== 'undefined') {
+            return;
+        }
+        // here, `this` means `window` in the browser, or `global` on the server
+        // add `moment` as a global object via a string identifier,
+        // for Closure Compiler "advanced" mode
+        if (deprecate) {
+            global.moment = function () {
+                if (!warned && console && console.warn) {
+                    warned = true;
+                    console.warn(
+                            "Accessing Moment through the global scope is " +
+                            "deprecated, and will be removed in an upcoming " +
+                            "release.");
+                }
+                return local_moment.apply(null, arguments);
+            };
+            extend(global.moment, local_moment);
+        } else {
+            global['moment'] = moment;
+        }
+    }
+
+    // CommonJS module is defined
+    if (hasModule) {
+        module.exports = moment;
+        makeGlobal(true);
+    } else if (typeof define === "function" && define.amd) {
+        define("moment", function (require, exports, module) {
+            if (module.config && module.config() && module.config().noGlobal !== true) {
+                // If user provided noGlobal, he is aware of global
+                makeGlobal(module.config().noGlobal === undefined);
+            }
+
+            return moment;
+        });
+    } else {
+        makeGlobal();
+    }
+}).call(this);
+/**
+* @version: 1.3.7
+* @author: Dan Grossman http://www.dangrossman.info/
+* @date: 2014-04-29
+* @copyright: Copyright (c) 2012-2014 Dan Grossman. All rights reserved.
+* @license: Licensed under Apache License v2.0. See http://www.apache.org/licenses/LICENSE-2.0
+* @website: http://www.improvely.com/
+*/
+
+!function ($, moment) {
+
+    var DateRangePicker = function (element, options, cb) {
+
+        // by default, the daterangepicker element is placed at the bottom of HTML body
+        this.parentEl = 'body';
+
+        //element that triggered the date range picker
+        this.element = $(element);
+
+        //create the picker HTML object
+        var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
+                '<div class="calendar left"></div>' +
+                '<div class="calendar right"></div>' +
+                '<div class="ranges">' +
+                  '<div class="range_inputs">' +
+                    '<div class="daterangepicker_start_input">' +
+                      '<label for="daterangepicker_start"></label>' +
+                      '<input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled" />' +
+                    '</div>' +
+                    '<div class="daterangepicker_end_input">' +
+                      '<label for="daterangepicker_end"></label>' +
+                      '<input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled" />' +
+                    '</div>' +
+                    '<button class="applyBtn" disabled="disabled"></button>&nbsp;' +
+                    '<button class="cancelBtn"></button>' +
+                  '</div>' +
+                '</div>' +
+              '</div>';
+
+        //custom options
+        if (typeof options !== 'object' || options === null)
+            options = {};
+
+        this.parentEl = (typeof options === 'object' && options.parentEl && $(options.parentEl).length) ? $(options.parentEl) : $(this.parentEl);
+        this.container = $(DRPTemplate).appendTo(this.parentEl);
+
+        this.setOptions(options, cb);
+
+        //apply CSS classes and labels to buttons
+        var c = this.container;
+        $.each(this.buttonClasses, function (idx, val) {
+            c.find('button').addClass(val);
+        });
+        this.container.find('.daterangepicker_start_input label').html(this.locale.fromLabel);
+        this.container.find('.daterangepicker_end_input label').html(this.locale.toLabel);
+        if (this.applyClass.length)
+            this.container.find('.applyBtn').addClass(this.applyClass);
+        if (this.cancelClass.length)
+            this.container.find('.cancelBtn').addClass(this.cancelClass);
+        this.container.find('.applyBtn').html(this.locale.applyLabel);
+        this.container.find('.cancelBtn').html(this.locale.cancelLabel);
+
+        //event listeners
+
+        this.container.find('.calendar')
+            .on('click.daterangepicker', '.prev', $.proxy(this.clickPrev, this))
+            .on('click.daterangepicker', '.next', $.proxy(this.clickNext, this))
+            .on('click.daterangepicker', 'td.available', $.proxy(this.clickDate, this))
+            .on('mouseenter.daterangepicker', 'td.available', $.proxy(this.enterDate, this))
+            .on('mouseleave.daterangepicker', 'td.available', $.proxy(this.updateFormInputs, this))
+            .on('change.daterangepicker', 'select.yearselect', $.proxy(this.updateMonthYear, this))
+            .on('change.daterangepicker', 'select.monthselect', $.proxy(this.updateMonthYear, this))
+            .on('change.daterangepicker', 'select.hourselect,select.minuteselect,select.ampmselect', $.proxy(this.updateTime, this));
+
+        this.container.find('.ranges')
+            .on('click.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
+            .on('click.daterangepicker', 'button.cancelBtn', $.proxy(this.clickCancel, this))
+            .on('click.daterangepicker', '.daterangepicker_start_input,.daterangepicker_end_input', $.proxy(this.showCalendars, this))
+            .on('click.daterangepicker', 'li', $.proxy(this.clickRange, this))
+            .on('mouseenter.daterangepicker', 'li', $.proxy(this.enterRange, this))
+            .on('mouseleave.daterangepicker', 'li', $.proxy(this.updateFormInputs, this));
+
+        if (this.element.is('input')) {
+            this.element.on({
+                'click.daterangepicker': $.proxy(this.show, this),
+                'focus.daterangepicker': $.proxy(this.show, this),
+                'keyup.daterangepicker': $.proxy(this.updateFromControl, this)
+            });
+        } else {
+            this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
+        }
+
+    };
+
+    DateRangePicker.prototype = {
+
+        constructor: DateRangePicker,
+
+        setOptions: function(options, callback) {
+
+            this.startDate = moment().startOf('day');
+            this.endDate = moment().endOf('day');
+            this.minDate = false;
+            this.maxDate = false;
+            this.dateLimit = false;
+
+            this.showDropdowns = false;
+            this.showWeekNumbers = false;
+            this.timePicker = false;
+            this.timePickerIncrement = 30;
+            this.timePicker12Hour = true;
+            this.singleDatePicker = false;
+            this.ranges = {};
+
+            this.opens = 'right';
+            if (this.element.hasClass('pull-right'))
+                this.opens = 'left';
+
+            this.buttonClasses = ['btn', 'btn-small'];
+            this.applyClass = 'btn-success';
+            this.cancelClass = 'btn-default';
+
+            this.format = 'MM/DD/YYYY';
+            this.separator = ' - ';
+
+            this.locale = {
+                applyLabel: 'Apply',
+                cancelLabel: 'Cancel',
+                fromLabel: 'From',
+                toLabel: 'To',
+                weekLabel: 'W',
+                customRangeLabel: 'Custom Range',
+                daysOfWeek: moment()._lang._weekdaysMin.slice(),
+                monthNames: moment()._lang._monthsShort.slice(),
+                firstDay: 0
+            };
+
+            this.cb = function () { };
+
+            if (typeof options.format === 'string')
+                this.format = options.format;
+
+            if (typeof options.separator === 'string')
+                this.separator = options.separator;
+
+            if (typeof options.startDate === 'string')
+                this.startDate = moment(options.startDate, this.format);
+
+            if (typeof options.endDate === 'string')
+                this.endDate = moment(options.endDate, this.format);
+
+            if (typeof options.minDate === 'string')
+                this.minDate = moment(options.minDate, this.format);
+
+            if (typeof options.maxDate === 'string')
+                this.maxDate = moment(options.maxDate, this.format);
+
+            if (typeof options.startDate === 'object')
+                this.startDate = moment(options.startDate);
+
+            if (typeof options.endDate === 'object')
+                this.endDate = moment(options.endDate);
+
+            if (typeof options.minDate === 'object')
+                this.minDate = moment(options.minDate);
+
+            if (typeof options.maxDate === 'object')
+                this.maxDate = moment(options.maxDate);
+
+            if (typeof options.applyClass === 'string')
+                this.applyClass = options.applyClass;
+
+            if (typeof options.cancelClass === 'string')
+                this.cancelClass = options.cancelClass;
+
+            if (typeof options.dateLimit === 'object')
+                this.dateLimit = options.dateLimit;
+
+            // update day names order to firstDay
+            if (typeof options.locale === 'object') {
+
+                if (typeof options.locale.daysOfWeek === 'object') {
+                    // Create a copy of daysOfWeek to avoid modification of original
+                    // options object for reusability in multiple daterangepicker instances
+                    this.locale.daysOfWeek = options.locale.daysOfWeek.slice();
+                }
+
+                if (typeof options.locale.monthNames === 'object') {
+                  this.locale.monthNames = options.locale.monthNames.slice();
+                }
+
+                if (typeof options.locale.firstDay === 'number') {
+                    this.locale.firstDay = options.locale.firstDay;
+                    var iterator = options.locale.firstDay;
+                    while (iterator > 0) {
+                        this.locale.daysOfWeek.push(this.locale.daysOfWeek.shift());
+                        iterator--;
+                    }
+                }
+
+                if (typeof options.locale.applyLabel === 'string') {
+                  this.locale.applyLabel = options.locale.applyLabel;
+                }
+
+                if (typeof options.locale.cancelLabel === 'string') {
+                  this.locale.cancelLabel = options.locale.cancelLabel;
+                }
+
+                if (typeof options.locale.fromLabel === 'string') {
+                  this.locale.fromLabel = options.locale.fromLabel;
+                }
+
+                if (typeof options.locale.toLabel === 'string') {
+                  this.locale.toLabel = options.locale.toLabel;
+                }
+
+                if (typeof options.locale.weekLabel === 'string') {
+                  this.locale.weekLabel = options.locale.weekLabel;
+                }
+
+                if (typeof options.locale.customRangeLabel === 'string') {
+                  this.locale.customRangeLabel = options.locale.customRangeLabel;
+                }
+            }
+
+            if (typeof options.opens === 'string')
+                this.opens = options.opens;
+
+            if (typeof options.showWeekNumbers === 'boolean') {
+                this.showWeekNumbers = options.showWeekNumbers;
+            }
+
+            if (typeof options.buttonClasses === 'string') {
+                this.buttonClasses = [options.buttonClasses];
+            }
+
+            if (typeof options.buttonClasses === 'object') {
+                this.buttonClasses = options.buttonClasses;
+            }
+
+            if (typeof options.showDropdowns === 'boolean') {
+                this.showDropdowns = options.showDropdowns;
+            }
+
+            if (typeof options.singleDatePicker === 'boolean') {
+                this.singleDatePicker = options.singleDatePicker;
+            }
+
+            if (typeof options.timePicker === 'boolean') {
+                this.timePicker = options.timePicker;
+            }
+
+            if (typeof options.timePickerIncrement === 'number') {
+                this.timePickerIncrement = options.timePickerIncrement;
+            }
+
+            if (typeof options.timePicker12Hour === 'boolean') {
+                this.timePicker12Hour = options.timePicker12Hour;
+            }
+
+            var start, end, range;
+
+            //if no start/end dates set, check if an input element contains initial values
+            if (typeof options.startDate === 'undefined' && typeof options.endDate === 'undefined') {
+                if ($(this.element).is('input[type=text]')) {
+                    var val = $(this.element).val();
+                    var split = val.split(this.separator);
+                    start = end = null;
+                    if (split.length == 2) {
+                        start = moment(split[0], this.format);
+                        end = moment(split[1], this.format);
+                    } else if (this.singleDatePicker) {
+                        start = moment(val, this.format);
+                        end = moment(val, this.format);
+                    }
+                    if (start !== null && end !== null) {
+                        this.startDate = start;
+                        this.endDate = end;
+                    }
+                }
+            }
+
+            if (typeof options.ranges === 'object') {
+                for (range in options.ranges) {
+
+                    start = moment(options.ranges[range][0]);
+                    end = moment(options.ranges[range][1]);
+
+                    // If we have a min/max date set, bound this range
+                    // to it, but only if it would otherwise fall
+                    // outside of the min/max.
+                    if (this.minDate && start.isBefore(this.minDate))
+                        start = moment(this.minDate);
+
+                    if (this.maxDate && end.isAfter(this.maxDate))
+                        end = moment(this.maxDate);
+
+                    // If the end of the range is before the minimum (if min is set) OR
+                    // the start of the range is after the max (also if set) don't display this
+                    // range option.
+                    if ((this.minDate && end.isBefore(this.minDate)) || (this.maxDate && start.isAfter(this.maxDate))) {
+                        continue;
+                    }
+
+                    this.ranges[range] = [start, end];
+                }
+
+                var list = '<ul>';
+                for (range in this.ranges) {
+                    list += '<li>' + range + '</li>';
+                }
+                list += '<li>' + this.locale.customRangeLabel + '</li>';
+                list += '</ul>';
+                this.container.find('.ranges ul').remove();
+                this.container.find('.ranges').prepend(list);
+            }
+
+            if (typeof callback === 'function') {
+                this.cb = callback;
+            }
+
+            if (!this.timePicker) {
+                this.startDate = this.startDate.startOf('day');
+                this.endDate = this.endDate.endOf('day');
+            }
+
+            if (this.singleDatePicker) {
+                this.opens = 'right';
+                this.container.find('.calendar.right').show();
+                this.container.find('.calendar.left').hide();
+                this.container.find('.ranges').hide();
+                if (!this.container.find('.calendar.right').hasClass('single'))
+                    this.container.find('.calendar.right').addClass('single');
+            } else {
+                this.container.find('.calendar.right').removeClass('single');
+                this.container.find('.ranges').show();
+            }
+
+            this.oldStartDate = this.startDate.clone();
+            this.oldEndDate = this.endDate.clone();
+            this.oldChosenLabel = this.chosenLabel;
+
+            this.leftCalendar = {
+                month: moment([this.startDate.year(), this.startDate.month(), 1, this.startDate.hour(), this.startDate.minute()]),
+                calendar: []
+            };
+
+            this.rightCalendar = {
+                month: moment([this.endDate.year(), this.endDate.month(), 1, this.endDate.hour(), this.endDate.minute()]),
+                calendar: []
+            };
+
+            if (this.opens == 'right') {
+                //swap calendar positions
+                var left = this.container.find('.calendar.left');
+                var right = this.container.find('.calendar.right');
+                left.removeClass('left').addClass('right');
+                right.removeClass('right').addClass('left');
+            }
+
+            if (typeof options.ranges === 'undefined' && !this.singleDatePicker) {
+                this.container.addClass('show-calendar');
+            }
+
+            this.container.addClass('opens' + this.opens);
+
+            this.updateView();
+            this.updateCalendars();
+
+        },
+
+        setStartDate: function(startDate) {
+            if (typeof startDate === 'string')
+                this.startDate = moment(startDate, this.format);
+
+            if (typeof startDate === 'object')
+                this.startDate = moment(startDate);
+
+            if (!this.timePicker)
+                this.startDate = this.startDate.startOf('day');
+
+            this.oldStartDate = this.startDate.clone();
+
+            this.updateView();
+            this.updateCalendars();
+        },
+
+        setEndDate: function(endDate) {
+            if (typeof endDate === 'string')
+                this.endDate = moment(endDate, this.format);
+
+            if (typeof endDate === 'object')
+                this.endDate = moment(endDate);
+
+            if (!this.timePicker)
+                this.endDate = this.endDate.endOf('day');
+
+            this.oldEndDate = this.endDate.clone();
+
+            this.updateView();
+            this.updateCalendars();
+        },
+
+        updateView: function () {
+            this.leftCalendar.month.month(this.startDate.month()).year(this.startDate.year());
+            this.rightCalendar.month.month(this.endDate.month()).year(this.endDate.year());
+            this.updateFormInputs();
+        },
+
+        updateFormInputs: function () {
+            this.container.find('input[name=daterangepicker_start]').val(this.startDate.format(this.format));
+            this.container.find('input[name=daterangepicker_end]').val(this.endDate.format(this.format));
+
+            if (this.startDate.isSame(this.endDate) || this.startDate.isBefore(this.endDate)) {
+                this.container.find('button.applyBtn').removeAttr('disabled');
+            } else {
+                this.container.find('button.applyBtn').attr('disabled', 'disabled');
+            }
+        },
+
+        updateFromControl: function () {
+            if (!this.element.is('input')) return;
+            if (!this.element.val().length) return;
+
+            var dateString = this.element.val().split(this.separator),
+                start = null,
+                end = null;
+            
+            if(dateString.length === 2) {
+                start = moment(dateString[0], this.format);
+                end = moment(dateString[1], this.format);
+            }
+
+            if (this.singleDatePicker || start === null || end === null) {
+                start = moment(this.element.val(), this.format);
+                end = start;
+            }
+            
+            if (end.isBefore(start)) return;
+
+            this.oldStartDate = this.startDate.clone();
+            this.oldEndDate = this.endDate.clone();
+
+            this.startDate = start;
+            this.endDate = end;
+
+            if (!this.startDate.isSame(this.oldStartDate) || !this.endDate.isSame(this.oldEndDate))
+                this.notify();
+
+            this.updateCalendars();
+        },
+
+        notify: function () {
+            this.updateView();
+            this.cb(this.startDate, this.endDate, this.chosenLabel);
+        },
+
+        move: function () {
+            var parentOffset = { top: 0, left: 0 };
+            if (!this.parentEl.is('body')) {
+                parentOffset = {
+                    top: this.parentEl.offset().top - this.parentEl.scrollTop(),
+                    left: this.parentEl.offset().left - this.parentEl.scrollLeft()
+                };
+            }
+
+            if (this.opens == 'left') {
+                this.container.css({
+                    top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                    right: $(window).width() - this.element.offset().left - this.element.outerWidth() - parentOffset.left,
+                    left: 'auto'
+                });
+                if (this.container.offset().left < 0) {
+                    this.container.css({
+                        right: 'auto',
+                        left: 9
+                    });
+                }
+            } else {
+                this.container.css({
+                    top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                    left: this.element.offset().left - parentOffset.left,
+                    right: 'auto'
+                });
+                if (this.container.offset().left + this.container.outerWidth() > $(window).width()) {
+                    this.container.css({
+                        left: 'auto',
+                        right: 0
+                    });
+                }
+            }
+        },
+
+        toggle: function (e) {
+            if (this.element.hasClass('active')) {
+                this.hide();
+            } else {
+                this.show();
+            }
+        },
+
+        show: function (e) {
+            this.element.addClass('active');
+            this.container.show();
+            this.move();
+
+            // Create a click proxy that is private to this instance of datepicker, for unbinding
+            this._outsideClickProxy = $.proxy(function (e) { this.outsideClick(e); }, this);
+            // Bind global datepicker mousedown for hiding and
+            $(document)
+              .on('mousedown.daterangepicker', this._outsideClickProxy)
+              // also explicitly play nice with Bootstrap dropdowns, which stopPropagation when clicking them
+              .on('click.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy)
+              // and also close when focus changes to outside the picker (eg. tabbing between controls)
+              .on('focusin.daterangepicker', this._outsideClickProxy);
+
+            this.element.trigger('show.daterangepicker', this);
+        },
+
+        outsideClick: function (e) {
+            var target = $(e.target);
+            // if the page is clicked anywhere except within the daterangerpicker/button
+            // itself then call this.hide()
+            if (
+                target.closest(this.element).length ||
+                target.closest(this.container).length ||
+                target.closest('.calendar-date').length
+                ) return;
+            this.hide();
+        },
+
+        hide: function (e) {
+            $(document)
+              .off('mousedown.daterangepicker', this._outsideClickProxy)
+              .off('click.daterangepicker', this._outsideClickProxy)
+              .off('focusin.daterangepicker', this._outsideClickProxy);
+
+            this.element.removeClass('active');
+            this.container.hide();
+
+            if (!this.startDate.isSame(this.oldStartDate) || !this.endDate.isSame(this.oldEndDate))
+                this.notify();
+
+            this.oldStartDate = this.startDate.clone();
+            this.oldEndDate = this.endDate.clone();
+
+            this.element.trigger('hide.daterangepicker', this);
+        },
+
+        enterRange: function (e) {
+            // mouse pointer has entered a range label
+            var label = e.target.innerHTML;
+            if (label == this.locale.customRangeLabel) {
+                this.updateView();
+            } else {
+                var dates = this.ranges[label];
+                this.container.find('input[name=daterangepicker_start]').val(dates[0].format(this.format));
+                this.container.find('input[name=daterangepicker_end]').val(dates[1].format(this.format));
+            }
+        },
+
+        showCalendars: function() {
+            this.container.addClass('show-calendar');
+            this.move();
+        },
+
+        hideCalendars: function() {
+            this.container.removeClass('show-calendar');
+        },
+
+        updateInputText: function() {
+            if (this.element.is('input') && !this.singleDatePicker) {
+                this.element.val(this.startDate.format(this.format) + this.separator + this.endDate.format(this.format));
+            } else if (this.element.is('input')) {
+                this.element.val(this.startDate.format(this.format));
+            }
+        },
+
+        clickRange: function (e) {
+            var label = e.target.innerHTML;
+            this.chosenLabel = label;
+            if (label == this.locale.customRangeLabel) {
+                this.showCalendars();
+            } else {
+                var dates = this.ranges[label];
+
+                this.startDate = dates[0];
+                this.endDate = dates[1];
+
+                if (!this.timePicker) {
+                    this.startDate.startOf('day');
+                    this.endDate.endOf('day');
+                }
+
+                this.leftCalendar.month.month(this.startDate.month()).year(this.startDate.year()).hour(this.startDate.hour()).minute(this.startDate.minute());
+                this.rightCalendar.month.month(this.endDate.month()).year(this.endDate.year()).hour(this.endDate.hour()).minute(this.endDate.minute());
+                this.updateCalendars();
+
+                this.updateInputText();
+
+                this.hideCalendars();
+                this.hide();
+                this.element.trigger('apply.daterangepicker', this);
+            }
+        },
+
+        clickPrev: function (e) {
+            var cal = $(e.target).parents('.calendar');
+            if (cal.hasClass('left')) {
+                this.leftCalendar.month.subtract('month', 1);
+            } else {
+                this.rightCalendar.month.subtract('month', 1);
+            }
+            this.updateCalendars();
+        },
+
+        clickNext: function (e) {
+            var cal = $(e.target).parents('.calendar');
+            if (cal.hasClass('left')) {
+                this.leftCalendar.month.add('month', 1);
+            } else {
+                this.rightCalendar.month.add('month', 1);
+            }
+            this.updateCalendars();
+        },
+
+        enterDate: function (e) {
+
+            var title = $(e.target).attr('data-title');
+            var row = title.substr(1, 1);
+            var col = title.substr(3, 1);
+            var cal = $(e.target).parents('.calendar');
+
+            if (cal.hasClass('left')) {
+                this.container.find('input[name=daterangepicker_start]').val(this.leftCalendar.calendar[row][col].format(this.format));
+            } else {
+                this.container.find('input[name=daterangepicker_end]').val(this.rightCalendar.calendar[row][col].format(this.format));
+            }
+
+        },
+
+        clickDate: function (e) {
+            var title = $(e.target).attr('data-title');
+            var row = title.substr(1, 1);
+            var col = title.substr(3, 1);
+            var cal = $(e.target).parents('.calendar');
+
+            var startDate, endDate;
+            if (cal.hasClass('left')) {
+                startDate = this.leftCalendar.calendar[row][col];
+                endDate = this.endDate;
+                if (typeof this.dateLimit === 'object') {
+                    var maxDate = moment(startDate).add(this.dateLimit).startOf('day');
+                    if (endDate.isAfter(maxDate)) {
+                        endDate = maxDate;
+                    }
+                }
+            } else {
+                startDate = this.startDate;
+                endDate = this.rightCalendar.calendar[row][col];
+                if (typeof this.dateLimit === 'object') {
+                    var minDate = moment(endDate).subtract(this.dateLimit).startOf('day');
+                    if (startDate.isBefore(minDate)) {
+                        startDate = minDate;
+                    }
+                }
+            }
+
+            if (this.singleDatePicker && cal.hasClass('left')) {
+                endDate = startDate.clone();
+            } else if (this.singleDatePicker && cal.hasClass('right')) {
+                startDate = endDate.clone();
+            }
+
+            cal.find('td').removeClass('active');
+
+            if (startDate.isSame(endDate) || startDate.isBefore(endDate)) {
+                $(e.target).addClass('active');
+                this.startDate = startDate;
+                this.endDate = endDate;
+                this.chosenLabel = this.locale.customRangeLabel;
+            } else if (startDate.isAfter(endDate)) {
+                $(e.target).addClass('active');
+                var difference = this.endDate.diff(this.startDate);
+                this.startDate = startDate;
+                this.endDate = moment(startDate).add('ms', difference);
+                this.chosenLabel = this.locale.customRangeLabel;
+            }
+
+            this.leftCalendar.month.month(this.startDate.month()).year(this.startDate.year());
+            this.rightCalendar.month.month(this.endDate.month()).year(this.endDate.year());
+            this.updateCalendars();
+
+            if (!this.timePicker)
+                endDate.endOf('day');
+
+            if (this.singleDatePicker)
+                this.clickApply();
+        },
+
+        clickApply: function (e) {
+            this.updateInputText();
+            this.hide();
+            this.element.trigger('apply.daterangepicker', this);
+        },
+
+        clickCancel: function (e) {
+            this.startDate = this.oldStartDate;
+            this.endDate = this.oldEndDate;
+            this.chosenLabel = this.oldChosenLabel;
+            this.updateView();
+            this.updateCalendars();
+            this.hide();
+            this.element.trigger('cancel.daterangepicker', this);
+        },
+
+        updateMonthYear: function (e) {
+            var isLeft = $(e.target).closest('.calendar').hasClass('left'),
+                leftOrRight = isLeft ? 'left' : 'right',
+                cal = this.container.find('.calendar.'+leftOrRight);
+
+            // Month must be Number for new moment versions
+            var month = parseInt(cal.find('.monthselect').val(), 10);
+            var year = cal.find('.yearselect').val();
+
+            this[leftOrRight+'Calendar'].month.month(month).year(year);
+            this.updateCalendars();
+        },
+
+        updateTime: function(e) {
+
+            var cal = $(e.target).closest('.calendar'),
+                isLeft = cal.hasClass('left');
+
+            var hour = parseInt(cal.find('.hourselect').val(), 10);
+            var minute = parseInt(cal.find('.minuteselect').val(), 10);
+
+            if (this.timePicker12Hour) {
+                var ampm = cal.find('.ampmselect').val();
+                if (ampm === 'PM' && hour < 12)
+                    hour += 12;
+                if (ampm === 'AM' && hour === 12)
+                    hour = 0;
+            }
+
+            if (isLeft) {
+                var start = this.startDate.clone();
+                start.hour(hour);
+                start.minute(minute);
+                this.startDate = start;
+                this.leftCalendar.month.hour(hour).minute(minute);
+            } else {
+                var end = this.endDate.clone();
+                end.hour(hour);
+                end.minute(minute);
+                this.endDate = end;
+                this.rightCalendar.month.hour(hour).minute(minute);
+            }
+
+            this.updateCalendars();
+        },
+
+        updateCalendars: function () {
+            this.leftCalendar.calendar = this.buildCalendar(this.leftCalendar.month.month(), this.leftCalendar.month.year(), this.leftCalendar.month.hour(), this.leftCalendar.month.minute(), 'left');
+            this.rightCalendar.calendar = this.buildCalendar(this.rightCalendar.month.month(), this.rightCalendar.month.year(), this.rightCalendar.month.hour(), this.rightCalendar.month.minute(), 'right');
+            this.container.find('.calendar.left').empty().html(this.renderCalendar(this.leftCalendar.calendar, this.startDate, this.minDate, this.maxDate));
+            this.container.find('.calendar.right').empty().html(this.renderCalendar(this.rightCalendar.calendar, this.endDate, this.startDate, this.maxDate));
+
+            this.container.find('.ranges li').removeClass('active');
+            var customRange = true;
+            var i = 0;
+            for (var range in this.ranges) {
+                if (this.timePicker) {
+                    if (this.startDate.isSame(this.ranges[range][0]) && this.endDate.isSame(this.ranges[range][1])) {
+                        customRange = false;
+                        this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')')
+                            .addClass('active').html();
+                    }
+                } else {
+                    //ignore times when comparing dates if time picker is not enabled
+                    if (this.startDate.format('YYYY-MM-DD') == this.ranges[range][0].format('YYYY-MM-DD') && this.endDate.format('YYYY-MM-DD') == this.ranges[range][1].format('YYYY-MM-DD')) {
+                        customRange = false;
+                        this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')')
+                            .addClass('active').html();
+                    }
+                }
+                i++;
+            }
+            if (customRange) {
+                this.chosenLabel = this.container.find('.ranges li:last')
+                    .addClass('active').html();
+            }
+        },
+
+        buildCalendar: function (month, year, hour, minute, side) {
+            var firstDay = moment([year, month, 1]);
+            var lastMonth = moment(firstDay).subtract('month', 1).month();
+            var lastYear = moment(firstDay).subtract('month', 1).year();
+
+            var daysInLastMonth = moment([lastYear, lastMonth]).daysInMonth();
+
+            var dayOfWeek = firstDay.day();
+
+            var i;
+
+            //initialize a 6 rows x 7 columns array for the calendar
+            var calendar = [];
+            for (i = 0; i < 6; i++) {
+                calendar[i] = [];
+            }
+
+            //populate the calendar with date objects
+            var startDay = daysInLastMonth - dayOfWeek + this.locale.firstDay + 1;
+            if (startDay > daysInLastMonth)
+                startDay -= 7;
+
+            if (dayOfWeek == this.locale.firstDay)
+                startDay = daysInLastMonth - 6;
+
+            var curDate = moment([lastYear, lastMonth, startDay, 12, minute]);
+            var col, row;
+            for (i = 0, col = 0, row = 0; i < 42; i++, col++, curDate = moment(curDate).add('hour', 24)) {
+                if (i > 0 && col % 7 === 0) {
+                    col = 0;
+                    row++;
+                }
+                calendar[row][col] = curDate.clone().hour(hour);
+                curDate.hour(12);
+            }
+
+            return calendar;
+        },
+
+        renderDropdowns: function (selected, minDate, maxDate) {
+            var currentMonth = selected.month();
+            var monthHtml = '<select class="monthselect">';
+            var inMinYear = false;
+            var inMaxYear = false;
+
+            for (var m = 0; m < 12; m++) {
+                if ((!inMinYear || m >= minDate.month()) && (!inMaxYear || m <= maxDate.month())) {
+                    monthHtml += "<option value='" + m + "'" +
+                        (m === currentMonth ? " selected='selected'" : "") +
+                        ">" + this.locale.monthNames[m] + "</option>";
+                }
+            }
+            monthHtml += "</select>";
+
+            var currentYear = selected.year();
+            var maxYear = (maxDate && maxDate.year()) || (currentYear + 5);
+            var minYear = (minDate && minDate.year()) || (currentYear - 50);
+            var yearHtml = '<select class="yearselect">';
+
+            for (var y = minYear; y <= maxYear; y++) {
+                yearHtml += '<option value="' + y + '"' +
+                    (y === currentYear ? ' selected="selected"' : '') +
+                    '>' + y + '</option>';
+            }
+
+            yearHtml += '</select>';
+
+            return monthHtml + yearHtml;
+        },
+
+        renderCalendar: function (calendar, selected, minDate, maxDate) {
+
+            var html = '<div class="calendar-date">';
+            html += '<table class="table-condensed">';
+            html += '<thead>';
+            html += '<tr>';
+
+            // add empty cell for week number
+            if (this.showWeekNumbers)
+                html += '<th></th>';
+
+            if (!minDate || minDate.isBefore(calendar[1][1])) {
+                html += '<th class="prev available"><i class="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th>';
+            } else {
+                html += '<th></th>';
+            }
+
+            var dateHtml = this.locale.monthNames[calendar[1][1].month()] + calendar[1][1].format(" YYYY");
+
+            if (this.showDropdowns) {
+                dateHtml = this.renderDropdowns(calendar[1][1], minDate, maxDate);
+            }
+
+            html += '<th colspan="5" class="month">' + dateHtml + '</th>';
+            if (!maxDate || maxDate.isAfter(calendar[1][1])) {
+                html += '<th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th>';
+            } else {
+                html += '<th></th>';
+            }
+
+            html += '</tr>';
+            html += '<tr>';
+
+            // add week number label
+            if (this.showWeekNumbers)
+                html += '<th class="week">' + this.locale.weekLabel + '</th>';
+
+            $.each(this.locale.daysOfWeek, function (index, dayOfWeek) {
+                html += '<th>' + dayOfWeek + '</th>';
+            });
+
+            html += '</tr>';
+            html += '</thead>';
+            html += '<tbody>';
+
+            for (var row = 0; row < 6; row++) {
+                html += '<tr>';
+
+                // add week number
+                if (this.showWeekNumbers)
+                    html += '<td class="week">' + calendar[row][0].week() + '</td>';
+
+                for (var col = 0; col < 7; col++) {
+                    var cname = 'available ';
+                    cname += (calendar[row][col].month() == calendar[1][1].month()) ? '' : 'off';
+
+                    if ((minDate && calendar[row][col].isBefore(minDate, 'day')) || (maxDate && calendar[row][col].isAfter(maxDate, 'day'))) {
+                        cname = ' off disabled ';
+                    } else if (calendar[row][col].format('YYYY-MM-DD') == selected.format('YYYY-MM-DD')) {
+                        cname += ' active ';
+                        if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD')) {
+                            cname += ' start-date ';
+                        }
+                        if (calendar[row][col].format('YYYY-MM-DD') == this.endDate.format('YYYY-MM-DD')) {
+                            cname += ' end-date ';
+                        }
+                    } else if (calendar[row][col] >= this.startDate && calendar[row][col] <= this.endDate) {
+                        cname += ' in-range ';
+                        if (calendar[row][col].isSame(this.startDate)) { cname += ' start-date '; }
+                        if (calendar[row][col].isSame(this.endDate)) { cname += ' end-date '; }
+                    }
+
+                    var title = 'r' + row + 'c' + col;
+                    html += '<td class="' + cname.replace(/\s+/g, ' ').replace(/^\s?(.*?)\s?$/, '$1') + '" data-title="' + title + '">' + calendar[row][col].date() + '</td>';
+                }
+                html += '</tr>';
+            }
+
+            html += '</tbody>';
+            html += '</table>';
+            html += '</div>';
+
+            var i;
+            if (this.timePicker) {
+
+                html += '<div class="calendar-time">';
+                html += '<select class="hourselect">';
+                var start = 0;
+                var end = 23;
+                var selected_hour = selected.hour();
+                if (this.timePicker12Hour) {
+                    start = 1;
+                    end = 12;
+                    if (selected_hour >= 12)
+                        selected_hour -= 12;
+                    if (selected_hour === 0)
+                        selected_hour = 12;
+                }
+
+                for (i = start; i <= end; i++) {
+                    if (i == selected_hour) {
+                        html += '<option value="' + i + '" selected="selected">' + i + '</option>';
+                    } else {
+                        html += '<option value="' + i + '">' + i + '</option>';
+                    }
+                }
+
+                html += '</select> : ';
+
+                html += '<select class="minuteselect">';
+
+                for (i = 0; i < 60; i += this.timePickerIncrement) {
+                    var num = i;
+                    if (num < 10)
+                        num = '0' + num;
+                    if (i == selected.minute()) {
+                        html += '<option value="' + i + '" selected="selected">' + num + '</option>';
+                    } else {
+                        html += '<option value="' + i + '">' + num + '</option>';
+                    }
+                }
+
+                html += '</select> ';
+
+                if (this.timePicker12Hour) {
+                    html += '<select class="ampmselect">';
+                    if (selected.hour() >= 12) {
+                        html += '<option value="AM">AM</option><option value="PM" selected="selected">PM</option>';
+                    } else {
+                        html += '<option value="AM" selected="selected">AM</option><option value="PM">PM</option>';
+                    }
+                    html += '</select>';
+                }
+
+                html += '</div>';
+
+            }
+
+            return html;
+
+        },
+
+        remove: function() {
+
+            this.container.remove();
+            this.element.off('.daterangepicker');
+            this.element.removeData('daterangepicker');
+
+        }
+
+    };
+
+    $.fn.daterangepicker = function (options, cb) {
+        this.each(function () {
+            var el = $(this);
+            if (el.data('daterangepicker'))
+                el.data('daterangepicker').remove();
+            el.data('daterangepicker', new DateRangePicker(el, options, cb));
+        });
+        return this;
+    };
+
+}(window.jQuery, window.moment);
+/* ========================================================================
+ * bootstrap-switch - v3.3.2
+ * http://www.bootstrap-switch.org
+ * ========================================================================
+ * Copyright 2012-2013 Mattia Larentis
+ *
+ * ========================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================================
+ */
+
+
+(function() {
+  var __slice = [].slice;
+
+  (function($, window) {
+    "use strict";
+    var BootstrapSwitch;
+    BootstrapSwitch = (function() {
+      function BootstrapSwitch(element, options) {
+        if (options == null) {
+          options = {};
+        }
+        this.$element = $(element);
+        this.options = $.extend({}, $.fn.bootstrapSwitch.defaults, {
+          state: this.$element.is(":checked"),
+          size: this.$element.data("size"),
+          animate: this.$element.data("animate"),
+          disabled: this.$element.is(":disabled"),
+          readonly: this.$element.is("[readonly]"),
+          indeterminate: this.$element.data("indeterminate"),
+          inverse: this.$element.data("inverse"),
+          radioAllOff: this.$element.data("radio-all-off"),
+          onColor: this.$element.data("on-color"),
+          offColor: this.$element.data("off-color"),
+          onText: this.$element.data("on-text"),
+          offText: this.$element.data("off-text"),
+          labelText: this.$element.data("label-text"),
+          handleWidth: this.$element.data("handle-width"),
+          labelWidth: this.$element.data("label-width"),
+          baseClass: this.$element.data("base-class"),
+          wrapperClass: this.$element.data("wrapper-class")
+        }, options);
+        this.$wrapper = $("<div>", {
+          "class": (function(_this) {
+            return function() {
+              var classes;
+              classes = ["" + _this.options.baseClass].concat(_this._getClasses(_this.options.wrapperClass));
+              classes.push(_this.options.state ? "" + _this.options.baseClass + "-on" : "" + _this.options.baseClass + "-off");
+              if (_this.options.size != null) {
+                classes.push("" + _this.options.baseClass + "-" + _this.options.size);
+              }
+              if (_this.options.disabled) {
+                classes.push("" + _this.options.baseClass + "-disabled");
+              }
+              if (_this.options.readonly) {
+                classes.push("" + _this.options.baseClass + "-readonly");
+              }
+              if (_this.options.indeterminate) {
+                classes.push("" + _this.options.baseClass + "-indeterminate");
+              }
+              if (_this.options.inverse) {
+                classes.push("" + _this.options.baseClass + "-inverse");
+              }
+              if (_this.$element.attr("id")) {
+                classes.push("" + _this.options.baseClass + "-id-" + (_this.$element.attr("id")));
+              }
+              return classes.join(" ");
+            };
+          })(this)()
+        });
+        this.$container = $("<div>", {
+          "class": "" + this.options.baseClass + "-container"
+        });
+        this.$on = $("<span>", {
+          html: this.options.onText,
+          "class": "" + this.options.baseClass + "-handle-on " + this.options.baseClass + "-" + this.options.onColor
+        });
+        this.$off = $("<span>", {
+          html: this.options.offText,
+          "class": "" + this.options.baseClass + "-handle-off " + this.options.baseClass + "-" + this.options.offColor
+        });
+        this.$label = $("<span>", {
+          html: this.options.labelText,
+          "class": "" + this.options.baseClass + "-label"
+        });
+        this.$element.on("init.bootstrapSwitch", (function(_this) {
+          return function() {
+            return _this.options.onInit.apply(element, arguments);
+          };
+        })(this));
+        this.$element.on("switchChange.bootstrapSwitch", (function(_this) {
+          return function() {
+            return _this.options.onSwitchChange.apply(element, arguments);
+          };
+        })(this));
+        this.$container = this.$element.wrap(this.$container).parent();
+        this.$wrapper = this.$container.wrap(this.$wrapper).parent();
+        this.$element.before(this.options.inverse ? this.$off : this.$on).before(this.$label).before(this.options.inverse ? this.$on : this.$off);
+        if (this.options.indeterminate) {
+          this.$element.prop("indeterminate", true);
+        }
+        this._init();
+        this._elementHandlers();
+        this._handleHandlers();
+        this._labelHandlers();
+        this._formHandler();
+        this._externalLabelHandler();
+        this.$element.trigger("init.bootstrapSwitch");
+      }
+
+      BootstrapSwitch.prototype._constructor = BootstrapSwitch;
+
+      BootstrapSwitch.prototype.state = function(value, skip) {
+        if (typeof value === "undefined") {
+          return this.options.state;
+        }
+        if (this.options.disabled || this.options.readonly) {
+          return this.$element;
+        }
+        if (this.options.state && !this.options.radioAllOff && this.$element.is(":radio")) {
+          return this.$element;
+        }
+        if (this.options.indeterminate) {
+          this.indeterminate(false);
+        }
+        value = !!value;
+        this.$element.prop("checked", value).trigger("change.bootstrapSwitch", skip);
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.toggleState = function(skip) {
+        if (this.options.disabled || this.options.readonly) {
+          return this.$element;
+        }
+        if (this.options.indeterminate) {
+          this.indeterminate(false);
+          return this.state(true);
+        } else {
+          return this.$element.prop("checked", !this.options.state).trigger("change.bootstrapSwitch", skip);
+        }
+      };
+
+      BootstrapSwitch.prototype.size = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.size;
+        }
+        if (this.options.size != null) {
+          this.$wrapper.removeClass("" + this.options.baseClass + "-" + this.options.size);
+        }
+        if (value) {
+          this.$wrapper.addClass("" + this.options.baseClass + "-" + value);
+        }
+        this._width();
+        this._containerPosition();
+        this.options.size = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.animate = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.animate;
+        }
+        value = !!value;
+        if (value === this.options.animate) {
+          return this.$element;
+        }
+        return this.toggleAnimate();
+      };
+
+      BootstrapSwitch.prototype.toggleAnimate = function() {
+        this.options.animate = !this.options.animate;
+        this.$wrapper.toggleClass("" + this.options.baseClass + "-animate");
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.disabled = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.disabled;
+        }
+        value = !!value;
+        if (value === this.options.disabled) {
+          return this.$element;
+        }
+        return this.toggleDisabled();
+      };
+
+      BootstrapSwitch.prototype.toggleDisabled = function() {
+        this.options.disabled = !this.options.disabled;
+        this.$element.prop("disabled", this.options.disabled);
+        this.$wrapper.toggleClass("" + this.options.baseClass + "-disabled");
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.readonly = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.readonly;
+        }
+        value = !!value;
+        if (value === this.options.readonly) {
+          return this.$element;
+        }
+        return this.toggleReadonly();
+      };
+
+      BootstrapSwitch.prototype.toggleReadonly = function() {
+        this.options.readonly = !this.options.readonly;
+        this.$element.prop("readonly", this.options.readonly);
+        this.$wrapper.toggleClass("" + this.options.baseClass + "-readonly");
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.indeterminate = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.indeterminate;
+        }
+        value = !!value;
+        if (value === this.options.indeterminate) {
+          return this.$element;
+        }
+        return this.toggleIndeterminate();
+      };
+
+      BootstrapSwitch.prototype.toggleIndeterminate = function() {
+        this.options.indeterminate = !this.options.indeterminate;
+        this.$element.prop("indeterminate", this.options.indeterminate);
+        this.$wrapper.toggleClass("" + this.options.baseClass + "-indeterminate");
+        this._containerPosition();
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.inverse = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.inverse;
+        }
+        value = !!value;
+        if (value === this.options.inverse) {
+          return this.$element;
+        }
+        return this.toggleInverse();
+      };
+
+      BootstrapSwitch.prototype.toggleInverse = function() {
+        var $off, $on;
+        this.$wrapper.toggleClass("" + this.options.baseClass + "-inverse");
+        $on = this.$on.clone(true);
+        $off = this.$off.clone(true);
+        this.$on.replaceWith($off);
+        this.$off.replaceWith($on);
+        this.$on = $off;
+        this.$off = $on;
+        this.options.inverse = !this.options.inverse;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.onColor = function(value) {
+        var color;
+        color = this.options.onColor;
+        if (typeof value === "undefined") {
+          return color;
+        }
+        if (color != null) {
+          this.$on.removeClass("" + this.options.baseClass + "-" + color);
+        }
+        this.$on.addClass("" + this.options.baseClass + "-" + value);
+        this.options.onColor = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.offColor = function(value) {
+        var color;
+        color = this.options.offColor;
+        if (typeof value === "undefined") {
+          return color;
+        }
+        if (color != null) {
+          this.$off.removeClass("" + this.options.baseClass + "-" + color);
+        }
+        this.$off.addClass("" + this.options.baseClass + "-" + value);
+        this.options.offColor = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.onText = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.onText;
+        }
+        this.$on.html(value);
+        this._width();
+        this._containerPosition();
+        this.options.onText = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.offText = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.offText;
+        }
+        this.$off.html(value);
+        this._width();
+        this._containerPosition();
+        this.options.offText = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.labelText = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.labelText;
+        }
+        this.$label.html(value);
+        this._width();
+        this.options.labelText = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.handleWidth = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.handleWidth;
+        }
+        this.options.handleWidth = value;
+        this._width();
+        this._containerPosition();
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.labelWidth = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.labelWidth;
+        }
+        this.options.labelWidth = value;
+        this._width();
+        this._containerPosition();
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.baseClass = function(value) {
+        return this.options.baseClass;
+      };
+
+      BootstrapSwitch.prototype.wrapperClass = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.wrapperClass;
+        }
+        if (!value) {
+          value = $.fn.bootstrapSwitch.defaults.wrapperClass;
+        }
+        this.$wrapper.removeClass(this._getClasses(this.options.wrapperClass).join(" "));
+        this.$wrapper.addClass(this._getClasses(value).join(" "));
+        this.options.wrapperClass = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.radioAllOff = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.radioAllOff;
+        }
+        value = !!value;
+        if (value === this.options.radioAllOff) {
+          return this.$element;
+        }
+        this.options.radioAllOff = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.onInit = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.onInit;
+        }
+        if (!value) {
+          value = $.fn.bootstrapSwitch.defaults.onInit;
+        }
+        this.options.onInit = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.onSwitchChange = function(value) {
+        if (typeof value === "undefined") {
+          return this.options.onSwitchChange;
+        }
+        if (!value) {
+          value = $.fn.bootstrapSwitch.defaults.onSwitchChange;
+        }
+        this.options.onSwitchChange = value;
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype.destroy = function() {
+        var $form;
+        $form = this.$element.closest("form");
+        if ($form.length) {
+          $form.off("reset.bootstrapSwitch").removeData("bootstrap-switch");
+        }
+        this.$container.children().not(this.$element).remove();
+        this.$element.unwrap().unwrap().off(".bootstrapSwitch").removeData("bootstrap-switch");
+        return this.$element;
+      };
+
+      BootstrapSwitch.prototype._width = function() {
+        var $handles, handleWidth;
+        $handles = this.$on.add(this.$off);
+        $handles.add(this.$label).css("width", "");
+        handleWidth = this.options.handleWidth === "auto" ? Math.max(this.$on.width(), this.$off.width()) : this.options.handleWidth;
+        $handles.width(handleWidth);
+        this.$label.width((function(_this) {
+          return function(index, width) {
+            if (_this.options.labelWidth !== "auto") {
+              return _this.options.labelWidth;
+            }
+            if (width < handleWidth) {
+              return handleWidth;
+            } else {
+              return width;
+            }
+          };
+        })(this));
+        this._handleWidth = this.$on.outerWidth();
+        this._labelWidth = this.$label.outerWidth();
+        this.$container.width((this._handleWidth * 2) + this._labelWidth);
+        return this.$wrapper.width(this._handleWidth + this._labelWidth);
+      };
+
+      BootstrapSwitch.prototype._containerPosition = function(state, callback) {
+        if (state == null) {
+          state = this.options.state;
+        }
+        this.$container.css("margin-left", (function(_this) {
+          return function() {
+            var values;
+            values = [0, "-" + _this._handleWidth + "px"];
+            if (_this.options.indeterminate) {
+              return "-" + (_this._handleWidth / 2) + "px";
+            }
+            if (state) {
+              if (_this.options.inverse) {
+                return values[1];
+              } else {
+                return values[0];
+              }
+            } else {
+              if (_this.options.inverse) {
+                return values[0];
+              } else {
+                return values[1];
+              }
+            }
+          };
+        })(this));
+        if (!callback) {
+          return;
+        }
+        return setTimeout(function() {
+          return callback();
+        }, 50);
+      };
+
+      BootstrapSwitch.prototype._init = function() {
+        var init, initInterval;
+        init = (function(_this) {
+          return function() {
+            _this._width();
+            return _this._containerPosition(null, function() {
+              if (_this.options.animate) {
+                return _this.$wrapper.addClass("" + _this.options.baseClass + "-animate");
+              }
+            });
+          };
+        })(this);
+        if (this.$wrapper.is(":visible")) {
+          return init();
+        }
+        return initInterval = window.setInterval((function(_this) {
+          return function() {
+            if (_this.$wrapper.is(":visible")) {
+              init();
+              return window.clearInterval(initInterval);
+            }
+          };
+        })(this), 50);
+      };
+
+      BootstrapSwitch.prototype._elementHandlers = function() {
+        return this.$element.on({
+          "change.bootstrapSwitch": (function(_this) {
+            return function(e, skip) {
+              var state;
+              e.preventDefault();
+              e.stopImmediatePropagation();
+              state = _this.$element.is(":checked");
+              _this._containerPosition(state);
+              if (state === _this.options.state) {
+                return;
+              }
+              _this.options.state = state;
+              _this.$wrapper.toggleClass("" + _this.options.baseClass + "-off").toggleClass("" + _this.options.baseClass + "-on");
+              if (!skip) {
+                if (_this.$element.is(":radio")) {
+                  $("[name='" + (_this.$element.attr('name')) + "']").not(_this.$element).prop("checked", false).trigger("change.bootstrapSwitch", true);
+                }
+                return _this.$element.trigger("switchChange.bootstrapSwitch", [state]);
+              }
+            };
+          })(this),
+          "focus.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              e.preventDefault();
+              return _this.$wrapper.addClass("" + _this.options.baseClass + "-focused");
+            };
+          })(this),
+          "blur.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              e.preventDefault();
+              return _this.$wrapper.removeClass("" + _this.options.baseClass + "-focused");
+            };
+          })(this),
+          "keydown.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              if (!e.which || _this.options.disabled || _this.options.readonly) {
+                return;
+              }
+              switch (e.which) {
+                case 37:
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+                  return _this.state(false);
+                case 39:
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+                  return _this.state(true);
+              }
+            };
+          })(this)
+        });
+      };
+
+      BootstrapSwitch.prototype._handleHandlers = function() {
+        this.$on.on("click.bootstrapSwitch", (function(_this) {
+          return function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            _this.state(false);
+            return _this.$element.trigger("focus.bootstrapSwitch");
+          };
+        })(this));
+        return this.$off.on("click.bootstrapSwitch", (function(_this) {
+          return function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            _this.state(true);
+            return _this.$element.trigger("focus.bootstrapSwitch");
+          };
+        })(this));
+      };
+
+      BootstrapSwitch.prototype._labelHandlers = function() {
+        return this.$label.on({
+          "mousedown.bootstrapSwitch touchstart.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              if (_this._dragStart || _this.options.disabled || _this.options.readonly) {
+                return;
+              }
+              e.preventDefault();
+              e.stopPropagation();
+              _this._dragStart = (e.pageX || e.originalEvent.touches[0].pageX) - parseInt(_this.$container.css("margin-left"), 10);
+              if (_this.options.animate) {
+                _this.$wrapper.removeClass("" + _this.options.baseClass + "-animate");
+              }
+              return _this.$element.trigger("focus.bootstrapSwitch");
+            };
+          })(this),
+          "mousemove.bootstrapSwitch touchmove.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              var difference;
+              if (_this._dragStart == null) {
+                return;
+              }
+              e.preventDefault();
+              difference = (e.pageX || e.originalEvent.touches[0].pageX) - _this._dragStart;
+              if (difference < -_this._handleWidth || difference > 0) {
+                return;
+              }
+              _this._dragEnd = difference;
+              return _this.$container.css("margin-left", "" + _this._dragEnd + "px");
+            };
+          })(this),
+          "mouseup.bootstrapSwitch touchend.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              var state;
+              if (!_this._dragStart) {
+                return;
+              }
+              e.preventDefault();
+              if (_this.options.animate) {
+                _this.$wrapper.addClass("" + _this.options.baseClass + "-animate");
+              }
+              if (_this._dragEnd) {
+                state = _this._dragEnd > -(_this._handleWidth / 2);
+                _this._dragEnd = false;
+                _this.state(_this.options.inverse ? !state : state);
+              } else {
+                _this.state(!_this.options.state);
+              }
+              return _this._dragStart = false;
+            };
+          })(this),
+          "mouseleave.bootstrapSwitch": (function(_this) {
+            return function(e) {
+              return _this.$label.trigger("mouseup.bootstrapSwitch");
+            };
+          })(this)
+        });
+      };
+
+      BootstrapSwitch.prototype._externalLabelHandler = function() {
+        var $externalLabel;
+        $externalLabel = this.$element.closest("label");
+        return $externalLabel.on("click", (function(_this) {
+          return function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            if (event.target === $externalLabel[0]) {
+              return _this.toggleState();
+            }
+          };
+        })(this));
+      };
+
+      BootstrapSwitch.prototype._formHandler = function() {
+        var $form;
+        $form = this.$element.closest("form");
+        if ($form.data("bootstrap-switch")) {
+          return;
+        }
+        return $form.on("reset.bootstrapSwitch", function() {
+          return window.setTimeout(function() {
+            return $form.find("input").filter(function() {
+              return $(this).data("bootstrap-switch");
+            }).each(function() {
+              return $(this).bootstrapSwitch("state", this.checked);
+            });
+          }, 1);
+        }).data("bootstrap-switch", true);
+      };
+
+      BootstrapSwitch.prototype._getClasses = function(classes) {
+        var c, cls, _i, _len;
+        if (!$.isArray(classes)) {
+          return ["" + this.options.baseClass + "-" + classes];
+        }
+        cls = [];
+        for (_i = 0, _len = classes.length; _i < _len; _i++) {
+          c = classes[_i];
+          cls.push("" + this.options.baseClass + "-" + c);
+        }
+        return cls;
+      };
+
+      return BootstrapSwitch;
+
+    })();
+    $.fn.bootstrapSwitch = function() {
+      var args, option, ret;
+      option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      ret = this;
+      this.each(function() {
+        var $this, data;
+        $this = $(this);
+        data = $this.data("bootstrap-switch");
+        if (!data) {
+          $this.data("bootstrap-switch", data = new BootstrapSwitch(this, option));
+        }
+        if (typeof option === "string") {
+          return ret = data[option].apply(data, args);
+        }
+      });
+      return ret;
+    };
+    $.fn.bootstrapSwitch.Constructor = BootstrapSwitch;
+    return $.fn.bootstrapSwitch.defaults = {
+      state: true,
+      size: null,
+      animate: true,
+      disabled: false,
+      readonly: false,
+      indeterminate: false,
+      inverse: false,
+      radioAllOff: false,
+      onColor: "primary",
+      offColor: "default",
+      onText: "ON",
+      offText: "OFF",
+      labelText: "&nbsp;",
+      handleWidth: "auto",
+      labelWidth: "auto",
+      baseClass: "bootstrap-switch",
+      wrapperClass: "wrapper",
+      onInit: function() {},
+      onSwitchChange: function() {}
+    };
+  })(window.jQuery, window);
+
+}).call(this);
 $(document).ready(function() {
     $('form.new_contact_group, form.edit_contact_group').on('submit', function(e) {
         var errors = [];
@@ -16456,12 +20594,23 @@ $(document).ready(function() {
         typeahead: {
             source: groups
         },
-        freeInput: true
+        trimValue: true
     });
 
     $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
     $('form#contacts-filters div.bootstrap-tagsinput input').css('width', 'auto !important')
         .css('height', '32px').css('line-height', '1.42857').css('padding', '6px 12px !important');
+
+    $('form#contacts-filters').on('submit', function(e) {
+        e.preventDefault();
+        // var rows_val = $(this).find('option:selected').val();
+        var active_page = $('#main-content').find('ul.pagination li.active a');
+
+        // var per_page = typeof rows_val != 'undefined' ? rows_val : $(this).find('option:first-child').val();
+        var page = typeof active_page.text() != 'undefined' ? active_page.text() : 1;
+
+        properLink(page);
+    });
 
     $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {
         var metadata_column = $(this).attr('rel');
@@ -16694,6 +20843,44 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function properLink(page) {
+    var protocol = window.location.protocol;
+    var host = window.location.host;
+    var path = window.location.pathname;
+    var params = '';
+
+    params = '?' + additional_fields();
+    params = params + search_filters();
+
+    // params += '?limit=' + per_page;
+    params += '&page=' + page;
+
+    Turbolinks.visit(protocol + '//' + host + path + params);
+}
+
+function additional_fields() {
+    var additional_params = '';
+    if(typeof $('form.additional-fields') != 'undefined') {
+        var check_val = 0;
+
+        $('form.additional-fields div.checkbox-js').each(function(index) {
+            check_val = $(this).find('input[type="checkbox"]').is(':checked') ? 1 : 0;
+            additional_params += $(this).attr('rel') + '=' + check_val + '&';
+        });
+    }
+
+    return additional_params;
+}
+
+function search_filters() {
+    var search_params = '';
+    if(typeof $('form.search-filters') != 'undefined') {
+        search_params = $('form.search-filters').serialize();
+    }
+
+    return search_params;
+}
+
 /**
  * Initializes a new Dropzone element.
  * @param {object} dropzoneArea - The area which will be used to drop files. Ex. document.body
@@ -16757,14 +20944,65 @@ function initializeDropzone(dropzoneArea, dropzoneOptions) {
     };
 }
 ;
-(function() {
-
-
-}).call(this);
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 ;
+$(document).ready(function() {
+    $('input#sms-campaign-valid-datetime').daterangepicker({
+        "timePicker": true,
+        "timePicker24Hour": true,
+        "timePickerSeconds": true,
+        ranges: {
+            'Today': [moment(), moment()],
+            'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
+            'Next 7 Days': [moment(), moment().add(6, 'days')],
+            'Next 30 Days': [moment(), moment().add(29, 'days')],
+            'This Month': [moment(), moment().endOf('month')],
+            'Next Month': [moment().add(1, 'month').startOf('month'), moment().add(1, 'month').endOf('month')]
+        },
+        "locale": {
+            "format": "YYYY/MM/DD",
+            "separator": " - ",
+            "applyLabel": "Apply",
+            "cancelLabel": "Cancel",
+            "fromLabel": "From",
+            "toLabel": "To",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": [
+                "Su",
+                "Mo",
+                "Tu",
+                "We",
+                "Th",
+                "Fr",
+                "Sa"
+            ],
+            "monthNames": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ],
+            "firstDay": 1
+        },
+        "startDate": moment(),
+        "endDate": moment().add(1, 'days')
+    }, function(start, end, label) {
+        console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+
+    });
+
+    $("input#restricted-hours-switch").bootstrapSwitch();
+});
 $(document).ready(function(){
     $('#user-metadata').tagsinput({
         tagClass: 'tag label label-primary',
@@ -16797,6 +21035,9 @@ $(document).ready(function(){
 
 
 
+
+
+
 $(document).on("submit", "form[data-turboform]", function(e) {
     Turbolinks.visit(this.action+(this.action.indexOf('?') == -1 ? '?' : '&')+$(this).serialize());
     return false;
@@ -16810,29 +21051,29 @@ $(document).ready(function(){
     });
 
     $('#main-content').on('change', 'select#rows-per-page', function(){
-        var rows_val = $(this).find('option:selected').val();
+        // var rows_val = $(this).find('option:selected').val();
         var active_page = $('#main-content').find('ul.pagination li.active a');
 
-        var per_page = typeof rows_val != 'undefined' ? rows_val : $(this).find('option:first-child').val();
+        // var per_page = typeof rows_val != 'undefined' ? rows_val : $(this).find('option:first-child').val();
         var page = typeof active_page.text() != 'undefined' ? active_page.text() : 1;
 
-        properLink(page, per_page);
+        properLink(page);
     });
 
     $('ul.pagination li a').on('click', function(e) {
         e.preventDefault();
 
-        var rows_pp = $('#main-content').find('select#rows-per-page');
+        // var rows_pp = $('#main-content').find('select#rows-per-page');
         var page_href = $(this).attr('href');
         var page_start = page_href.indexOf('page=') != -1 ? page_href.indexOf('page=') + 5 : page_href.length;
-        var page_end = page_href.substring(page_start).indexOf('&') != -1 ? page_href.substring(page_start).indexOf('&') : page_href.length;
+        var page_end = page_href.substring(page_start).indexOf('&') != -1 ? page_start + page_href.substring(page_start).indexOf('&') : page_href.length;
         var active_page = empty(page_href.substring(page_start, page_end)) ? undefined : page_href.substring(page_start, page_end);
 
-        var per_page = typeof rows_pp.find('option:selected').val() != 'undefined' ?
-                            rows_pp.find('option:selected').val() : rows_pp.find('option:first-child').val();
+        // var per_page = typeof rows_pp.find('option:selected').val() != 'undefined' ?
+        //                    rows_pp.find('option:selected').val() : rows_pp.find('option:first-child').val();
         var page = typeof active_page != 'undefined' ? active_page : 1;
 
-        properLink(page, per_page);
+        properLink(page);
     });
 
     var window_params = window.location.search;
@@ -16856,34 +21097,6 @@ $(document).ready(function(){
                 }
             }
         });
-    }
-
-    function properLink(page, per_page) {
-        var protocol = window.location.protocol;
-        var host = window.location.host;
-        var path = window.location.pathname;
-        var params = '';
-
-        params += '?limit=' + per_page;
-        params += '&page=' + page;
-
-        params = params + additional_fields();
-
-        Turbolinks.visit(protocol + '//' + host + path + params);
-    }
-
-    function additional_fields() {
-        var additional_params = '';
-        if(typeof $('form.additional-fields') != 'undefined') {
-            var check_val = 0;
-
-            $('form.additional-fields div.checkbox-js').each(function(index) {
-                check_val = $(this).find('input[type="checkbox"]').is(':checked') ? 1 : 0;
-                additional_params += '&' + $(this).attr('rel') + '=' + check_val;
-            });
-        }
-
-        return additional_params;
     }
 
     $('.select-all').on('click', function() {

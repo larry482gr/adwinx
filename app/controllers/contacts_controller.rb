@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   include ActionController::Live
   include ContactsHelper
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :belonging_groups]
 
   # GET /contacts

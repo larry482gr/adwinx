@@ -8,3 +8,6 @@ en:
         create: "Create Group"
         update: "Update Group"
         remove_contacts: "Remove from Group"
+      sms_campaign:
+        create: "Create Campaign"
+        update: "Update Campaign"

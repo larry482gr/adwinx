@@ -4,11 +4,16 @@ gr:
       user:
         one: 'Χρήστης'
         other: 'Χρήστες'
+      sms_campaign:
+        one: 'Καμπάνια SMS'
+        other: 'Καμπάνιες SMS'
     attributes:
       user:
         email: 'Ηλεκτρονικό ταχυδρομίο (email)'
         password: 'Κωδικός πρόσβασης'
         remember_me: 'Θυμήσου με! :P'
+      sms_campaign:
+        label: 'Επιγραφή'
 
   mongoid:
     models:

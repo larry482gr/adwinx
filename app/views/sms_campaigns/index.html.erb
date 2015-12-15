@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sms Campaigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Account</th>
+      <th>Label</th>
+      <th>Originator</th>
+      <th>Msg body</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Restriction start date</th>
+      <th>Restriction end date</th>
+      <th>Encoding</th>
+      <th>On screen</th>
+      <th>Total sms</th>
+      <th>Sent to box</th>
+      <th>Finished</th>
+      <th>State</th>
+      <th>Estimated cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sms_campaigns.each do |sms_campaign| %>
+      <tr>
+        <td><%= sms_campaign.user %></td>
+        <td><%= sms_campaign.account_id %></td>
+        <td><%= sms_campaign.label %></td>
+        <td><%= sms_campaign.originator %></td>
+        <td><%= sms_campaign.msg_body %></td>
+        <td><%= sms_campaign.start_date %></td>
+        <td><%= sms_campaign.end_date %></td>
+        <td><%= sms_campaign.restriction_start_date %></td>
+        <td><%= sms_campaign.restriction_end_date %></td>
+        <td><%= sms_campaign.encoding %></td>
+        <td><%= sms_campaign.on_screen %></td>
+        <td><%= sms_campaign.total_sms %></td>
+        <td><%= sms_campaign.sent_to_box %></td>
+        <td><%= sms_campaign.finished %></td>
+        <td><%= sms_campaign.state %></td>
+        <td><%= sms_campaign.estimated_cost %></td>
+        <td><%= link_to 'Show', sms_campaign %></td>
+        <td><%= link_to 'Edit', edit_sms_campaign_path(sms_campaign) %></td>
+        <td><%= link_to 'Destroy', sms_campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sms campaign', new_sms_campaign_path %>
