@@ -35,9 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Access translation strings in Javascript
 gem 'i18n-js'
 
-# Bootstrap daterange picker
+# MomentJS Javascript datetime and timezone manipulation
 gem 'momentjs-rails'
-gem 'rails-bootstrap-daterangepicker'
+gem 'tzinfo'
 
 gem 'bootstrap-switch-rails'
 

@@ -180,9 +180,11 @@ class ContactsController < ApplicationController
     deleted = Contact.where(uid: current_user.id).in(:_id => contact_ids).delete_all
 
     Cashier.expire "contacts-filter-#{current_user.id}"
+    notice = "#{deleted} #{(t :contacts_deleted)}"
+
     respond_to do |format|
-      format.js {}
-      format.json { render json: { deleted: deleted } }
+      format.html { redirect_to contacts_url, notice: notice }
+      format.json { head :no_content }
     end
   end
 

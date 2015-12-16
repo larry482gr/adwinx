@@ -39,13 +39,13 @@ ActiveRecord::Schema.define(version: 20151214133741) do
     t.datetime "updated_at",                                                                    null: false
   end
 
-  create_table "sms_campaigns_recipients", force: :cascade do |t|
+  create_table "sms_recipient_lists", force: :cascade do |t|
     t.integer "sms_campaign_id", limit: 4
     t.text    "contacts",        limit: 65535, comment: "Array of phone numbers and/or contact ids"
     t.text    "contact_groups",  limit: 65535, comment: "Array of contact_group ids"
   end
 
-  add_index "sms_campaigns_recipients", ["sms_campaign_id"], name: "idx_sms_campaign_id", using: :btree
+  add_index "sms_recipient_lists", ["sms_campaign_id"], name: "idx_sms_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -75,6 +75,6 @@ ActiveRecord::Schema.define(version: 20151214133741) do
   add_index "users", ["language_id"], name: "index_users_on_language_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "sms_campaigns_recipients", "sms_campaigns"
+  add_foreign_key "sms_recipient_lists", "sms_campaigns"
   add_foreign_key "users", "languages"
 end

@@ -32,7 +32,7 @@
         <th class="center cell-sm" scope="row"><div><%= i = i.to_i + 1 %></div></th>
         <td class="center cell-sm">
           <input type="checkbox" class="resource-check contact-check" data-resource="contact"
-                 name="contact[contact_ids][]" value="<%= contact[:_id] %>">
+                 name="contact[contact_ids][]" value="<%= contact[:_id] %>" autocomplete="off">
         </td>
         <%- @metadata.each do |meta_field| %>
             <td class="clickable <%= "#{meta_field} #{hidden}" %>"><%= contact['contact_profile'][meta_field] %></td>

@@ -26,7 +26,11 @@ class SmsCampaignsController < ApplicationController
   # POST /sms_campaigns
   # POST /sms_campaigns.json
   def create
+    # pars = sms_campaign_params
+    # recipients  = pars.delete(:sms_campaign_recipients_attributes)
+    # camp_pars   = pars
     @sms_campaign = SmsCampaign.new(sms_campaign_params)
+    # @sms_campaign.sms_recipient_list.new(recipients)
 
     respond_to do |format|
       if @sms_campaign.save
@@ -74,6 +78,7 @@ class SmsCampaignsController < ApplicationController
       params.require(:sms_campaign).permit(:label, :originator, :msg_body,
                                            :start_date, :end_date,
                                            :restriction_start_date, :restriction_end_date,
-                                           :encoding, :on_screen, :state)
+                                           :encoding, :on_screen, :state,
+                                           :sms_recipient_list_attributes => { contacts: [], contact_groups: [] })
     end
 end

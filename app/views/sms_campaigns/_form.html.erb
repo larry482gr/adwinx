@@ -19,12 +19,27 @@
     <%= f.label :originator %><br>
     <%= f.text_field :originator %>
   </div>
+  <%= fields_for :sms_campaign_recipients do |rec| %>
+    <div class="field">
+      <%= rec.label :contacts %><br>
+      <select multiple class="form-control" id="sms-campaign-contacts"
+              name="sms_campaign[sms_recipient_list_attributes][contacts][]" autocomplete="off" data-provide="typeahead">
+      </select>
+    </div>
+    <div class="field">
+      <%= rec.label :contact_groups %><br>
+      <select multiple class="form-control" id="sms-campaign-contact-groups"
+              name="sms_campaign[sms_recipient_list_attributes][contact_groups][]" autocomplete="off" data-provide="typeahead">
+      </select>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :msg_body %><br>
     <%= f.text_area :msg_body %>
   </div>
   <div class="field">
     <%= f.label 'Valid From - To' %><img src="/assets/help.png" class="help-icon" id="campaign-valid-help" alt="Help" /> <br>
+    <%= time_zone_select 'campaign', 'time_zone', TZInfo::Timezone.all %> <br>
     <input type="text" name="valid_datetime" id="sms-campaign-valid-datetime" />
     <%= f.hidden_field :start_date %>
     <%= f.hidden_field :end_date %>
@@ -32,15 +47,16 @@
   <div class="field">
     <%= f.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
     <input type="checkbox" id="restricted-hours-switch"><br>
-    <%= f.time_select :restriction_start_date %> - <%= f.time_select :restriction_end_date %>
+    <%= f.time_select :restriction_start_date, {minute_step: 15}, disabled: true %> -
+    <%= f.time_select :restriction_end_date, {minute_step: 15}, disabled: true %>
   </div>
   <div class="field">
     <%= f.label :encoding, 'Unicode' %><br>
-    <%= f.check_box :encoding, value: '' %>
+    <%= f.check_box :encoding %>
   </div>
   <div class="field">
     <%= f.label :on_screen, 'Splash' %><br>
-    <%= f.check_box :on_screen, value: '0' %>
+    <%= f.check_box :on_screen %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>

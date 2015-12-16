@@ -7,6 +7,7 @@ en:
   edit_contact: 'Edit Contact'
   contact_del_confirm: "Delete contact \"%contact%\"?\n\n"
   total_contacts: 'Total contacts'
+  contacts_deleted: "contacts successfully deleted"
 
   contact_form:
     prefix_required: "Contact Country Code can't be blank"

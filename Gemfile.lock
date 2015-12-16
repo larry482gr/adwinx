@@ -260,7 +260,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.4)
       sprockets-rails
-    rails-bootstrap-daterangepicker (0.1.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -452,7 +451,6 @@ DEPENDENCIES
   quiet_assets
   rack-cache
   rails (= 4.2.4)
-  rails-bootstrap-daterangepicker
   rails-observers
   recaptcha
   rename
@@ -470,6 +468,7 @@ DEPENDENCIES
   spring
   sqlite3
   turbolinks
+  tzinfo
   uglifier (>= 1.3.0)
   uuidtools
   web-console (~> 2.1.3)
