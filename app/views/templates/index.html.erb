@@ -1,0 +1,47 @@
+<h1><%= (t :list_templates) %><span class="help-block"><%= "#{(t 'total_templates')}: #{@templates.size}" %></span></h1>
+
+<div class="col-md-12 above-list">
+    <div class="col-md-6 col-sm12 templates-list-links">
+        <%= link_to (t :new_template), new_template_path %>
+    </div>
+<!-- ### <%# <div class="col-md-6 col-sm12"> <%= render 'additional_fields' %> </div> %> ### -->
+</div>
+
+<%= render 'list' unless @templates.blank? %>
+
+<!-- <%#
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Templates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Account</th>
+      <th>Label</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= template.uid %></td>
+        <td><%= template.account_id %></td>
+        <td><%= template.label %></td>
+        <td><%= template.msg_body %></td>
+        <td><%= link_to 'Show', template %></td>
+        <td><%= link_to 'Edit', edit_template_path(template) %></td>
+        <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Template', new_template_path %>
+
+%> -->
