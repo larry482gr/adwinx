@@ -1,0 +1,16 @@
+<div class="entiry-action" id="templates-bulk-actions">
+  <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action select-all',
+                                   id: 'select-all-templates', data: { resource: 'template' } } %>
+  <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action select-page',
+                                    id: 'select-page-templates',  data: { resource: 'template' } } %>
+  <%= form_tag '/templates/bulk_delete', method: :delete, class: 'form-inline list-resource', id: 'delete-templates' %>
+    <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
+                                          id: 'uncheck-selected-templates',  data: { resource: 'template' } } %>
+    <% @templates.each do |template| %>
+        <input type="checkbox" class="resource-check contact-check hidden" data-resource="template"
+               name="template[template_ids][]" value="<%= template[:_id] %>">
+    <% end %>
+    <%= button_tag (t :delete_selected), { type: :submit, class: 'btn btn-xs btn-danger resource-action delete-selected',
+                                           id: 'delete-selected-templates', data: { resource: 'template' } } %>
+  </form>
+</div>

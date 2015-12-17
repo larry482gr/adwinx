@@ -94,20 +94,28 @@ class TemplatesController < ApplicationController
       deleted = Template.where(uid: current_user.id).in(:_id => template_ids).delete_all
 
       respond_to do |format|
-        format.js {}
-        format.json { render json: { deleted: deleted } }
+          format.html { redirect_to templates_url, notice: notice }
+          format.json { head :no_content }
       end
     end
 
     private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_template
-        @template = Template.find(params[:id])
-    end
+        # Use callbacks to share common setup or constraints between actions.
+        #def set_template
+        #    @template = Template.find(params[:id])
+        #end
+        def set_template
+          begin
+            @template = Template.find_by(:_id => params[:id], :uid => current_user.id)
+          rescue Mongoid::Errors::DocumentNotFound => e
+            debug_inspect "Mongoid::Errors::DocumentNotFound: message: Document not found for class Template with attributes {:_id=>\"#{params[:id]}\", :uid=>#{current_user.id}}."
+            redirect_to templates_url, alert: 'Documents Not Found!' and return
+          end
+        end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def template_params
-        params.require(:template).permit(:user_id, :account_id, :label, :msg_body)
-    end
+        # Never trust parameters from the scary internet, only allow the white list through.
+        def template_params
+            params.require(:template).permit(:uid, :account_id, :label, :msg_body)
+        end
 
 end
