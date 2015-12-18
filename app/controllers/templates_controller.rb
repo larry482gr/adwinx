@@ -27,28 +27,28 @@ class TemplatesController < ApplicationController
       # POST /templates
       # POST /templates.json
     def create
-    @template = Template.new(template_params)
-    @template.uid = current_user.id
+        @template = Template.new(template_params)
+        @template.uid = current_user.id
 
-    respond_to do |format|
-      begin
-        if @template.save
-          format.html { redirect_to templates_path, notice: 'Template was successfully created.' }
-          format.json { render templates_path, status: :created }
-        else
-          format.html { render :new }
-          format.json { render json: @template.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          begin
+            if @template.save
+              format.html { redirect_to templates_path, notice: 'Template was successfully created.' }
+              format.json { render templates_path, status: :created }
+            else
+              format.html { render :new }
+              format.json { render json: @template.errors, status: :unprocessable_entity }
+            end
+          rescue Mongo::Error::OperationFailure => exception
+            @template = duplicate_group
+
+            error = (t 'mongoid.errors.template.duplicate_val').gsub('%label%', @template.label)
+            @template.errors[t 'mongoid.errors.template.duplicate_key'] = error
+
+            format.html { render :edit }
+            format.json { render json: @template.errors, status: :unprocessable_entity }
+          end
         end
-      rescue Mongo::Error::OperationFailure => exception
-        @template = duplicate_group
-
-        error = (t 'mongoid.errors.template.duplicate_val').gsub('%label%', @template.label)
-        @template.errors[t 'mongoid.errors.template.duplicate_key'] = error
-
-        format.html { render :edit }
-        format.json { render json: @template.errors, status: :unprocessable_entity }
-      end
-    end
     end
 
     # PATCH/PUT /templates/1
@@ -115,7 +115,7 @@ class TemplatesController < ApplicationController
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def template_params
-            params.require(:template).permit(:uid, :account_id, :label, :msg_body)
+            params.require(:template).permit(:uid, :account_id, :label, :msg_body, { template_ids: [] })
         end
 
 end
