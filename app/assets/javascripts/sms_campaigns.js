@@ -149,12 +149,18 @@ $(document).ready(function() {
         });
 
         $('input#sms-campaign-valid-datetime').on('apply.daterangepicker', function(ev, picker) {
-            $('p#valid-datetime-help').show()
-                .html(picker.startDate.format('YYYY/MM/DD HH:mm') + ' - ' + picker.endDate.format('YYYY/MM/DD HH:mm') + ' (local time)<br>' +
-                      picker.startDate.utc().format('YYYY/MM/DD HH:mm') + ' - ' + picker.endDate.utc().format('YYYY/MM/DD HH:mm') + ' (UTC)');
+            start   = picker.startDate;
+            end     = picker.endDate;
 
-            $('input#sms_campaign_start_date').val((picker.startDate.utc().valueOf()/1000));
-            $('input#sms_campaign_end_date').val((picker.endDate.utc().valueOf()/1000));
+            startUnix   = start.unix();
+            endUnix     = end.unix();
+
+            $('p#valid-datetime-help').show()
+                .html(start.format('YYYY/MM/DD HH:mm') + ' - ' + end.format('YYYY/MM/DD HH:mm') + ' (local time)<br>' +
+                      start.utc().format('YYYY/MM/DD HH:mm') + ' - ' + end.utc().format('YYYY/MM/DD HH:mm') + ' (UTC)');
+
+            $('input#sms_campaign_start_date').val(startUnix);
+            $('input#sms_campaign_end_date').val(endUnix);
         });
     }
 });

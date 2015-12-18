@@ -42,8 +42,8 @@ module SmsCampaignsHelper
     # TODO ===== ATTENTION ===== Check message parameters before going to production!!!
     phones.each do |phone|
       sms << campaign.send_sms.new(momt: 'MT', sender: campaign.originator, receiver: phone,
-                                   msgdata: campaign.msg_body,
-                                   time: campaign.start_date, smsc_id: 'fakesmsc1', sms_type: 2, mclass: campaign.on_screen,
+                                   msgdata: campaign.msg_body, smsc_id: 'fakesmsc1',
+                                   sms_type: 2, mclass: campaign.on_screen,
                                    coding: campaign.encoding, dlr_mask: 31)
     end
 
