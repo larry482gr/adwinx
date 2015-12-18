@@ -19,18 +19,22 @@
     <%= f.label :originator %><br>
     <%= f.text_field :originator %>
   </div>
-  <%= fields_for :sms_campaign_recipients do |rec| %>
+  <%= f.fields_for :sms_recipient_list do |rec| %>
     <div class="field">
       <%= rec.label :contacts %><br>
-      <select multiple class="form-control" id="sms-campaign-contacts"
-              name="sms_campaign[sms_recipient_list_attributes][contacts][]" autocomplete="off" data-provide="typeahead">
-      </select>
+      <%= rec.collection_select :contacts, {}, {}, {}, {},
+                                class: 'form-control',
+                                multiple: true,
+                                autocomplete: 'off',
+                                data: { provide: 'typeahead' } %>
     </div>
     <div class="field">
       <%= rec.label :contact_groups %><br>
-      <select multiple class="form-control" id="sms-campaign-contact-groups"
-              name="sms_campaign[sms_recipient_list_attributes][contact_groups][]" autocomplete="off" data-provide="typeahead">
-      </select>
+      <%= rec.collection_select :contact_groups, {}, {}, {}, {},
+                                class: 'form-control',
+                                multiple: true,
+                                autocomplete: 'off',
+                                data: { provide: 'typeahead' } %>
     </div>
   <% end %>
   <div class="field">
@@ -39,17 +43,20 @@
   </div>
   <div class="field">
     <%= f.label 'Valid From - To' %><img src="/assets/help.png" class="help-icon" id="campaign-valid-help" alt="Help" /> <br>
-    <%= time_zone_select 'campaign', 'time_zone', TZInfo::Timezone.all %> <br>
+    <%= f.select :timezone, @timezones.collect { |tz| [ "(UTC #{tz[:utc_offset]}) #{tz[:friendly]}", tz[:canonical] ] } %> <br>
     <input type="text" name="valid_datetime" id="sms-campaign-valid-datetime" />
+    <p class="help-block" id="valid-datetime-help"></p>
     <%= f.hidden_field :start_date %>
     <%= f.hidden_field :end_date %>
   </div>
-  <div class="field">
-    <%= f.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
-    <input type="checkbox" id="restricted-hours-switch"><br>
-    <%= f.time_select :restriction_start_date, {minute_step: 15}, disabled: true %> -
-    <%= f.time_select :restriction_end_date, {minute_step: 15}, disabled: true %>
-  </div>
+  <%= f.fields_for :sms_restricted_time_ranges do |time_r| %>
+    <div class="field">
+      <%= time_r.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
+      <input type="checkbox" id="restricted-hours-switch"><br>
+      <%= time_r.time_select :start_time, {minute_step: 15, ignore_date: true}, disabled: true %> -
+      <%= time_r.time_select :end_time, {minute_step: 15, ignore_date: true}, disabled: true %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :encoding, 'Unicode' %><br>
     <%= f.check_box :encoding %>

@@ -1,4 +1,5 @@
 class SmsCampaignsController < ApplicationController
+  include SmsCampaignsHelper
 
   # before_action :authenticate_user!
   before_action :set_sms_campaign, only: [:show, :edit, :update, :destroy]
@@ -17,6 +18,9 @@ class SmsCampaignsController < ApplicationController
   # GET /sms_campaigns/new
   def new
     @sms_campaign = SmsCampaign.new
+    @sms_campaign.build_sms_recipient_list
+    @sms_campaign.sms_restricted_time_ranges.build
+    @timezones = get_timezones
   end
 
   # GET /sms_campaigns/1/edit
@@ -26,14 +30,11 @@ class SmsCampaignsController < ApplicationController
   # POST /sms_campaigns
   # POST /sms_campaigns.json
   def create
-    # pars = sms_campaign_params
-    # recipients  = pars.delete(:sms_campaign_recipients_attributes)
-    # camp_pars   = pars
-    @sms_campaign = SmsCampaign.new(sms_campaign_params)
-    # @sms_campaign.sms_recipient_list.new(recipients)
+    @sms_campaign = current_user.sms_campaigns.new(sms_campaign_params)
 
     respond_to do |format|
       if @sms_campaign.save
+        write_messages current_user.id, @sms_campaign.id
         format.html { redirect_to @sms_campaign, notice: 'Sms campaign was successfully created.' }
         format.json { render :show, status: :created, location: @sms_campaign }
       else
@@ -76,9 +77,10 @@ class SmsCampaignsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def sms_campaign_params
       params.require(:sms_campaign).permit(:label, :originator, :msg_body,
-                                           :start_date, :end_date,
+                                           :timezone, :start_date, :end_date,
                                            :restriction_start_date, :restriction_end_date,
                                            :encoding, :on_screen, :state,
-                                           :sms_recipient_list_attributes => { contacts: [], contact_groups: [] })
+                                           :sms_recipient_list_attributes => { contacts: [], contact_groups: [] },
+                                           :sms_restricted_time_ranges_attributes => [ :start_time, :end_time ])
     end
 end

@@ -88,8 +88,15 @@ gem 'creek'
 # Encoding detection
 gem 'iconv'
 
+# Background Jobs
+gem 'delayed_job_active_record'
+
+# Delayed Job Monitoring
+# gem 'dj_mon' # https://github.com/akshayrawat/dj_mon#things-to-do => Rails 4 compatibility!!!
+
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
+gem 'activerecord-import', '>= 0.2.0'
 
 gem 'ci_reporter_rspec'
 

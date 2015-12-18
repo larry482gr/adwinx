@@ -1,11 +1,8 @@
 require 'uri'
 
-class Message < ActiveRecord::Base
+class SmsMessage < ActiveRecord::Base
   self.abstract_class = true
-
   establish_connection :sqlbox
-  # self.table_name = 'send_sms'
-  self.primary_key = 'sql_id'
 
   include NullifyBlankAttributes
 
@@ -21,12 +18,14 @@ class Message < ActiveRecord::Base
 
   protected
 
-  before_create :msg_url_encode
-  after_create :generate_random_id
+  # Moved to SmsCampaign
+  # before_create :msg_url_encode
+  before_create :generate_random_id
 
-  def msg_url_encode
-    self.msgdata = URI.encode(self.msgdata) unless self.msgdata.nil?
-  end
+  # Moved to SmsCampaign
+  # def msg_url_encode
+  #   self.msgdata = URI.encode(self.msgdata) unless self.msgdata.blank?
+  # end
 
   def generate_random_id
     random_id = ''
@@ -34,10 +33,12 @@ class Message < ActiveRecord::Base
       random_id << rand(0..9).to_s
     end
 
-    query = "UPDATE #{self.class.table_name}
-  			 SET id = #{random_id}
-  			 WHERE sql_id = #{self.sql_id}"
+    self.msg_id = random_id
 
-    self.class.connection.execute(query)
+    #query = "UPDATE #{self.class.table_name}
+  	#		 SET msg_id = #{random_id}
+  	#		 WHERE sql_id = #{self.sql_id}"
+
+    #self.class.connection.execute(query)
   end
 end

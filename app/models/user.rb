@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :language
+  has_many :sms_campaigns
 
   serialize :metadata, JSON
 

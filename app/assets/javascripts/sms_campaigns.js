@@ -1,11 +1,11 @@
 $(document).ready(function() {
     var groups = [];
 
-    if(typeof $('#sms-campaign-contact-groups').val() != 'undefined') {
+    if(typeof $('select#sms_campaign_sms_recipient_list_attributes_contact_groups').val() != 'undefined') {
         groups = $.get('/typeahead_contact_groups.json');
     }
 
-    $('#sms-campaign-contact-groups').tagsinput({
+    $('select#sms_campaign_sms_recipient_list_attributes_contact_groups').tagsinput({
         tagClass: 'tag label label-primary',
         confirmKeys: [13, 32, 44],
         maxTags: 20,
@@ -17,7 +17,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#sms-campaign-contacts').tagsinput({
+    $('select#sms_campaign_sms_recipient_list_attributes_contacts').tagsinput({
         tagClass: 'tag label label-primary',
         confirmKeys: [13, 32, 44],
         maxTags: 20,
@@ -32,8 +32,8 @@ $(document).ready(function() {
     }
     var currTz = sessionStorage.getItem('timezone');
 
-    if(typeof $('select#campaign_time_zone').val() != 'undefined') {
-        $('select#campaign_time_zone option').each(function(idx, elem){
+    if(typeof $('select#sms_campaign_timezone').val() != 'undefined') {
+        $('select#sms_campaign_timezone option').each(function(idx, elem){
             if(elem.value.indexOf(currTz) !== -1) {
                 $(this).prop('selected', true);
                 moment.tz.setDefault($(this).val());
@@ -43,7 +43,7 @@ $(document).ready(function() {
         setSmsCampaignDateTimeRange();
     }
 
-    $('select#campaign_time_zone').on('change', function() {
+    $('select#sms_campaign_timezone').on('change', function() {
         moment.tz.setDefault($(this).val());
         $('.daterangepicker').remove();
         setSmsCampaignDateTimeRange();
@@ -85,12 +85,29 @@ $(document).ready(function() {
             "timePicker": true,
             "timePicker24Hour": true,
             ranges: {
-                'Today': [moment().format('YYYY/MM/DD HH:MM:SS'), moment().format('YYYY/MM/DD 23:59:59')],
-                'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
-                'Next 7 Days': [moment(), moment().add(6, 'days')],
-                'Next 30 Days': [moment(), moment().add(29, 'days')],
-                'This Month': [moment(), moment().endOf('month')],
-                'Next Month': [moment().add(1, 'month').startOf('month'), moment().add(1, 'month').endOf('month')]
+                'Today': [
+                    moment(),
+                    moment().hour(23).minutes(59).seconds(59)
+                ],
+                'Tomorrow': [
+                    moment().add(1, 'days'),
+                    moment().add(1, 'days').hour(23).minutes(59).seconds(59)
+                ],
+                'Next 7 Days': [
+                    moment(),
+                    moment().add(6, 'days').hour(23).minutes(59).seconds(59)
+                ],
+                'Next 30 Days': [moment(),
+                    moment().add(29, 'days').hour(23).minutes(59).seconds(59)
+                ],
+                'This Month': [
+                    moment(),
+                    moment().endOf('month').hour(23).minutes(59).seconds(59)
+                ],
+                'Next Month': [
+                    moment().add(1, 'month').startOf('month'),
+                    moment().add(1, 'month').endOf('month').hour(23).minutes(59).seconds(59)
+                ]
             },
             "locale": {
                 "format": "YYYY/MM/DD",
@@ -127,19 +144,14 @@ $(document).ready(function() {
             },
             "linkedCalendars": false,
             "autoUpdateInput": false,
-            "startDate": moment().format('YYYY/MM/DD HH:MM:SS'),
-            "endDate": moment().format('YYYY/MM/DD 23:59:59')
+            "startDate": moment(),
+            "endDate": moment().hour(23).minutes(59).seconds(59)
         });
 
         $('input#sms-campaign-valid-datetime').on('apply.daterangepicker', function(ev, picker) {
-            console.log(picker.startDate.format());
-            console.log(picker.endDate.format());
-            console.log(picker.startDate.valueOf());
-            console.log(picker.endDate.valueOf());
-            console.log(picker.startDate.utc().format());
-            console.log(picker.endDate.utc().format());
-            console.log(picker.startDate.utc().valueOf());
-            console.log(picker.endDate.utc().valueOf());
+            $('p#valid-datetime-help').show()
+                .html(picker.startDate.format('YYYY/MM/DD HH:mm') + ' - ' + picker.endDate.format('YYYY/MM/DD HH:mm') + ' (local time)<br>' +
+                      picker.startDate.utc().format('YYYY/MM/DD HH:mm') + ' - ' + picker.endDate.utc().format('YYYY/MM/DD HH:mm') + ' (UTC)');
 
             $('input#sms_campaign_start_date').val((picker.startDate.utc().valueOf()/1000));
             $('input#sms_campaign_end_date').val((picker.endDate.utc().valueOf()/1000));

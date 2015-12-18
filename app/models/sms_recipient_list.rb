@@ -3,4 +3,13 @@ class SmsRecipientList < ActiveRecord::Base
 
   serialize :contacts, JSON
   serialize :contact_groups, JSON
+
+  private
+
+  before_save :reject_blank
+
+  def reject_blank
+    self.contacts = self.contacts.reject { |contact| contact.blank? }
+    self.contact_groups = self.contact_groups.reject { |contact_group| contact_group.blank? }
+  end
 end
