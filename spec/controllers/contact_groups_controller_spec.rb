@@ -28,12 +28,12 @@ RSpec.describe ContactGroupsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     # skip("Add a hash of attributes valid for your model")
-    { uid: 1, label: 'New Group' }
+    { uid: controller.current_user.id, label: 'New Group' }
   }
 
   let(:invalid_attributes) {
     # skip("Add a hash of attributes invalid for your model")
-    { uid: 1, label: '' }
+    { uid: controller.current_user.id, label: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -43,9 +43,11 @@ RSpec.describe ContactGroupsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all contact_groups as @contact_groups" do
-      contact_group = ContactGroup.create! valid_attributes
+      contact_group   = ContactGroup.create! valid_attributes
+      contact_groups  = ContactGroup.where(uid: controller.current_user.id).asc(:label)
+                            .page(1).per(50)
       get :index, {} # , valid_session # Commented out since we are using devise helpers... for now!!!
-      expect(assigns(:contact_groups)).to eq([contact_group])
+      expect(assigns(:contact_groups)).to eq(contact_groups)
     end
   end
 

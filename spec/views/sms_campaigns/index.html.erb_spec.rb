@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "sms_campaigns/index", type: :view do
+  create_english_lang
+  login_user
+
   before(:each) do
     assign(:sms_campaigns, [
       SmsCampaign.create!(
-        :user => nil,
+        :user => controller.current_user,
         :account_id => nil,
         :label => "Label",
         :originator => "Originator",
@@ -18,7 +21,7 @@ RSpec.describe "sms_campaigns/index", type: :view do
         :estimated_cost => ""
       ),
       SmsCampaign.create!(
-        :user => nil,
+        :user => controller.current_user,
         :account_id => nil,
         :label => "Label",
         :originator => "Originator",
@@ -36,17 +39,10 @@ RSpec.describe "sms_campaigns/index", type: :view do
 
   it "renders a list of sms_campaigns" do
     render
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => "Label".to_s, :count => 2
     assert_select "tr>td", :text => "Originator".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => 3.to_s, :count => 2
-    assert_select "tr>td", :text => 4.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => 5.to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
   end
 end

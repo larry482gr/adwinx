@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "sms_campaigns/edit", type: :view do
+  include SmsCampaignsHelper
+
+  create_english_lang
+  login_user
+
   before(:each) do
     @sms_campaign = assign(:sms_campaign, SmsCampaign.create!(
-      :user => nil,
+      :user => controller.current_user,
       :account_id => nil,
       :label => "MyString",
       :originator => "MyString",
@@ -16,6 +21,10 @@ RSpec.describe "sms_campaigns/edit", type: :view do
       :state => 1,
       :estimated_cost => ""
     ))
+
+    @sms_campaign.build_sms_recipient_list
+    @sms_campaign.sms_restricted_time_ranges.build
+    assign(:timezones, get_timezones)
   end
 
   it "renders the edit sms_campaign form" do
@@ -23,13 +32,15 @@ RSpec.describe "sms_campaigns/edit", type: :view do
 
     assert_select "form[action=?][method=?]", sms_campaign_path(@sms_campaign), "post" do
 
-      assert_select "input#sms_campaign_user_id[name=?]", "sms_campaign[user_id]"
-
-      assert_select "input#sms_campaign_account_id[name=?]", "sms_campaign[account_id]"
-
       assert_select "input#sms_campaign_label[name=?]", "sms_campaign[label]"
 
       assert_select "input#sms_campaign_originator[name=?]", "sms_campaign[originator]"
+
+      assert_select "select#sms_campaign_sms_recipient_list_attributes_contacts[name=?]",
+                    "sms_campaign[sms_recipient_list_attributes][contacts][]"
+
+      assert_select "select#sms_campaign_sms_recipient_list_attributes_contact_groups[name=?]",
+                    "sms_campaign[sms_recipient_list_attributes][contact_groups][]"
 
       assert_select "textarea#sms_campaign_msg_body[name=?]", "sms_campaign[msg_body]"
 
@@ -37,15 +48,6 @@ RSpec.describe "sms_campaigns/edit", type: :view do
 
       assert_select "input#sms_campaign_on_screen[name=?]", "sms_campaign[on_screen]"
 
-      assert_select "input#sms_campaign_total_sms[name=?]", "sms_campaign[total_sms]"
-
-      assert_select "input#sms_campaign_sent_to_box[name=?]", "sms_campaign[sent_to_box]"
-
-      assert_select "input#sms_campaign_finished[name=?]", "sms_campaign[finished]"
-
-      assert_select "input#sms_campaign_state[name=?]", "sms_campaign[state]"
-
-      assert_select "input#sms_campaign_estimated_cost[name=?]", "sms_campaign[estimated_cost]"
     end
   end
 end

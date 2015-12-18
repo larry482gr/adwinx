@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "sms_campaigns/show", type: :view do
+  create_english_lang
+  login_user
+
   before(:each) do
     @sms_campaign = assign(:sms_campaign, SmsCampaign.create!(
-      :user => nil,
+      :user => controller.current_user,
       :account_id => nil,
       :label => "Label",
       :originator => "Originator",

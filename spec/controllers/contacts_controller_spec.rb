@@ -27,12 +27,12 @@ RSpec.describe ContactsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     # skip("Add a hash of attributes valid for your model")
-    { uid: 1, prefix: 30, mobile: 1234567890, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
+    { uid: controller.current_user.id, prefix: 30, mobile: 1234567890, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
   }
 
   let(:invalid_attributes) {
     # skip("Add a hash of attributes invalid for your model")
-    { uid: 1, prefix: 30, mobile: 123, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
+    { uid: controller.current_user.id, prefix: 30, mobile: 123, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -43,7 +43,7 @@ RSpec.describe ContactsController, type: :controller do
   describe "GET #index" do
     it "assigns all contacts as @contacts" do
       contact = Contact.create! valid_attributes
-      contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => [] })
+      contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => [contact[:_id]] })
                       .asc('contact_profile.last_name').asc('contact_profile.first_name')
                       .page(1).per(50)
       get :index, {} # , valid_session
@@ -111,7 +111,7 @@ RSpec.describe ContactsController, type: :controller do
     context "with valid params" do
       let(:new_attributes) {
         # skip("Add a hash of attributes valid for your model")
-        { uid: 1, prefix: 357, mobile: 1234567899, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
+        { uid: controller.current_user.id, prefix: 357, mobile: 1234567899, contact_profile_attributes: { first_name: 'Lazar', last_name: 'Kazan' } }
       }
 
       it "updates the requested contact" do

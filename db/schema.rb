@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20151218123524) do
     t.integer  "total_sms",      limit: 8
     t.integer  "sent_to_box",    limit: 8,                              default: 0
     t.boolean  "finished",                                              default: false
-    t.integer  "state",          limit: 1,                              default: 0,                  comment: "0: scheduled, 1: started, 2: paused, 3: stopped, 4: archieved"
+    t.integer  "state",          limit: 1,                              default: 0
     t.decimal  "estimated_cost",               precision: 10, scale: 5
     t.datetime "created_at",                                                            null: false
     t.datetime "updated_at",                                                            null: false
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(version: 20151218123524) do
 
   create_table "sms_recipient_lists", id: false, force: :cascade do |t|
     t.integer "sms_campaign_id", limit: 4,     null: false
-    t.text    "contacts",        limit: 65535,              comment: "Array of phone numbers and/or contact ids"
-    t.text    "contact_groups",  limit: 65535,              comment: "Array of contact_group ids"
+    t.text    "contacts",        limit: 65535
+    t.text    "contact_groups",  limit: 65535
   end
 
-  add_index "sms_recipient_lists", ["sms_campaign_id"], name: "idx_sms_campaign_id", using: :btree
+  add_index "sms_recipient_lists", ["sms_campaign_id"], name: "idx_sms_recipient_lists_campaign_id", using: :btree
 
   create_table "sms_restricted_time_ranges", force: :cascade do |t|
     t.integer "sms_campaign_id", limit: 4, null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20151218123524) do
     t.time    "end_time"
   end
 
-  add_index "sms_restricted_time_ranges", ["sms_campaign_id"], name: "idx_sms_campaign_id", using: :btree
+  add_index "sms_restricted_time_ranges", ["sms_campaign_id"], name: "idx_sms_restricted_time_ranges_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20151218123524) do
     t.datetime "locked_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.text     "metadata",               limit: 65535,              null: false
+    t.text     "metadata",               limit: 65535
     t.integer  "language_id",            limit: 4,     default: 1
   end
 
