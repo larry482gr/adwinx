@@ -9,6 +9,7 @@ capybara-*.html
 /db/*.sqlite3-journal
 /public/system
 /coverage/
+/doc/
 /spec/tmp
 **.orig
 rerun.txt
@@ -42,6 +43,9 @@ bower.json
 # Rubymine files
 .idea
 
+# Precompiled assets
+public/assets
+
 # Mac OS X files
 .DS_Store
 
@@ -50,3 +54,13 @@ config/database.yml
 config/mongoid.yml
 
 private
+
+# Foreman/Capistrano deployment
+Procfile
+config/puma.rb
+Capfile
+lib/capistrano
+config/deploy.rb
+config/deploy
+
+config/local_env.yml

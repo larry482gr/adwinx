@@ -43,7 +43,9 @@ gem 'i18n-js'
 
 # Caching
 gem 'actionpack-page_caching', '~> 1.0.2' # removed from Rails-core as Rails 4.0
+gem 'actionpack-action_caching', '~> 1.1.1' # removed from Rails-core as Rails 4.0
 gem 'rails-observers'
+gem 'cashier', '~> 0.4.1'
 
 # File uploads
 gem 'carrierwave'
@@ -69,8 +71,21 @@ gem 'uuidtools'
 # Fetch and Parse RSS feeds
 # gem 'feedjira'
 
+# Create XLSX templates
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'acts_as_xlsx'
+
+# Parse Spreadsheets
+gem 'creek'
+
+# Encoding detection
+gem 'iconv'
+
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
+
+gem 'ci_reporter_rspec'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -97,35 +112,51 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rspec-rails'
+
   # Do not log assets requests in development environment.
   gem 'quiet_assets'
 
-  gem 'puma'
-  gem 'rails-erd'
+  # gem 'rails-erd'
   gem 'rename'
+
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
+  gem 'capistrano-nc', '~> 0.1'
+  gem 'highline'
+
 end
 
 group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
   gem 'mysql2', '~> 0.3.20'
+  gem 'puma'
 
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'rspec-activemodel-mocks'
+  gem 'rack-cache'
 end
 
 group :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
+  gem 'rspec'
+  gem 'rspec-activemodel-mocks'
+  gem 'mongoid-rspec', '3.0.0'
+
   gem 'database_cleaner'
   gem 'capybara'
   gem 'simplecov'
+  gem 'simplecov-json'
+  gem 'simplecov-rcov'
+
   gem 'launchy'
 
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  gem 'factory_girl'
-  gem 'factory_girl_rails', :require => false
+  # gem 'factory_girl'
+  gem 'factory_girl_rails' #, :require => false
 end
 

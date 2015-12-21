@@ -8769,7 +8769,7 @@ button.close {
     display: none !important;
   }
 }
-/* line 1, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 1, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -8785,7 +8785,7 @@ button.close {
   cursor: text;
 }
 
-/* line 15, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 15, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput input {
   border: none;
   box-shadow: none;
@@ -8797,62 +8797,62 @@ button.close {
   max-width: inherit;
 }
 
-/* line 25, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 25, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput input:focus {
   border: none;
   box-shadow: none;
 }
 
-/* line 29, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 29, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput .tag {
   margin-right: 2px;
   color: white;
 }
 
-/* line 33, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 33, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput .tag [data-role="remove"] {
   margin-left: 8px;
   cursor: pointer;
 }
 
-/* line 37, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 37, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput .tag [data-role="remove"]:after {
   content: "x";
   padding: 0px 2px;
 }
 
-/* line 41, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 41, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput .tag [data-role="remove"]:hover {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 44, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.css.scss */
+/* line 44, /Users/Larry/RubymineProjects/adwinx/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
 .bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-/* line 1, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 1, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table {
   display: table;
 }
 
-/* line 5, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 5, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 .table.files {
   margin-bottom: 0px;
   padding: 0px 15px;
 }
 
-/* line 11, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 11, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row:nth-child(2n+1) {
   background: #f9f9f9 none repeat scroll 0 0;
 }
 
-/* line 15, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 15, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row {
   display: table-row;
 }
 
-/* line 19, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 19, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div.table .file-row > div {
   border-top: 1px solid #ddd;
   display: table-cell;
@@ -8860,13 +8860,13 @@ div.table .file-row > div {
   vertical-align: top;
 }
 
-/* line 26, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 26, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div#contacts-drop-area {
   display: none;
   border: 1px dashed #888;
   padding: 6px 15px;
 }
-/* line 31, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.css.scss */
+/* line 31, /Users/Larry/RubymineProjects/adwinx/app/assets/stylesheets/bootstrap_dropzone.scss */
 div#contacts-drop-area h4 {
   margin-top: 0px;
   margin-bottom: 20px;

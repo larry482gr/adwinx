@@ -53,6 +53,24 @@
             <%= link_to (t 'actions.delete'), contact, class: 'btn btn-xs btn-danger', method: :delete,
                         data: { confirm: "#{(t :contact_del_confirm)
                             .gsub('%contact%', "#{contact[:contact_profile][:last_name]} #{contact[:contact_profile][:first_name]}")}#{(t :cannot_undo)}" } %>
+            <div class="btn-group">
+              <%- if contact[:lists].blank? %>
+                  <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    Export List <span class="caret"></span>
+                  </button>
+              <%- else %>
+                  <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Export List <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <% contact[:lists].each do |list| %>
+                        <li>
+                          <%= link_to list, "/contacts/export_list/#{list}", 'data-no-turbolink' => true %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </div>
           </div>
         </td>
       </tr>

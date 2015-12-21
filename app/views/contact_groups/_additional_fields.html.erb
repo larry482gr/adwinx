@@ -1,7 +1,7 @@
 <form class="form-inline additional-fields" id="contact-groups-additional">
   <div>
     <label for="rows-per-page"><%= (t :results_per_page) %></label>
-    <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
+    <select class="form-control input-sm" name="limit" id="rows-per-page" autocomplete="off">
       <% ContactGroup::RESULTS_PER_PAGE.each do |res| %>
           <% per_value = params[:limit].nil? ? ContactGroup::DEFAULT_PER_PAGE : params[:limit] %>
           <option value="<%= res %>" <%= 'selected' if res == per_value.to_i %>><%= res %></option>

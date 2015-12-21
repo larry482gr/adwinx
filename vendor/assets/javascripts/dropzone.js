@@ -111,7 +111,7 @@
          dropzone.on("dragEnter", function() { });
          */
 
-        Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
+        Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "notice", "noticemultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
         Dropzone.prototype.defaultOptions = {
             url: null,
@@ -147,6 +147,7 @@
             dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
             dictInvalidFileType: "You can't upload files of this type.",
             dictResponseError: "Server responded with {{statusCode}} code.",
+            dictResponseSuccess: "Process successfully finished.",
             dictCancelUpload: "Cancel upload",
             dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
             dictRemoveFile: "Remove file",
@@ -338,7 +339,7 @@
                     _results = [];
                     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                         node = _ref[_i];
-                        _results.push(node.textContent = message);
+                        _results.push(node.innerHTML = '<strong>' + message + '</strong>');
                     }
                     return _results;
                 }
@@ -372,6 +373,23 @@
             totaluploadprogress: noop,
             sending: noop,
             sendingmultiple: noop,
+            notice: function(file, message) {
+                var node, _i, _len, _ref, _results;
+                if (file.previewElement) {
+                    file.previewElement.classList.add("dz-notice");
+                    if (typeof message !== "String" && message.notice) {
+                        message = message.notice;
+                    }
+                    _ref = file.previewElement.querySelectorAll("[data-dz-noticemessage]");
+                    _results = [];
+                    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                        node = _ref[_i];
+                        _results.push(node.innerHTML = '<strong>' + message + '</strong>');
+                    }
+                    return _results;
+                }
+            },
+            noticemultiple: noop,
             success: function(file) {
                 if (file.previewElement) {
                     return file.previewElement.classList.add("dz-success");
@@ -1003,6 +1021,7 @@
                         file.accepted = true;
                         if (_this.options.autoQueue) {
                             _this.enqueueFile(file);
+                            _this._successProcessing([file], 'File received for processing...');
                         }
                     }
                     return _this._updateMaxFilesReachedClass();
@@ -1250,7 +1269,7 @@
         };
 
         Dropzone.prototype.uploadFiles = function(files, importProcessed, importTotal, processingProgressBar) {
-            var file, formData, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+            var file, formData, handleSuccess, handleError, headerName, headerValue, headers, i, input, inputName, inputType, key, method, option, progressObj, response, updateProgress, processingProgress, url, value, xhr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
             xhr = new XMLHttpRequest();
             xhr.previous_text = '';
             for (_i = 0, _len = files.length; _i < _len; _i++) {
@@ -1269,6 +1288,17 @@
                     for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
                         file = files[_j];
                         _results.push(_this._errorProcessing(files, response || _this.options.dictResponseError.replace("{{statusCode}}", xhr.status), xhr));
+                    }
+                    return _results;
+                };
+            })(this);
+            handleSuccess = (function(_this) {
+                return function() {
+                    var _j, _len1, _results;
+                    _results = [];
+                    for (_j = 0, _len1 = files.length; _j < _len1; _j++) {
+                        file = files[_j];
+                        _results.push(_this._successProcessing(files, response || _this.options.dictResponseSuccess, xhr));
                     }
                     return _results;
                 };
@@ -1345,34 +1375,31 @@
             })(this);
             processingProgress = (function(_this) {
                 return function(e) {
-                    console.log(xhr.previous_text);
-                    console.log(xhr.responseText);
                     var new_response = String(xhr.responseText.substring(xhr.previous_text.length));
-                    console.log(new_response);
                     xhr.previous_text = xhr.responseText;
 
                     var last_response;
                     try {
                         last_response = JSON.parse(new_response);
 
-                        console.log(last_response.processed);
-                        console.log(last_response.total);
-                        console.log(last_response.final_result);
-                        console.log(last_response.progress);
-
-                        if(!empty(last_response.processed)) {
-                            importProcessed.innerHTML = last_response.processed;
-                            processingProgressBar.style.width = last_response.progress + '%';
+                        if(!empty(last_response.pc)) {
+                            importProcessed.innerHTML = last_response.pc;
+                            processingProgressBar.style.width = last_response.pg + '%';
                         }
 
-                        if(!empty(last_response.total)) {
-                            importTotal.innerHTML = last_response.total;
+                        if(!empty(last_response.tc)) {
+                            importTotal.innerHTML = last_response.tc;
                         }
 
-                        if(!empty(last_response.final_result)) {
-                             importTotal.innerHTML = importTotal.innerHTML + ' <strong>' + last_response.final_result + '</strong>';
-                        }
+                        if(!empty(last_response.rs)) {
+                            response = last_response.rs;
 
+                            if(last_response.st > 400) {
+                                return handleError();
+                            }else {
+                                return handleSuccess();
+                            }
+                        }
                     } catch (_error) {
                         e = _error;
                         console.log(_error);
@@ -1475,6 +1502,23 @@
             }
             if (this.options.uploadMultiple) {
                 this.emit("errormultiple", files, message, xhr);
+                this.emit("completemultiple", files);
+            }
+            if (this.options.autoProcessQueue) {
+                return this.processQueue();
+            }
+        };
+
+        Dropzone.prototype._successProcessing = function(files, message, xhr) {
+            var file, _i, _len;
+            for (_i = 0, _len = files.length; _i < _len; _i++) {
+                file = files[_i];
+                file.status = Dropzone.NOTICE;
+                this.emit("notice", file, message, xhr);
+                this.emit("complete", file);
+            }
+            if (this.options.uploadMultiple) {
+                this.emit("noticemultiple", files, message, xhr);
                 this.emit("completemultiple", files);
             }
             if (this.options.autoProcessQueue) {
@@ -1714,6 +1758,8 @@
     Dropzone.ERROR = "error";
 
     Dropzone.SUCCESS = "success";
+
+    Dropzone.NOTICE = "notice";
 
 
     /*

@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'rails/mongoid'
 require 'database_cleaner'
+require 'support/controller_macros'
+require 'support/request_macros'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -52,9 +54,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include Mongoid::Matchers
 
-  config.include Devise::TestHelpers, type: :controller
+  config.include FactoryGirl::Syntax::Methods
 
   # How to setup your ORM explicitly
   DatabaseCleaner[:mongoid].strategy = :truncation
@@ -71,6 +73,15 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  # Include devise spec helpers
+  config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, :type => :controller
+
+  config.include Devise::TestHelpers, type: :view
+  config.extend ControllerMacros, :type => :view
+
+  config.include RequestMacros, :type => :request
 
 end
 

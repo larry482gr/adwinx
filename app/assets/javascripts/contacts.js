@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    var groups = [];
+
+    if(typeof $('#contact-group-attributes').val() != 'undefined') {
+        groups = $.get('/typeahead_contact_groups.json');
+    }
+
     $('#contact-group-attributes').tagsinput({
         tagClass: 'tag label label-primary',
         confirmKeys: [13, 32, 44],
@@ -7,11 +13,24 @@ $(document).ready(function() {
         itemValue: '_id',
         itemText: 'lbl',
         typeahead: {
-            source: function() {
-                return $.get('/typeahead_contact_groups.json');
-            }
+            source: groups
         },
-        freeInput: true
+        trimValue: true
+    });
+
+    $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
+    $('form#contacts-filters div.bootstrap-tagsinput input').css('width', 'auto !important')
+        .css('height', '32px').css('line-height', '1.42857').css('padding', '6px 12px !important');
+
+    $('form#contacts-filters').on('submit', function(e) {
+        e.preventDefault();
+        // var rows_val = $(this).find('option:selected').val();
+        var active_page = $('#main-content').find('ul.pagination li.active a');
+
+        // var per_page = typeof rows_val != 'undefined' ? rows_val : $(this).find('option:first-child').val();
+        var page = typeof active_page.text() != 'undefined' ? active_page.text() : 1;
+
+        properLink(page);
     });
 
     $('form#contacts-additional').on('mouseup', '.checkbox-js', function() {

@@ -8,26 +8,34 @@ Rails.application.routes.draw do
       delete :bulk_delete, on: :collection
     end
 
-    resources :contacts
-    resources :contact_groups do
-      member do
-        patch :remove_contacts
-        delete :empty
+    authenticate do
+      resources :contacts do
+        get :csv_template, on: :collection
+        get :xlsx_template, on: :collection
+        get 'export_list/:filename' => 'contacts#export_list', on: :collection
       end
-      concerns :deleteable
+
+      resources :contact_groups do
+        member do
+          patch :remove_contacts
+          delete :empty
+        end
+        concerns :deleteable
+      end
+
+      resources :sms_templates do
+        concerns :deleteable
+      end
+
+      get '/typeahead_contact_groups' => 'contact_groups#typeahead'
+      get '/contacts/:id/groups' => 'contacts#belonging_groups'
+
+      # TODO Refactor contacts bulk delete. Add the route through deletable concern and
+      # implement it the rails way with form, method delete etc.
+      post '/contacts/bulk_delete' => 'contacts#bulk_delete'
+      post '/contacts/bulk_import' => 'contacts#bulk_import'
     end
 
-    resources :sms_templates do
-      concerns :deleteable
-    end
-
-    get '/typeahead_contact_groups' => 'contact_groups#typeahead'
-    get '/contacts/:id/groups' => 'contacts#belonging_groups'
-
-    # TODO Refactor contacts bulk delete. Add the route through deletable concern and
-    # implement it the rails way with form, method delete etc.
-    post '/contacts/bulk_delete' => 'contacts#bulk_delete'
-    post '/contacts/bulk_import' => 'contacts#bulk_import'
   end
 
 

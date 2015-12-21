@@ -27,7 +27,8 @@ $(document).ready(function() {
             maxFilesize: 3,
             acceptedFiles: "text/csv," +
             "text/comma-separated-values," +
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," +
+            "application/vnd.openxmlformates-officedocument.spreadsheetml.sheet,",
             headers: { "X-CSRF-Token" : $('meta[name="csrf-token"]').attr('content') }
         };
 

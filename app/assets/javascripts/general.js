@@ -102,6 +102,44 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function properLink(page) {
+    var protocol = window.location.protocol;
+    var host = window.location.host;
+    var path = window.location.pathname;
+    var params = '';
+
+    params = '?' + additional_fields();
+    params = params + search_filters();
+
+    // params += '?limit=' + per_page;
+    params += '&page=' + page;
+
+    Turbolinks.visit(protocol + '//' + host + path + params);
+}
+
+function additional_fields() {
+    var additional_params = '';
+    if(typeof $('form.additional-fields') != 'undefined') {
+        var check_val = 0;
+
+        $('form.additional-fields div.checkbox-js').each(function(index) {
+            check_val = $(this).find('input[type="checkbox"]').is(':checked') ? 1 : 0;
+            additional_params += $(this).attr('rel') + '=' + check_val + '&';
+        });
+    }
+
+    return additional_params;
+}
+
+function search_filters() {
+    var search_params = '';
+    if(typeof $('form.search-filters') != 'undefined') {
+        search_params = $('form.search-filters').serialize();
+    }
+
+    return search_params;
+}
+
 /**
  * Initializes a new Dropzone element.
  * @param {object} dropzoneArea - The area which will be used to drop files. Ex. document.body
