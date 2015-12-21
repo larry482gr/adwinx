@@ -1,9 +1,9 @@
-<form class="form-inline additional-fields" id="templates-additional">
+<form class="form-inline additional-fields" id="sms_templates-additional">
   <div>
     <label for="rows-per-page"><%= (t :results_per_page) %></label>
     <select class="form-control input-sm" name="rows_per_page" id="rows-per-page">
-      <% Template::RESULTS_PER_PAGE.each do |res| %>
-          <% per_value = params[:limit].nil? ? Template::DEFAULT_PER_PAGE : params[:limit] %>
+      <% SmsTemplate::RESULTS_PER_PAGE.each do |res| %>
+          <% per_value = params[:limit].nil? ? SmsTemplate::DEFAULT_PER_PAGE : params[:limit] %>
           <option value="<%= res %>" <%= 'selected' if res == per_value.to_i %>><%= res %></option>
       <% end %>
     </select>

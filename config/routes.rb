@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       concerns :deleteable
     end
 
-    resources :templates do
+    resources :sms_templates do
       concerns :deleteable
     end
 

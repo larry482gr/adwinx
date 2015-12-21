@@ -1,4 +1,4 @@
-class Template
+class SmsTemplate
   include Mongoid::Document
   field :uid, type: Integer
   field :account_id, type: Integer
