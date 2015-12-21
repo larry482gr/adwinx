@@ -1,0 +1,16 @@
+<div class="entiry-action" id="sms-templates-bulk-actions">
+  <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action select-all',
+                                   id: 'select-all-sms-templates', data: { resource: 'sms_template' } } %>
+  <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action select-page',
+                                    id: 'select-page-sms-templates',  data: { resource: 'sms_template' } } %>
+  <%= form_tag '/sms_templates/bulk_delete', method: :delete, class: 'form-inline list-resource', id: 'delete-sms-templates' %>
+    <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
+                                          id: 'uncheck-selected-sms-templates',  data: { resource: 'sms_template' } } %>
+    <% @sms_templates.each do |sms_template| %>
+        <input type="checkbox" class="resource-check sms-template-check hidden" data-resource="sms_template"
+               name="sms_template[sms_template_ids][]" value="<%= sms_template[:_id] %>">
+    <% end %>
+    <%= button_tag (t :delete_selected), { type: :submit, class: 'btn btn-xs btn-danger resource-action delete-selected',
+                                           id: 'delete-selected-sms-templates', data: { resource: 'sms_template' } } %>
+  </form>
+</div>

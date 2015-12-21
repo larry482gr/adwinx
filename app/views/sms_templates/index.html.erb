@@ -1,0 +1,10 @@
+<h1><%= (t :list_sms_templates) %><span class="help-block"><%= "#{(t 'total_sms_templates')}: #{@sms_templates.size}" %></span></h1>
+
+<div class="col-md-12 above-list">
+    <div class="col-md-6 col-sm12 sms-templates-list-links">
+        <%= link_to (t :new_sms_template), new_sms_template_path %>
+    </div>
+<!-- ### <%# <div class="col-md-6 col-sm12"> <%= render 'additional_fields' %> </div> %> ### -->
+</div>
+
+<%= render 'list' unless @sms_templates.blank? %>
