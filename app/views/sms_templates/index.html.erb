@@ -4,7 +4,9 @@
     <div class="col-md-6 col-sm12 sms-templates-list-links">
         <%= link_to (t :new_sms_template), new_sms_template_path %>
     </div>
-<!-- ### <%# <div class="col-md-6 col-sm12"> <%= render 'additional_fields' %> </div> %> ### -->
+    <div class="col-md-6 col-sm12">
+        <%= render 'additional_fields' %>
+    </div>
 </div>
 
 <%= render 'list' unless @sms_templates.blank? %>
