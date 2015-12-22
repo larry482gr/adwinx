@@ -98,6 +98,8 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano3-delayed-job (1.5.0)
+      capistrano (>= 3.0.0)
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
@@ -427,6 +429,7 @@ DEPENDENCIES
   capistrano-nc (~> 0.1)
   capistrano-rails (~> 1.1.1)
   capistrano-rvm
+  capistrano3-delayed-job (~> 1.0)
   capistrano3-puma
   capybara
   carrierwave
