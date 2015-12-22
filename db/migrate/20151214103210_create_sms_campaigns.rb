@@ -23,9 +23,6 @@ class CreateSmsCampaigns < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    change_column :sms_campaigns, :originator, 'VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci'
-    change_column :sms_campaigns, :label, 'VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci'
-
     add_index :sms_campaigns, :user_id, name: 'idx_sms_campaigns_user_id'
     add_foreign_key :sms_campaigns, :users, column: :user_id, primary_key: :id, on_update: :cascade
 
