@@ -12,5 +12,5 @@ en:
         create: "Create Campaign"
         update: "Update Campaign"
       sms_template:
-        create: "Create Template"
-        update: "Update Template"
+        create: "Create SMS Template"
+        update: "Update SMS Template"

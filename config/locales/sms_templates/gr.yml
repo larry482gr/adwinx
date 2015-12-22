@@ -1,14 +1,14 @@
 gr:
-  list_sms_templates: 'SMS Templates List'
-  view_sms_template: 'View SMS Template'
-  new_sms_template: 'New SMS Template'
-  edit_sms_template: 'Edit SMS Templates'
-  total_sms_templates: 'Total SMS Templates'
-  sms_template_del_confirm: "Delete SMS Template \"%sms_template%\"?\n\n"
-  sms_template_deleted: "SMS Template(s) %sms_template_label% was/were successfully deleted."
+  list_sms_templates: 'Λίστα Πρότυπων Μηνυμάτων SMS'
+  view_sms_template: 'Προβολή Πρότυπου Μηνύματος SMS'
+  new_sms_template: 'Νέο Πρότυπο Μήνυμα SMS'
+  edit_sms_template: 'Επεξεργασία Πρότυπου Μηνύματος SMS'
+  total_sms_templates: 'Σύνολο Πρότυπων Μηνυμάτων SMS'
+  sms_template_del_confirm: "Διαγραφή Πρότυπων Μηνυμάτων SMS \"%sms_template%\"?\n\n"
+  sms_template_deleted: "Τα Πρότυπα Μηνύματα SMS %sms_template_label% was/were διαγράφηκαν επιτυχώς."
 
   sms_template_form:
-    label_required: "SMS Template Label can't be blank"
-    label_length: "SMS Template Label length should be up to 20 characters"
-    delete_header: 'Delete SMS Templates'
-    delete_sms_templates_list: 'The following SMS Templates are going to be deleted'
+    label_required: "Η Επιγραφή ενός Πρότυπου Μηνύματος SMS δε μπορεί να είναι κενή."
+    label_length: "Η Επιγραφή ενός Πρότυπου Μηνύματος SMS δεν πρέπει να ξεπερνάει τους 20 χαρακτήρες"
+    delete_header: 'Διαγραφή Πρότυπων Μηνυμάτων SMS'
+    delete_sms_templates_list: 'Tα ακόλουθα Πρότυπα Μηνύματα SMS πρόκειται να διαγραφούν'
