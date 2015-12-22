@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222143522) do
+ActiveRecord::Schema.define(version: 20151218123524) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   limit: 4,     default: 0, null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20151222143522) do
     t.datetime "locked_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.text     "metadata",               limit: 65535,              null: false
+    t.text     "metadata",               limit: 65535
     t.integer  "language_id",            limit: 4,     default: 1
   end
 
