@@ -74,6 +74,7 @@ class SmsCampaignsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sms_campaign
       @sms_campaign = SmsCampaign.find(params[:id])
+      @sms_campaign.msg_body = URI.decode(@sms_campaign.msg_body) unless @sms_campaign.msg_body.blank?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

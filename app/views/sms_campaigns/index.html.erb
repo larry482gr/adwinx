@@ -26,7 +26,7 @@
       <tr>
         <td><%= sms_campaign.label %></td>
         <td><%= sms_campaign.originator %></td>
-        <td><%= sms_campaign.msg_body %></td>
+        <td><%= URI.decode(sms_campaign.msg_body) %></td>
         <td><%= sms_campaign.timezone %></td>
         <td><%= sms_campaign.start_date %></td>
         <td><%= sms_campaign.end_date %></td>

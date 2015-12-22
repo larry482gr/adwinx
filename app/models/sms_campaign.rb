@@ -18,7 +18,6 @@ class SmsCampaign < ActiveRecord::Base
 
   before_save :set_dates_if_blank
   before_save :msg_url_encode
-  after_find :msg_url_decode
 
   def set_dates_if_blank
     self.start_date = Time.now.to_i if self.start_date.blank?
@@ -27,9 +26,5 @@ class SmsCampaign < ActiveRecord::Base
 
   def msg_url_encode
     self.msg_body = URI.encode(self.msg_body) unless self.msg_body.blank?
-  end
-
-  def msg_url_decode
-    self.msg_body = URI.decode(self.msg_body) unless self.msg_body.blank?
   end
 end
