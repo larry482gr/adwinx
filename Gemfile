@@ -142,7 +142,8 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
-  gem 'capistrano-nc', '~> 0.1'
+  gem 'capistrano3-delayed-job', '~> 1.0'
+  gem 'capistrano-nc', '~> 0.1', require: false
   gem 'highline'
 
 end
