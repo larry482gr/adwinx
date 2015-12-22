@@ -23,6 +23,9 @@ en:
       contact_group:
         one: 'Contact Group'
         other: 'Contact Groups'
+      sms_template:
+        one: 'SMS Template'
+        other: 'SMS Templates'
     attributes:
       contact:
         prefix: 'Country Code'
@@ -30,6 +33,9 @@ en:
       contact_group:
         label: 'Label'
         description: 'Description'
+      sms_template:
+        label: 'Label'
+        msg_body: 'Message'
     errors:
       contact:
         duplicate_key: 'a_contact_with'

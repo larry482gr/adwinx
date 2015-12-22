@@ -23,6 +23,9 @@ gr:
       contact_group:
         one: 'Ομάδα Επαφών'
         other: 'Ομάδες Επαφών'
+      sms_template:
+        one: 'Πρότυπο Μήνυμα'
+        other: 'Πρότυπα Μηνύματα'
     attributes:
       contact:
         prefix: 'Κωδικός Χώρας'
@@ -30,6 +33,9 @@ gr:
       contact_group:
         label: 'Επιγραφή'
         description: 'Περιγραφή'
+      sms_template:
+        label: 'Επιγραφή'
+        msg_body: 'Μήνυμα'
     errors:
       contact:
         duplicate_key: 'μία_επαφή_με'

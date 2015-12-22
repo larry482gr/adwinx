@@ -11,3 +11,6 @@ gr:
       sms_campaign:
         create: "Δημιουργία Καμπάνιας"
         update: "Τροποποίηση Καμπάνιας"
+      sms_template:
+        create: "Δημιουργία Προτύπου"
+        update: "Τροποποίηση Προτύπου"
