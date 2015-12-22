@@ -8,6 +8,6 @@ en:
         create: "Create Group"
         update: "Update Group"
         remove_contacts: "Remove from Group"
-      template:
-        create: "Create Template"
-        update: "Update Template"
+      sms_template:
+        create: "Create SMS Template"
+        update: "Update SMS Template"
