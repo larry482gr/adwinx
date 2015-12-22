@@ -1,6 +1,6 @@
 class CreateSmsRecipientLists < ActiveRecord::Migration
   def change
-    create_table :sms_recipient_lists, id: false do |t|
+    create_table :sms_recipient_lists, id: false, options: 'CHARSET=latin1 COLLATE=latin1_general_ci' do |t|
       t.references :sms_campaign, { null: false }
       t.text :contacts, { default: nil, comment: 'Array of phone numbers and/or contact ids' }
       t.text :contact_groups, { default: nil, comment: 'Array of contact_group ids' }
