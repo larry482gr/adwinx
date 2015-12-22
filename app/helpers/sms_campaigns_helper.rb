@@ -30,32 +30,35 @@ module SmsCampaignsHelper
     return timezones
   end
 
-  def write_messages user_id, campaign_id
-    campaign  = SmsCampaign.find(campaign_id)
-    phones    = campaign.sms_recipient_list.contacts
+  class << self
+    def write_messages user_id, campaign_id
+      campaign  = SmsCampaign.find(campaign_id)
+      phones    = campaign.sms_recipient_list.contacts
 
-    group_phones  = groups_contacts(user_id, campaign.sms_recipient_list.contact_groups)
-    (phones << group_phones).flatten!.uniq!
+      group_phones  = groups_contacts(user_id, campaign.sms_recipient_list.contact_groups)
+      (phones << group_phones).flatten!.uniq!
 
-    sms = []
+      sms = []
 
-    # TODO ===== ATTENTION ===== Check message parameters before going to production!!!
-    phones.each do |phone|
-      sms << campaign.send_sms.new(momt: 'MT', sender: campaign.originator, receiver: phone,
-                                   msgdata: campaign.msg_body, time: campaign.start_date,
-                                   smsc_id: 'fakesmsc1', sms_type: 2, mclass: campaign.on_screen,
-                                   coding: campaign.encoding, dlr_mask: 31)
+      # TODO ===== ATTENTION ===== Check message parameters before going to production!!!
+      phones.each do |phone|
+        sms << campaign.send_sms.new(momt: 'MT', sender: campaign.originator, receiver: phone,
+                                     msgdata: campaign.msg_body, time: campaign.start_date,
+                                     smsc_id: 'fakesmsc1', sms_type: 2, mclass: campaign.on_screen,
+                                     coding: campaign.encoding, dlr_mask: 31)
+      end
+
+      SmsMessageSend.import sms
     end
+    handle_asynchronously :write_messages
 
-    SmsMessageSend.import sms
-  end
+    def groups_contacts(user_id, groups)
+      # phones = []
+      contacts = Contact.where(uid: user_id, contact_group_ids: { '$in' => groups }).pluck(:prefix, :mobile)
 
-  def groups_contacts(user_id, groups)
-    # phones = []
-    contacts = Contact.where(uid: user_id, contact_group_ids: { '$in' => groups }).pluck(:prefix, :mobile)
+      phones = contacts.collect { |contact| contact.join() }
 
-    phones = contacts.collect { |contact| contact.join() }
-
-    return phones
+      return phones
+    end
   end
 end

@@ -48,16 +48,18 @@ ActiveRecord::Schema.define(version: 20151218123524) do
     t.integer  "total_sms",      limit: 8
     t.integer  "sent_to_box",    limit: 8,                              default: 0
     t.boolean  "finished",                                              default: false
-    t.integer  "state",          limit: 1,                              default: 0
+    t.integer  "state",          limit: 1,                              default: 0,                  comment: "0: scheduled, 1: started, 2: paused, 3: stopped, 4: archieved"
     t.decimal  "estimated_cost",               precision: 10, scale: 5
     t.datetime "created_at",                                                            null: false
     t.datetime "updated_at",                                                            null: false
   end
 
+  add_index "sms_campaigns", ["user_id"], name: "idx_sms_campaigns_user_id", using: :btree
+
   create_table "sms_recipient_lists", id: false, force: :cascade do |t|
     t.integer "sms_campaign_id", limit: 4,     null: false
-    t.text    "contacts",        limit: 65535
-    t.text    "contact_groups",  limit: 65535
+    t.text    "contacts",        limit: 65535,              comment: "Array of phone numbers and/or contact ids"
+    t.text    "contact_groups",  limit: 65535,              comment: "Array of contact_group ids"
   end
 
   add_index "sms_recipient_lists", ["sms_campaign_id"], name: "idx_sms_recipient_lists_campaign_id", using: :btree
@@ -89,7 +91,7 @@ ActiveRecord::Schema.define(version: 20151218123524) do
     t.datetime "locked_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.text     "metadata",               limit: 65535
+    t.text     "metadata",               limit: 65535,              null: false
     t.integer  "language_id",            limit: 4,     default: 1
   end
 
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 20151218123524) do
   add_index "users", ["language_id"], name: "index_users_on_language_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "sms_campaigns", "users", on_update: :cascade
   add_foreign_key "sms_recipient_lists", "sms_campaigns", on_delete: :cascade
   add_foreign_key "sms_restricted_time_ranges", "sms_campaigns", on_delete: :cascade
   add_foreign_key "users", "languages"

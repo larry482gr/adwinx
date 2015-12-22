@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    if(typeof $('button#restricted-hours-add').text() != 'undefined') {
+        var sms_restricted_counter = 0;
+    }
+
     var groups = [];
 
     if(typeof $('select#sms_campaign_sms_recipient_list_attributes_contact_groups').val() != 'undefined') {
@@ -26,6 +30,9 @@ $(document).ready(function() {
         // itemText: 'lbl',
     });
 
+    $('form.sms-campaign-form div.bootstrap-tagsinput').addClass('form-control');
+    $('form.sms-campaign-form div.bootstrap-tagsinput input').css('width', 'auto');
+
     if (!sessionStorage.getItem('timezone')) {
         var tz = jstz.determine() || 'UTC';
         sessionStorage.setItem('timezone', tz.name());
@@ -49,18 +56,52 @@ $(document).ready(function() {
         setSmsCampaignDateTimeRange();
     });
 
-    $("input#restricted-hours-switch").bootstrapSwitch({
-        state: false,
-        size: 'mini'
-    });
-
-    $('input#restricted-hours-switch').on('switchChange.bootstrapSwitch', function(event, state) {
-        if(state == true) {
-            $(this).parent().parent().parent().find('select').prop('disabled', false);
+    $('input#restricted-hours-check').on('change', function() {
+        if(this.checked) {
+            $(this).parent().next().find('select').prop('disabled', false);
+            $(this).parent().parent().find('span > button').prop('disabled', false);
         } else {
-            $(this).parent().parent().parent().find('select').prop('disabled', true);
+            $(this).parent().next().find('select').prop('disabled', true);
+            $(this).parent().parent().find('span > button').prop('disabled', true);
         }
     });
+
+    $('button#restricted-hours-add').on('click', function() {
+        var restricted_hours_div = $(this).parent().parent().find('div').first();
+        restrictedHoursHelp(restricted_hours_div);
+
+        var new_hours = restricted_hours_div.clone();
+        var new_hours_div = new_hours.html();
+
+        new_hours_div = replaceAll(new_hours_div,
+                                    'attributes_' + sms_restricted_counter + '_',
+                                    'attributes_' + (sms_restricted_counter+1) + '_'
+                                  );
+        new_hours_div = replaceAll(new_hours_div,
+                                    'attributes][' + sms_restricted_counter + ']',
+                                    'attributes][' + ++sms_restricted_counter + ']'
+                                  );
+
+        new_hours.html(new_hours_div);
+
+        restricted_hours_div.addClass('hidden');
+        restricted_hours_div.before(new_hours);
+
+        $('input#restricted-hours-check').click();
+    });
+
+    function restrictedHoursHelp(restricted_hours_div) {
+        var comma_separator = $('p#restricted-hours-help > span').text().length > 0 ? ', ' : '';
+        var help_block = '';
+
+        restricted_hours_div.find('select').each(function() {
+            help_block += $(this).val() + ':';
+        });
+
+        help_block = help_block.substring(0,5) + ' - ' + help_block.substring(6,11);
+
+        $('p#restricted-hours-help').show().find('span').append(comma_separator + help_block);
+    }
 
     $('input[name="sms_campaign[encoding]"]').val(0);
     $('input#sms_campaign_encoding').on('change', function() {

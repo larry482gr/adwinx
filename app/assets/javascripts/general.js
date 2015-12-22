@@ -45,6 +45,14 @@ function isInt(value) {
     return (x | 0) === x;
 }
 
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
 function submitForm(form, errors) {
     if(errors.length > 0) {
         for(i = 0; i < errors.length; i++) {

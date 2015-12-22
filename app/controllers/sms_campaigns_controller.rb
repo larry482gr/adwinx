@@ -7,7 +7,7 @@ class SmsCampaignsController < ApplicationController
   # GET /sms_campaigns
   # GET /sms_campaigns.json
   def index
-    @sms_campaigns = SmsCampaign.all
+    @sms_campaigns = current_user.sms_campaigns
   end
 
   # GET /sms_campaigns/1
@@ -34,7 +34,9 @@ class SmsCampaignsController < ApplicationController
 
     respond_to do |format|
       if @sms_campaign.save
-        write_messages current_user.id, @sms_campaign.id
+        SmsCampaignsHelper
+            .delay(run_at: (@sms_campaign.start_date - Time.now.to_i).seconds.from_now, queue: 'sms_campaigns')
+            .write_messages(current_user.id, @sms_campaign.id)
         format.html { redirect_to @sms_campaign, notice: 'Sms campaign was successfully created.' }
         format.json { render :show, status: :created, location: @sms_campaign }
       else

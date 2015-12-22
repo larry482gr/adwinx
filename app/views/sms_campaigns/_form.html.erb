@@ -1,71 +1,90 @@
-<%= form_for(@sms_campaign) do |f| %>
+<%= form_for(@sms_campaign, html: { class: 'sms-campaign-form' }) do |f| %>
   <% if @sms_campaign.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sms_campaign.errors.count, "error") %> prohibited this sms_campaign from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@sms_campaign.errors.count, 'error') %> prohibited this SMS campaign from being saved:</h2>
 
       <ul>
       <% @sms_campaign.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message.html_safe %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :label %><br>
-    <%= f.text_field :label %>
-  </div>
-  <div class="field">
-    <%= f.label :originator %><br>
-    <%= f.text_field :originator %>
-  </div>
-  <%= f.fields_for :sms_recipient_list do |rec| %>
-    <div class="field">
-      <%= rec.label :contacts %><br>
-      <%= rec.collection_select :contacts, {}, {}, {}, {},
-                                class: 'form-control',
-                                multiple: true,
-                                autocomplete: 'off',
-                                data: { provide: 'typeahead' } %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :label %>
+        <%= f.text_field :label, { autofocus: true,
+                                   class: 'form-control' } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :originator %>
+        <%= f.text_field :originator, { class: 'form-control',
+                                        required: true } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :msg_body %>
+        <%= f.text_area :msg_body, { class: 'form-control',
+                                     required: true } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :timezone %><img src="/assets/help.png" class="help-icon" id="campaign-timezone-help" alt="Help" />
+        <%= f.select :timezone, @timezones.collect { |tz| [ "(UTC #{tz[:utc_offset]}) #{tz[:friendly]}", tz[:canonical] ] }, {}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Valid From - To' %><img src="/assets/help.png" class="help-icon" id="campaign-valid-help" alt="Help" />
+        <input type="text" name="valid_datetime" id="sms-campaign-valid-datetime" class="form-control" />
+        <p class="help-block" id="valid-datetime-help"></p>
+        <%= f.hidden_field :start_date %>
+        <%= f.hidden_field :end_date %>
+      </div>
+      <%= f.fields_for :sms_restricted_time_ranges do |time_r| %>
+          <div class="form-group">
+            <%= time_r.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
+            <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox" id="restricted-hours-check" autocomplete="off">
+              </span>
+              <div class="col-md-12 form-control">
+                <%= time_r.time_select :start_time, {minute_step: 15, ignore_date: true}, autocomplete: 'off', disabled: true %> -
+                <%= time_r.time_select :end_time, {minute_step: 15, ignore_date: true}, autocomplete: 'off', disabled: true %>
+              </div>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="restricted-hours-add" autocomplete="off" disabled>Add</button>
+              </span>
+            </div><!-- /input-group -->
+            <p class="help-block" id="restricted-hours-help">Effective restricted hours: <span></span></p>
+          </div>
+      <% end %>
+      <div class="checkbox">
+        <%= f.label :encoding, "#{f.check_box :encoding} Unicode".html_safe %>
+      </div>
+      <div class="checkbox">
+        <%= f.label :on_screen, "#{f.check_box :on_screen} Splash".html_safe %>
+      </div>
+
+      <%= f.submit class: 'btn btn-primary' %>
     </div>
-    <div class="field">
-      <%= rec.label :contact_groups %><br>
-      <%= rec.collection_select :contact_groups, {}, {}, {}, {},
-                                class: 'form-control',
-                                multiple: true,
-                                autocomplete: 'off',
-                                data: { provide: 'typeahead' } %>
+    <div class="col-md-6">
+      <%= f.fields_for :sms_recipient_list do |rec| %>
+        <div class="form-group">
+          <%= rec.label :contacts, 'Mobile phone numbers' %>
+          <%= rec.collection_select :contacts, {}, {}, {}, {},
+                                    class: 'form-control',
+                                    multiple: true,
+                                    autocomplete: 'off',
+                                    data: { provide: 'typeahead' } %>
+        </div>
+        <div class="form-group">
+          <%= rec.label :contact_groups %>
+          <%= rec.collection_select :contact_groups, {}, {}, {}, {},
+                                    class: 'form-control',
+                                    multiple: true,
+                                    autocomplete: 'off',
+                                    data: { provide: 'typeahead' } %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :msg_body %><br>
-    <%= f.text_area :msg_body %>
-  </div>
-  <div class="field">
-    <%= f.label 'Valid From - To' %><img src="/assets/help.png" class="help-icon" id="campaign-valid-help" alt="Help" /> <br>
-    <%= f.select :timezone, @timezones.collect { |tz| [ "(UTC #{tz[:utc_offset]}) #{tz[:friendly]}", tz[:canonical] ] } %> <br>
-    <input type="text" name="valid_datetime" id="sms-campaign-valid-datetime" />
-    <p class="help-block" id="valid-datetime-help"></p>
-    <%= f.hidden_field :start_date %>
-    <%= f.hidden_field :end_date %>
-  </div>
-  <%= f.fields_for :sms_restricted_time_ranges do |time_r| %>
-    <div class="field">
-      <%= time_r.label 'Restricted Hours' %><img src="/assets/help.png" class="help-icon" id="campaign-restricted-help" alt="Help" />
-      <input type="checkbox" id="restricted-hours-switch"><br>
-      <%= time_r.time_select :start_time, {minute_step: 15, ignore_date: true}, disabled: true %> -
-      <%= time_r.time_select :end_time, {minute_step: 15, ignore_date: true}, disabled: true %>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :encoding, 'Unicode' %><br>
-    <%= f.check_box :encoding %>
-  </div>
-  <div class="field">
-    <%= f.label :on_screen, 'Splash' %><br>
-    <%= f.check_box :on_screen %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

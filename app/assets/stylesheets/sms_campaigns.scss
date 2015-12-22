@@ -1,3 +1,17 @@
-p#valid-datetime-help {
+p#valid-datetime-help, p#restricted-hours-help {
   display: none;
+}
+
+textarea#sms_campaign_msg_body {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+form.sms-campaign-form div.bootstrap-tagsinput {
+  margin-bottom: 0px;
+
+  input {
+    width: auto !important;
+  }
 }

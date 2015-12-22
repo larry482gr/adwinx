@@ -90,6 +90,7 @@ gem 'iconv'
 
 # Background Jobs
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 # Delayed Job Monitoring
 # gem 'dj_mon' # https://github.com/akshayrawat/dj_mon#things-to-do => Rails 4 compatibility!!!
