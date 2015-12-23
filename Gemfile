@@ -126,6 +126,7 @@ group :development, :test do
   gem 'rspec-activemodel-mocks'
   gem 'mongoid-rspec', '3.0.0'
 
+  gem 'database_cleaner'
   gem 'simplecov'
   gem 'simplecov-json'
   gem 'simplecov-rcov'
@@ -167,7 +168,6 @@ group :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
-  gem 'database_cleaner'
   gem 'capybara'
 
   gem 'launchy'
