@@ -121,16 +121,6 @@ group :development, :test do
   # Helper gem to colorize terminal output
   gem 'colorize'
 
-  gem 'rspec-rails'
-  gem 'rspec'
-  gem 'rspec-activemodel-mocks'
-  gem 'mongoid-rspec', '3.0.0'
-
-  gem 'database_cleaner'
-  gem 'simplecov'
-  gem 'simplecov-json'
-  gem 'simplecov-rcov'
-
   # Automatically & intelligently launch specs when files are modified. Read more: https://github.com/guard/guard-rspec
   # gem 'guard-rspec', require: false
 end
@@ -138,6 +128,8 @@ end
 group :development do
   gem 'annotate'
   gem 'migration_comments'
+
+  gem 'rspec-rails'
 
   # Do not log assets requests in development environment.
   gem 'quiet_assets'
@@ -168,7 +160,15 @@ group :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
+  gem 'rspec'
+  gem 'rspec-activemodel-mocks'
+  gem 'mongoid-rspec', '3.0.0'
+
+  gem 'database_cleaner'
   gem 'capybara'
+  gem 'simplecov'
+  gem 'simplecov-json'
+  gem 'simplecov-rcov'
 
   gem 'launchy'
 
