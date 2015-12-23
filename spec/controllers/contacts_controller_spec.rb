@@ -42,7 +42,9 @@ RSpec.describe ContactsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all contacts as @contacts" do
-      contact = Contact.create! valid_attributes
+      contact = Contact.new valid_attributes
+      contact.uid = controller.current_user.id
+      contact.save
       contacts = Contact.includes(:contact_groups).where(:_id => { '$in' => [contact[:_id]] })
                       .asc('contact_profile.last_name').asc('contact_profile.first_name')
                       .page(1).per(50)
