@@ -1,0 +1,45 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: 'User'
+        other: 'Users'
+      sms_campaign:
+        one: 'SMS Campaign'
+        other: 'SMS Campaigns'
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Password'
+        remember_me: 'Remember me'
+      sms_campaign:
+        label: 'Label'
+
+  mongoid:
+    models:
+      contact:
+        one: 'Contact'
+        other: 'Contacts'
+      contact_group:
+        one: 'Contact Group'
+        other: 'Contact Groups'
+      sms_template:
+        one: 'SMS Template'
+        other: 'SMS Templates'
+    attributes:
+      contact:
+        prefix: 'Country Code'
+        mobile: 'Mobile'
+      contact_group:
+        label: 'Label'
+        description: 'Description'
+      sms_template:
+        label: 'Label'
+        msg_body: 'Message'
+    errors:
+      contact:
+        duplicate_key: 'a_contact_with'
+        duplicate_val: ' phone_number "%phone%" already exists.'
+      contact_group:
+        duplicate_key: 'a_contact_group'
+        duplicate_val: ' labeled "%label%" already exists.'

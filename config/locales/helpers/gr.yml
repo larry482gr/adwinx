@@ -1,0 +1,16 @@
+gr:
+  helpers:
+    submit:
+      contact:
+        create: "Δημιουργία Επαφής"
+        update: "Τροποποίηση Επαφής"
+      contact_group:
+        create: "Δημιουργία Ομάδας"
+        update: "Τροποποίηση Ομάδας"
+        remove_contacts: "Διαγραφή από την Ομάδα"
+      sms_campaign:
+        create: "Δημιουργία Καμπάνιας"
+        update: "Τροποποίηση Καμπάνιας"
+      sms_template:
+        create: "Δημιουργία Πρότυπου Μηνήματος SMS"
+        update: "Τροποποίηση Πρότυπου Μηνήματος SMS"

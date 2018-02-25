@@ -1,0 +1,25 @@
+<div class="entiry-action" id="contacts-bulk-actions">
+  <%= form_for @contact_group, { url: remove_contacts_contact_group_path(@contact_group),
+                                 method: :patch, html: { id: "remove_contacts_#{@contact_group[:_id]}",
+                                                         class: 'list-resource form-inline' } } do |f| %>
+
+      <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action select-all',
+                                       id: 'select-all-contacts', data: { resource: 'contact' } } %>
+
+      <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action select-page',
+                                        id: 'select-page-contacts',  data: { resource: 'contact' } } %>
+
+      <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
+                                              id: 'uncheck-selected-contacts',  data: { resource: 'contact' } } %>
+
+      <% @contacts.each do |contact| %>
+          <input type="checkbox" class="resource-check contact-check hidden" data-resource="contact"
+                 name="contact_group[contact_ids][]" value="<%= contact[:_id] %>">
+      <% end %>
+
+      <%= f.button (t 'helpers.submit.contact_group.remove_contacts'),
+                   type: 'submit', name: 'commit',
+                   class: 'btn btn-xs btn-danger resource-action delete-selected', id: 'remove-selected-contacts',
+                   data: { resource: 'contact', confirm: "#{(t :contacts_remove_confirm)}#{(t :you_sure)}" } %>
+  <% end %>
+</div>

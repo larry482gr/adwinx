@@ -1,0 +1,23 @@
+en:
+  list_contact_groups: 'Contact Groups List'
+  view_contact_group: 'View Contact Group'
+  new_contact_group: 'New Contact Group'
+  edit_contact_group: 'Edit Contact Group'
+  total_contact_groups: 'Total contact groups'
+  contact_group_del_confirm: "Delete Contact Group \"%contact_group%\"?\n\n"
+  contact_group_deleted: "Contact group(s) %group_label% was/were successfully deleted."
+  group_only_contacts_deleted: "%contacts_deleted% Contact(s) was/were successfully deleted."
+  contact_group_empty_confirm: "Are you sure you want to empty this contact group?\n\n"
+  contacts_remove_confirm: " contacts will be removed from this contact group.\n\n"
+  contacts_successfully_removed: "contacts successfully removed from group \"%group_label%\""
+
+  contact_group_form:
+    label_required: "Contact Group Label can't be blank"
+    label_length: "Contact Group Label length should be up to 20 characters"
+    description_length: 'Contact Group Description length should be up to 120 characters'
+    delete_header: 'Delete Contact Groups'
+    delete_groups_list: 'The following Contact Groups are going to be deleted'
+    delete_group_contacts_fate: 'What would you like to happen to contacts not belonging to any other Contact Group?'
+    fate_options: [
+      {value: 0, label: 'leave them orphaned (not belonging to any Contact Group)'},
+      {value: 1, label: 'permanently deleted'}]

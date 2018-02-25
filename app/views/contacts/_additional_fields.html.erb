@@ -1,0 +1,20 @@
+<form class="form-inline additional-fields" id="contacts-additional">
+  <label class="additional-fields-header"><%= (t :additional_fields) %>: </label>
+  <%- @metadata.each do |meta_field| %>
+      <%- if meta_field == 'last_name' or meta_field == 'first_name' %>
+          <% checked = 'checked' %>
+      <%- else %>
+          <% checked = '' %>
+      <% end %>
+      <div class="checkbox checkbox-js" rel="<%= meta_field %>">
+        <label>
+          <input type="checkbox" <%= checked %> autocomplete="off"> <%= meta_field.humanize %>
+        </label>
+      </div>
+  <% end %>
+  <div class="checkbox checkbox-js" rel="groups">
+    <label>
+      <input type="checkbox" autocomplete="off"> <%= (t 'mongoid.models.contact_group.other') %>
+    </label>
+  </div>
+</form>

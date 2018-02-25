@@ -1,0 +1,19 @@
+<h1><%= (t :list_contacts) %><span class="help-block"><%= "#{(t 'total_contacts')}: #{@contacts.size}" %></span></h1>
+
+<div class="col-md-12 above-list">
+  <div class="col-md-6 col-sm12 contacts-list-links">
+    <%= link_to (t :new_contact), new_contact_path %> |
+    <%= button_tag (t :import_contacts), class: 'btn-link', id: 'import-contacts' %> |
+    <%= link_to (t :list_contact_groups), contact_groups_path %>
+  </div>
+  <div class="col-md-6 col-sm12">
+    <%= render 'additional_fields' %>
+  </div>
+  <div class="col-md-12 col-sm12">
+    <%= render 'filters' %>
+  </div>
+</div>
+
+<%= render 'import_area' %>
+
+<%= render 'list' unless @contacts.blank? %>

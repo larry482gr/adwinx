@@ -1,0 +1,54 @@
+// Place all the styles related to the Contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (min-width: 768px) {
+  .contacts-list-links {
+    float: right;
+    text-align: right;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-list-links {
+    float: none;
+    clear: both;
+    text-align: left !important;
+  }
+}
+
+form#contacts-filters {
+  margin: 12px 0px;
+
+  div.bootstrap-tagsinput {
+    padding: 0px 12px !important;
+
+    input {
+      width: auto !important;
+      height: 32px !important;
+      line-height: 1.42857 !important;
+    }
+  }
+}
+
+.contacts-list-links {
+  button.btn-link {
+    padding: 0;
+  }
+}
+
+#contacts-bulk-actions {
+  min-width: 230px;
+  min-height: 24px;
+}
+
+div.file-icon {
+  text-align: center;
+
+  a.thumbnail {
+    display: inline-block;
+    width: 45px;
+    height: 60px;
+  }
+}

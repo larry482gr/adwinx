@@ -31,5 +31,26 @@ module Adwinx
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.autoload_paths += %W(#{config.root}/lib)
+
+    config.assets.initialize_on_precompile = true
+
+    # Set Active Record to be the default ORM.
+    # To generate anything using mongoid use for example:
+    # rails g mongoid:model MODEL
+    config.generators do |g|
+      g.orm :mongoid
+    end
+
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+	ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
   end
 end

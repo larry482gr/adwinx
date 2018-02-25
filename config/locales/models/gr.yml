@@ -1,0 +1,45 @@
+gr:
+  activerecord:
+    models:
+      user:
+        one: 'Χρήστης'
+        other: 'Χρήστες'
+      sms_campaign:
+        one: 'Καμπάνια SMS'
+        other: 'Καμπάνιες SMS'
+    attributes:
+      user:
+        email: 'Ηλεκτρονικό ταχυδρομίο (email)'
+        password: 'Κωδικός πρόσβασης'
+        remember_me: 'Θυμήσου με! :P'
+      sms_campaign:
+        label: 'Επιγραφή'
+
+  mongoid:
+    models:
+      contact:
+        one: 'Επαφή'
+        other: 'Επαφές'
+      contact_group:
+        one: 'Ομάδα Επαφών'
+        other: 'Ομάδες Επαφών'
+      sms_template:
+        one: 'Πρότυπο Μήνυμα'
+        other: 'Πρότυπα Μηνύματα'
+    attributes:
+      contact:
+        prefix: 'Κωδικός Χώρας'
+        mobile: 'Κινητό Τηλέφωνο'
+      contact_group:
+        label: 'Επιγραφή'
+        description: 'Περιγραφή'
+      sms_template:
+        label: 'Επιγραφή'
+        msg_body: 'Μήνυμα'
+    errors:
+      contact:
+        duplicate_key: 'μία_επαφή_με'
+        duplicate_val: ' τηλέφωνο "%phone%" είναι ήδη καταχωρημένη.'
+      contact_group:
+        duplicate_key: 'μία_ομάδα_επαφών'
+        duplicate_val: ' με επιγραφή "%label%" είναι ήδη καταχωρημένη.'

@@ -1,0 +1,93 @@
+<table class="table table-striped table-responsive table-hover list-resource" id="contact-groups-table">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Label</th>
+    <th>Description</th>
+    <th>
+      <div class="entiry-action" id="contact-groups-bulk-actions">
+        <%= button_tag (t :check_all), { type: :button, class: 'btn btn-xs btn-primary select-action select-all',
+                                         id: 'select-all-contact-groups', data: { resource: 'contact-group' } } %>
+        <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action select-page',
+                                          id: 'select-page-contact-groups',  data: { resource: 'contact-group' } } %>
+        <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
+                                                id: 'uncheck-selected-contact-groups',  data: { resource: 'contact-group' } } %>
+        <%= button_tag (t :delete_selected), type: 'button', class: 'btn btn-xs btn-danger resource-action delete-group multi',
+                       data: { toggle: 'modal', target: '#delete-groups-modal' } %>
+      </div>
+    </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% i = params[:page].blank? ? 0 : (params[:page].to_i-1)*params[:limit].to_i %>
+  <% @contact_groups.each do |contact_group| %>
+      <tr class="clickable-row" data-href="<%= contact_group_path contact_group %>">
+        <th class="center cell-sm" scope="row"><%= i += 1 %></th>
+        <td class="center cell-sm">
+          <input type="checkbox" class="resource-check contact-group-check" data-resource="contact-group"
+                 name="contact-group[contact_group_ids][]" value="<%= contact_group[:_id] %>">
+        </td>
+        <td><%= contact_group.label %></td>
+        <td><%= contact_group.description %></td>
+        <td>
+          <div class="entiry-action">
+            <%= link_to (t 'actions.view'), contact_group, class: 'btn btn-xs btn-primary' %>
+            <%= link_to (t 'actions.edit'), edit_contact_group_path(contact_group), class: 'btn btn-xs btn-warning' %>
+            <%= link_to (t 'actions.empty'), empty_contact_group_path(contact_group), class: 'btn btn-xs btn-default',
+                        method: :delete, data: { confirm: "#{(t :contact_group_empty_confirm)}#{(t :cannot_undo)}" } %>
+            <%= button_tag (t 'actions.delete'), type: 'button', class: 'btn btn-xs btn-danger delete-group',
+                          data: { toggle: 'modal', target: '#delete-groups-modal',
+                                  groupid: contact_group[:_id].to_s, grouplabel: contact_group[:label] } %>
+
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @contact_groups %>
+
+<!-- Delete Group Modal -->
+<div class="modal fade" id="delete-groups-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="<%= (t 'actions.cancel') %>"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= (t 'contact_group_form.delete_header') %></h4>
+      </div>
+      <%= form_for @contact_groups.first, { method: :delete, html: { class: 'list-resource', id: 'delete-contact-groups', } } do |f| %>
+      <div class="modal-body">
+            <div class="form-group">
+              <label><%= (t 'contact_group_form.delete_groups_list') %></label>
+              <ol id="delete-groups-modal-list">
+
+              </ol>
+            </div>
+            <div class="form-group">
+              <label><%= (t 'contact_group_form.delete_group_contacts_fate') %></label>
+              <% (t 'contact_group_form.fate_options').each do |option| %>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="contact_group[contacts_fate]" class="contacts-fate" autocomplete="off"
+                           id="contact-group-contacts-fate-<%= option[:value] %>" value="<%= option[:value] %>">
+                    <%= option[:label] %>
+                  </label>
+                </div>
+              <% end %>
+            </div>
+      </div>
+      <% @contact_groups.each do |contact_group| %>
+          <input type="checkbox" class="resource-check contact-group-check hidden" data-resource="contact_group"
+                 name="contact_group[contact_group_ids][]" value="<%= contact_group[:_id] %>" rel="<%= contact_group[:label] %>">
+      <% end %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= (t 'actions.cancel') %></button>
+        <%= f.submit (t 'actions.delete'), class: 'btn btn-danger' %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>

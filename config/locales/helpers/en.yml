@@ -1,0 +1,16 @@
+en:
+  helpers:
+    submit:
+      contact:
+        create: "Create Contact"
+        update: "Update Contact"
+      contact_group:
+        create: "Create Group"
+        update: "Update Group"
+        remove_contacts: "Remove from Group"
+      sms_campaign:
+        create: "Create Campaign"
+        update: "Update Campaign"
+      sms_template:
+        create: "Create SMS Template"
+        update: "Update SMS Template"
