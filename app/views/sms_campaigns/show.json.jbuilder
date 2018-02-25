@@ -1,0 +1,1 @@
+json.extract! @sms_campaign, :id, :user_id, :account_id, :label, :originator, :msg_body, :timezone, :start_date, :end_date, :encoding, :on_screen, :total_sms, :sent_to_box, :finished, :state, :estimated_cost, :created_at, :updated_at

@@ -3,8 +3,14 @@
                                    id: 'select-all-contacts', data: { resource: 'contact' } } %>
   <%= button_tag (t :check_page), { type: :button, class: 'btn btn-xs btn-primary select-action select-page',
                                     id: 'select-page-contacts',  data: { resource: 'contact' } } %>
-  <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
+  <%= form_tag '/contacts/bulk_delete', method: :delete, class: 'form-inline list-resource', id: 'delete-contacts' %>
+    <%= button_tag (t :uncheck_selected), { type: :button, class: 'btn btn-xs btn-default resource-action uncheck-selected',
                                           id: 'uncheck-selected-contacts',  data: { resource: 'contact' } } %>
-  <%= button_tag (t :delete_selected), { type: :button, class: 'btn btn-xs btn-danger resource-action delete-selected',
-                                         id: 'delete-selected-contacts', data: { resource: 'contact' } } %>
+    <% @contacts.each do |contact| %>
+        <input type="checkbox" class="resource-check contact-check hidden" data-resource="contact"
+               name="contact[contact_ids][]" value="<%= contact[:_id] %>">
+    <% end %>
+    <%= button_tag (t :delete_selected), { type: :submit, class: 'btn btn-xs btn-danger resource-action delete-selected',
+                                           id: 'delete-selected-contacts', data: { resource: 'contact' } } %>
+  </form>
 </div>

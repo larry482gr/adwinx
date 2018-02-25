@@ -6,18 +6,19 @@ RSpec.describe "contact_groups/index", type: :view do
 
   before(:each) do
     ContactGroup.create!(
-        :uid => 1,
+        :uid => controller.current_user.id,
         :label => "Label1",
         :description => "Description1"
     )
     ContactGroup.create!(
-        :uid => 1,
+        :uid => controller.current_user.id,
         :label => "Label2",
         :description => "Description2"
     )
 
-    contact_groups = ContactGroup.where(uid: controller.current_user.id).asc(:label)
-                          .page(params[:page]).per(params[:limit])
+    contact_groups = ContactGroup.where(uid: controller.current_user.id)
+                         .asc(:label)
+                         .page(1).per(50)
 
     assign(:contact_groups, contact_groups)
   end

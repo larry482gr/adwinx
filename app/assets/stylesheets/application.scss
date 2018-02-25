@@ -5,6 +5,9 @@
 
 @import "contacts";
 @import "contact_groups";
+@import "sms_campaigns";
+@import "bootstrap-daterangepicker-3";
+@import "bootstrap3-switch";
 
 html,
 body {
@@ -12,13 +15,16 @@ body {
   padding:0;
   height:100%;
 }
+
 #wrapper {
   min-height:100%;
   position:relative;
 }
+
 header {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
 }
+
 #main-content {
   padding-bottom:80px; /* Height of the footer element */
 }
@@ -111,5 +117,16 @@ table.list-resource {
     button.resource-action {
       display: none;
     }
+
+    form.form-inline {
+      width: auto;
+    }
   }
+}
+
+img.help-icon {
+  width: 12px;
+  height: 12px;
+  margin: 0px 6px;
+  cursor: pointer;
 }

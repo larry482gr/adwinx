@@ -20,6 +20,11 @@
 //= require i18n
 //= require i18n/translations
 //= require dropzone
+//= require moment
+//= require moment-timezone-with-data.min
+//= require jstz.min
+//= require bootstrap-daterangepicker
+//= require bootstrap-switch
 //= require_tree .
 
 $(document).on("submit", "form[data-turboform]", function(e) {

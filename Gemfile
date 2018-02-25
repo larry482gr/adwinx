@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-# gem 'dropzonejs-rails'
+
 # gem 'bootstrap-material-design'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -34,6 +34,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Access translation strings in Javascript
 gem 'i18n-js'
+
+# MomentJS Javascript datetime and timezone manipulation
+gem 'momentjs-rails'
+gem 'tzinfo'
+
+gem 'bootstrap-switch-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -82,8 +88,16 @@ gem 'creek'
 # Encoding detection
 gem 'iconv'
 
+# Background Jobs
+gem 'delayed_job_active_record'
+gem 'daemons'
+
+# Delayed Job Monitoring
+# gem 'dj_mon' # https://github.com/akshayrawat/dj_mon#things-to-do => Rails 4 compatibility!!!
+
 gem 'devise'
 gem 'mongoid', '~> 5.0.0'
+gem 'activerecord-import', '>= 0.2.0'
 
 gem 'ci_reporter_rspec'
 
@@ -112,6 +126,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'migration_comments'
+
   gem 'rspec-rails'
 
   # Do not log assets requests in development environment.
@@ -125,7 +142,8 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
-  gem 'capistrano-nc', '~> 0.1'
+  gem 'capistrano3-delayed-job', '~> 1.0'
+  gem 'capistrano-nc', '~> 0.1', require: false
   gem 'highline'
 
 end

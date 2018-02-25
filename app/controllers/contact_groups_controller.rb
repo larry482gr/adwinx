@@ -1,7 +1,7 @@
 class ContactGroupsController < ApplicationController
   include ContactsHelper
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_contact_group, only: [:show, :edit, :update, :remove_contacts, :destroy, :empty]
 
   # GET /contact_groups

@@ -4,11 +4,16 @@ en:
       user:
         one: 'User'
         other: 'Users'
+      sms_campaign:
+        one: 'SMS Campaign'
+        other: 'SMS Campaigns'
     attributes:
       user:
         email: 'Email'
         password: 'Password'
         remember_me: 'Remember me'
+      sms_campaign:
+        label: 'Label'
 
   mongoid:
     models:

@@ -14,8 +14,7 @@ $(document).ready(function() {
         itemText: 'lbl',
         typeahead: {
             source: groups
-        },
-        trimValue: true
+        }
     });
 
     $('form#contacts-filters div.bootstrap-tagsinput').addClass('form-group');
@@ -40,33 +39,6 @@ $(document).ready(function() {
 
     $('button#import-contacts').on('click', function() {
         $('div#contacts-drop-area').slideToggle();
-    });
-
-    /*
-     *  TODO Refactor as bulk remove from group (form, appropriate method etc.)
-     *  --> Follow rails security patterns for CSRF attacks.
-     */
-    $('#delete-selected-contacts').on('click', function() {
-        var data = $('.contact-check:checked').serialize();
-
-        $.ajax({
-            url: '/contacts/bulk_delete',
-            cache: false,
-            async: false,
-            method: 'POST',
-            dataType: 'json',
-            data: data,
-            success: function(result) {
-                if(result.deleted > 0) {
-                    location.reload();
-                } else {
-                    console.log('Success: ' + result);
-                }
-            },
-            error: function(result) {
-                console.log('Error: ' + result);
-            }
-        });
     });
 
     $('form.new_contact, form.edit_contact').on('submit', function(e) {

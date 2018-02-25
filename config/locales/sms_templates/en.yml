@@ -1,7 +1,7 @@
 en:
   list_sms_templates: 'SMS Templates List'
   view_sms_template: 'View SMS Template'
-  new_sms_template: 'New SMS Templates'
+  new_sms_template: 'New SMS Template'
   edit_sms_template: 'Edit SMS Templates'
   total_sms_templates: 'Total SMS Templates'
   sms_template_del_confirm: "Delete SMS Template \"%sms_template%\"?\n\n"
