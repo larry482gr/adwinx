@@ -95,7 +95,7 @@ gem 'daemons'
 # Delayed Job Monitoring
 # gem 'dj_mon' # https://github.com/akshayrawat/dj_mon#things-to-do => Rails 4 compatibility!!!
 
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 gem 'mongoid', '~> 5.0.0'
 gem 'activerecord-import', '>= 0.2.0'
 
