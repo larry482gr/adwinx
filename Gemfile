@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.4.4'
+# ruby '2.4.4'
 
 # Use SCSS for stylesheets
 # gem 'sass'
 # gem 'sass-rails', '~> 5.0'
 gem 'sassc'
 gem 'sassc-rails'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -53,13 +53,13 @@ gem 'rails-observers'
 gem 'cashier', '~> 0.4.1'
 
 # File uploads
-gem 'carrierwave'
+gem 'carrierwave', '>= 1.3.2'
 
 # Encode/Decode HTML Entities
 gem 'htmlentities'
 
 # Pagination
-gem 'kaminari'
+gem 'kaminari', '>= 1.2.1'
 
 # Image Resize
 gem 'mini_magick', require: 'mini_magick'
@@ -151,8 +151,8 @@ end
 
 group :development, :production do
   # At the moment newer versions of this gem does not work with Rails 4.2.4
-  gem 'mysql2', '~> 0.3.20'
-  gem 'puma'
+  gem 'mysql2', '~> 0.5.3'
+  gem 'puma', '>= 3.12.4'
 
   gem 'rack-cache'
 end
