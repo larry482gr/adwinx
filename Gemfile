@@ -77,7 +77,7 @@ gem 'uuidtools'
 # gem 'feedjira'
 
 # Create XLSX templates
-gem 'rubyzip', '>= 1.0.0'
+gem 'rubyzip', '>= 1.3.0'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'acts_as_xlsx'
