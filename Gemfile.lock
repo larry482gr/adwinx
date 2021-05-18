@@ -301,7 +301,7 @@ GEM
     path_expander (1.0.3)
     powerpack (0.1.2)
     public_suffix (3.0.3)
-    puma (5.2.2)
+    puma (5.3.1)
       nio4r (~> 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
