@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/capistrano/chruby.git
+  remote: https://github.com/capistrano/chruby.git
   revision: 50dd000a0ad8ca24da6ec0d36e855fd9f20a6b56
   specs:
     capistrano-chruby (0.1.2)
@@ -53,8 +53,8 @@ GEM
       activerecord (>= 2.3.9)
       axlsx (>= 1.0.13)
       i18n (>= 0.4.1)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
@@ -300,7 +300,7 @@ GEM
       ast (~> 2.4.0)
     path_expander (1.0.3)
     powerpack (0.1.2)
-    public_suffix (3.0.3)
+    public_suffix (5.0.0)
     puma (5.2.2)
       nio4r (~> 2.0)
     quiet_assets (1.1.0)
