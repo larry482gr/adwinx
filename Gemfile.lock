@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/capistrano/chruby.git
+  remote: https://github.com/capistrano/chruby.git
   revision: 50dd000a0ad8ca24da6ec0d36e855fd9f20a6b56
   specs:
     capistrano-chruby (0.1.2)
@@ -266,7 +266,7 @@ GEM
     mime-types-data (3.2018.0812)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.4)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
@@ -288,8 +288,8 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     non-stupid-digest-assets (1.0.9)
       sprockets (>= 2.0)
@@ -305,7 +305,7 @@ GEM
       nio4r (~> 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (1.6.13)
     rack-cache (1.8.0)
       rack (>= 0.4)
